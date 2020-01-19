@@ -63,9 +63,8 @@ export class KeywordsComponent implements OnInit {
       }, 2200)
     }
   }
-  
-  onRowEditInit(id: number) {
+  onRowEditInit(id:number, userId: number){
     var self = this;
-    self.router.navigate(['/keywords/edit', id]);
+    self.router.navigate(['/admin/keywords/edit', id, userId]);
   }
 }

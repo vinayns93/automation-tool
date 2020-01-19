@@ -41,7 +41,7 @@ export class KeywordsEditComponent implements OnInit {
   }
 
   getKeywordbyId(num:number) {
-   this.service.getKeyword(num)
+   this.service.getKeyword(num, null)
    .subscribe((result)=>{
     console.log(result);
     this.keywords = result;

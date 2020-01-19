@@ -4,17 +4,24 @@
 <!-- <div class="main-content"> -->
    <!-- <div class="row"> -->
      <div class="col-md-12">
-         <div class="row">
+         <div class="row light-blue">
              <div class="col-md-12 col-lg-12">
                 <h5 class="admin-page-header"> KEYWORDS</h5>
              </div>
          </div>
-         <div class="row">
-            <div class="col-md-12 col-lg-12">
-                <label>Choose the Columns</label>
-                        <p-multiSelect (onChange)="LoadKeywordsColumns($event)" [options]="columns" [(ngModel)]="cols"></p-multiSelect>
+         <div class="row align-items-center light-blue">
+            <div class="col-md-3 col-lg-3">
+                <label class="pull-right">Choose the Columns</label>
             </div>
-        </div>
+                <div class="col-md-3 col-lg-3">
+                 <p-multiSelect (onChange)="LoadKeywordsColumns($event)" [options]="columns" [(ngModel)]="cols"></p-multiSelect>
+            </div>
+            <div class="col-md-6 col-lg-6 right-align">
+                <button class="btn btn-primary pull-right" style="margin-right:27px;font-size: 0.5rem;" 
+                [routerLink]="['/admin/keywords/add']"> 
+                    <i class="now-ui-icons ui-1_simple-add"></i> ADD NEW KEYWORD</button>
+             </div>
+            </div>
          <div class="row">
             <div class="col-md-12 col-lg-12">
                 <ng-container *ngIf="tableColumns.length != 0">
@@ -37,7 +44,7 @@
                                 {{keywords[col.field]}}
                             </td>
                             <td class="center-align">
-                                <button pButton type="button" style="margin-right: 5px;" icon="pi pi-pencil" class="rounded-button edit-control" (click)="onRowEditInit(keywords.id)"></button>
+                                <button pButton type="button" style="margin-right: 5px;" icon="pi pi-pencil" class="rounded-button edit-control" (click)="onRowEditInit(keywords.id, keywords.userId)"></button>
                                 <button pButton type="button" icon="pi pi-times" class="rounded-button delete-control" (click)="deleteKeyword(keywords.id)"></button>
                             </td>
                         </tr>
@@ -53,13 +60,13 @@
             </ng-container>
             </div>
         </div>
-        <div class="row">
+        <!-- <div class="row">
             <div class="col-md-12 col-lg-12">
                 <button class="btn btn-primary pull-right" style="margin-right:27px;font-size: 0.5rem;" 
-              [routerLink]="['/keywords/add']"> 
+              [routerLink]="['/admin/keywords/add']"> 
                   <i class="now-ui-icons ui-1_simple-add"></i> Add</button>
             </div>
-        </div>
+        </div> -->
           <!-- <div class="card"> -->
             <!-- <div class="card-header"> -->
               

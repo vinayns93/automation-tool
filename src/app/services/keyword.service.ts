@@ -28,8 +28,8 @@ export class KeywordService {
                 );
    }
 
-   getKeyword(id:number):Observable<Keywords>{
-    return this.httpClient.get(this.apiUrl+'/Keywords/GetKeywordById/'+id)
+   getKeyword(id:number, userId:number):Observable<Keywords>{
+    return this.httpClient.get(this.apiUrl+'/Keywords/GetKeywordById/'+id+'/'+userId)
     .pipe(
       map(res=>res as Keywords),
       catchError(this.errorHandle)
