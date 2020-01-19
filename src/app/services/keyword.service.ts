@@ -40,7 +40,8 @@ export class KeywordService {
        return this.httpClient.post(this.apiUrl+'/Keywords/AddKeyword',keyword)
        .subscribe(
         data  => {
-          console.log("POST Request is successful ", data);
+          console.log("POST Request is successful");
+          console.log(data);
           },
           error  => {
           console.log("Error", error);

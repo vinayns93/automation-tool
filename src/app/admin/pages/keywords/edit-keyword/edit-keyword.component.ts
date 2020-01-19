@@ -39,7 +39,7 @@ export class EditKeywordComponent implements OnInit {
 
   constructor(private activatedRoute: ActivatedRoute, private service: KeywordService) {
     this.id = activatedRoute.snapshot.paramMap.get("id");
-    this.userId = activatedRoute.snapshot.paramMap.get("id");
+    this.userId = activatedRoute.snapshot.paramMap.get("userId");
    }
 
   ngOnInit() {

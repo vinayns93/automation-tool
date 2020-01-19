@@ -1,9 +1,10 @@
-import { Component, OnInit, ViewEncapsulation } from '@angular/core';
+import { Component, OnInit, ViewEncapsulation, NgZone, ViewChild } from '@angular/core';
 import { Keywords } from '../../../core/models';
 import { KeywordService } from '../../../services/keyword.service';
 import { Router } from '@angular/router';
 import { SelectItem } from 'primeng/api/selectitem';
 import { keywordsColumns } from '../../../core/constants/keywords';
+import { Table } from 'primeng/table';
 
 @Component({
   selector: 'app-keywords',
@@ -18,6 +19,8 @@ export class KeywordsComponent implements OnInit {
   loading:boolean = false;
   tableColumns: any[];
   columns: SelectItem[];
+
+  @ViewChild(Table, {static: false}) dt: Table;
   
   constructor(private service: KeywordService,private router:Router) { }
 
@@ -26,7 +29,6 @@ export class KeywordsComponent implements OnInit {
     self.getKeywords();
   self.columns = keywordsColumns;
   self.tableColumns = [];
-  
   }
 
   LoadKeywordsColumns(event){
@@ -47,16 +49,13 @@ export class KeywordsComponent implements OnInit {
     .subscribe((result: Keywords[])=>{
       //console.log(result);
       self.keywords = result;
+      this.dt.reset();
       self.loading = false;
-      
     },
      error =>{
        console.log(error.message);
-
      },
-     ()=>{
-       //console.log(self.testControllers3);
-     })
+     ()=>{ });
   }
 
   deleteKeyword(id:number){

@@ -9,21 +9,27 @@
     <div class="row">
         <div class="col-md-12 col-lg-12">
             <form [formGroup]="keywordsForm" (ngSubmit)="onSubmit()">
-                <div class="row padding-bottom-1 margin-top-1">
-                    <div class="col-md-2 col-lg-2">
-                        <label for="ID" class="pull-right">ID</label>
+                <div class="row padding-bottom-1 align-items-center margin-top-1">
+                    <div class="col-md-12 col-lg-12 center-align">
+                        <label>Lock</label>
+                        <input type="checkbox" value="Locked" name="IsLocked" class="checkbox form-control" style="font-size: 0.3em" formControlName="isLocked">
                     </div>
-                    <div class="col-md-4 col-lg-4">
-                        <input type="text" name="ID" class="text form-control" formControlName="id">
-                    </div>
+                </div>
+                <div class="row padding-bottom-1 align-items-center margin-top-1">
                     <div class="col-md-2 col-lg-2">
                         <label for="FunctionName" class="pull-right">Function Name</label>
                     </div>
                     <div class="col-md-4 col-lg-4">
                         <input type="text" name="FunctionName" class="text form-control" formControlName="functionName">
                     </div>
+                    <div class="col-md-2 col-lg-2">
+                        <label for="Module" class="pull-right">Module</label>
+                    </div>
+                    <div class="col-md-4 col-lg-4">
+                        <input type="text" name="Module" class="text form-control" formControlName="module">
+                    </div>
                 </div>
-                <div class="row padding-bottom-1">
+                <div class="row padding-bottom-1 align-items-center">
                     <div class="col-md-2 col-lg-2">
                         <label for="StepDescription" class="pull-right">Step Description</label>
                     </div>
@@ -37,7 +43,7 @@
                         <input type="text" name="ActionorKeyword" class="text form-control" formControlName="actionOrKeyword">
                     </div>
                 </div>
-                <div class="row padding-bottom-1">
+                <div class="row padding-bottom-1 align-items-center">
                     <div class="col-md-2 col-lg-2">
                         <label for="ObjectLogicalName" class="pull-right">Object Logical Name</label>
                     </div>
@@ -51,7 +57,22 @@
                         <input type="text" name="Run" class="text form-control" formControlName="run">
                     </div>
                 </div>
-                <div class="row padding-bottom-1">
+                <!-- <div class="row padding-bottom-1 align-items-center">
+                    
+                    <div class="col-md-2 col-lg-2">
+                        <label for="StatusID" class="pull-right">Status ID</label>
+                    </div>
+                    <div class="col-md-4 col-lg-4">
+                        <input type="text" name="StatusID" class="text form-control" formControlName="statusID">
+                    </div>
+                    <div class="col-md-2 col-lg-2">
+                        <label for="CudStatusID" class="pull-right">Cud Status ID</label>
+                    </div>
+                    <div class="col-md-4 col-lg-4">
+                        <input type="text" name="CudStatusID" class="text form-control" formControlName="cudStatusID">
+                    </div>
+                </div> -->
+                <div class="row padding-bottom-1 align-items-center">
                     <div class="col-md-2 col-lg-2">
                         <label for="Param1" class="pull-right">Param 1</label>
                     </div>
@@ -65,7 +86,7 @@
                         <input type="text" name="Param2" class="text form-control" formControlName="param2">
                     </div>
                 </div>
-                <div class="row padding-bottom-1">
+                <div class="row padding-bottom-1 align-items-center">
                     <div class="col-md-2 col-lg-2">
                         <label for="Param3" class="pull-right">Param 3</label>
                     </div>
@@ -79,7 +100,7 @@
                         <input type="text" name="Param4" class="text form-control" formControlName="param4">
                     </div>
                 </div>
-                <div class="row padding-bottom-1">
+                <div class="row padding-bottom-1 align-items-center">
                     <div class="col-md-2 col-lg-2">
                         <label for="Param5" class="pull-right">Param 5</label>
                     </div>
@@ -93,7 +114,7 @@
                         <input type="text" name="Param6" class="text form-control" formControlName="param6">
                     </div>
                 </div>
-                <div class="row padding-bottom-1">
+                <div class="row padding-bottom-1 align-items-center">
                     <div class="col-md-2 col-lg-2">
                         <label for="Param7" class="pull-right">Param 7</label>
                     </div>
@@ -107,7 +128,7 @@
                         <input type="text" name="Param8" class="text form-control" formControlName="param8">
                     </div>
                 </div>
-                <div class="row padding-bottom-1">
+                <div class="row padding-bottom-1 align-items-center">
                     <div class="col-md-2 col-lg-2">
                         <label for="Param9" class="pull-right">Param 9</label>
                     </div>
@@ -121,34 +142,77 @@
                         <input type="text" name="Param10" class="text form-control" formControlName="param10">
                     </div>
                 </div>
-                <div class="row padding-bottom-1">
+                <div class="row padding-bottom-1 align-items-center">
                     <div class="col-md-2 col-lg-2">
-                        <label for="Module" class="pull-right">Module</label>
+                        <label for="Param11" class="pull-right">Param 11</label>
                     </div>
                     <div class="col-md-4 col-lg-4">
-                        <input type="text" name="Module" class="text form-control" formControlName="module">
+                        <input type="text" name="Param11" class="text form-control" formControlName="param11">
                     </div>
                     <div class="col-md-2 col-lg-2">
-                        <label for="StatusID" class="pull-right">Status ID</label>
+                        <label for="Param12" class="pull-right">Param 12</label>
                     </div>
                     <div class="col-md-4 col-lg-4">
-                        <input type="text" name="StatusID" class="text form-control" formControlName="statusID">
+                        <input type="text" name="Param12" class="text form-control" formControlName="param12">
                     </div>
                 </div>
-                <div class="row padding-bottom-1">
+                <div class="row padding-bottom-1 align-items-center">
                     <div class="col-md-2 col-lg-2">
-                        <label for="CudStatusID" class="pull-right">Cud Status ID</label>
+                        <label for="Param13" class="pull-right">Param 13</label>
                     </div>
                     <div class="col-md-4 col-lg-4">
-                        <input type="text" name="CudStatusID" class="text form-control" formControlName="cudStatusID">
+                        <input type="text" name="Param13" class="text form-control" formControlName="param13">
                     </div>
                     <div class="col-md-2 col-lg-2">
-                        <label for="IsLocked" class="pull-right">Is Locked</label>
+                        <label for="Param14" class="pull-right">Param 14</label>
                     </div>
                     <div class="col-md-4 col-lg-4">
-                        <input type="text" name="IsLocked" class="text form-control" formControlName="isLocked">
+                        <input type="text" name="Param14" class="text form-control" formControlName="param14">
                     </div>
                 </div>
+                <div class="row padding-bottom-1 align-items-center">
+                    <div class="col-md-2 col-lg-2">
+                        <label for="Param15" class="pull-right">Param 15</label>
+                    </div>
+                    <div class="col-md-4 col-lg-4">
+                        <input type="text" name="Param15" class="text form-control" formControlName="param15">
+                    </div>
+                    <div class="col-md-2 col-lg-2">
+                        <label for="Param16" class="pull-right">Param 16</label>
+                    </div>
+                    <div class="col-md-4 col-lg-4">
+                        <input type="text" name="Param16" class="text form-control" formControlName="param16">
+                    </div>
+                </div>
+                <div class="row padding-bottom-1 align-items-center">
+                    <div class="col-md-2 col-lg-2">
+                        <label for="Param17" class="pull-right">Param 17</label>
+                    </div>
+                    <div class="col-md-4 col-lg-4">
+                        <input type="text" name="Param17" class="text form-control" formControlName="param17">
+                    </div>
+                    <div class="col-md-2 col-lg-2">
+                        <label for="Param18" class="pull-right">Param 18</label>
+                    </div>
+                    <div class="col-md-4 col-lg-4">
+                        <input type="text" name="Param18" class="text form-control" formControlName="param18">
+                    </div>
+                </div>
+                <div class="row padding-bottom-1 align-items-center">
+                    <div class="col-md-2 col-lg-2">
+                        <label for="Param19" class="pull-right">Param 19</label>
+                    </div>
+                    <div class="col-md-4 col-lg-4">
+                        <input type="text" name="Param19" class="text form-control" formControlName="param19">
+                    </div>
+                    <div class="col-md-2 col-lg-2">
+                        <label for="Param20" class="pull-right">Param 20</label>
+                    </div>
+                    <div class="col-md-4 col-lg-4">
+                        <input type="text" name="Param20" class="text form-control" formControlName="param20">
+                    </div>
+                </div>
+                
                 <div class="row">
                     <div class="col-md-6 col-lg-6 right-align">
                         <button type="submit" class="button btn btn-primary" [disabled]="!keywordsForm.valid">

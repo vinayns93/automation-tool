@@ -13,27 +13,37 @@ import { formatDate } from '@angular/common';
 export class AddKeywordComponent implements OnInit {
 
   keywords:Keywords;
+  newKeywordObj: Keywords;
   keywordsForm = new FormGroup({
-    id: new FormControl('', Validators.required),
-    functionName:  new FormControl('', Validators.required),
-    stepDescription:  new FormControl('', Validators.required),
-    actionOrKeyword: new FormControl('', Validators.required),
-    objectLogicalName: new FormControl('', Validators.required),
+    functionName:  new FormControl('', [Validators.required, Validators.pattern(/^[a-zA-Z0-9]+$/)]),
+    stepDescription:  new FormControl('', [Validators.required, Validators.pattern(/^[a-zA-Z0-9]+$/)]),
+    actionOrKeyword: new FormControl('', [Validators.required, Validators.pattern(/^[a-zA-Z0-9]+$/)]),
+    objectLogicalName: new FormControl('', [Validators.required, Validators.pattern(/^[a-zA-Z0-9]+$/)]),
     run: new FormControl('', [Validators.required, Validators.pattern(/^[a-zA-Z0-9]+$/)]),
-    param1: new FormControl('', [Validators.required]),
-    param2: new FormControl('', Validators.required),
-    param3: new FormControl('', Validators.required),
-    param4: new FormControl('', Validators.required),
-    param5: new FormControl('', Validators.required),
-    param6: new FormControl('', Validators.required),
-    param7: new FormControl('', Validators.required),
-    param8: new FormControl('', Validators.required),
-    param9: new FormControl('', Validators.required),
-    param10: new FormControl('', Validators.required),
-    module: new FormControl('', Validators.required),
-    statusID: new FormControl('', Validators.required),
-    cudStatusID: new FormControl('', Validators.required),
-    isLocked: new FormControl('', Validators.required)
+    module: new FormControl('', [Validators.required, Validators.pattern(/^[a-zA-Z0-9]+$/)]),
+    // statusID: new FormControl('', [Validators.required, Validators.pattern(/^[0-9]+$/)]),
+    // cudStatusID: new FormControl('', [Validators.required, Validators.pattern(/^[0-9]+$/)]),
+    isLocked: new FormControl(''),
+    param1: new FormControl(''),
+    param2: new FormControl(''),
+    param3: new FormControl(''),
+    param4: new FormControl(''),
+    param5: new FormControl(''),
+    param6: new FormControl(''),
+    param7: new FormControl(''),
+    param8: new FormControl(''),
+    param9: new FormControl(''),
+    param10: new FormControl(''),
+    param11: new FormControl(''),
+    param12: new FormControl(''),
+    param13: new FormControl(''),
+    param14: new FormControl(''),
+    param15: new FormControl(''),
+    param16: new FormControl(''),
+    param17: new FormControl(''),
+    param18: new FormControl(''),
+    param19: new FormControl(''),
+    param20: new FormControl('')
 });
   constructor(private route:ActivatedRoute, private service:KeywordService,private router: Router) { }
 
@@ -41,13 +51,15 @@ export class AddKeywordComponent implements OnInit {
   }
 
   onSubmit(){
+    var self = this;
     let data = new Keywords();
-    data.id = this.keywordsForm.controls["id"].value;
+    
     data.functionName = this.keywordsForm.controls["functionName"].value;
     data.stepDescription = this.keywordsForm.controls["stepDescription"].value;
     data.actionOrKeyword = this.keywordsForm.controls["actionOrKeyword"].value;
     data.objectLogicalName = this.keywordsForm.controls["objectLogicalName"].value;
     data.run = this.keywordsForm.controls["run"].value;
+    data.module = this.keywordsForm.controls["module"].value;
     data.param1 = this.keywordsForm.controls["param1"].value;
     data.param2 = this.keywordsForm.controls["param2"].value;
     data.param3 = this.keywordsForm.controls["param3"].value;
@@ -58,18 +70,29 @@ export class AddKeywordComponent implements OnInit {
     data.param8 = this.keywordsForm.controls["param8"].value;
     data.param9 = this.keywordsForm.controls["param9"].value;
     data.param10 = this.keywordsForm.controls["param10"].value;
-    data.module = this.keywordsForm.controls["module"].value;
-    data.statusID = this.keywordsForm.controls["statusID"].value;
-    data.cudStatusID = this.keywordsForm.controls["cudStatusID"].value;
-    data.isLocked = false;
-    data.lockedByUser = 0;
+    data.param11 = this.keywordsForm.controls["param11"].value;
+    data.param12 = this.keywordsForm.controls["param12"].value;
+    data.param13 = this.keywordsForm.controls["param13"].value;
+    data.param14 = this.keywordsForm.controls["param14"].value;
+    data.param15 = this.keywordsForm.controls["param15"].value;
+    data.param16 = this.keywordsForm.controls["param16"].value;
+    data.param17 = this.keywordsForm.controls["param17"].value;
+    data.param18 = this.keywordsForm.controls["param18"].value;
+    data.param19 = this.keywordsForm.controls["param19"].value;
+    data.param20 = this.keywordsForm.controls["param20"].value;
+    data.statusID = 0;
+    data.cudStatusID = 0;
+    data.isLocked = this.keywordsForm.controls["isLocked"].value;
+    if(data.isLocked)
+      data.lockedByUser = 123;
+    else
+      data.lockedByUser = 0;
     data.createdOn = formatDate(new Date(), 'yyyy/MM/dd', 'en').toString();
     data.updatedOn = formatDate(new Date(), 'yyyy/MM/dd', 'en').toString();
     data.userId = 123;
-
-    this.service.addKeyword(data);
+    self.service.addKeyword(data);
     setTimeout(response => {
-      this.router.navigate(['/admin/keywords']);
+      self.router.navigate(['/admin/keywords']);
     })
   }
 
