@@ -1,19 +1,18 @@
 import { Component, OnInit } from '@angular/core';
 import { ActivatedRoute, Router } from '@angular/router';
-import { TestController1 } from '../../../models/testcontroller1.model';
-import { TestControllerService } from '../../../services/testcontroller.service';
+import { TestController1 } from '../../../../../models/testcontroller1.model';
+import { TestControllerService } from '../../../../../services/testcontroller.service';
 import { FormControl, FormGroup, Validators } from '@angular/forms';
 
 @Component({
-  selector: 'app-testcontroller1-edit',
-  templateUrl: './testcontroller1-edit.component.html',
-  styleUrls: ['./testcontroller1-edit.component.scss']
+  selector: 'app-testcontroller1-add',
+  templateUrl: './testcontroller1-add.component.html',
+  styleUrls: ['./testcontroller1-add.component.scss']
 })
-export class Testcontroller1EditComponent implements OnInit {
-  id:number;
+export class Testcontroller1AddComponent implements OnInit {
   testController1:TestController1;
   testControllerForm = new FormGroup({
-    id: new FormControl(''),
+    id: new FormControl('',Validators.required),
     slno: new FormControl('', Validators.required),
     moduleID: new FormControl('', Validators.required),
     moduleSeqID:new FormControl('', Validators.required),
@@ -25,24 +24,7 @@ export class Testcontroller1EditComponent implements OnInit {
   }
 
   ngOnInit() {
-    this.id = +this.route.snapshot.paramMap.get('id');
-    console.log(this.id);
-    this.getTestController1byId(this.id);
-  }
-
-  getTestController1byId(num:number) {
-   this.controllerservice.getController1(num)
-   .subscribe((result)=>{
-    console.log(result);
-    this.testController1 = result;
-    this.populateFormFields();
-  },
-   error =>{
-     console.log(error.message);
-   },
-   ()=>{
-     console.log(this.testController1);
-   })
+    //this.populateFormFields();
   }
 
    populateFormFields() {
@@ -68,7 +50,7 @@ export class Testcontroller1EditComponent implements OnInit {
     data.machineID = this.testControllerForm.controls["machineID"].value;
     data.machineSequenceID = this.testControllerForm.controls["machineSequenceID"].value;
     
-    this.controllerservice.updateTestController1(data.id,data);
+    this.controllerservice.addController1(data);
     setTimeout(f=>{
       this.router.navigate(['/table-list']);
     },2200)

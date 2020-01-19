@@ -38,7 +38,6 @@ export class Testcontroller1AddComponent implements OnInit {
     moduleSeqID:this.testController1.moduleSeqID,
     machineID: this.testController1.machineID,
     machineSequenceID:this.testController1.machineSequenceID,
-    execute:this.testController1.execute
     });
    }
   
@@ -50,7 +49,6 @@ export class Testcontroller1AddComponent implements OnInit {
     data.moduleSeqID = this.testControllerForm.controls["moduleSeqID"].value;
     data.machineID = this.testControllerForm.controls["machineID"].value;
     data.machineSequenceID = this.testControllerForm.controls["machineSequenceID"].value;
-    data.execute = this.testControllerForm.controls["execute"].value;
     
     this.controllerservice.addController1(data);
     setTimeout(f=>{

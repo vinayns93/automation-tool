@@ -15,8 +15,8 @@ import { Table } from 'primeng/table';
 export class KeywordsComponent implements OnInit {
 
   keywords: Keywords[];
-  cols:any[];
-  loading:boolean = false;
+  cols: any[];
+  loading: boolean = false;
   tableColumns: any[];
   columns: SelectItem[];
 
@@ -31,11 +31,11 @@ export class KeywordsComponent implements OnInit {
   self.tableColumns = [];
   }
 
-  LoadKeywordsColumns(event){
+  LoadKeywordsColumns(event) {
     var self = this;
     self.loading = true;
     self.tableColumns = [];
-    if(event.value != undefined){
+    if (event.value != undefined) {
       event.value.forEach(col => {
         self.tableColumns.push(col);
       });
@@ -43,7 +43,7 @@ export class KeywordsComponent implements OnInit {
     self.loading = false;
   }
 
-  getKeywords(){
+  getKeywords() {
     var self = this;
     self.service.getKeywords()
     .subscribe((result: Keywords[])=>{
@@ -58,13 +58,13 @@ export class KeywordsComponent implements OnInit {
      ()=>{ });
   }
 
-  deleteKeyword(id:number){
+  deleteKeyword(id: number) {
     var self = this;
-    if(confirm("Are you sure to delete?")) {
+    if (confirm("Are you sure to delete?")) {
       self.service.deleteKeyword(id);
-       setTimeout(f=>{
-         self.getKeywords();
-       },2200)
+      setTimeout(f => {
+        self.getKeywords();
+      }, 2200)
     }
   }
   onRowEditInit(id:number, userId: number){

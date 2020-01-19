@@ -22,11 +22,11 @@ export class Repository {
     tagName: string;
     featureName: string;
     module: string;
-    statusID: 0;
-    cudStatusID: 0;
-    isLocked: true;
-    lockedByUser: 0;
+    statusID: number;
+    cudStatusID: number;
+    isLocked: boolean;
+    lockedByUser: number;
     createdOn: Date;
     updatedOn: Date;
-    userId: 0;
+    userId: number;
 }

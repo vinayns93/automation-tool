@@ -4,7 +4,7 @@ import { Observable, of, throwError, pipe} from 'rxjs';
 import { map, filter, catchError, mergeMap } from 'rxjs/operators';
 import { TestScript } from '../models/testscript.model';
 import { TestController1 } from '../models/testcontroller1.model';
-import { TestController2 } from '../models/testcontrolller2.model';
+import { TestController2 } from '../models/testcontroller2.model';
 import { TestController3 } from '../models/testcontroller3.model';
 import { environment } from '../../environments/environment';
 
@@ -18,23 +18,23 @@ export class TestControllerService {
     this.apiUrl = environment.APIURL;
    }
    
-   getAllController1():Observable<TestController1[]>{
-     return this.httpClient.get(this.apiUrl+'/Feature/GetAllController1')
+   getAllModuleController(id:number):Observable<TestController1[]>{
+     return this.httpClient.get(this.apiUrl+'/Feature/GetAllModuleController/'+id)
                 .pipe(
                   map(res=>res as TestController1[]),
                   catchError(this.errorHandle)
                 );
    }
 
-   getAllController2():Observable<TestController2[]>{
-    return this.httpClient.get(this.apiUrl+'/Feature/GetAllController2')
+   getAllTestController(id:number):Observable<TestController2[]>{
+    return this.httpClient.get(this.apiUrl+'/Feature/GetAllTestController/'+id)
                .pipe(
                  map(res=>res as TestController2[]),
                  catchError(this.errorHandle)
                );
   }
-  getAllController3():Observable<TestController3[]>{
-    return this.httpClient.get(this.apiUrl+'/Feature/GetAllController3')
+  getAllBrowserController():Observable<TestController3[]>{
+    return this.httpClient.get(this.apiUrl+'/Feature/GetAllBrowserController')
                .pipe(
                  map(res=> res as TestController3[]),
                  catchError(this.errorHandle)

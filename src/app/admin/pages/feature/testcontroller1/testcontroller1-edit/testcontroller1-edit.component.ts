@@ -1,7 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { ActivatedRoute, Router } from '@angular/router';
-import { TestController1 } from '../../../models/testcontroller1.model';
-import { TestControllerService } from '../../../services/testcontroller.service';
+import { TestController1 } from '../../../../../models/testcontroller1.model';
+import { TestControllerService } from '../../../../../services/testcontroller.service';
 import { FormControl, FormGroup, Validators } from '@angular/forms';
 
 @Component({
@@ -67,7 +67,6 @@ export class Testcontroller1EditComponent implements OnInit {
     data.moduleSeqID = this.testControllerForm.controls["moduleSeqID"].value;
     data.machineID = this.testControllerForm.controls["machineID"].value;
     data.machineSequenceID = this.testControllerForm.controls["machineSequenceID"].value;
-    
     this.controllerservice.updateTestController1(data.id,data);
     setTimeout(f=>{
       this.router.navigate(['/table-list']);

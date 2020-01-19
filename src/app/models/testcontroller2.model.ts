@@ -12,4 +12,11 @@ export class TestController2{
     stepsCount:string;
     testScriptName:string;
     testScriptDescription:string;
+    isLocked: boolean;
+    lockedByUser: number;
+    statusID: number;
+    cudStatusID: number;
+    createdOn: Date;
+    updatedOn: Date;
+    userId: number;
 }

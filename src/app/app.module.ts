@@ -31,6 +31,7 @@ import { AuthenticationComponent } from './authentication/authentication.compone
 import { AlertComponent } from './directives';
 import { AlertService } from './services/alert.service';
 import { AuthenticationService } from './services/authentication.service';
+import { ConfirmationDialogService } from './confirmation-dialog/confirmation-dialog/confirmation-dialog.service';
 
 @NgModule({
   imports: [
@@ -64,7 +65,8 @@ import { AuthenticationService } from './services/authentication.service';
     RepositoryService,
     GlobalService,
     AuthenticationService,
-    AlertService],
+    AlertService,
+    ConfirmationDialogService],
   bootstrap: [AppComponent],
   entryComponents: [ConfirmationDialogComponent]
 })

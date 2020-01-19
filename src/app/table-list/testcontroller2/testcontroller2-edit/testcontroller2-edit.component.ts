@@ -1,6 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { ActivatedRoute, Router } from '@angular/router';
-import { TestController2 } from '../../../models/testcontrolller2.model';
+import { TestController2 } from '../../../models/testcontroller2.model';
 import { TestControllerService } from '../../../services/testcontroller.service';
 import { FormControl, FormGroup, Validators } from '@angular/forms';
 
