@@ -39,7 +39,7 @@ export class TestscriptsComponent implements OnInit {
     this.service.getTestScripts()
     .subscribe((result)=>{
       //console.log(result);
-      this.testscripts = result;
+      // this.testscripts = result;
       this.loading =false;
       
     },

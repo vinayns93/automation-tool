@@ -1,10 +1,9 @@
 export class Keywords {
-id:number;
 functionName: string; 
 stepDescription: string; 
 actionOrKeyword: string; 
 objectLogicalName: string; 
-execute: string; 
+run: string; 
 param1: string; 
 param2: string; 
 param3: string; 
@@ -15,5 +14,13 @@ param7 : string;
 param8: string; 
 param9: string; 
 param10: string; 
-featureName: string; 
+module: string;
+statusID: number;
+cudStatusID: number;
+isLocked: true;
+lockedByUser: number;
+createdOn: string;
+updatedOn: string;
+userId: number;
+id: number; 
 }

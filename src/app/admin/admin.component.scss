@@ -1,3 +1,6 @@
+@import '../../assets/scss/common.scss';
+@import '../../assets/scss/spacing-out.scss';
+
 .sidebar .nav li > a{
     margin-right: 3.5em !important;
     padding: 0px;
@@ -36,3 +39,10 @@ mat-sidenav-container {
     height: 100%;
 }
 
+.admin-page-header {
+    text-align: center;
+    margin-top: 1em;
+    margin-bottom: 1em;
+    color: #007bff;
+    font-weight: bolder;
+}

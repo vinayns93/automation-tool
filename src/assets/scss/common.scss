@@ -3,7 +3,7 @@
 }
 
 .center-align {
-    text-align: center;
+    text-align: center !important;
 }
 
 .right-center {
@@ -21,4 +21,24 @@
 .limit-row-style {
     margin: 0px !important;
     width: 100% !important;
+}
+
+.none-selected {
+    font-weight: bolder;
+    color: darkgray;
+}
+
+.rounded-button {
+    border-radius: 100% !important;
+    box-shadow: 0 2px 3px 0 rgba(0, 0, 0, 0.15) !important;
+}
+
+.edit-control {
+    background: #f0ad4e !important;
+    border-color: #f0ad4e !important;
+}
+
+.delete-control {
+    background: #d43f3a !important;
+    border-color: #d43f3a !important;
 }

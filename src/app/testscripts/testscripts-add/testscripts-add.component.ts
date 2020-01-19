@@ -79,7 +79,7 @@ export class TestscriptsAddComponent implements OnInit {
     data.param20 = this.testScriptForm.controls["param20"].value;
     data.featureName = this.testScriptForm.controls["featureName"].value;
     
-    this.service.addTestScript(data);
+    // this.service.addTestScript(data);
     setTimeout(f=>{
       this.router.navigate(['/testscripts']);
     },2200)

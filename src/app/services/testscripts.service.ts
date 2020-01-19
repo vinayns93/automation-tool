@@ -2,7 +2,7 @@ import { Injectable } from '@angular/core';
 import { HttpClient, HttpClientModule, HttpHeaders } from '@angular/common/http';
 import { Observable, of, throwError, pipe} from 'rxjs';
 import { map, filter, catchError, mergeMap } from 'rxjs/operators';
-import { TestScript } from '../models/testscript.model';
+import { TestScripts } from '../core/models';
 import { environment } from '../../environments/environment';
 
 @Injectable({
@@ -15,23 +15,23 @@ export class TestScriptsService {
     this.apiUrl = environment.APIURL;
    }
    
-   getTestScripts():Observable<TestScript[]>{
+   getTestScripts():Observable<TestScripts[]>{
      return this.httpClient.get(this.apiUrl+'/TestScripts/GetScripts')
                 .pipe(
-                  map(res=>res as TestScript[]),
+                  map(res=>res as TestScripts[]),
                   catchError(this.errorHandle)
                 );
    }
 
-   getTestScript(id:number):Observable<TestScript>{
+   getTestScript(id:number):Observable<TestScripts>{
     return this.httpClient.get(this.apiUrl+'/TestScripts/GetScript/'+id)
     .pipe(
-      map(res=>res as TestScript),
+      map(res=>res as TestScripts),
       catchError(this.errorHandle)
     );
    }
     
-   addTestScript(script:TestScript){
+   addTestScript(script:TestScripts){
        return this.httpClient.post(this.apiUrl+'/TestScripts/AddScript',script)
        .subscribe(
         data  => {
@@ -43,7 +43,7 @@ export class TestScriptsService {
       );
     }
 
-    updateTestScript(id:number,script:TestScript){
+    updateTestScript(id:number,script:TestScripts){
       return this.httpClient.put(this.apiUrl+'/TestScripts/UpdateScript/'+id,script)
       .subscribe(
         data  => {

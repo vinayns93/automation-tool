@@ -57,7 +57,7 @@ export class TestscriptsEditComponent implements OnInit {
    this.service.getTestScript(num)
    .subscribe((result)=>{
     console.log(result);
-    this.testscript = result;
+    // this.testscript = result;
     this.populateFormFields();
   },
    error =>{
@@ -135,7 +135,7 @@ export class TestscriptsEditComponent implements OnInit {
     data.param20 = this.testScriptForm.controls["param20"].value;
     data.featureName = this.testScriptForm.controls["featureName"].value;
     
-    this.service.updateTestScript(data.id,data);
+    // this.service.updateTestScript(data.id,data);
     setTimeout(f=>{
       this.router.navigate(['/testscripts']);
     },2200)

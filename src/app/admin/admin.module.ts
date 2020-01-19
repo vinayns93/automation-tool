@@ -11,6 +11,8 @@ import { FeatureComponent } from './pages/feature/feature.component';
 import { RouterModule, Routes } from '@angular/router';
 import { MultiSelectModule } from 'primeng/multiselect';
 import { TableModule } from 'primeng/table';
+import { ButtonModule } from 'primeng/button';
+import { AddKeywordComponent } from './pages/keywords/add-keyword/add-keyword.component';
 
 
 const routes: Routes = [
@@ -29,14 +31,15 @@ const routes: Routes = [
     TestDataComponent, 
     KeywordsComponent, 
     RepositoryComponent, 
-    FeatureComponent
+    FeatureComponent, AddKeywordComponent
   ],
   imports: [
     CommonModule,
     SharedModule,
     RouterModule.forChild(adminRoutes),
     MultiSelectModule,
-    TableModule
+    TableModule,
+    ButtonModule
   ],
   schemas: [
     CUSTOM_ELEMENTS_SCHEMA

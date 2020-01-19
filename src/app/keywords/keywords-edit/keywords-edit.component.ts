@@ -65,7 +65,7 @@ export class KeywordsEditComponent implements OnInit {
       stepDescription:  this.keywords.stepDescription,
       actionOrKeyword: this.keywords.actionOrKeyword,
       objectLogicalName: this.keywords.objectLogicalName ,
-      execute: this.keywords.execute,
+      // execute: this.keywords.execute,
       param1: this.keywords.param1,
       param2: this.keywords.param2,
       param3: this.keywords.param3,
@@ -76,7 +76,7 @@ export class KeywordsEditComponent implements OnInit {
       param8: this.keywords.param8,
       param9: this.keywords.param9,
       param10: this.keywords.param10,
-      featureName: this.keywords.featureName
+      // featureName: this.keywords.featureName
     });
    }
   
@@ -88,7 +88,7 @@ export class KeywordsEditComponent implements OnInit {
     data.actionOrKeyword = this.keywordsForm.controls["actionOrKeyword"].value;
     data.objectLogicalName = this.keywordsForm.controls["objectLogicalName"].value;
     data.functionName = this.keywordsForm.controls["functionName"].value;
-    data.execute = this.keywordsForm.controls["execute"].value;
+    // data.execute = this.keywordsForm.controls["execute"].value;
     data.param1 = this.keywordsForm.controls["param1"].value;
     data.param2 = this.keywordsForm.controls["param2"].value;
     data.param3 = this.keywordsForm.controls["param3"].value;
@@ -99,7 +99,7 @@ export class KeywordsEditComponent implements OnInit {
     data.param8 = this.keywordsForm.controls["param8"].value;
     data.param9 = this.keywordsForm.controls["param9"].value;
     data.param10 = this.keywordsForm.controls["param10"].value;
-    data.featureName = this.keywordsForm.controls["featureName"].value;
+    // data.featureName = this.keywordsForm.controls["featureName"].value;
     
     this.service.updateKeyword(data.id,data);
     setTimeout(f=>{

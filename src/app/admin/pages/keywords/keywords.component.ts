@@ -1,7 +1,9 @@
 import { Component, OnInit, ViewEncapsulation } from '@angular/core';
-import { Keywords } from '../../../models/keyword.model';
+import { Keywords } from '../../../core/models';
 import { KeywordService } from '../../../services/keyword.service';
 import { Router } from '@angular/router';
+import { SelectItem } from 'primeng/api/selectitem';
+import { keywordsColumns } from '../../../core/constants/keywords';
 
 @Component({
   selector: 'app-keywords',
@@ -13,33 +15,39 @@ export class KeywordsComponent implements OnInit {
 
   keywords: Keywords[];
   cols:any[];
-  loading:boolean = true;
+  loading:boolean = false;
+  tableColumns: any[];
+  columns: SelectItem[];
+  
   constructor(private service: KeywordService,private router:Router) { }
 
   ngOnInit() {
-    this.loading = true;
-    this.getKeywords();
-    this.cols=[
-      { field: 'functionName', header: 'Function Name' , width: '50%'},
-      { field: 'stepDescription', header: 'Step Description' ,width: '50%' },
-      { field: 'actionOrKeyword', header: 'Action/Keyword',width: '50%' },
-      { field: 'objectLogicalName', header: 'Object LogicalName' , width: '50%'},
-      { field: 'execute', header: 'Execute' ,width: '50%'},
-      { field: 'param1', header: 'Param1' ,width: '50%'},
-      { field: 'param2', header: 'Param2' ,width: '50%'},
-      { field: 'param3', header: 'Param3' ,width: '50%'},
-      { field: 'param4', header: 'Param4',width: '50%' },
-      { field: 'featureName', header: 'Feature Name',width: '50%' },
-      { field: 'actions', header: 'Actions',width: '50%' }
-  ];
+    var self = this;
+    self.getKeywords();
+  self.columns = keywordsColumns;
+  self.tableColumns = [];
+  
+  }
+
+  LoadKeywordsColumns(event){
+    var self = this;
+    self.loading = true;
+    self.tableColumns = [];
+    if(event.value != undefined){
+      event.value.forEach(col => {
+        self.tableColumns.push(col);
+      });
+    }
+    self.loading = false;
   }
 
   getKeywords(){
-    this.service.getKeywords()
-    .subscribe((result)=>{
+    var self = this;
+    self.service.getKeywords()
+    .subscribe((result: Keywords[])=>{
       //console.log(result);
-      this.keywords = result;
-      this.loading = false;
+      self.keywords = result;
+      self.loading = false;
       
     },
      error =>{
@@ -47,19 +55,21 @@ export class KeywordsComponent implements OnInit {
 
      },
      ()=>{
-       //console.log(this.testControllers3);
+       //console.log(self.testControllers3);
      })
   }
 
   deleteKeyword(id:number){
+    var self = this;
     if(confirm("Are you sure to delete?")) {
-      this.service.deleteKeyword(id);
+      self.service.deleteKeyword(id);
        setTimeout(f=>{
-         this.getKeywords();
+         self.getKeywords();
        },2200)
     }
   }
   onRowEditInit(id:number){
-    this.router.navigate(['/keywords/edit', id]);
+    var self = this;
+    self.router.navigate(['/keywords/edit', id]);
   }
 }
