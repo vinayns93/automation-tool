@@ -1,0 +1,130 @@
+<br>
+<br>
+<h3 class="bold" style="margin-left: 20px;">
+    Edit Controller
+</h3>
+<br>
+<br>
+<form [formGroup]="testControllerForm" (ngSubmit)="onSubmit()">
+<div class="container">
+  
+        <div class="row">   
+                <div class="col-md-3">
+                    <label for="" class="pull-right">ID:</label>
+                </div>
+                <div class="col-md-3">
+                    <input type="text" class="text form-control" formControlName="id" disabled>
+                </div>
+            </div>
+    <div class="row">   
+        <div class="col-md-3">
+            <label for="" class="pull-right">SNO:</label>
+        </div>
+        <div class="col-md-3">
+            <input type="text" class="text form-control" formControlName="sno">
+        </div>
+    </div>
+    
+    <div class="row">   
+            <div class="col-md-3">
+                <label for="" class="pull-right">TestCase ID:</label>
+            </div>
+            <div class="col-md-3">
+                <input type="text" class="text form-control" formControlName="testCaseID">
+            </div>
+    </div>
+    <div class="row">   
+            <div class="col-md-3">
+                <label for="" class="pull-right">Jira ID:</label>
+            </div>
+            <div class="col-md-3">
+                <input type="text" class="text form-control" formControlName="jira_ID">
+            </div>
+    </div>
+    <div class="row">   
+            <div class="col-md-3">
+                <label for="" class="pull-right">TestScript Name:</label>
+            </div>
+            <div class="col-md-3">
+                <input type="text" class="text form-control" formControlName="testScriptName">
+            </div>
+    </div>
+    <div class="row">   
+            <div class="col-md-3">
+                <label for="" class="pull-right">TestScript Description:</label>
+            </div>
+            <div class="col-md-3">
+                <input type="text" class="text form-control" formControlName="testScriptDescription">
+            </div>
+    </div>
+    <div class="row">   
+            <div class="col-md-3">
+                <label for="" class="pull-right">Run:</label>
+            </div>
+            <div class="col-md-3">
+                <input type="text" class="text form-control" formControlName="run">
+            </div>
+    </div>
+    <div class="row">   
+            <div class="col-md-3">
+                <label for="" class="pull-right">Iterations:</label>
+            </div>
+            <div class="col-md-3">
+                <input type="text" class="text form-control" formControlName="iterations">
+            </div>
+    </div>
+    <div class="row">   
+            <div class="col-md-3">
+                <label for="" class="pull-right">Browsers:</label>
+            </div>
+            <div class="col-md-3">
+                <input type="text" class="text form-control" formControlName="browsers">
+            </div>
+    </div>
+    <div class="row">   
+            <div class="col-md-3">
+                <label for="" class="pull-right">Sequence ID:</label>
+            </div>
+            <div class="col-md-3">
+                <input type="text" class="text form-control" formControlName="sequenceID">
+            </div>
+    </div>
+    <div class="row">   
+            <div class="col-md-3">
+                <label for="" class="pull-right">TestType:</label>
+            </div>
+            <div class="col-md-3">
+                <input type="text" class="text form-control" formControlName="testType">
+            </div>
+    </div>
+   
+    <div class="row">   
+            <div class="col-md-3">
+                <label for="" class="pull-right">Steps Count:</label>
+            </div>
+            <div class="col-md-3">
+                <input type="text" class="text form-control" formControlName="stepsCount">
+            </div>
+    </div>
+    <div class="row">   
+            <div class="col-md-3">
+                <label for="" class="pull-right">Feature ID:</label>
+            </div>
+            <div class="col-md-3">
+                <input type="text" class="text form-control" formControlName="featureID">
+            </div>
+    </div>
+</div>
+<br/>
+<br/>
+<div class="container">
+  <div class="row">
+      <div class="col-md-4">
+          <input type="submit" value="Update" class="button btn btn-primary pull-right" [disabled]="!testControllerForm.valid">
+      </div>
+      <div class="col-md-3">
+            <input type="button" value="Cancel" class="button btn" [routerLink]="['/table-list']">
+      </div>
+  </div>
+</div>
+</form>

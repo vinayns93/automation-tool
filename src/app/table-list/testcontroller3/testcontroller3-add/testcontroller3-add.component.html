@@ -1,0 +1,57 @@
+<br>
+<br>
+<h3 class="bold" style="margin-left: 20px;">
+    Add Controller
+</h3>
+<br>
+<br>
+<form [formGroup]="testControllerForm" (ngSubmit)="onSubmit()">
+<div class="container">
+  
+        <div class="row">   
+                <div class="col-md-3">
+                    <label for="" class="pull-right">ID:</label>
+                </div>
+                <div class="col-md-3">
+                    <input type="text" class="text form-control" formControlName="id">
+                </div>
+            </div>
+    <div class="row">   
+        <div class="col-md-3">
+            <label for="" class="pull-right">VMID:</label>
+        </div>
+        <div class="col-md-3">
+            <input type="text" class="text form-control" formControlName="vmid">
+        </div>
+    </div>
+    <div class="row">   
+            <div class="col-md-3">
+                <label for="" class="pull-right">Browser:</label>
+            </div>
+            <div class="col-md-3">
+                <input type="text" class="text form-control" formControlName="browser">
+            </div>
+    </div>
+    <div class="row">   
+            <div class="col-md-3">
+                <label for="" class="pull-right">Execute:</label>
+            </div>
+            <div class="col-md-3">
+                <input type="text" class="text form-control" formControlName="exec">
+            </div>
+    </div>
+
+</div>
+<br/>
+<br/>
+<div class="container">
+  <div class="row">
+      <div class="col-md-4">
+          <input type="submit" value="Update" class="button btn btn-primary pull-right" [disabled]="!testControllerForm.valid">
+      </div>
+      <div class="col-md-3">
+            <input type="button" value="Cancel" class="button btn" [routerLink]="['/table-list']">
+      </div>
+  </div>
+</div>
+</form>

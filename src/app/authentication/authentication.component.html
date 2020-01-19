@@ -1,0 +1,53 @@
+<div style="background-color: #d8e2eb;">
+  <div class="container" style="padding-top:60px;">
+    <div class="row">
+      <div class="col-md-6 mx-auto">
+        <div class="card-group">
+          <div class="card p-4">
+            <div class="card-body">
+              <form name="form" (ngSubmit)="onSubmit()" [formGroup]="loginForm">
+                <h2 style="text-align:center">Automation Framework</h2>
+                <div class="form-group">
+                  <div class="input-group mb-3">
+                    <!-- <div class="input-group-prepend">  
+                    <span class="input-group-text"><i class="icon-user"></i></span>  
+                  </div>   -->
+                    <input type="text" placeholder="Username" formControlName="username" class="form-control"
+                      [ngClass]="{ 'is-invalid': submitted && f.username.errors }" />
+                    <div *ngIf="submitted && f.username.errors" class="invalid-feedback">
+                      <div *ngIf="f.username.errors.required">Username is required</div>
+                    </div>
+                  </div>
+                </div>
+                <div class="input-group mb-4">
+                  <!-- <div class="input-group-prepend">  
+                    <span class="input-group-text"><i class="icon-lock"></i></span>  
+                  </div>   -->
+                  <input type="password" placeholder="Password" formControlName="password" class="form-control"
+                    [ngClass]="{ 'is-invalid': submitted && f.password.errors }" />
+                  <div *ngIf="submitted && f.password.errors" class="invalid-feedback">
+                    <div *ngIf="f.password.errors.required">Password is required</div>
+                  </div>
+                </div>
+                <div class="row">
+                  <div class="col-6 text-right">
+                    <input type="checkbox" id="chkRememberMe" class="form-check-input">
+                    <label class="form-check-label" style="padding-right: 8em;">Remember me</label>
+                  </div>
+                  <div class="col-6 text-right">
+                    <!-- <button type="button" class="btn btn-link px-0">Forgot password?</button> -->
+                    <a href="#" style="color: #9A9A9A;font-size: 0.8571em;">Forgot password?</a>
+                  </div>
+                </div>
+                <div class="col-6" style="padding-left: 13em;">
+                  <button type="submit" class="btn btn-primary px-6" style="background-color: #0a2293;">Log In</button>
+                </div>
+              </form>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+<div style="background-color: #d8e2eb; height: 20em;"></div>

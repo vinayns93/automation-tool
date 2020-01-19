@@ -1,0 +1,15 @@
+<div class="wrapper">
+    <mat-sidenav-container>
+        <mat-sidenav  class="sidebar" [(opened)]="globalService.opened" data-color="blue">
+            <app-sidebar></app-sidebar>
+        </mat-sidenav>
+        <mat-sidenav-content>
+            <app-navbar></app-navbar>
+            <div class="panel-header panel-header-sm" style="height: 50px !important; padding: 0px;">
+            </div>
+            <app-header-card></app-header-card>
+            <router-outlet></router-outlet>
+            <app-footer></app-footer>
+        </mat-sidenav-content>
+    </mat-sidenav-container>
+</div>

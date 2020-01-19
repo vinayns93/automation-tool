@@ -1,0 +1,64 @@
+<!-- <div class="panel-header panel-header-sm" style="height: 50px !important; padding: 0px;">
+</div>
+<app-header-card></app-header-card>
+ <div class="main-content">
+   <div class="row"> 
+     <div class="col-md-12">
+           <div class="card">
+            <div class="card-header"> 
+              <h5>TestScripts</h5>
+             </div>
+            <br>
+            <div class="card-body"> 
+              <p-table #ts [loading]="loading"  [scrollable]="true" scrollHeight="500px"  [value]="testscripts" sortMode="multiple" [columns]="cols" [paginator]="true" [rows]="10">
+                <ng-template pTemplate="header" let-columns>
+                    <tr>
+                        <th *ngFor="let col of columns" [pSortableColumn]="col.field" pTooltip="{{col.header}}">
+                            {{col.header}}
+                            <p-sortIcon [field]="col.field"></p-sortIcon>
+                        </th>
+                    </tr>
+                    <tr>
+                        <th *ngFor="let col of columns" [ngSwitch]="col.field">
+                            <input *ngSwitchCase="'testCaseID'" pInputText type="text" style="width:80%;" (input)="ts.filter($event.target.value, col.field, 'contains')">
+                            <input *ngSwitchCase="'tc_stepID'" pInputText type="text" style="width:80%;" (input)="ts.filter($event.target.value, col.field, 'contains')">
+                            <input *ngSwitchCase="'testScriptName'" pInputText type="text" style="width:80%;" (input)="ts.filter($event.target.value, col.field, 'contains')">
+                            <input *ngSwitchCase="'functionDescription'" pInputText type="text" style="width:80%;" (input)="ts.filter($event.target.value, col.field, 'contains')">
+                            <input *ngSwitchCase="'functionName'" pInputText type="text" style="width:80%;" (input)="ts.filter($event.target.value, col.field, 'contains')">
+                            <input *ngSwitchCase="'execute'" pInputText type="text" style="width:80%;" (input)="ts.filter($event.target.value, col.field, 'contains')">
+                            <input *ngSwitchCase="'param1'" pInputText type="text" style="width:80%;" (input)="ts.filter($event.target.value, col.field, 'contains')">
+                            <input *ngSwitchCase="'param2'" pInputText type="text" style="width:80%;" (input)="ts.filter($event.target.value, col.field, 'contains')">
+                            <input *ngSwitchCase="'param3'" pInputText type="text" style="width:80%;" (input)="ts.filter($event.target.value, col.field, 'contains')">
+                            <input *ngSwitchCase="'param4'" pInputText type="text" style="width:80%;" (input)="ts.filter($event.target.value, col.field, 'contains')">
+                            <input *ngSwitchCase="'featureName'" pInputText type="text" style="width:80%;" (input)="ts.filter($event.target.value, col.field, 'contains')">
+                        </th>
+                    </tr>
+                </ng-template>
+                <ng-template pTemplate="body" let-ts>
+                    <tr>
+                        <td>{{ts.testCaseID}}</td>
+                        <td>{{ts.tc_stepID}}</td>
+                        <td>{{ts.testScriptName}}</td>
+                        <td>{{ts.functionDescription}}</td>
+                        <td>{{ts.functionName}}</td>
+                        <td>{{ts.execute}}</td>
+                        <td>{{ts.param1}}</td>
+                        <td>{{ts.param2}}</td>
+                        <td>{{ts.param3}}</td>
+                        <td>{{ts.param4}}</td>
+                        <td>{{ts.featureName}}</td>
+                        <td style="text-align:center">
+                         <button pButton type="button" style="background-color: #100699 !important;margin-bottom: 5px;" icon="pi pi-pencil" class="ui-button-success ui-button-raised" (click)="onRowEditInit(ts.id)"></button>
+                         <button pButton type="button" icon="pi pi-times" class="ui-button-danger" (click)="deleteScript(ts.id)"></button>
+                        </td>
+                    </tr>
+                </ng-template>
+            </p-table>
+            <button class="btn btn-primary pull-right" style="margin-right:27px; font-size: 0.5rem;" 
+            [routerLink]="['/testscripts/add']"> 
+                <i class="now-ui-icons ui-1_simple-add"></i> Add</button>
+             </div>
+          </div>
+     </div>
+    </div> 
+</div> -->

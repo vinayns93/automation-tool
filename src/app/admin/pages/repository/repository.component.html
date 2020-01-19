@@ -1,0 +1,49 @@
+<div class="col-md-12">
+    <!-- <div class="card">
+      <div class="card-header"> -->
+        <h5> Repositories</h5>                 
+      <!-- </div>
+      <div class="card-body">
+       -->
+        <p-table #re [loading]="loading" [value]="repositories" sortMode="multiple" [columns]="cols" [paginator]="true" [rows]="10">
+          <ng-template pTemplate="header" let-columns>
+              <tr>
+                  <th *ngFor="let col of columns" pSortableColumn="col.field" pTooltip="col.header">
+                      {{col.header}}
+                      <p-sortIcon [field]="col.field"></p-sortIcon>
+                  </th>
+              </tr>
+              <tr>
+                  <th *ngFor="let col of columns" [ngSwitch]="col.field">
+                      <input *ngSwitchCase="'logicalName'" pInputText type="text" style="width:80%;" (input)="re.filter($event.target.value, col.field, 'contains')">
+                      <input *ngSwitchCase="'findMethod'" pInputText type="text" style="width:80%;" (input)="re.filter($event.target.value, col.field, 'contains')">
+                      <input *ngSwitchCase="'xpathQuery_PropertyName'" pInputText type="text" style="width:80%;" (input)="re.filter($event.target.value, col.field, 'contains')">
+                      <input *ngSwitchCase="'propertyValue'" pInputText type="text" style="width:80%;" (input)="re.filter($event.target.value, col.field, 'contains')">
+                      <input *ngSwitchCase="'tagName'" pInputText type="text" style="width:80%;" (input)="re.filter($event.target.value, col.field, 'contains')">
+                      <input *ngSwitchCase="'featureName'" pInputText type="text" style="width:80%;" (input)="re.filter($event.target.value, col.field, 'contains')">
+                  </th>
+              </tr>
+          </ng-template>
+          <ng-template pTemplate="body" let-rs>
+              <tr>
+                  <td>{{rs.logicalName}}</td>
+                  <td>{{rs.findMethod}}</td>
+                  <td>{{rs.xpathQuery_PropertyName}}</td>
+                  <td>{{rs.propertyValue}}</td>
+                  <td>{{rs.tagName}}</td>
+                  <td>{{rs.featureName}}</td>
+                  <td style="text-align:center">
+                   <button pButton type="button" style="background-color: #100699 !important;margin-right: 5px;" icon="pi pi-pencil" class="ui-button-success ui-button-raised" (click)="onRowEditInit(rs.id)"></button>
+                   <button pButton type="button" icon="pi pi-times" class="ui-button-danger" (click)="deleteRepository(rs.id)"></button>
+                  </td>
+              </tr>
+          </ng-template>
+      </p-table>
+      <button class="btn btn-primary pull-right" style="margin-right:27px; font-size: 0.5rem;" 
+      [routerLink]="['/repository/add']"> 
+          <i class="now-ui-icons ui-1_simple-add"></i> Add</button>
+      <!-- </div>
+    </div>
+</div>
+</div> -->
+</div>

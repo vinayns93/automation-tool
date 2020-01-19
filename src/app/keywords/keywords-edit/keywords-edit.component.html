@@ -1,0 +1,161 @@
+<br>
+<br>
+<h3 class="bold" style="margin-left: 20px;">
+    Edit Keyword
+</h3>
+<br>
+<br>
+<form [formGroup]="keywordsForm" (ngSubmit)="onSubmit()">
+<div class="container">
+  
+        <div class="row">   
+                <div class="col-md-3">
+                    <label for="" class="pull-right">ID:</label>
+                </div>
+                <div class="col-md-3">
+                    <input type="text" class="text form-control" formControlName="id" disabled>
+                </div>
+            </div>
+    <div class="row">   
+        <div class="col-md-3">
+            <label for="" class="pull-right">Function Name:</label>
+        </div>
+        <div class="col-md-3">
+            <input type="text" class="text form-control" formControlName="functionName">
+        </div>
+    </div>
+    
+    <div class="row">   
+            <div class="col-md-3">
+                <label for="" class="pull-right">Step Description:</label>
+            </div>
+            <div class="col-md-3">
+                <input type="text" class="text form-control" formControlName="stepDescription">
+            </div>
+    </div>
+    <div class="row">   
+            <div class="col-md-3">
+                <label for="" class="pull-right">Action Or Keyword:</label>
+            </div>
+            <div class="col-md-3">
+                <input type="text" class="text form-control" formControlName="actionOrKeyword">
+            </div>
+    </div>
+    <div class="row">   
+            <div class="col-md-3">
+                <label for="" class="pull-right">Object Logical Name:</label>
+            </div>
+            <div class="col-md-3">
+                <input type="text" class="text form-control" formControlName="objectLogicalName">
+            </div>
+    </div>
+    <div class="row">   
+            <div class="col-md-3">
+                <label for="" class="pull-right">Execute:</label>
+            </div>
+            <div class="col-md-3">
+                <input type="text" class="text form-control" formControlName="execute">
+            </div>
+    </div>
+    <div class="row">   
+            <div class="col-md-3">
+                <label for="" class="pull-right">Feature Name:</label>
+            </div>
+            <div class="col-md-3">
+                <input type="text" class="text form-control" formControlName="featureName">
+            </div>
+    </div>
+    <div class="row">   
+            <div class="col-md-3">
+                <label for="" class="pull-right">Param1:</label>
+            </div>
+            <div class="col-md-3">
+                <input type="text" class="text form-control" formControlName="param1">
+            </div>
+    </div>
+    <div class="row">   
+            <div class="col-md-3">
+                <label for="" class="pull-right">Param2:</label>
+            </div>
+            <div class="col-md-3">
+                <input type="text" class="text form-control" formControlName="param2">
+            </div>
+    </div>
+    <div class="row">   
+            <div class="col-md-3">
+                <label for="" class="pull-right">Param3:</label>
+            </div>
+            <div class="col-md-3">
+                <input type="text" class="text form-control" formControlName="param3">
+            </div>
+    </div>
+    <div class="row">   
+            <div class="col-md-3">
+                <label for="" class="pull-right">Param4:</label>
+            </div>
+            <div class="col-md-3">
+                <input type="text" class="text form-control" formControlName="param4">
+            </div>
+    </div>
+    <div class="row">   
+            <div class="col-md-3">
+                <label for="" class="pull-right">Param5:</label>
+            </div>
+            <div class="col-md-3">
+                <input type="text" class="text form-control" formControlName="param5">
+            </div>
+    </div>
+    <div class="row">   
+            <div class="col-md-3">
+                <label for="" class="pull-right">Param6:</label>
+            </div>
+            <div class="col-md-3">
+                <input type="text" class="text form-control" formControlName="param6">
+            </div>
+    </div>
+    <div class="row">   
+            <div class="col-md-3">
+                <label for="" class="pull-right">Param7:</label>
+            </div>
+            <div class="col-md-3">
+                <input type="text" class="text form-control" formControlName="param7">
+            </div>
+    </div>
+    <div class="row">   
+            <div class="col-md-3">
+                <label for="" class="pull-right">Param8:</label>
+            </div>
+            <div class="col-md-3">
+                <input type="text" class="text form-control" formControlName="param8">
+            </div>
+    </div>
+    <div class="row">   
+            <div class="col-md-3">
+                <label for="" class="pull-right">Param9:</label>
+            </div>
+            <div class="col-md-3">
+                <input type="text" class="text form-control" formControlName="param9">
+            </div>
+    </div>
+    <div class="row">   
+            <div class="col-md-3">
+                <label for="" class="pull-right">Param10:</label>
+            </div>
+            <div class="col-md-3">
+                <input type="text" class="text form-control" formControlName="param10">
+            </div>
+    </div>
+</div>
+<br/>
+<br/>
+<div class="container">
+  <div class="row">
+      <div class="col-md-4">
+          <input type="submit" value="Update" class="button btn btn-primary pull-right" [disabled]="!keywordsForm.valid">
+      </div>
+      <div class="col-md-3">
+            <input type="button" value="Cancel" class="button btn" [routerLink]="['/keywords']">
+      </div>
+  </div>
+</div>
+</form>

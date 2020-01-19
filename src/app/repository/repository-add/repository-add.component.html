@@ -1,0 +1,81 @@
+<br>
+<br>
+<h3 class="bold" style="margin-left: 20px;">
+    Add Repository
+</h3>
+<br>
+<br>
+<form [formGroup]="repositoryForm" (ngSubmit)="onSubmit()">
+<div class="container">
+  
+        <div class="row">   
+                <div class="col-md-3">
+                    <label for="" class="pull-right">ID:</label>
+                </div>
+                <div class="col-md-3">
+                    <input type="text" class="text form-control" formControlName="id" disabled>
+                </div>
+            </div>
+    <div class="row">   
+        <div class="col-md-3">
+            <label for="" class="pull-right">Logical Name:</label>
+        </div>
+        <div class="col-md-3">
+            <input type="text" class="text form-control" formControlName="logicalName">
+        </div>
+    </div>
+    
+    <div class="row">   
+            <div class="col-md-3">
+                <label for="" class="pull-right">Find Method:</label>
+            </div>
+            <div class="col-md-3">
+                <input type="text" class="text form-control" formControlName="findMethod">
+            </div>
+    </div>
+    <div class="row">   
+            <div class="col-md-3">
+                <label for="" class="pull-right">Xpath Query_Property Name:</label>
+            </div>
+            <div class="col-md-3">
+                <input type="text" class="text form-control" formControlName="xpathQuery_PropertyName">
+            </div>
+    </div>
+    <div class="row">   
+            <div class="col-md-3">
+                <label for="" class="pull-right">Property Value:</label>
+            </div>
+            <div class="col-md-3">
+                <input type="text" class="text form-control" formControlName="propertyValue">
+            </div>
+    </div>
+    <div class="row">   
+            <div class="col-md-3">
+                <label for="" class="pull-right">Tag Name:</label>
+            </div>
+            <div class="col-md-3">
+                <input type="text" class="text form-control" formControlName="tagName">
+            </div>
+    </div>
+    <div class="row">   
+            <div class="col-md-3">
+                <label for="" class="pull-right">Feature Name:</label>
+            </div>
+            <div class="col-md-3">
+                <input type="text" class="text form-control" formControlName="featureName">
+            </div>
+    </div>
+</div>
+<br/>
+<br/>
+<div class="container">
+  <div class="row">
+      <div class="col-md-4">
+          <input type="submit" value="Add" class="button btn btn-primary pull-right" [disabled]="!repositoryForm.valid">
+      </div>
+      <div class="col-md-3">
+            <input type="button" value="Cancel" class="button btn" [routerLink]="['/repository']">
+      </div>
+  </div>
+</div>
+</form>

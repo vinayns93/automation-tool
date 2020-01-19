@@ -1,0 +1,81 @@
+<br>
+<br>
+<h3 class="bold" style="margin-left: 20px;">
+    Edit Controller
+</h3>
+<br>
+<br>
+<form [formGroup]="testControllerForm" (ngSubmit)="onSubmit()">
+<div class="container">
+  
+        <div class="row">   
+                <div class="col-md-3">
+                    <label for="" class="pull-right">ID:</label>
+                </div>
+                <div class="col-md-3">
+                    <input type="text" class="text form-control" formControlName="id" disabled>
+                </div>
+            </div>
+    <div class="row">   
+        <div class="col-md-3">
+            <label for="" class="pull-right">SLNO:</label>
+        </div>
+        <div class="col-md-3">
+            <input type="text" class="text form-control" formControlName="slno">
+        </div>
+    </div>
+    
+    <div class="row">   
+            <div class="col-md-3">
+                <label for="" class="pull-right">Module ID:</label>
+            </div>
+            <div class="col-md-3">
+                <input type="text" class="text form-control" formControlName="moduleID">
+            </div>
+    </div>
+    <div class="row">   
+            <div class="col-md-3">
+                <label for="" class="pull-right">Module Sequence ID:</label>
+            </div>
+            <div class="col-md-3">
+                <input type="text" class="text form-control" formControlName="moduleSeqID">
+            </div>
+    </div>
+    <div class="row">   
+            <div class="col-md-3">
+                <label for="" class="pull-right">Machine ID:</label>
+            </div>
+            <div class="col-md-3">
+                <input type="text" class="text form-control" formControlName="machineID">
+            </div>
+    </div>
+    <div class="row">   
+            <div class="col-md-3">
+                <label for="" class="pull-right">Machine Sequence ID:</label>
+            </div>
+            <div class="col-md-3">
+                <input type="text" class="text form-control" formControlName="machineSequenceID">
+            </div>
+    </div>
+    <div class="row">   
+            <div class="col-md-3">
+                <label for="" class="pull-right">Execute:</label>
+            </div>
+            <div class="col-md-3">
+                <input type="text" class="text form-control" formControlName="execute">
+            </div>
+    </div>
+</div>
+<br/>
+<br/>
+<div class="container">
+  <div class="row">
+      <div class="col-md-4">
+          <input type="submit" value="Update" class="button btn btn-primary pull-right" [disabled]="!testControllerForm.valid">
+      </div>
+      <div class="col-md-3">
+            <input type="button" value="Cancel" class="button btn" [routerLink]="['/table-list']">
+      </div>
+  </div>
+</div>
+</form>

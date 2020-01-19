@@ -1,0 +1,57 @@
+@import '../../../../assets/scss/common.scss';
+@import '../../../../assets/scss/spacing-out.scss';
+
+.chart-area {
+    height: 100% !important;
+    width: 100% !important;
+    padding-left: 15px;
+    padding-right: 15px;
+    margin: 0px;
+  } 
+
+  .card-chart  {
+    margin: 0px;
+    height: 12em !important;
+    width: 100% !important;
+  }
+
+  .card-header {
+    padding-top: 0px !important;
+    height: 4em !important;
+  }
+
+  .card-header>h5 {
+    font-size: smaller;
+    margin-bottom: 0px;
+    margin-top: 0.2em;
+  }
+
+  .card-header>h4{
+    font-size: x-large !important;
+    margin-top: 0px;
+  }
+
+  .card-body {
+    padding: 0px !important;
+    height: 8em !important;
+  }
+  
+  .card-main-text {
+    margin: 0px;
+    font-size: 1.3em;
+  }
+
+  .card-sub-text {
+    font-size: 0.8em;
+    margin-top: 0.5em;
+  }
+
+  .card-extra-text {
+    font-size: 0.85em; 
+    font-style: italic;
+  }
+
+  .card-list-row {
+    padding: 5px;
+    font-size: 0.7em;
+  }
