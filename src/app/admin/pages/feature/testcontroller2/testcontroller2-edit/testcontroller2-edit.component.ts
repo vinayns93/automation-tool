@@ -1,19 +1,20 @@
 import { Component, OnInit } from '@angular/core';
 import { ActivatedRoute, Router } from '@angular/router';
-import { TestController2 } from '../../../models/testcontroller2.model';
-import { TestControllerService } from '../../../services/testcontroller.service';
+import { TestController2 } from '../../../../../models/testcontroller2.model';
+import { TestControllerService } from '../../../../../services/testcontroller.service';
 import { FormControl, FormGroup, Validators } from '@angular/forms';
 
-@Component({
-  selector: 'app-testcontroller2-add',
-  templateUrl: './testcontroller2-add.component.html',
-  styleUrls: ['./testcontroller2-add.component.scss']
-})
-export class Testcontroller2AddComponent implements OnInit {
 
+@Component({
+  selector: 'app-testcontroller2-edit',
+  templateUrl: './testcontroller2-edit.component.html',
+  styleUrls: ['./testcontroller2-edit.component.scss']
+})
+export class Testcontroller2EditComponent implements OnInit {
+  id:number;
   testController2:TestController2;
   testControllerForm = new FormGroup({
-    id: new FormControl('',Validators.required),
+    id: new FormControl(''),
     sno: new FormControl('', Validators.required),
     featureID: new FormControl('', Validators.required),
     testCaseID:new FormControl('', Validators.required),
@@ -31,10 +32,27 @@ export class Testcontroller2AddComponent implements OnInit {
   }
 
   ngOnInit() {
-    //this.populateFormFields();
+    this.id = +this.route.snapshot.paramMap.get('id');
+    console.log(this.id);
+    this.getTestController2byId(this.id);
   }
-   
-  populateFormFields() {
+
+  getTestController2byId(num:number) {
+   this.controllerservice.getController2(num)
+   .subscribe((result)=>{
+    console.log(result);
+    this.testController2 = result;
+    this.populateFormFields();
+  },
+   error =>{
+     console.log(error.message);
+   },
+   ()=>{
+     console.log(this.testController2);
+   })
+  }
+
+   populateFormFields() {
     if (this.testControllerForm) {
       this.testControllerForm.reset();
     }
@@ -54,7 +72,7 @@ export class Testcontroller2AddComponent implements OnInit {
     testScriptDescription: this.testController2.testScriptDescription
     });
    }
-
+  
   onSubmit() {
     let data = new TestController2();
     data.id = this.testControllerForm.controls["id"].value;
@@ -71,7 +89,7 @@ export class Testcontroller2AddComponent implements OnInit {
     data.testScriptDescription = this.testControllerForm.controls["testScriptDescription"].value;
     data.stepsCount = this.testControllerForm.controls["stepsCount"].value;
     
-    this.controllerservice.addController2(data);
+    this.controllerservice.updateTestController2(data.id,data);
     setTimeout(f=>{
       this.router.navigate(['/table-list']);
     },2200)

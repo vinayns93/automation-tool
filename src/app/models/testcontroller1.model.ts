@@ -5,5 +5,11 @@ export class TestController1{
     moduleSeqID: string;
     machineID: string;
     machineSequenceID: string;
-    execute: string;
+    isLocked: true;
+    lockedByUser: number;
+    statusID: number;
+    cudStatusID: number;
+    createdOn: Date;
+    updatedOn: Date;
+    userId: number;
 }

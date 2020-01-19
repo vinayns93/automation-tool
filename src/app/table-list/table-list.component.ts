@@ -1,7 +1,7 @@
 import { Component, OnInit, ViewEncapsulation } from '@angular/core';
 import { TestController3 } from '../models/testcontroller3.model';
 import { TestControllerService } from '../services/testcontroller.service';
-import { TestController2 } from '../models/testcontrolller2.model';
+import { TestController2 } from '../models/testcontroller2.model';
 import { TestController1 } from '../models/testcontroller1.model';
 import { Router } from '@angular/router';
 import { ConfirmationDialogService } from '../confirmation-dialog/confirmation-dialog/confirmation-dialog.service';
@@ -123,7 +123,7 @@ export class TableListComponent implements OnInit {
 
 
   getControllers(){
-    this.svc.getAllController3()
+    this.svc.getAllBrowserController()
     .subscribe((result)=>{
       //console.log(result);
       this.testControllers3 = result;
@@ -150,21 +150,18 @@ export class TableListComponent implements OnInit {
   }
 
   getControllers1(){
-    this.svc.getAllController1()
+    this.svc.getAllModuleController(0)
     .subscribe((result)=>{
-      //console.log(result);
       this.testControllers1 = result;
-      //console.log(this.testControllers1);
     },
      error =>{
        console.log(error.message);
      },
      ()=>{
-       //console.log(this.testControllers1);
      })
   }
   getControllers2(){
-    this.svc.getAllController2()
+    this.svc.getAllTestController(0)
     .subscribe((result)=>{
       //console.log(result);
       this.testControllers2 = result;
