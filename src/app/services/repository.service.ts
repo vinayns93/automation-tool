@@ -19,7 +19,7 @@ export class RepositoryService {
    }
    
    getRepositories():Observable<Repository[]>{
-     return this.httpClient.get(this.apiUrl+'/api/Repository/GetAllRepository')
+     return this.httpClient.get(this.apiUrl+'/Repository/GetAllRepository')
                 .pipe(
                   map(res=>res as Repository[]),
                   catchError(this.errorHandle)

@@ -20,7 +20,14 @@
                       <input *ngSwitchCase="'xpathQuery_PropertyName'" pInputText type="text" style="width:80%;" (input)="re.filter($event.target.value, col.field, 'contains')">
                       <input *ngSwitchCase="'propertyValue'" pInputText type="text" style="width:80%;" (input)="re.filter($event.target.value, col.field, 'contains')">
                       <input *ngSwitchCase="'tagName'" pInputText type="text" style="width:80%;" (input)="re.filter($event.target.value, col.field, 'contains')">
-                      <input *ngSwitchCase="'featureName'" pInputText type="text" style="width:80%;" (input)="re.filter($event.target.value, col.field, 'contains')">
+                      <input *ngSwitchCase="'module'" pInputText type="text" style="width:80%;" (input)="re.filter($event.target.value, col.field, 'contains')">
+                      <input *ngSwitchCase="'statusID'" pInputText type="text" style="width:80%;" (input)="re.filter($event.target.value, col.field, 'contains')">
+                      <input *ngSwitchCase="'cudStatusID'" pInputText type="text" style="width:80%;" (input)="re.filter($event.target.value, col.field, 'contains')">
+                      <input *ngSwitchCase="'isLocked'" pInputText type="text" style="width:80%;" (input)="re.filter($event.target.value, col.field, 'contains')">
+                      <input *ngSwitchCase="'lockedByUser'" pInputText type="text" style="width:80%;" (input)="re.filter($event.target.value, col.field, 'contains')">
+                      <input *ngSwitchCase="'createdOn'" pInputText type="text" style="width:80%;" (input)="re.filter($event.target.value, col.field, 'contains')">
+                      <input *ngSwitchCase="'updatedOn'" pInputText type="text" style="width:80%;" (input)="re.filter($event.target.value, col.field, 'contains')">
+                      <input *ngSwitchCase="'userId'" pInputText type="text" style="width:80%;" (input)="re.filter($event.target.value, col.field, 'contains')">
                   </th>
               </tr>
           </ng-template>
@@ -31,7 +38,14 @@
                   <td>{{rs.xpathQuery_PropertyName}}</td>
                   <td>{{rs.propertyValue}}</td>
                   <td>{{rs.tagName}}</td>
-                  <td>{{rs.featureName}}</td>
+                  <td>{{rs.module}}</td>
+                  <td>{{rs.statusID}}</td>
+                  <td>{{rs.cudStatusID}}</td>
+                  <td>{{rs.isLocked}}</td>
+                  <td>{{rs.lockedByUser}}</td>
+                  <td>{{rs.createdOn}}</td>
+                  <td>{{rs.updatedOn}}</td>
+                  <td>{{rs.userId}}</td>
                   <td style="text-align:center">
                    <button pButton type="button" style="background-color: #100699 !important;margin-right: 5px;" icon="pi pi-pencil" class="ui-button-success ui-button-raised" (click)="onRowEditInit(rs.id)"></button>
                    <button pButton type="button" icon="pi pi-times" class="ui-button-danger" (click)="deleteRepository(rs.id)"></button>

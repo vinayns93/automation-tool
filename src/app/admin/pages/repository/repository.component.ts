@@ -27,11 +27,18 @@ export class RepositoryComponent implements OnInit {
       { field: 'xpathQuery_PropertyName', header: 'XPathQuery' },
       { field: 'propertyValue', header: 'Property Value' },
       { field: 'tagName', header: 'Tag Name' },
-      { field: 'featureName', header: 'Feature Name' },
-      { field: 'actions', header: 'Actions' }
+      { field: 'module', header: 'Module' },
+      { field: 'statusID', header: 'Status ID' },
+      { field: 'cudStatusID', header: 'Cud Status ID' },
+      { field: 'isLocked', header: 'Is Locked' },
+      { field: 'lockedByUser', header: 'Locked By User' },
+      { field: 'createdOn', header: 'Created On' },
+      { field: 'updatedOn', header: 'Updated On' },
+      { field: 'userId', header: 'User Id' },
+      { field: 'actions', header: 'Actions' },
   ];
   }
-
+  
   getRepositories(){
     this.service.getRepositories()
     .subscribe((result: any)=>{
