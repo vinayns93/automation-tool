@@ -13,6 +13,11 @@
             <div class="col-lg-12 col-md-12">
                 <p-table #tt [loading]="loading" [scrollable]="true" scrollHeight="500px" 
                 [value]="testControllers3" sortMode="multiple" [responsive]="true">
+                <ng-template pTemplate="colgroup" let-columns>
+                    <colgroup>
+                        <col *ngFor="let col of columns" style="width:200px">
+                    </colgroup>
+                </ng-template>
                     <ng-template pTemplate="header">
                         <tr>
                             <th *ngFor="let col of selectedController3Cols" [pSortableColumn]="col.field">
@@ -20,7 +25,7 @@
                                 <p-sortIcon [field]="col.field"></p-sortIcon>
                             </th>
                         </tr>
-                        <tr>
+                        <!-- <tr>
                             <th *ngFor="let col of columns" [ngSwitch]="col.field">
                                 <input *ngSwitchCase="'vmid'" pInputText type="text"
                                     (input)="tt.filter($event.target.value, col.field, 'contains')">
@@ -29,7 +34,7 @@
                                 <input *ngSwitchCase="'exec'" pInputText type="text"
                                     (input)="tt.filter($event.target.value, col.field, 'contains')">
                             </th>
-                        </tr>
+                        </tr> -->
                     </ng-template>
                     <ng-template pTemplate="body" let-controller3>
                         <tr>                           
@@ -72,6 +77,11 @@
                 <p-table #tt1 [loading]="loading" [scrollable]="true" scrollHeight="500px" [value]="testControllers1"
                     sortMode="multiple" [columns]="selectedController1Cols" [paginator]="true" [rows]="10"
                     [responsive]="true">
+                    <ng-template pTemplate="colgroup" let-columns>
+                        <colgroup>
+                            <col *ngFor="let col of columns" style="width:200px">
+                        </colgroup>
+                    </ng-template>
                     <ng-template pTemplate="header" let-columns>
                         <tr>
                             <th *ngFor="let col of columns" [pSortableColumn]="col.field">
@@ -79,7 +89,7 @@
                                 <p-sortIcon [field]="col.field"></p-sortIcon>
                             </th>
                         </tr>
-                        <tr>
+                        <!-- <tr>
                             <th *ngFor="let col of columns" [ngSwitch]="col.field">
                                 <input *ngSwitchCase="'slno'" pInputText type="text" style="width:80%;"
                                     (input)="tt1.filter($event.target.value, col.field, 'contains')">
@@ -94,7 +104,7 @@
                                 <input *ngSwitchCase="'execute'" pInputText type="text" style="width:80%;"
                                     (input)="tt1.filter($event.target.value, col.field, 'contains')">
                             </th>
-                        </tr>
+                        </tr> -->
                     </ng-template>
                     <ng-template pTemplate="body" let-controller1>
                         <tr>
@@ -131,11 +141,16 @@
                     [(ngModel)]="selectedController2Cols"></p-multiSelect>
             </div>
         </div>
-        <div class="row">
-            <div class="col-lg-12 col-md-12">
-                <p-table #tt2 [loading]="loading" [scrollable]="true" scrollHeight="500px" [responsive]="true"
+        <!-- <div class="row"> -->
+            <!-- <div class="col-lg-12 col-md-12"> -->
+                <p-table #tt2 [loading]="loading" [scrollable]="true" scrollHeight="500px"
                     [value]="testControllers2" sortMode="multiple" [columns]="selectedController2Cols"
                     [paginator]="true" [rows]="10">
+                    <ng-template pTemplate="colgroup" let-columns>
+                        <colgroup>
+                            <col *ngFor="let col of columns" style="width:200px">
+                        </colgroup>
+                    </ng-template>
                     <ng-template pTemplate="header" let-columns>
                         <tr>
                             <th *ngFor="let col of columns" [pSortableColumn]="col.field">
@@ -143,7 +158,7 @@
                                 <p-sortIcon [field]="col.field"></p-sortIcon>
                             </th>
                         </tr>
-                        <tr>
+                        <!-- <tr>
                             <th *ngFor="let col of columns" [ngSwitch]="col.field">
                                 <input *ngSwitchCase="'sno'" pInputText type="text" style="width:80%;"
                                     (input)="tt2.filter($event.target.value, col.field, 'contains')">
@@ -170,7 +185,7 @@
                                 <input *ngSwitchCase="'testScriptDescription'" pInputText type="text" style="width:80%;"
                                     (input)="tt2.filter($event.target.value, col.field, 'contains')">
                             </th>
-                        </tr>
+                        </tr> -->
                     </ng-template>
                     <ng-template pTemplate="body" let-controller2>
                         <tr>
@@ -190,8 +205,8 @@
                         </tr>
                     </ng-template>
                 </p-table>
-            </div>
-        </div>
+            <!-- </div> -->
+        <!-- </div> -->
 
         <button class="btn btn-primary pull-right" style="margin-right:27px"
             [routerLink]="['/table-list/testcontroller2/add']">

@@ -1,29 +1,33 @@
 <div class="col-md-12">
     <div class="row light-blue">
         <div class="col-md-12 col-lg-12">
-           <h5 class="admin-page-header"> TEST DATA</h5>
+            <h5 class="admin-page-header"> TEST DATA</h5>
         </div>
     </div>
     <div class="row align-items-center light-blue">
         <div class="col-md-3 col-lg-3">
             <label class="pull-right">Choose the Columns</label>
         </div>
-            <div class="col-md-3 col-lg-3">
-             <p-multiSelect (onChange)="loadTestDataColumns($event)" [options]="columns" [(ngModel)]="cols"></p-multiSelect>
+        <div class="col-md-3 col-lg-3">
+            <p-multiSelect (onChange)="loadTestDataColumns($event)" [options]="columns" [(ngModel)]="cols">
+            </p-multiSelect>
         </div>
         <div class="col-md-6 col-lg-6 right-align">
-            <button class="btn btn-primary pull-right" style="margin-right:27px;font-size: 0.5rem;" 
-            [routerLink]="['/admin/keywords/add']"> 
+            <button class="btn btn-primary pull-right" style="margin-right:27px;font-size: 0.5rem;"
+                [routerLink]="['/admin/keywords/add']">
                 <i class="now-ui-icons ui-1_simple-add"></i> ADD NEW TESTDATA</button>
-         </div>
+        </div>
     </div>
     <div class="row">
         <div class="col-md-12 col-lg-12">
             <ng-container *ngIf="tableColumns.length != 0">
-                <p-table #dt 
-                [loading]="loading" [value]="testData" 
-                [paginator]="true" [rows]="20" sortMode="multiple"
-                 [dataKey]="groupField">
+                <p-table #dt [loading]="loading" [value]="testData" [paginator]="true" [rows]="20" sortMode="multiple"
+                    [dataKey]="groupField">
+                    <ng-template pTemplate="colgroup" let-columns>
+                        <colgroup>
+                            <col *ngFor="let col of tableColumns" style="width:200px">
+                        </colgroup>
+                    </ng-template>
                     <ng-template pTemplate="header">
                         <tr>
                             <th *ngFor="let col of tableColumns" [pSortableColumn]="col.field">
@@ -33,12 +37,13 @@
                             <th>Actions</th>
                         </tr>
                     </ng-template>
-                    <ng-template pTemplate="body" let-rowData let-rowIndex="rowIndex" 
-                    let-expanded="expanded" let-columns="columns">
+                    <ng-template pTemplate="body" let-rowData let-rowIndex="rowIndex" let-expanded="expanded"
+                        let-columns="columns">
                         <tr class="ui-widget-header" *ngIf="rowGroupMetadata[rowData[groupField]].index === rowIndex">
                             <td [attr.colspan]="tableColumns.length + 1">
                                 <a href="#" [pRowToggler]="rowData">
-                                    <i [ngClass]="expanded ? 'fa fa-fw fa-chevron-circle-down' : 'fa fa-fw fa-chevron-circle-right'"></i>
+                                    <i
+                                        [ngClass]="expanded ? 'fa fa-fw fa-chevron-circle-down' : 'fa fa-fw fa-chevron-circle-right'"></i>
                                     <span>{{rowData[groupField]}}</span>
                                 </a>
                             </td>
@@ -59,8 +64,11 @@
                                 {{rowData[col.field]}}
                             </td>
                             <td *ngIf="rowData['iterations'] != 0" class="center-align">
-                                <button pButton type="button" style="margin-right: 5px;" icon="pi pi-pencil" class="rounded-button edit-control" (click)="onRowEditInit(rowData.id, rowData.userId)"></button>
-                                <button pButton type="button" icon="pi pi-times" class="rounded-button delete-control" (click)="deleteKeyword(rowData.id)"></button>
+                                <button pButton type="button" style="margin-right: 5px;" icon="pi pi-pencil"
+                                    class="rounded-button edit-control"
+                                    (click)="onRowEditInit(rowData.id, rowData.userId)"></button>
+                                <button pButton type="button" icon="pi pi-times" class="rounded-button delete-control"
+                                    (click)="deleteKeyword(rowData.id)"></button>
                             </td>
                         </tr>
                     </ng-template>
