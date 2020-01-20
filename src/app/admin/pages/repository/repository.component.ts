@@ -1,7 +1,10 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, OnInit, ViewChild } from '@angular/core';
 import { Repository } from '../../../core';
 import { RepositoryService } from '../../../services/repository.service';
 import { Router } from '@angular/router';
+import { SelectItem } from 'primeng/api/selectitem';
+import { Table } from 'primeng/table';
+import { repositoryColumns } from '../../../core/constants/repository';
 
 @Component({
   selector: 'app-repository',
@@ -10,48 +13,46 @@ import { Router } from '@angular/router';
   providers: [RepositoryService]
 })
 export class RepositoryComponent implements OnInit {
-  
   repositories: Repository[];
-  cols:any[];
-  loading:boolean = true;
-  constructor(private service: RepositoryService,private router:Router){
+  cols: any[];
+  loading: boolean = false;
+  tableColumns: any[];
+  columns: SelectItem[];
 
-  }
+  @ViewChild(Table, {static: false}) dt: Table;
+  
+  constructor(private service: RepositoryService,private router:Router){ }
 
   ngOnInit(): void {
-    this.loading = true;
-    this.getRepositories();
-    this.cols=[
-      { field: 'logicalName', header: 'Logical Name' },
-      { field: 'findMethod', header: 'Find Method' },
-      { field: 'xpathQuery_PropertyName', header: 'XPathQuery' },
-      { field: 'propertyValue', header: 'Property Value' },
-      { field: 'tagName', header: 'Tag Name' },
-      { field: 'module', header: 'Module' },
-      { field: 'statusID', header: 'Status ID' },
-      { field: 'cudStatusID', header: 'Cud Status ID' },
-      { field: 'isLocked', header: 'Is Locked' },
-      { field: 'lockedByUser', header: 'Locked By User' },
-      { field: 'createdOn', header: 'Created On' },
-      { field: 'updatedOn', header: 'Updated On' },
-      { field: 'userId', header: 'User Id' },
-      { field: 'actions', header: 'Actions' },
-  ];
+    var self = this;
+    self.getRepositories();
+    self.columns = repositoryColumns;
+    self.tableColumns = [];
   }
   
+  LoadRepositoryColumns(event) {
+    var self = this;
+    self.loading = true;
+    self.tableColumns = [];
+    if (event.value != undefined) {
+      event.value.forEach(col => {
+        self.tableColumns.push(col);
+      });
+    }
+    self.loading = false;
+  }
+
   getRepositories(){
     this.service.getRepositories()
-    .subscribe((result: any)=>{
-      //console.log(result);
+    .subscribe((result: Repository[])=>{
       this.repositories = result;
-      this.loading=false;
+        this.dt.reset();
+        this.loading = false;
     },
      error =>{
        console.log(error.message);
      },
-     ()=>{
-       console.log(this.repositories);
-     })
+     ()=>{ })
   }
 
   deleteRepository(id:number){
@@ -63,8 +64,8 @@ export class RepositoryComponent implements OnInit {
     }
   }
 
-  onRowEditInit(id:number){
-    this.router.navigate(['/repository/edit', id]);
+  onRowEditInit(id:number,  userId: number){
+    this.router.navigate(['admin/repository/edit', id, userId]);
   }
   
 }

@@ -3,8 +3,8 @@ import { Routes, RouterModule } from '@angular/router';
 import { TestDataComponent, TestScriptsComponent, RepositoryComponent, KeywordsComponent, FeatureComponent } from './pages';
 import { AddKeywordComponent } from './pages/keywords/add-keyword/add-keyword.component';
 import { EditKeywordComponent } from './pages/keywords/edit-keyword/edit-keyword.component';
-
-
+import { EditRepositoryComponent } from './pages/repository/edit-repository/edit-repository.component';
+import { AddRepositoryComponent } from './pages/repository/add-repository/add-repository.component';
 
 export const adminRoutes: Routes = [
       { path: 'admin/testdata', component: TestDataComponent },
@@ -14,6 +14,8 @@ export const adminRoutes: Routes = [
       { path: 'admin/feature', component: FeatureComponent },
       { path: 'admin/keywords/add', component: AddKeywordComponent},
       { path: 'admin/keywords/edit/:id/:userId', component: EditKeywordComponent },
+      { path: 'admin/repository/add', component: AddRepositoryComponent},
+      { path: 'admin/repository/edit/:id/:userId', component: EditRepositoryComponent },
       { path: '**', redirectTo: 'admin/testscripts', pathMatch: 'full' }
 ];
 

@@ -20,15 +20,15 @@ export class KeywordsComponent implements OnInit {
   tableColumns: any[];
   columns: SelectItem[];
 
-  @ViewChild(Table, {static: false}) dt: Table;
-  
-  constructor(private service: KeywordService,private router:Router) { }
+  @ViewChild(Table, { static: false }) dt: Table;
+
+  constructor(private service: KeywordService, private router: Router) { }
 
   ngOnInit() {
     var self = this;
     self.getKeywords();
-  self.columns = keywordsColumns;
-  self.tableColumns = [];
+    self.columns = keywordsColumns;
+    self.tableColumns = [];
   }
 
   LoadKeywordsColumns(event) {
@@ -46,16 +46,16 @@ export class KeywordsComponent implements OnInit {
   getKeywords() {
     var self = this;
     self.service.getKeywords()
-    .subscribe((result: Keywords[])=>{
-      //console.log(result);
-      self.keywords = result;
-      this.dt.reset();
-      self.loading = false;
-    },
-     error =>{
-       console.log(error.message);
-     },
-     ()=>{ });
+      .subscribe((result: Keywords[]) => {
+        //console.log(result);
+        self.keywords = result;
+        this.dt.reset();
+        self.loading = false;
+      },
+        error => {
+          console.log(error.message);
+        },
+        () => { });
   }
 
   deleteKeyword(id: number) {
@@ -67,7 +67,7 @@ export class KeywordsComponent implements OnInit {
       }, 2200)
     }
   }
-  onRowEditInit(id:number, userId: number){
+  onRowEditInit(id: number, userId: number) {
     var self = this;
     self.router.navigate(['/admin/keywords/edit', id, userId]);
   }
