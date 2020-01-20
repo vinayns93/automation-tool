@@ -1,10 +1,5 @@
 <div class="col-md-12 col-lg-12">
-    <div class="row light-blue">
-        <div class="col-md-12 col-lg-12">
-           <h5 class="admin-page-header"> FEATURE</h5>
-        </div>
-    </div>
-    <div class="row light-blue">
+    <div class="row ">
         <div class="col-md-12 col-lg-12">
             <p-tabView>
                 <p-tabPanel header="BrowserController">
@@ -27,6 +22,7 @@
                         <i class="now-ui-icons ui-1_simple-add"></i> NEW BROWSER CONTROLLER</button>
                          </div>
                         </div>
+                    </div>
                     <div class="row">
                         <div class="col-lg-12 col-md-12">
                             <ng-container *ngIf="selectedBrowserControllerCols.length != 0">
@@ -80,12 +76,9 @@
                                 <div class="col-md-12 col-lg-12 center-align">
                                     <h4 class="center-align none-selected">No Columns Selected</h4>
                                 </div>
-                            </div>
-                        </ng-container>
+                            </ng-container>
                         </div>
                     </div>
-            
-                    
                 </p-tabPanel>
                 <p-tabPanel header="ModuleController">
                     <div class="row controller-header">
@@ -107,6 +100,7 @@
                         <i class="now-ui-icons ui-1_simple-add"></i> NEW MODULE CONTROLLER</button>
                          </div>
                         </div>
+                    </div>
                     <div class="row">
                         <div class="col-lg-12 col-md-12">
                             <ng-container *ngIf="selectedModuleControllerCols.length != 0">
@@ -148,19 +142,19 @@
                                         <td *ngFor="let col of selectedModuleControllerCols">
                                             
                                                 {{controller1[col.field]}}
-                                            
-                                        </td>
-                                        <td class="center-align" style="width: 10em !important;">
-                                            <button pButton type="button"
-                                            style="margin-right: 5px;"
-                                                    icon="pi pi-pencil" class="rounded-button edit-control"
+                                            </td>
+                                            <td class="center-align" style="width: 10em !important;">
+                                                <button pButton type="button"
+                                                    style="background-color: #100699 !important;margin-right: 5px;"
+                                                    icon="pi pi-pencil" class="ui-button-success ui-button-raised"
                                                     (click)="onRowEditController1(controller1.id)"></button>
-                                                <button pButton type="button" icon="pi pi-times" class="rounded-button delete-control"
+                                                <button pButton type="button" icon="pi pi-times"
+                                                    class="ui-button-danger"
                                                     (click)="deleteController1(controller1.id)"></button>
-                                        </td>
-                                    </tr>
-                                </ng-template>
-                            </p-table>
+                                            </td>
+                                        </tr>
+                                    </ng-template>
+                                </p-table>
                             </ng-container>
                             <ng-container *ngIf="selectedModuleControllerCols.length == 0">
                                 <div class="row">
@@ -192,6 +186,7 @@
                         <i class="now-ui-icons ui-1_simple-add"></i> NEW TEST CONTROLLER</button>
                          </div>
                         </div>
+                    </div>
                     <div class="row">
                         <div class="col-lg-12 col-md-12">
                             <ng-container *ngIf="selectedTestControllerCols.length != 0">
@@ -245,19 +240,19 @@
                                         <td *ngFor="let col of selectedTestControllerCols">
                                             
                                                 {{controller2[col.field]}}
-                                            
-                                        </td>
-                                        <td class="center-align" style="width: 10em !important;">
-                                            <button pButton type="button"
-                                                    style="margin-right: 5px"
-                                                    icon="pi pi-pencil" class="rounded-button edit-control"
+                                            </td>
+                                            <td class="center-align" style="width: 10em !important;">
+                                                <button pButton type="button"
+                                                    style="background-color: #100699 !important;margin-right: 5px;"
+                                                    icon="pi pi-pencil" class="ui-button-success ui-button-raised"
                                                     (click)="onRowEditController2(controller2.id)"></button>
-                                                <button pButton type="button" icon="pi pi-times" class="rounded-button delete-control"
+                                                <button pButton type="button" icon="pi pi-times"
+                                                    class="ui-button-danger"
                                                     (click)="deleteController2(controller2.id)"></button>
-                                        </td>                            
-                                    </tr>
-                                </ng-template>
-                            </p-table>
+                                            </td>
+                                        </tr>
+                                    </ng-template>
+                                </p-table>
                             </ng-container>
                             <ng-container *ngIf="selectedTestControllerCols.length == 0">
                                 <div class="row">
@@ -268,10 +263,8 @@
                             </ng-container>
                         </div>
                     </div>
-            
-                    
                 </p-tabPanel>
             </p-tabView>
-            </div>
-            </div>
+        </div>
+    </div>
 </div>

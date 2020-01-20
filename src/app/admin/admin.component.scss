@@ -49,8 +49,12 @@ mat-sidenav-container {
     font-weight: bolder;
 }
 
-th, td {
+th {
     text-align: center;
+    font-size: 0.8em;
+  }
+  td {
+    text-align: left;
     font-size: 0.8em;
   }
 
