@@ -11,6 +11,8 @@ import { FeatureComponent } from './pages/feature/feature.component';
 import { RouterModule, Routes } from '@angular/router';
 import { MultiSelectModule } from 'primeng/multiselect';
 import { TableModule } from 'primeng/table';
+import { TabViewModule } from 'primeng/tabview';
+
 import { ButtonModule } from 'primeng/button';
 import { AddKeywordComponent } from './pages/keywords/add-keyword/add-keyword.component';
 import { EditKeywordComponent } from './pages/keywords/edit-keyword/edit-keyword.component';
@@ -50,7 +52,8 @@ const routes: Routes = [
     TableModule,
     ButtonModule,
     ReactiveFormsModule,
-    FormsModule
+    FormsModule,
+    TabViewModule
   ],
   schemas: [
     CUSTOM_ELEMENTS_SCHEMA

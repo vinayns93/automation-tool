@@ -27,11 +27,11 @@ export class RepositoryEditComponent implements OnInit {
   ngOnInit() {
     this.id = +this.route.snapshot.paramMap.get('id');
     console.log(this.id);
-    this.getRepositorybyId(this.id);
+    // this.getRepositorybyId(this.id);
   }
 
-  getRepositorybyId(num:number) {
-   this.service.getRepository(num)
+  getRepositorybyId(num:number, userid: number) {
+   this.service.getRepository(num, userid)
    .subscribe((result)=>{
     console.log(result);
     this.repository = result;
