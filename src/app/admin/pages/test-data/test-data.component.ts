@@ -1,4 +1,8 @@
 import { Component, OnInit } from '@angular/core';
+import { TestData, TestDataService } from '../../../core';
+import { SelectItem } from 'primeng/api/selectitem';
+import { testDataColumns } from '../../../core/constants/testdata';
+import { SortEvent } from 'primeng/api/sortevent';
 
 @Component({
   selector: 'app-test-data',
@@ -7,9 +11,96 @@ import { Component, OnInit } from '@angular/core';
 })
 export class TestDataComponent implements OnInit {
 
-  constructor() { }
+  testData: TestData[];
+  cols: any[];
+  loading: boolean = false;
+  tableColumns: any[];
+  columns: SelectItem[];
+  rowGroupMetadata: any;
+  groupField = "tcid";
+  first;
+
+  constructor(private service: TestDataService) { }
 
   ngOnInit() {
+    this.columns = testDataColumns;
+    this.tableColumns = [];
+    this.getTestdata();
   }
 
+  onSort(){
+    this.updateRowGroupMetaData();
+  }
+
+  customSort(event: SortEvent){
+    event.data.sort((a, b) => {
+      let result = 0;
+      let groupField_a = (this.groupField == null) ? null : a[this.groupField];
+      let groupField_b = (this.groupField == null) ? null : b[this.groupField];
+      let sortField_a = a[event.field];
+      let sortField_b = b[event.field];
+      if(groupField_a == groupField_b || this.groupField == event.field) {
+        if(sortField_a == null && sortField_b != null)
+          result = -1;
+        else if(sortField_a != null && sortField_b == null)
+          result = 1;
+        else if(sortField_a == null && sortField_b == null)
+          result = 0;
+        else if(typeof sortField_a === 'string' && typeof sortField_b === 'string')
+          result = sortField_a.localeCompare(sortField_b);
+        else
+          result = (sortField_a < sortField_b) ? -1 : (sortField_a == sortField_b) ? 0 : 1;
+      }
+      return (event.order * result);
+    });
+  }
+
+  loadTestDataColumns(event){
+    var self = this;
+    self.loading = true;
+    self.tableColumns = [];
+    if (event.value != undefined) {
+      event.value.forEach(col => {
+        self.tableColumns.push(col);
+      });
+    }
+    self.loading = false;
+  }
+
+  getTestdata() {
+    var self = this;
+    self.service.getTestData()
+    .subscribe((result: TestData[])=>{
+      //console.log(result);
+      self.testData = result;
+      self.loading = false;
+      this.updateRowGroupMetaData();
+    },
+     error =>{
+       console.log(error.message);
+     },
+     ()=>{ });
+  }
+
+  updateRowGroupMetaData() {
+    var self = this;
+    self.rowGroupMetadata = {};
+    if(self.testData){
+      for (let i = 0; i < self.testData.length; i++) {
+        let rowData = self.testData[i];
+        let groupVal = rowData[self.groupField];
+        if(i == 0){
+          self.rowGroupMetadata[groupVal] = { index: 0, size: 1 };
+        }
+        else {
+          let previousRowData = self.testData[i - 1];
+          let previousRowGroup = previousRowData[self.groupField];
+          if(groupVal == previousRowGroup)
+            self.rowGroupMetadata[groupVal].size++;
+          else
+            self.rowGroupMetadata[groupVal] = { index: i, size: 1};
+        }
+        }
+    }
+  }
 }

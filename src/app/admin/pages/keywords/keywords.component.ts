@@ -31,7 +31,7 @@ export class KeywordsComponent implements OnInit {
   self.tableColumns = [];
   }
 
-  LoadKeywordsColumns(event) {
+  loadKeywordsColumns(event) {
     var self = this;
     self.loading = true;
     self.tableColumns = [];
