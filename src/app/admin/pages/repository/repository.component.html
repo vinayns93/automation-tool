@@ -32,6 +32,17 @@
                             </th>
                             <th>Actions</th>
                         </tr>
+                        <tr>
+                            <th *ngFor="let col of tableColumns" [ngSwitch]="col.field">
+                                <input *ngSwitchCase="'logicalName'" pInputText type="text" style="width:80%;" (input)="re.filter($event.target.value, col.field, 'contains')">
+                                <input *ngSwitchCase="'findMethod'" pInputText type="text" style="width:80%;" (input)="re.filter($event.target.value, col.field, 'contains')">
+                                <input *ngSwitchCase="'xpathQuery_PropertyName'" pInputText type="text" style="width:80%;" (input)="re.filter($event.target.value, col.field, 'contains')">
+                                <input *ngSwitchCase="'propertyValue'" pInputText type="text" style="width:80%;" (input)="re.filter($event.target.value, col.field, 'contains')">
+                                <input *ngSwitchCase="'tagName'" pInputText type="text" style="width:80%;" (input)="re.filter($event.target.value, col.field, 'contains')">
+                                <input *ngSwitchCase="'featureName'" pInputText type="text" style="width:80%;" (input)="re.filter($event.target.value, col.field, 'contains')">
+                                <input *ngSwitchCase="'module'" pInputText type="text" style="width:80%;" (input)="re.filter($event.target.value, col.field, 'contains')">
+                            </th>
+                        </tr>
                     </ng-template>
                     <ng-template pTemplate="body" let-repositories>
                         <tr>
