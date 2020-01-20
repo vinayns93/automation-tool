@@ -1,19 +1,10 @@
 <div class="col-md-12 col-lg-12">
-    <div class="row light-blue">
-        <div class="col-md-12 col-lg-12">
-           <h5 class="admin-page-header"> FEATURE</h5>
-        </div>
-    </div>
-    <div class="row light-blue">
+    <div class="row ">
         <div class="col-md-12 col-lg-12">
             <p-tabView>
                 <p-tabPanel header="BrowserController">
-                    <div class="row light-blue">
-                        <div class="col-md-12 col-lg-12">
-                           <h5 class="admin-page-header"> BROWSER CONTROLLER</h5>
-                        </div>
-                    </div>
-                    <div class="row align-items-center light-blue">
+                   
+                    <div class="row align-items-center ">
                         <div class="col-md-3 col-lg-3">
                             <label class="pull-right">Choose the Columns</label>
                         </div>
@@ -65,10 +56,10 @@
                                         </td>
                                 <td class="center-align" style="width: 10em !important;">
                                     <button pButton type="button"
-                                    style="margin-right: 5px"
-                                                    icon="pi pi-pencil" class="rounded-button edit-control"
+                                    style="background-color: #100699 !important;margin-right: 5px;"
+                                    icon="pi pi-pencil" class="ui-button-success ui-button-raised"
                                                     (click)="onRowEditController3(controller3.id)"></button>
-                                                <button pButton type="button" icon="pi pi-times" class="rounded-button delete-control"
+                                                <button pButton type="button" icon="pi pi-times" class="ui-button-danger"
                                                     (click)="deleteController3(controller3.id)"></button>
                                 </td>        
                                     </tr>
@@ -88,12 +79,8 @@
                     
                 </p-tabPanel>
                 <p-tabPanel header="ModuleController">
-                    <div class="row light-blue">
-                        <div class="col-md-12 col-lg-12">
-                           <h5 class="admin-page-header"> MODULE CONTROLLER</h5>
-                        </div>
-                    </div>
-                    <div class="row align-items-center light-blue">
+                   
+                    <div class="row align-items-center ">
                         <div class="col-md-3 col-lg-3">
                             <label class="pull-right">Choose the Columns</label>
                         </div>
@@ -152,10 +139,10 @@
                                         </td>
                                         <td class="center-align" style="width: 10em !important;">
                                             <button pButton type="button"
-                                            style="margin-right: 5px;"
-                                                    icon="pi pi-pencil" class="rounded-button edit-control"
+                                            style="background-color: #100699 !important;margin-right: 5px;"
+                                            icon="pi pi-pencil" class="ui-button-success ui-button-raised"
                                                     (click)="onRowEditController1(controller1.id)"></button>
-                                                <button pButton type="button" icon="pi pi-times" class="rounded-button delete-control"
+                                                <button pButton type="button" icon="pi pi-times" class="ui-button-danger"
                                                     (click)="deleteController1(controller1.id)"></button>
                                         </td>
                                     </tr>
@@ -176,13 +163,8 @@
                         [routerLink]="['/admin/feature/testcontroller1/add']">
                         <i class="now-ui-icons ui-1_simple-add"></i> Add</button>
                 </p-tabPanel>
-                <p-tabPanel header="TestController">
-                    <div class="row light-blue">
-                        <div class="col-md-12 col-lg-12">
-                           <h5 class="admin-page-header"> TEST CONTROLLER</h5>
-                        </div>
-                    </div>
-                    <div class="row align-items-center light-blue">
+                <p-tabPanel header="TestController">                   
+                    <div class="row align-items-center ">
                         <div class="col-md-3 col-lg-3">
                             <label class="pull-right">Choose the Columns</label>
                         </div>
@@ -253,10 +235,10 @@
                                         </td>
                                         <td class="center-align" style="width: 10em !important;">
                                             <button pButton type="button"
-                                                    style="margin-right: 5px"
-                                                    icon="pi pi-pencil" class="rounded-button edit-control"
+                                            style="background-color: #100699 !important;margin-right: 5px;"
+                                            icon="pi pi-pencil" class="ui-button-success ui-button-raised"
                                                     (click)="onRowEditController2(controller2.id)"></button>
-                                                <button pButton type="button" icon="pi pi-times" class="rounded-button delete-control"
+                                                <button pButton type="button" icon="pi pi-times" class="ui-button-danger"
                                                     (click)="deleteController2(controller2.id)"></button>
                                         </td>                            
                                     </tr>
