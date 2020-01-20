@@ -31,7 +31,7 @@
                     <ng-template pTemplate="header">
                         <tr>
                             <th *ngFor="let col of tableColumns" [pSortableColumn]="col.field">
-                                {{col.header}}
+                                {{col.header}}s
                                 <p-sortIcon [field]="col.field"></p-sortIcon>
                             </th>
                             <th>Actions</th>
@@ -40,7 +40,7 @@
                     <ng-template pTemplate="body" let-rowData let-rowIndex="rowIndex" let-expanded="expanded"
                         let-columns="columns">
                         <tr class="ui-widget-header" *ngIf="rowGroupMetadata[rowData[groupField]].index === rowIndex">
-                            <td [attr.colspan]="tableColumns.length + 1">
+                            <td [attr.colspan]="tableColumns.length + 1" style="text-align: left;">
                                 <a href="#" [pRowToggler]="rowData">
                                     <i
                                         [ngClass]="expanded ? 'fa fa-fw fa-chevron-circle-down' : 'fa fa-fw fa-chevron-circle-right'"></i>
