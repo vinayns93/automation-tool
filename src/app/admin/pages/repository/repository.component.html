@@ -1,63 +1,57 @@
 <div class="col-md-12">
-    <!-- <div class="card">
-      <div class="card-header"> -->
-        <h5> Repositories</h5>                 
-      <!-- </div>
-      <div class="card-body">
-       -->
-        <p-table #re [loading]="loading" [value]="repositories" sortMode="multiple" [columns]="cols" [paginator]="true" [rows]="10">
-          <ng-template pTemplate="header" let-columns>
-              <tr>
-                  <th *ngFor="let col of columns" pSortableColumn="col.field" pTooltip="col.header">
-                      {{col.header}}
-                      <p-sortIcon [field]="col.field"></p-sortIcon>
-                  </th>
-              </tr>
-              <tr>
-                  <th *ngFor="let col of columns" [ngSwitch]="col.field">
-                      <input *ngSwitchCase="'logicalName'" pInputText type="text" style="width:80%;" (input)="re.filter($event.target.value, col.field, 'contains')">
-                      <input *ngSwitchCase="'findMethod'" pInputText type="text" style="width:80%;" (input)="re.filter($event.target.value, col.field, 'contains')">
-                      <input *ngSwitchCase="'xpathQuery_PropertyName'" pInputText type="text" style="width:80%;" (input)="re.filter($event.target.value, col.field, 'contains')">
-                      <input *ngSwitchCase="'propertyValue'" pInputText type="text" style="width:80%;" (input)="re.filter($event.target.value, col.field, 'contains')">
-                      <input *ngSwitchCase="'tagName'" pInputText type="text" style="width:80%;" (input)="re.filter($event.target.value, col.field, 'contains')">
-                      <input *ngSwitchCase="'module'" pInputText type="text" style="width:80%;" (input)="re.filter($event.target.value, col.field, 'contains')">
-                      <input *ngSwitchCase="'statusID'" pInputText type="text" style="width:80%;" (input)="re.filter($event.target.value, col.field, 'contains')">
-                      <input *ngSwitchCase="'cudStatusID'" pInputText type="text" style="width:80%;" (input)="re.filter($event.target.value, col.field, 'contains')">
-                      <input *ngSwitchCase="'isLocked'" pInputText type="text" style="width:80%;" (input)="re.filter($event.target.value, col.field, 'contains')">
-                      <input *ngSwitchCase="'lockedByUser'" pInputText type="text" style="width:80%;" (input)="re.filter($event.target.value, col.field, 'contains')">
-                      <input *ngSwitchCase="'createdOn'" pInputText type="text" style="width:80%;" (input)="re.filter($event.target.value, col.field, 'contains')">
-                      <input *ngSwitchCase="'updatedOn'" pInputText type="text" style="width:80%;" (input)="re.filter($event.target.value, col.field, 'contains')">
-                      <input *ngSwitchCase="'userId'" pInputText type="text" style="width:80%;" (input)="re.filter($event.target.value, col.field, 'contains')">
-                  </th>
-              </tr>
-          </ng-template>
-          <ng-template pTemplate="body" let-rs>
-              <tr>
-                  <td>{{rs.logicalName}}</td>
-                  <td>{{rs.findMethod}}</td>
-                  <td>{{rs.xpathQuery_PropertyName}}</td>
-                  <td>{{rs.propertyValue}}</td>
-                  <td>{{rs.tagName}}</td>
-                  <td>{{rs.module}}</td>
-                  <td>{{rs.statusID}}</td>
-                  <td>{{rs.cudStatusID}}</td>
-                  <td>{{rs.isLocked}}</td>
-                  <td>{{rs.lockedByUser}}</td>
-                  <td>{{rs.createdOn}}</td>
-                  <td>{{rs.updatedOn}}</td>
-                  <td>{{rs.userId}}</td>
-                  <td style="text-align:center">
-                   <button pButton type="button" style="background-color: #100699 !important;margin-right: 5px;" icon="pi pi-pencil" class="ui-button-success ui-button-raised" (click)="onRowEditInit(rs.id)"></button>
-                   <button pButton type="button" icon="pi pi-times" class="ui-button-danger" (click)="deleteRepository(rs.id)"></button>
-                  </td>
-              </tr>
-          </ng-template>
-      </p-table>
-      <button class="btn btn-primary pull-right" style="margin-right:27px; font-size: 0.5rem;" 
-      [routerLink]="['/repository/add']"> 
-          <i class="now-ui-icons ui-1_simple-add"></i> Add</button>
-      <!-- </div>
+    <div class="row light-blue">
+        <div class="col-md-12 col-lg-12">
+            <h5 class="admin-page-header"> Repository</h5>
+        </div>
     </div>
-</div>
-</div> -->
+    <div class="row align-items-center light-blue">
+        <div class="col-md-3 col-lg-3">
+            <label class="pull-right">Choose the Columns</label>
+        </div>
+        <div class="col-md-3 col-lg-3">
+            <p-multiSelect (onChange)="LoadRepositoryColumns($event)" [options]="columns" [(ngModel)]="cols">
+            </p-multiSelect>
+        </div>
+        <div class="col-md-6 col-lg-6 right-align">
+            <button class="btn btn-primary pull-right" style="margin-right:27px;font-size: 0.5rem;"
+                [routerLink]="['/admin/repository/add']">
+                <i class="now-ui-icons ui-1_simple-add"></i> ADD NEW Repository</button>
+        </div>
+    </div>
+    <div class="row">
+        <div class="col-md-12 col-lg-12">
+    <ng-container *ngIf="tableColumns.length != 0">
+    <p-table #re [resizableColumns]="true" [scrollable]="true" [responsive]="true" 
+    [loading]="loading" [value]="repositories" [columns]="tableColumns" 
+    [paginator]="true" [rows]="10" sortMode="multiple"
+    [autoLayout]="true">
+    <ng-template pTemplate="header">
+        <tr>
+            <th *ngFor="let col of tableColumns" [pSortableColumn]="col.field">
+                {{col.header}}
+                <p-sortIcon [field]="col.field"></p-sortIcon>
+            </th>
+            <th>Actions</th>
+        </tr>
+    </ng-template>
+    <ng-template pTemplate="body" let-repositories>
+        <tr>
+            <td *ngFor="let col of tableColumns">
+                {{repositories[col.field]}}
+            </td>
+            <td class="center-align">
+                <button pButton type="button" style="margin-right: 5px;" icon="pi pi-pencil" class="rounded-button edit-control" (click)="onRowEditInit(repositories.id, repositories.userId)"></button>
+                <button pButton type="button" icon="pi pi-times" class="rounded-button delete-control" (click)="deleteRepository(repositories.id)"></button>
+            </td>
+        </tr>
+    </ng-template>
+    </p-table>
+    </ng-container>
+    <ng-container *ngIf="tableColumns.length == 0">
+        <div class="row">
+            <div class="col-md-12 col-lg-12 center-align">
+                <h4 class="center-align none-selected">No Columns Selected</h4>
+            </div>
+        </div>
+    </ng-container>
 </div>

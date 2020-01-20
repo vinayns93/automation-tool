@@ -26,8 +26,8 @@ export class RepositoryService {
                 );
    }
 
-   getRepository(id:number):Observable<Repository>{
-    return this.httpClient.get(this.apiUrl+'/api/Repository/GetRepositoryById/'+id)
+   getRepository(id:number, userId: number):Observable<Repository>{
+    return this.httpClient.get(this.apiUrl+'/Repository/GetRepositoryById/'+id+'/'+userId)
     .pipe(
       map(res=>res as Repository),
       catchError(this.errorHandle)

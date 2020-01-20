@@ -17,7 +17,8 @@ import { EditKeywordComponent } from './pages/keywords/edit-keyword/edit-keyword
 import { KeywordsAddComponent } from '../keywords/keywords-add/keywords-add.component';
 import { ReactiveFormsModule, FormsModule } from '@angular/forms';
 import { KeywordsEditComponent } from '../keywords/keywords-edit/keywords-edit.component';
-
+import { AddRepositoryComponent } from './pages/repository/add-repository/add-repository.component';
+import { EditRepositoryComponent } from './pages/repository/edit-repository/edit-repository.component';
 
 const routes: Routes = [
   { path: 'admin/testdata', component: TestDataComponent },
@@ -37,7 +38,9 @@ const routes: Routes = [
     TestDataComponent, 
     KeywordsComponent, 
     RepositoryComponent, 
-    FeatureComponent, AddKeywordComponent, EditKeywordComponent
+    FeatureComponent, AddKeywordComponent, 
+    EditKeywordComponent, AddRepositoryComponent, 
+    EditRepositoryComponent
   ],
   imports: [
     CommonModule,

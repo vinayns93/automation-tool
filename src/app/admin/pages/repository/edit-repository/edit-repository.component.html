@@ -1,0 +1,101 @@
+<div class="container-fluid">
+    <div class="row">
+        <div class="col-md-12 col-lg-12 center-align light-blue">
+            <h5 class="admin-page-header" style="margin-left: 20px;">
+                EDIT REPOSITORY
+            </h5>
+        </div>
+    </div>
+    <div class="row">
+        <div class="col-md-12 col-lg-12">
+            <form [formGroup]="repositoryForm" (ngSubmit)="onSubmit()">
+                <div class="row padding-bottom-1">
+                    <div class="col-md-2 col-lg-2">
+                        <label for="ID" class="pull-right">ID</label>
+                    </div>
+                    <div class="col-md-4 col-lg-4">
+                        <input type="text" name="ID" [(ngModel)]="editRepositoryObj.id" class="text form-control" formControlName="id">
+                    </div>
+                    <div class="col-md-2 col-lg-2">
+                        <label for="logicalName" class="pull-right">Logical Name</label>
+                    </div>
+                    <div class="col-md-4 col-lg-4">
+                        <input type="text" [(ngModel)]="editRepositoryObj.logicalName" name="logicalName" class="text form-control" formControlName="logicalName">
+                    </div>
+                </div>
+                <div class="row padding-bottom-1">
+                    <div class="col-md-2 col-lg-2">
+                        <label for="findMethod" class="pull-right">Find Method</label>
+                    </div>
+                    <div class="col-md-4 col-lg-4">
+                        <input type="text" [(ngModel)]="editRepositoryObj.findMethod" name="findMethod" class="text form-control" formControlName="findMethod">
+                    </div>
+                    <div class="col-md-2 col-lg-2">
+                        <label for="xpathQuery_PropertyName" class="pull-right">xpathQuery_PropertyName</label>
+                    </div>
+                    <div class="col-md-4 col-lg-4">
+                        <input type="text" [(ngModel)]="editRepositoryObj.xpathQuery_PropertyName" name="xpathQuery_PropertyName" class="text form-control" formControlName="xpathQuery_PropertyName">
+                    </div>
+                </div>
+                <div class="row padding-bottom-1">
+                    <div class="col-md-2 col-lg-2">
+                        <label for="propertyValue" class="pull-right">Property Value</label>
+                    </div>
+                    <div class="col-md-4 col-lg-4">
+                        <input type="text" [(ngModel)]="editRepositoryObj.propertyValue" name="propertyValue" class="text form-control" formControlName="propertyValue">
+                    </div>
+                    <div class="col-md-2 col-lg-2">
+                        <label for="tagName" class="pull-right">Tag Name</label>
+                    </div>
+                    <div class="col-md-4 col-lg-4">
+                        <input type="text" [(ngModel)]="editRepositoryObj.tagName" name="Run" class="text form-control" formControlName="tagName">
+                    </div>
+                </div>
+                <div class="row padding-bottom-1">
+                    <div class="col-md-2 col-lg-2">
+                        <label for="Module" class="pull-right">Module</label>
+                    </div>
+                    <div class="col-md-4 col-lg-4">
+                        <input type="text" [(ngModel)]="editRepositoryObj.module" name="Module" class="text form-control" formControlName="module">
+                    </div>
+                    <div class="col-md-2 col-lg-2">
+                        <label for="StatusID" class="pull-right">Status ID</label>
+                    </div>
+                    <div class="col-md-4 col-lg-4">
+                        <input type="text" [(ngModel)]="editRepositoryObj.statusID" name="StatusID" class="text form-control" formControlName="statusID">
+                    </div>
+                </div>
+                <div class="row padding-bottom-1">
+                    <div class="col-md-2 col-lg-2">
+                        <label for="CudStatusID" class="pull-right">Cud Status ID</label>
+                    </div>
+                    <div class="col-md-4 col-lg-4">
+                        <input type="text" [(ngModel)]="editRepositoryObj.cudStatusID" name="CudStatusID" class="text form-control" formControlName="cudStatusID">
+                    </div>
+                    <div class="col-md-2 col-lg-2">
+                        <label for="IsLocked" class="pull-right">Is Locked</label>
+                    </div>
+                    <div class="col-md-4 col-lg-4">
+                        <input type="text" [(ngModel)]="editRepositoryObj.isLocked" name="IsLocked" class="text form-control" formControlName="isLocked">
+                    </div>
+                </div>
+                <div class="row padding-bottom-1">
+                    <div class="col-md-2 col-lg-2">
+                        <label for="featureName" class="pull-right">Feature Name</label>
+                    </div>
+                    <div class="col-md-4 col-lg-4">
+                        <input type="text" [(ngModel)]="editRepositoryObj.featureName" name="featureName" class="text form-control" formControlName="featureName">
+                    </div>
+                </div>
+                <div class="row">
+                    <div class="col-md-6 col-lg-6 right-align">
+                        <input type="submit" value="Ok" class="button btn btn-primary" [disabled]="!repositoryForm.valid">
+                    </div>
+                    <div class="col-md-6 col-lg-6">
+                          <input type="button" value="Cancel" class="button btn pull-left" [routerLink]="['/admin/repository']">
+                    </div>
+                </div>
+            </form>
+        </div>
+    </div>
+  </div>
