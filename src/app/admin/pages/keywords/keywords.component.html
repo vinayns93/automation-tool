@@ -29,6 +29,11 @@
                 [loading]="loading" [value]="keywords" [columns]="tableColumns" 
                 [paginator]="true" [rows]="10" sortMode="multiple"
                 [autoLayout]="true">
+                <ng-template pTemplate="colgroup" let-columns>
+                    <colgroup>
+                        <col *ngFor="let col of columns" style="width:200px">
+                    </colgroup>
+                </ng-template>
                     <ng-template pTemplate="header">
                         <tr>
                             <th *ngFor="let col of tableColumns" [pSortableColumn]="col.field">
