@@ -1,7 +1,7 @@
 import { Component, OnInit, ViewEncapsulation } from '@angular/core';
-import { TestController3 } from '../../../models/testcontroller3.model';
-import { TestController1 } from '../../../models/testcontroller1.model';
-import { TestController2 } from '../../../models/testcontroller2.model';
+import { BrowserController } from '../../../core/models/feature/browser-controller/browser-controller';
+import { ModuleController } from '../../../core/models/feature/module-controller/module-controller';
+import { TestController } from '../../../core/models/feature/test-controller/test-controller';
 import { SelectItem } from 'primeng/api/selectitem';
 import { TestControllerService } from '../../../services/testcontroller.service';
 import { Router } from '@angular/router';
@@ -16,20 +16,20 @@ import { browserControllerColumns, testControllerColumns, moduleControllerColumn
 })
 export class FeatureComponent implements OnInit {
 
-  testControllers3: TestController3[];
-  testControllers1: TestController1[];
-  testControllers2: TestController2[];
-  controller3Cols: SelectItem[];
-  controller2Cols: any[];
-  controller1Cols: any[];
-  selectedController3Cols: any[];
-  selectedController2Cols: any[];
-  selectedController1Cols: any[];
+  browserController: BrowserController[];
+  moduleController: ModuleController[];
+  testController: TestController[];
+  browserControllerCols: SelectItem[];
+  testControllerCols: any[];
+  moduleControllerCols: any[];
+  selectedBrowserControllerCols: any[];
+  selectedTestControllerCols: any[];
+  selectedModuleControllerCols: any[];
   loading: boolean = true;
 
   // Cards
   constructor(private svc: TestControllerService, private router: Router,
-    private confirmationDialogService: ConfirmationDialogService) { }
+    private confirmationDialogService: ConfirmationDialogService, private controllerservice: TestControllerService) { }
 
   public hexToRGB(hex, alpha) {
     var r = parseInt(hex.slice(1, 3), 16),
@@ -44,65 +44,61 @@ export class FeatureComponent implements OnInit {
   }
 
   LoadController3Cols() {
-    this.selectedController3Cols = [];
-    this.controller3Cols.forEach(col => {
-      this.selectedController3Cols.push(col.value);
+    this.selectedBrowserControllerCols = [];
+    this.browserControllerCols.forEach(col => {
+      this.selectedBrowserControllerCols.push(col.value);
     });
-    // this.selectedController3Cols = this.selectedController3Cols.sort((a,b) => (a.order > b.order) ? 1 : ((b.order > a.order) ? -1 : 0));
+    // this.selectedBrowserControllerCols = this.selectedBrowserControllerCols.sort((a,b) => (a.order > b.order) ? 1 : ((b.order > a.order) ? -1 : 0));
   }
 
   LoadController2Cols() {
-    this.selectedController2Cols = [];
-    this.controller2Cols.forEach(col => {
-      this.selectedController2Cols.push(col.value);
+    this.selectedTestControllerCols = [];
+    this.testControllerCols.forEach(col => {
+      this.selectedTestControllerCols.push(col.value);
     });
-    // this.selectedController2Cols = this.selectedController2Cols.sort((a,b) => (a.order > b.order) ? 1 : ((b.order > a.order) ? -1 : 0));
+    // this.selectedTestControllerCols = this.selectedTestControllerCols.sort((a,b) => (a.order > b.order) ? 1 : ((b.order > a.order) ? -1 : 0));
   }
 
   LoadController1Cols() {
-    this.selectedController1Cols = [];
-    this.controller1Cols.forEach(col => {
-      this.selectedController1Cols.push(col.value);
+    this.selectedModuleControllerCols = [];
+    this.moduleControllerCols.forEach(col => {
+      this.selectedModuleControllerCols.push(col.value);
     });
-    // this.selectedController1Cols = this.selectedController1Cols.sort((a,b) => (a.order > b.order) ? 1 : ((b.order > a.order) ? -1 : 0));
+    // this.selectedModuleControllerCols = this.selectedModuleControllerCols.sort((a,b) => (a.order > b.order) ? 1 : ((b.order > a.order) ? -1 : 0));
   }
 
   ngOnInit() {
     var self = this;
     this.loading = false;
-    this.getControllers();
-    this.getControllers1();
-    this.getControllers2();
-    this.controller3Cols = browserControllerColumns;
-    this.selectedController1Cols = [];
-    this.selectedController2Cols = [];
-    this.selectedController3Cols = [];
-    // this.LoadController3Cols();
-    this.controller1Cols =  moduleControllerColumns;
-
-    // this.LoadController1Cols();
-    this.controller2Cols = testControllerColumns;
-    // this.LoadController2Cols();
+    this.getBrowserControllers();
+    this.getModuleControllers();
+    this.getTestControllers();
+    this.browserControllerCols = browserControllerColumns;
+    this.selectedModuleControllerCols = [];
+    this.selectedTestControllerCols = [];
+    this.selectedBrowserControllerCols = [];
+    this.moduleControllerCols =  moduleControllerColumns;
+    this.testControllerCols = testControllerColumns;
   }
 
-  getControllers() {
+  getBrowserControllers() {
     this.svc.getAllBrowserController()
-      .subscribe((result) => {
-        this.testControllers3 = result;
+      .subscribe((result: BrowserController[]) => {
+        this.browserController = result;
         this.loading = false;
       },
         error => {
-          this.testControllers3 = [];
+          this.browserController = [];
         },
         () => {
         })
   }
 
-  getControllers1() {
-    this.svc.getAllModuleController(0)
+  getModuleControllers() {
+    this.svc.getAllModuleController()
       .subscribe((result) => {
         console.log(result);
-        this.testControllers1 = result;
+        this.moduleController = result;
       },
         error => {
           console.log(error.message);
@@ -110,11 +106,10 @@ export class FeatureComponent implements OnInit {
         () => {
         })
   }
-  getControllers2() {
-    this.svc.getAllTestController(0)
+  getTestControllers() {
+    this.svc.getAllTestController()
       .subscribe((result) => {
-        this.testControllers2 = result;
-
+        this.testController = result;
       },
         error => {
           console.log(error.message);
@@ -127,7 +122,7 @@ export class FeatureComponent implements OnInit {
     if (this.confirmationDialogService.confirm('Are you sure you want to delete?')) {
       this.svc.deleteTestController3(id);
       setTimeout(f => {
-        this.getControllers();
+        this.getBrowserControllers();
       }, 2200)
     }
   }
@@ -136,7 +131,7 @@ export class FeatureComponent implements OnInit {
     if (this.confirmationDialogService.confirm('Are you sure you want to delete?')) {
       this.svc.deleteTestController2(id);
       setTimeout(f => {
-        this.getControllers();
+        this.getModuleControllers();
       }, 2200)
     }
   }
@@ -144,9 +139,21 @@ export class FeatureComponent implements OnInit {
     if (this.confirmationDialogService.confirm('Are you sure you want to delete?')) {
       this.svc.deleteTestController1(id);
       setTimeout(f => {
-        this.getControllers();
+        this.getTestControllers();
       }, 2200)
     }
+  }
+
+  addBrowserController(){
+    this.controllerservice.addBrowserController(new BrowserController());
+  }
+
+  addModuleController(){
+    this.controllerservice.addModuleController(new ModuleController());
+  }
+
+  addTestController(){
+    this.controllerservice.addTestController(new TestController());
   }
 
   onRowEditController2(id: number) {

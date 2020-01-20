@@ -42,7 +42,7 @@ export class Testcontroller3AddComponent implements OnInit {
     data.vmid = this.testControllerForm.controls["vmid"].value;
     data.browser = this.testControllerForm.controls["browser"].value;
     data.exec = this.testControllerForm.controls["exec"].value;
-    this.controllerservice.addController3(data);
+    // this.controllerservice.addBorwserController(data);
     setTimeout(f=>{
       this.router.navigate(['/table-list']);
     },2200)

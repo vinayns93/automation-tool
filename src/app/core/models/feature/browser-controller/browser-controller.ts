@@ -1,11 +1,13 @@
 export class BrowserController {
-    slno: number;
-    moduleID: string;
-    moduleSeqID: number;
-    machineID: string;
-    machineSequenceID: number;
-    execute: string;
+    vmid: string;
+    browser: string;
+    exec: string;
+    statusID: number;
+    cudStatusID: number;
     isLocked: boolean;
     lockedByUser: number;
+    createdOn: string;
+    updatedOn: string;
+    userId: number;
     id: number;
   }

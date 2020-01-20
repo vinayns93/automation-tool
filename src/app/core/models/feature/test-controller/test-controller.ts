@@ -1,12 +1,19 @@
 export class TestController {
-    "vmid": string;
-    "browser": string;
-    "exec": string;
-    "statusID": string;
-    "cudStatusID": string;
-    "isLocked": boolean;
-    "lockedByUser": string;
-    "addedDate": string;
-    "updateDate": string;
-    "id": string;
+  sNo: number;
+  featureID: string;
+  testCaseID: string;
+  run: string;
+  iterations: number;
+  browsers: string;
+  sequenceID: number;
+  testType: string;
+  jirA_ID: string;
+  stepsCount: number;
+  testScriptName: string;
+  testScriptDescription: string;
+  lockedByUser: number;
+  createdOn: string;
+  updatedOn: string;
+  userId: number;
+  id: number;
   }

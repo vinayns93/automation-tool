@@ -7,6 +7,7 @@ import { TestController1 } from '../models/testcontroller1.model';
 import { TestController2 } from '../models/testcontroller2.model';
 import { TestController3 } from '../models/testcontroller3.model';
 import { environment } from '../../environments/environment';
+import { BrowserController, ModuleController, TestController } from '../core';
 
 @Injectable({
   providedIn: 'root'
@@ -18,25 +19,25 @@ export class TestControllerService {
     this.apiUrl = environment.APIURL;
    }
    
-   getAllModuleController(id:number):Observable<TestController1[]>{
-     return this.httpClient.get(this.apiUrl+'/Feature/GetAllModuleController/'+id)
+   getAllModuleController():Observable<ModuleController[]>{
+     return this.httpClient.get(this.apiUrl+'/Feature/GetAllModuleController/0')
                 .pipe(
-                  map(res=>res as TestController1[]),
+                  map(res=>res as ModuleController[]),
                   catchError(this.errorHandle)
                 );
    }
 
-   getAllTestController(id:number):Observable<TestController2[]>{
-    return this.httpClient.get(this.apiUrl+'/Feature/GetAllTestController/'+id)
+   getAllTestController():Observable<TestController[]>{
+    return this.httpClient.get(this.apiUrl+'/Feature/GetAllTestController/0')
                .pipe(
-                 map(res=>res as TestController2[]),
+                 map(res=>res as TestController[]),
                  catchError(this.errorHandle)
                );
   }
-  getAllBrowserController():Observable<TestController3[]>{
+  getAllBrowserController():Observable<BrowserController[]>{
     return this.httpClient.get(this.apiUrl+'/Feature/GetAllBrowserController')
                .pipe(
-                 map(res=> res as TestController3[]),
+                 map(res=> res as BrowserController[]),
                  catchError(this.errorHandle)
                );
   }
@@ -65,8 +66,8 @@ export class TestControllerService {
     );
    }
     
-   addController1(testcontroller1:TestController1){
-       return this.httpClient.post(this.apiUrl+'/Feature/PostController1',testcontroller1)
+   addModuleController(data: ModuleController){
+       return this.httpClient.post(this.apiUrl+'/Feature/AddModuleController',data)
        .subscribe(
         data  => {
           console.log("POST Request is successful ", data);
@@ -77,8 +78,8 @@ export class TestControllerService {
       );
     }
 
-    addController2(testcontroller2:TestController2){
-        return this.httpClient.post(this.apiUrl+'/Feature/PostController2',testcontroller2)
+    addTestController(data: TestController){
+        return this.httpClient.post(this.apiUrl+'/Feature/AddTestController',data)
         .subscribe(
           data  => {
             console.log("POST Request is successful ", data);
@@ -89,8 +90,8 @@ export class TestControllerService {
         );
      }
 
-     addController3(testcontroller3:TestController3){
-        return this.httpClient.post(this.apiUrl+'/Feature/PostController3',testcontroller3)
+     addBrowserController(data: BrowserController){
+        return this.httpClient.post(this.apiUrl+'/Feature/AddBrowserController', data)
         .subscribe(
           data  => {
             console.log("POST Request is successful ", data);

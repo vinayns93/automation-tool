@@ -21,9 +21,6 @@ import { ReactiveFormsModule, FormsModule } from '@angular/forms';
 import { KeywordsEditComponent } from '../keywords/keywords-edit/keywords-edit.component';
 import { AddRepositoryComponent } from './pages/repository/add-repository/add-repository.component';
 import { EditRepositoryComponent } from './pages/repository/edit-repository/edit-repository.component';
-import { Testcontroller1AddComponent } from './pages/feature/testcontroller1/testcontroller1-add/testcontroller1-add.component';
-import { Testcontroller2AddComponent } from './pages/feature/testcontroller2/testcontroller2-add/testcontroller2-add.component';
-import { Testcontroller3AddComponent } from './pages/feature/testcontroller3/testcontroller3-add/testcontroller3-add.component';
 import { Testcontroller1EditComponent } from './pages/feature/testcontroller1/testcontroller1-edit/testcontroller1-edit.component';
 import { Testcontroller2EditComponent } from './pages/feature/testcontroller2/testcontroller2-edit/testcontroller2-edit.component';
 import { Testcontroller3EditComponent } from './pages/feature/testcontroller3/testcontroller3-edit/testcontroller3-edit.component';
@@ -36,9 +33,6 @@ const routes: Routes = [
   { path: 'admin/feature', component: FeatureComponent },
   { path: 'admin/keywords/add', component: KeywordsAddComponent },
   { path: 'admin/keywords/edit/:id/:userId', component: EditKeywordComponent },
-  { path: 'admin/feature/testcontroller1/add', component: Testcontroller1AddComponent },
-  { path: 'admin/feature/testcontroller2/add', component: Testcontroller2AddComponent },
-  { path: 'admin/feature/testcontroller3/add', component: Testcontroller3AddComponent },
   { path: 'admin/feature/testcontroller1/edit/:id', component: Testcontroller1EditComponent },
       { path: 'admin/feature/testcontroller2/edit/:id', component: Testcontroller2EditComponent },
       { path: 'admin/feature/testcontroller3/edit/:id', component: Testcontroller3EditComponent },
@@ -55,9 +49,6 @@ const routes: Routes = [
     FeatureComponent, AddKeywordComponent, 
     EditKeywordComponent, AddRepositoryComponent, 
     EditRepositoryComponent,
-    Testcontroller1AddComponent,
-    Testcontroller2AddComponent,
-    Testcontroller3AddComponent,
     Testcontroller1EditComponent,
     Testcontroller2EditComponent,
     Testcontroller3EditComponent

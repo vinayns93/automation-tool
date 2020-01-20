@@ -50,7 +50,7 @@ export class Testcontroller1AddComponent implements OnInit {
     data.machineID = this.testControllerForm.controls["machineID"].value;
     data.machineSequenceID = this.testControllerForm.controls["machineSequenceID"].value;
     
-    this.controllerservice.addController1(data);
+    // this.controllerservice.addController1(data);
     setTimeout(f=>{
       this.router.navigate(['/table-list']);
     },2200)

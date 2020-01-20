@@ -71,7 +71,7 @@ export class Testcontroller2AddComponent implements OnInit {
     data.testScriptDescription = this.testControllerForm.controls["testScriptDescription"].value;
     data.stepsCount = this.testControllerForm.controls["stepsCount"].value;
     
-    this.controllerservice.addController2(data);
+    // this.controllerservice.addController2(data);
     setTimeout(f=>{
       this.router.navigate(['/table-list']);
     },2200)
