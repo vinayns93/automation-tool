@@ -38,7 +38,7 @@ export class AuthenticationComponent implements OnInit {
         return;
     }
     this.loading = true;
-    this.router.navigate(['admin/testdata']);
+    this.router.navigate(['admin/feature']);
     this.authenticationService.login(this.f.username.value, this.f.password.value)
             .pipe(first())
             .subscribe(

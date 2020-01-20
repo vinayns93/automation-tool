@@ -19,6 +19,7 @@ import { ReactiveFormsModule, FormsModule } from '@angular/forms';
 import { KeywordsEditComponent } from '../keywords/keywords-edit/keywords-edit.component';
 import { AddRepositoryComponent } from './pages/repository/add-repository/add-repository.component';
 import { EditRepositoryComponent } from './pages/repository/edit-repository/edit-repository.component';
+import { Testcontroller1AddComponent } from './pages/feature/testcontroller1/testcontroller1-add/testcontroller1-add.component';
 
 const routes: Routes = [
   { path: 'admin/testdata', component: TestDataComponent },
@@ -28,6 +29,7 @@ const routes: Routes = [
   { path: 'admin/feature', component: FeatureComponent },
   { path: 'admin/keywords/add', component: KeywordsAddComponent },
   { path: 'admin/keywords/edit/:id/:userId', component: EditKeywordComponent },
+  { path: 'admin/feature/testcontroller1/add', component: Testcontroller1AddComponent },
   { path: '**', redirectTo: 'admin/repository', pathMatch: 'full' }
 ];
 
@@ -40,7 +42,8 @@ const routes: Routes = [
     RepositoryComponent, 
     FeatureComponent, AddKeywordComponent, 
     EditKeywordComponent, AddRepositoryComponent, 
-    EditRepositoryComponent
+    EditRepositoryComponent,
+    Testcontroller1AddComponent
   ],
   imports: [
     CommonModule,
