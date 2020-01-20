@@ -31,7 +31,7 @@
                     <ng-template pTemplate="header">
                         <tr>
                             <th *ngFor="let col of tableColumns" [pSortableColumn]="col.field">
-                                {{col.header}}s
+                                {{col.header}}
                                 <p-sortIcon [field]="col.field"></p-sortIcon>
                             </th>
                             <th>Actions</th>
