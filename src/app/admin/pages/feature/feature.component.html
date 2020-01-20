@@ -8,12 +8,12 @@
         <div class="col-md-12 col-lg-12">
             <p-tabView>
                 <p-tabPanel header="BrowserController">
-                    <div class="row light-blue">
+                    <div class="row controller-header">
                         <div class="col-md-12 col-lg-12">
                            <h5 class="admin-page-header"> BROWSER CONTROLLER</h5>
                         </div>
                     </div>
-                    <div class="row align-items-center light-blue">
+                    <div class="row align-items-center controller-header">
                         <div class="col-md-3 col-lg-3">
                             <label class="pull-right">Choose the Columns</label>
                         </div>
@@ -67,9 +67,9 @@
                                     <button pButton type="button"
                                     style="margin-right: 5px"
                                                     icon="pi pi-pencil" class="rounded-button edit-control"
-                                                    (click)="onRowEditController3(controller3.id)"></button>
+                                                    (click)="onRowEditBrowserController(controller3.id)"></button>
                                                 <button pButton type="button" icon="pi pi-times" class="rounded-button delete-control"
-                                                    (click)="deleteController3(controller3.id)"></button>
+                                                    (click)="deleteBrowserController(controller3.id)"></button>
                                 </td>        
                                     </tr>
                                 </ng-template>
@@ -88,12 +88,12 @@
                     
                 </p-tabPanel>
                 <p-tabPanel header="ModuleController">
-                    <div class="row light-blue">
+                    <div class="row controller-header">
                         <div class="col-md-12 col-lg-12">
                            <h5 class="admin-page-header"> MODULE CONTROLLER</h5>
                         </div>
                     </div>
-                    <div class="row align-items-center light-blue">
+                    <div class="row align-items-center controller-header">
                         <div class="col-md-3 col-lg-3">
                             <label class="pull-right">Choose the Columns</label>
                         </div>
@@ -171,18 +171,14 @@
                             </ng-container>
                         </div>
                     </div>
-                   
-                    <button class="btn btn-primary pull-right" style="margin-right:27px"
-                        [routerLink]="['/admin/feature/testcontroller1/add']">
-                        <i class="now-ui-icons ui-1_simple-add"></i> Add</button>
                 </p-tabPanel>
                 <p-tabPanel header="TestController">
-                    <div class="row light-blue">
+                    <div class="row controller-header">
                         <div class="col-md-12 col-lg-12">
                            <h5 class="admin-page-header"> TEST CONTROLLER</h5>
                         </div>
                     </div>
-                    <div class="row align-items-center light-blue">
+                    <div class="row align-items-center controller-header">
                         <div class="col-md-3 col-lg-3">
                             <label class="pull-right">Choose the Columns</label>
                         </div>

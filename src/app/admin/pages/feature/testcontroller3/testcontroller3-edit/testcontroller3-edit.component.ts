@@ -3,6 +3,7 @@ import { ActivatedRoute, Router } from '@angular/router';
 import { TestController3 } from '../../../../../models/testcontroller3.model';
 import { TestControllerService } from '../../../../../services/testcontroller.service';
 import { FormControl, FormGroup, Validators } from '@angular/forms';
+import { BrowserController } from '../../../../../core';
 
 @Component({
   selector: 'app-testcontroller3-edit',
@@ -12,26 +13,30 @@ import { FormControl, FormGroup, Validators } from '@angular/forms';
 export class Testcontroller3EditComponent implements OnInit {
   id:number;
   testController3:TestController3;
+  editBControllerObj: BrowserController;
   testControllerForm = new FormGroup({
     id: new FormControl(''),
-    vmid: new FormControl('', Validators.required),
+    vmid: new FormControl(''),
     browser: new FormControl('', Validators.required),
-    exec: new FormControl('', Validators.required)
+    exec: new FormControl('', Validators.required),
+    isLocked: new FormControl(''),
+    createdOn: new FormControl(''),
+    updatedOn: new FormControl('')
   });
   constructor(private route:ActivatedRoute, private controllerservice:TestControllerService,private router: Router) { 
   }
 
   ngOnInit() {
-    this.id = +this.route.snapshot.paramMap.get('id');
+    this.id = Number(this.route.snapshot.paramMap.get('id'));
     console.log(this.id);
-    this.getTestController3byId(this.id);
+    this.getbrowserController(this.id);
   }
 
-  getTestController3byId(num:number) {
-   this.controllerservice.getController3(num)
+  getbrowserController(num:number) {
+   this.controllerservice.getBrowserController(num)
    .subscribe((result)=>{
     console.log(result);
-    this.testController3 = result;
+    this.editBControllerObj = result;
     this.populateFormFields();
   },
    error =>{
@@ -60,10 +65,11 @@ export class Testcontroller3EditComponent implements OnInit {
     data.vmid = this.testControllerForm.controls["vmid"].value;
     data.browser = this.testControllerForm.controls["browser"].value;
     data.exec = this.testControllerForm.controls["exec"].value;
+    data.isLocked = this.testControllerForm.controls["isLocked"].value;
     
     this.controllerservice.updateTestController3(data.id,data);
     setTimeout(f=>{
-      this.router.navigate(['/table-list']);
+      this.router.navigate(['/admin/feature']);
     },2200)
   }
 

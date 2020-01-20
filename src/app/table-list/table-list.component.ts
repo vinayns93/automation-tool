@@ -178,7 +178,7 @@ export class TableListComponent implements OnInit {
 
   deleteController3(id:number){
     // if(this.confirmationDialogService.confirm('Are you sure you want to delete?')) {
-    //   this.svc.deleteTestController3(id);
+    //   this.svc.deleteBrowserController(id);
     //    setTimeout(f=>{
     //      this.getControllers();
     //    },2200)

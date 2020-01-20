@@ -25,6 +25,7 @@ import { Testcontroller1EditComponent } from './pages/feature/testcontroller1/te
 import { Testcontroller2EditComponent } from './pages/feature/testcontroller2/testcontroller2-edit/testcontroller2-edit.component';
 import { Testcontroller3EditComponent } from './pages/feature/testcontroller3/testcontroller3-edit/testcontroller3-edit.component';
 
+
 const routes: Routes = [
   { path: 'admin/testdata', component: TestDataComponent },
   { path: 'admin/testscripts', component: TestScriptsComponent },

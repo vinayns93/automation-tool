@@ -41,7 +41,11 @@ import { ConfirmationDialogService } from './confirmation-dialog/confirmation-di
     RouterModule,
     AppRoutingModule,
     NgbModule,
-    ToastrModule.forRoot(),
+    ToastrModule.forRoot({
+      timeOut: 3000,
+      positionClass: 'toast-top-right',
+      preventDuplicates: false
+    }),
     MatSidenavModule,
     MultiSelectModule,
     SharedModule,

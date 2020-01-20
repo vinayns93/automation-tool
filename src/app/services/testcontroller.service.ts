@@ -8,6 +8,8 @@ import { TestController2 } from '../models/testcontroller2.model';
 import { TestController3 } from '../models/testcontroller3.model';
 import { environment } from '../../environments/environment';
 import { BrowserController, ModuleController, TestController } from '../core';
+import { formatDate } from '@angular/common';
+import { ToastrService } from 'ngx-toastr';
 
 @Injectable({
   providedIn: 'root'
@@ -15,7 +17,7 @@ import { BrowserController, ModuleController, TestController } from '../core';
 export class TestControllerService {
   public apiUrl:string;
   
-   constructor(private httpClient: HttpClient){
+   constructor(private httpClient: HttpClient, private toastr: ToastrService){
     this.apiUrl = environment.APIURL;
    }
    
@@ -58,10 +60,10 @@ export class TestControllerService {
     );
    }
 
-   getController3(id:number):Observable<TestController3>{
-    return this.httpClient.get(this.apiUrl+'/Feature/GetController3ById/'+id)
+   getBrowserController(id:number):Observable<BrowserController>{
+    return this.httpClient.get(this.apiUrl+'/Feature/GetBrowserControllerById/'+id)
     .pipe(
-      map(res=>res as TestController3),
+      map(res=>res as BrowserController),
       catchError(this.errorHandle)
     );
    }
@@ -71,6 +73,7 @@ export class TestControllerService {
        .subscribe(
         data  => {
           console.log("POST Request is successful ", data);
+          this.toastr.success("Module Controller data added Successfully !");
           },
           error  => {
           console.log("Error", error);
@@ -83,6 +86,7 @@ export class TestControllerService {
         .subscribe(
           data  => {
             console.log("POST Request is successful ", data);
+            this.toastr.success("Test Controller data added Successfully !");
             },
             error  => {
             console.log("Error", error);
@@ -91,10 +95,22 @@ export class TestControllerService {
      }
 
      addBrowserController(data: BrowserController){
-        return this.httpClient.post(this.apiUrl+'/Feature/AddBrowserController', data)
+      let browserCntlObj: BrowserController = new BrowserController();
+      browserCntlObj.vmid = "Test 1";
+      browserCntlObj.browser = "Chorme";
+      browserCntlObj.exec = "YES";
+      browserCntlObj.statusID = 0;
+      browserCntlObj.cudStatusID = 0;
+      browserCntlObj.isLocked = false;
+      browserCntlObj.lockedByUser = 0;
+      browserCntlObj.createdOn = formatDate(new Date(), 'yyyy/MM/dd', 'en').toString();
+      browserCntlObj.updatedOn = formatDate(new Date(), 'yyyy/MM/dd', 'en').toString();
+      browserCntlObj.userId = 123;
+        return this.httpClient.post(this.apiUrl+'/Feature/AddBrowserController', browserCntlObj)
         .subscribe(
           data  => {
             console.log("POST Request is successful ", data);
+            this.toastr.success("Browser Controller data added Successfully !");
             },
             error  => {
             console.log("Error", error);
@@ -107,6 +123,7 @@ export class TestControllerService {
       .subscribe(
         data  => {
           console.log("PUT Request is successful ", data);
+          this.toastr.warning("Module Controller data updated Successfully !");
           },
           error  => {
           console.log("Error", error);
@@ -128,11 +145,12 @@ export class TestControllerService {
 
       updateTestController3(id:number,testcontroller3:TestController3){
         console.log(testcontroller3);
-        console.log(this.apiUrl+'/Feature/PutController3/'+id);
-        return this.httpClient.put(this.apiUrl+'/Feature/PutController3/'+id,testcontroller3)
+        console.log(this.apiUrl+'/Feature/UpdateBrowserController/'+id);
+        return this.httpClient.put(this.apiUrl+'/Feature/UpdateBrowserController/'+id,testcontroller3)
         .subscribe(
           data  => {
             console.log("PUT Request is successful ", data);
+            this.toastr.warning("Browser Controller data updated Successfully !");
             },
             error  => {
             console.log("Error", error);
@@ -163,11 +181,12 @@ export class TestControllerService {
         );
       }
 
-      deleteTestController3(id:number){
-        return this.httpClient.delete(this.apiUrl+'/Feature/DeleteTestController3/'+id)
+      deleteBrowserController(id:number){
+        return this.httpClient.delete(this.apiUrl+'/Feature/DeleteBrowserController/'+id+'/'+123)
         .subscribe(
           data  => {
             console.log("DELETE Request is successful ", data);
+            this.toastr.error("Module Controller data deleted Successfully !");
             },
             error  => {
             console.log("Error", error);

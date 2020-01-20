@@ -7,6 +7,7 @@ import { TestControllerService } from '../../../services/testcontroller.service'
 import { Router } from '@angular/router';
 import { ConfirmationDialogService } from '../../../confirmation-dialog/confirmation-dialog/confirmation-dialog.service';
 import { browserControllerColumns, testControllerColumns, moduleControllerColumns } from '../../../core/constants/feature';
+import { formatDate } from '@angular/common';
 
 @Component({
   selector: 'app-feature',
@@ -118,9 +119,9 @@ export class FeatureComponent implements OnInit {
         })
   }
 
-  deleteController3(id: number) {
+  deleteBrowserController(id: number) {
     if (this.confirmationDialogService.confirm('Are you sure you want to delete?')) {
-      this.svc.deleteTestController3(id);
+      this.svc.deleteBrowserController(id);
       setTimeout(f => {
         this.getBrowserControllers();
       }, 2200)
@@ -162,7 +163,7 @@ export class FeatureComponent implements OnInit {
   onRowEditController1(id: number) {
     this.router.navigate(['admin/feature/testcontroller1/edit', id]);
   }
-  onRowEditController3(id: number) {
+  onRowEditBrowserController(id: number) {
     this.router.navigate(['admin/feature/testcontroller3/edit', id]);
   }
 

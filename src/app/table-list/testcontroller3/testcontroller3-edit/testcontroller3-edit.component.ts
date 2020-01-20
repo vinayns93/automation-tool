@@ -24,22 +24,22 @@ export class Testcontroller3EditComponent implements OnInit {
   ngOnInit() {
     this.id = +this.route.snapshot.paramMap.get('id');
     console.log(this.id);
-    this.getTestController3byId(this.id);
+    this.getbrowserController(this.id);
   }
 
-  getTestController3byId(num:number) {
-   this.controllerservice.getController3(num)
-   .subscribe((result)=>{
-    console.log(result);
-    this.testController3 = result;
-    this.populateFormFields();
-  },
-   error =>{
-     console.log(error.message);
-   },
-   ()=>{
-     console.log(this.testController3);
-   })
+  getbrowserController(num:number) {
+  //  this.controllerservice.getController3(num)
+  //  .subscribe((result)=>{
+  //   console.log(result);
+  //   this.testController3 = result;
+  //   this.populateFormFields();
+  // },
+  //  error =>{
+  //    console.log(error.message);
+  //  },
+  //  ()=>{
+  //    console.log(this.testController3);
+  //  })
   }
 
    populateFormFields() {
