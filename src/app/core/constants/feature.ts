@@ -12,8 +12,7 @@ export const moduleControllerColumns: any[] = [
     { label: 'Created On', value: { field: 'createdOn', header: 'Created On' } },
     { label: 'Updated On', value: { field: 'updatedOn', header: 'Updated On' } },
     { label: 'User ID', value: { field: 'userId', header: 'User ID' } },
-    { label: 'ID', value: { field: 'id', header: 'ID' } },
-    { label: 'Actions', value: { field: 'actions', header: 'Actions', order: 4 } }
+    { label: 'ID', value: { field: 'id', header: 'ID' } }
 ];
 
 export const testControllerColumns: any[] = [
@@ -38,8 +37,7 @@ export const testControllerColumns: any[] = [
     { label: 'Created On', value: { field: 'createdOn', header: 'Created On' } },
     { label: 'Updated On', value: { field: 'updatedOn', header: 'Updated On' } },
     { label: 'User ID', value: { field: 'userId', header: 'User ID' } },
-    { label: 'ID', value: { field: 'id', header: 'ID' } },
-    { label: 'Actions', value: { field: 'actions', header: 'Actions', order: 4 } }
+    { label: 'ID', value: { field: 'id', header: 'ID' } }
 ];
 
 export const browserControllerColumns: any[] = [
@@ -52,7 +50,5 @@ export const browserControllerColumns: any[] = [
     { label: 'Locked By User', value: { field: 'lockedByUser', header: 'Locked By User' } },
     { label: 'Created On', value: { field: 'createdOn', header: 'Created On' } },
     { label: 'Updated On', value: { field: 'updatedOn', header: 'Updated On' } },
-    { label: 'User ID', value: { field: 'userId', header: 'User ID' } },
-    { label: 'Actions', value: { field: 'actions', header: 'Actions', order: 4 } }
-   
+    { label: 'User ID', value: { field: 'userId', header: 'User ID' } }
 ];

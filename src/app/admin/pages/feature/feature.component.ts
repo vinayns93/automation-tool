@@ -73,13 +73,15 @@ export class FeatureComponent implements OnInit {
     this.getControllers1();
     this.getControllers2();
     this.controller3Cols = browserControllerColumns;
-    
-    this.LoadController3Cols();
+    this.selectedController1Cols = [];
+    this.selectedController2Cols = [];
+    this.selectedController3Cols = [];
+    // this.LoadController3Cols();
     this.controller1Cols =  moduleControllerColumns;
 
-    this.LoadController1Cols();
+    // this.LoadController1Cols();
     this.controller2Cols = testControllerColumns;
-    this.LoadController2Cols();
+    // this.LoadController2Cols();
   }
 
   getControllers() {
@@ -147,13 +149,13 @@ export class FeatureComponent implements OnInit {
   }
 
   onRowEditController2(id: number) {
-    this.router.navigate(['/table-list/testcontroller2/edit', id]);
+    this.router.navigate(['admin/feature/testcontroller2/edit', id]);
   }
   onRowEditController1(id: number) {
-    this.router.navigate(['/table-list/testcontroller1/edit', id]);
+    this.router.navigate(['admin/feature/testcontroller1/edit', id]);
   }
   onRowEditController3(id: number) {
-    this.router.navigate(['/table-list/testcontroller3/edit', id]);
+    this.router.navigate(['admin/feature/testcontroller3/edit', id]);
   }
 
   public chartClicked(e: any): void {
