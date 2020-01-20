@@ -1,4 +1,4 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, OnInit, ViewEncapsulation } from '@angular/core';
 import { TestController3 } from '../../../models/testcontroller3.model';
 import { TestController1 } from '../../../models/testcontroller1.model';
 import { TestController2 } from '../../../models/testcontroller2.model';
@@ -11,7 +11,8 @@ import { browserControllerColumns, testControllerColumns, moduleControllerColumn
 @Component({
   selector: 'app-feature',
   templateUrl: './feature.component.html',
-  styleUrls: ['./feature.component.scss']
+  styleUrls: ['./feature.component.scss'],
+  encapsulation: ViewEncapsulation.None
 })
 export class FeatureComponent implements OnInit {
 
