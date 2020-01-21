@@ -2,8 +2,9 @@ import { Injectable } from '@angular/core';
 import { HttpClient, HttpClientModule, HttpHeaders } from '@angular/common/http';
 import { Observable, of, throwError, pipe} from 'rxjs';
 import { map, filter, catchError, mergeMap } from 'rxjs/operators';
-import { TestScripts } from '../../models';
+import { TestScript } from '../../models';
 import { environment } from '../../../../environments/environment';
+import { ToastrService } from 'ngx-toastr';
 
 @Injectable({
   providedIn: 'root'
@@ -11,31 +12,32 @@ import { environment } from '../../../../environments/environment';
 export class TestScriptsService {
   public apiUrl:string;
   
-   constructor(private httpClient: HttpClient){
+   constructor(private httpClient: HttpClient, private toastr: ToastrService){
     this.apiUrl = environment.APIURL;
    }
    
-   getTestScripts():Observable<TestScripts[]>{
+   getTestScripts():Observable<TestScript[]>{
      return this.httpClient.get(this.apiUrl+'/TestScripts/GetScripts')
                 .pipe(
-                  map(res=>res as TestScripts[]),
+                  map(res=>res as TestScript[]),
                   catchError(this.errorHandle)
                 );
    }
 
-   getTestScript(id:number):Observable<TestScripts>{
+   getTestScript(id:number):Observable<TestScript>{
     return this.httpClient.get(this.apiUrl+'/TestScripts/GetScript/'+id)
     .pipe(
-      map(res=>res as TestScripts),
+      map(res=>res as TestScript),
       catchError(this.errorHandle)
     );
    }
     
-   addTestScript(script:TestScripts){
+   addTestScript(script:TestScript){
        return this.httpClient.post(this.apiUrl+'/TestScripts/AddScript',script)
        .subscribe(
         data  => {
           console.log("POST Request is successful ", data);
+          this.toastr.success("TestScript instance created successfully !");
           },
           error  => {
           console.log("Error", error);
@@ -43,7 +45,7 @@ export class TestScriptsService {
       );
     }
 
-    updateTestScript(id:number,script:TestScripts){
+    updateTestScript(id:number,script:TestScript){
       return this.httpClient.put(this.apiUrl+'/TestScripts/UpdateScript/'+id,script)
       .subscribe(
         data  => {

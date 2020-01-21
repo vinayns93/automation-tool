@@ -2,7 +2,7 @@ import { Injectable } from '@angular/core';
 import { HttpClient, HttpClientModule, HttpHeaders } from '@angular/common/http';
 import { Observable, of, throwError, pipe} from 'rxjs';
 import { map, filter, catchError, mergeMap } from 'rxjs/operators';
-import { TestScript } from '../../models/test-scripts/testscript.model';
+import { TestScript } from '../../models/test-scripts/test-scripts';
 import { Repository } from '../../models/repository/repository.model';
 import { Keywords } from '../../models/keywords/keyword.model';
 import { environment } from '../../../../environments/environment';

@@ -1,7 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { Router } from '@angular/router';
 import { TestScriptsService } from '../../../core/services/test-scripts/testscripts.service';
-import { TestScripts } from '../../../core/models';
+import { TestScript } from '../../../core/models';
 import { testScriptsColumns } from '../../../core/constants/testscripts';
 import { SelectItem } from 'primeng/api/selectitem';
 
@@ -13,7 +13,7 @@ import { SelectItem } from 'primeng/api/selectitem';
 })
 export class TestScriptsComponent implements OnInit {
 
-  testscripts: TestScripts[];
+  testscripts: TestScript[];
   cols:any[];
   tableColumns: any[];
   columns: SelectItem[];
@@ -44,7 +44,7 @@ export class TestScriptsComponent implements OnInit {
   getTestScripts(){
     var self = this;
     self.service.getTestScripts()
-    .subscribe((result: TestScripts[])=>{
+    .subscribe((result: TestScript[])=>{
       //console.log(result);
       self.testscripts = result;
       self.loading =false;
@@ -68,7 +68,7 @@ export class TestScriptsComponent implements OnInit {
   }
 
   onRowEditInit(id:number){
-    this.router.navigate(['/testscripts/edit', id]);
+    this.router.navigate(['admin/testscripts/edit', id]);
   }
 
 }

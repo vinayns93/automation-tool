@@ -9,10 +9,14 @@ import { Testcontroller1EditComponent } from './pages/feature/testcontroller1/te
 import { Testcontroller2EditComponent } from './pages/feature/testcontroller2/testcontroller2-edit/testcontroller2-edit.component';
 import { Testcontroller3EditComponent } from './pages/feature/testcontroller3/testcontroller3-edit/testcontroller3-edit.component';
 import { AuthGuard } from '../core/guards/auth/auth.guard';
+import { AddTestScriptComponent } from './pages/test-scripts/add-test-script/add-test-script.component';
+import { EditTestScriptComponent } from './pages/test-scripts/edit-test-script/edit-test-script.component';
 
 export const adminRoutes: Routes = [
       { path: 'admin/testdata', component: TestDataComponent, canActivate: [AuthGuard] },
       { path: 'admin/testscripts', component: TestScriptsComponent, canActivate: [AuthGuard] },
+      { path: 'admin/testscripts/add', component: AddTestScriptComponent, canActivate: [AuthGuard] },
+      { path: 'admin/testscripts/edit/:id', component: EditTestScriptComponent, canActivate: [AuthGuard] },
       { path: 'admin/repository', component: RepositoryComponent, canActivate: [AuthGuard] },
       { path: 'admin/keywords', component: KeywordsComponent, canActivate: [AuthGuard] },
       { path: 'admin/feature', component: FeatureComponent, canActivate: [AuthGuard] },

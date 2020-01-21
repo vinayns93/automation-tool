@@ -1,6 +1,6 @@
-export class TestScripts {
+export class TestScript {
     testCaseID: string;
-    tC_StepID: number;
+    tcStepID: number;
     testScriptName: string;
     functionDescription: string;
     functionName: string;

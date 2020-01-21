@@ -1,0 +1,720 @@
+<div class="container-fluid">
+    <div class="row">
+        <div class="col-md-12 col-lg-12 center-align">
+            <h6 class="admin-page-header" style="margin-left: 20px;">
+                ADD NEW TESTSCRIPT
+            </h6>
+        </div>
+    </div>
+    <div class="row">
+        <div class="col-md-12 col-lg-12">
+            <form [formGroup]="testscriptForm" (ngSubmit)="onSubmit()">
+                <!-- <div class="row padding-bottom-1 align-items-center margin-top-1">
+                    <div class="col-md-12 col-lg-12 center-align">
+                        <label>Lock</label>
+                        <input type="checkbox" value="Locked" name="IsLocked" class="checkbox form-control" style="font-size: 0.3em" formControlName="isLocked">
+                    </div>
+                </div> -->
+                <div class="row padding-bottom-1 align-items-center margin-top-1">
+                    <div class="col-md-2 col-lg-2">
+                        <label for="testCaseID" class="pull-right">testCaseID</label>
+                    </div>
+                    <div class="col-md-4 col-lg-4">
+                        <input type="text" name="testCaseID" class="text form-control" formControlName="testCaseID">
+                    </div>
+                    <div class="col-md-2 col-lg-2">
+                        <label for="tcStepID" class="pull-right">tcStepID</label>
+                    </div>
+                    <div class="col-md-4 col-lg-4">
+                        <input type="text" name="tcStepID" class="text form-control" formControlName="tcStepID">
+                    </div>
+                </div>
+                <div class="row padding-bottom-1 align-items-center">
+                    <div class="col-md-2 col-lg-2">
+                        <label for="testScriptName" class="pull-right">testScriptName</label>
+                    </div>
+                    <div class="col-md-4 col-lg-4">
+                        <input type="text" name="testScriptName" class="text form-control"
+                            formControlName="testScriptName">
+                    </div>
+                    <div class="col-md-2 col-lg-2">
+                        <label for="functionDescription" class="pull-right">functionDescription</label>
+                    </div>
+                    <div class="col-md-4 col-lg-4">
+                        <input type="text" name="functionDescription" class="text form-control"
+                            formControlName="functionDescription">
+                    </div>
+                </div>
+                <div class="row padding-bottom-1 align-items-center">
+                    <div class="col-md-2 col-lg-2">
+                        <label for="functionName" class="pull-right">functionName</label>
+                    </div>
+                    <div class="col-md-4 col-lg-4">
+                        <input type="text" name="functionName" class="text form-control" formControlName="functionName">
+                    </div>
+                    <div class="col-md-2 col-lg-2">
+                        <label for="run" class="pull-right">run</label>
+                    </div>
+                    <div class="col-md-4 col-lg-4">
+                        <input type="text" name="run" class="text form-control" formControlName="run">
+                    </div>
+                    <div class="col-md-2 col-lg-2">
+                        <label for="module" class="pull-right">module</label>
+                    </div>
+                    <div class="col-md-4 col-lg-4">
+                        <input type="text" name="module" class="text form-control" formControlName="module">
+                    </div>
+                </div>
+                <div class="row padding-bottom-1 align-items-center">
+                    <div class="col-md-2 col-lg-2">
+                        <label for="Param1" class="pull-right">Param 1</label>
+                    </div>
+                    <div class="col-md-4 col-lg-4">
+                        <input type="text" name="Param1" class="text form-control" formControlName="param1">
+                    </div>
+                    <div class="col-md-2 col-lg-2">
+                        <label for="Param2" class="pull-right">Param 2</label>
+                    </div>
+                    <div class="col-md-4 col-lg-4">
+                        <input type="text" name="Param2" class="text form-control" formControlName="param2">
+                    </div>
+                </div>
+                <div class="row padding-bottom-1 align-items-center">
+                    <div class="col-md-2 col-lg-2">
+                        <label for="Param3" class="pull-right">Param 3</label>
+                    </div>
+                    <div class="col-md-4 col-lg-4">
+                        <input type="text" name="Param3" class="text form-control" formControlName="param3">
+                    </div>
+                    <div class="col-md-2 col-lg-2">
+                        <label for="Param4" class="pull-right">Param 4</label>
+                    </div>
+                    <div class="col-md-4 col-lg-4">
+                        <input type="text" name="Param4" class="text form-control" formControlName="param4">
+                    </div>
+                </div>
+                <div class="row padding-bottom-1 align-items-center">
+                    <div class="col-md-2 col-lg-2">
+                        <label for="Param5" class="pull-right">Param 5</label>
+                    </div>
+                    <div class="col-md-4 col-lg-4">
+                        <input type="text" name="Param5" class="text form-control" formControlName="param5">
+                    </div>
+                    <div class="col-md-2 col-lg-2">
+                        <label for="Param6" class="pull-right">Param 6</label>
+                    </div>
+                    <div class="col-md-4 col-lg-4">
+                        <input type="text" name="Param6" class="text form-control" formControlName="param6">
+                    </div>
+                </div>
+                <div class="row padding-bottom-1 align-items-center">
+                    <div class="col-md-2 col-lg-2">
+                        <label for="Param7" class="pull-right">Param 7</label>
+                    </div>
+                    <div class="col-md-4 col-lg-4">
+                        <input type="text" name="Param7" class="text form-control" formControlName="param7">
+                    </div>
+                    <div class="col-md-2 col-lg-2">
+                        <label for="Param8" class="pull-right">Param 8</label>
+                    </div>
+                    <div class="col-md-4 col-lg-4">
+                        <input type="text" name="Param8" class="text form-control" formControlName="param8">
+                    </div>
+                </div>
+                <div class="row padding-bottom-1 align-items-center">
+                    <div class="col-md-2 col-lg-2">
+                        <label for="Param9" class="pull-right">Param 9</label>
+                    </div>
+                    <div class="col-md-4 col-lg-4">
+                        <input type="text" name="Param9" class="text form-control" formControlName="param9">
+                    </div>
+                    <div class="col-md-2 col-lg-2">
+                        <label for="Param10" class="pull-right">Param 10</label>
+                    </div>
+                    <div class="col-md-4 col-lg-4">
+                        <input type="text" name="Param10" class="text form-control" formControlName="param10">
+                    </div>
+                </div>
+                <div class="row padding-bottom-1 align-items-center">
+                    <div class="col-md-2 col-lg-2">
+                        <label for="Param11" class="pull-right">Param 11</label>
+                    </div>
+                    <div class="col-md-4 col-lg-4">
+                        <input type="text" name="Param11" class="text form-control" formControlName="param11">
+                    </div>
+                    <div class="col-md-2 col-lg-2">
+                        <label for="Param12" class="pull-right">Param 12</label>
+                    </div>
+                    <div class="col-md-4 col-lg-4">
+                        <input type="text" name="Param12" class="text form-control" formControlName="param12">
+                    </div>
+                </div>
+                <div class="row padding-bottom-1 align-items-center">
+                    <div class="col-md-2 col-lg-2">
+                        <label for="Param13" class="pull-right">Param 13</label>
+                    </div>
+                    <div class="col-md-4 col-lg-4">
+                        <input type="text" name="Param13" class="text form-control" formControlName="param13">
+                    </div>
+                    <div class="col-md-2 col-lg-2">
+                        <label for="Param14" class="pull-right">Param 14</label>
+                    </div>
+                    <div class="col-md-4 col-lg-4">
+                        <input type="text" name="Param14" class="text form-control" formControlName="param14">
+                    </div>
+                </div>
+                <div class="row padding-bottom-1 align-items-center">
+                    <div class="col-md-2 col-lg-2">
+                        <label for="Param15" class="pull-right">Param 15</label>
+                    </div>
+                    <div class="col-md-4 col-lg-4">
+                        <input type="text" name="Param5" class="text form-control" formControlName="param5">
+                    </div>
+                    <div class="col-md-2 col-lg-2">
+                        <label for="Param16" class="pull-right">Param 16</label>
+                    </div>
+                    <div class="col-md-4 col-lg-4">
+                        <input type="text" name="Param16" class="text form-control" formControlName="param16">
+                    </div>
+                </div>
+                <div class="row padding-bottom-1 align-items-center">
+                    <div class="col-md-2 col-lg-2">
+                        <label for="Param17" class="pull-right">Param 17</label>
+                    </div>
+                    <div class="col-md-4 col-lg-4">
+                        <input type="text" name="Param17" class="text form-control" formControlName="param17">
+                    </div>
+                    <div class="col-md-2 col-lg-2">
+                        <label for="Param18" class="pull-right">Param 18</label>
+                    </div>
+                    <div class="col-md-4 col-lg-4">
+                        <input type="text" name="Param18" class="text form-control" formControlName="param18">
+                    </div>
+                </div>
+                <div class="row padding-bottom-1 align-items-center">
+                    <div class="col-md-2 col-lg-2">
+                        <label for="Param19" class="pull-right">Param 19</label>
+                    </div>
+                    <div class="col-md-4 col-lg-4">
+                        <input type="text" name="Param19" class="text form-control" formControlName="param19">
+                    </div>
+                    <div class="col-md-2 col-lg-2">
+                        <label for="Param20" class="pull-right">Param 20</label>
+                    </div>
+                    <div class="col-md-4 col-lg-4">
+                        <input type="text" name="Param20" class="text form-control" formControlName="param20">
+                    </div>
+                </div>
+
+                <div class="row padding-bottom-1 align-items-center">
+                    <div class="col-md-2 col-lg-2">
+                        <label for="Param21" class="pull-right">Param 21</label>
+                    </div>
+                    <div class="col-md-4 col-lg-4">
+                        <input type="text" name="Param21" class="text form-control" formControlName="param21">
+                    </div>
+                    <div class="col-md-2 col-lg-2">
+                        <label for="Param22" class="pull-right">Param 22</label>
+                    </div>
+                    <div class="col-md-4 col-lg-4">
+                        <input type="text" name="Param22" class="text form-control" formControlName="param22">
+                    </div>
+                </div>
+                <div class="row padding-bottom-1 align-items-center">
+                    <div class="col-md-2 col-lg-2">
+                        <label for="Param23" class="pull-right">Param 23</label>
+                    </div>
+                    <div class="col-md-4 col-lg-4">
+                        <input type="text" name="Param23" class="text form-control" formControlName="param23">
+                    </div>
+                    <div class="col-md-2 col-lg-2">
+                        <label for="Param24" class="pull-right">Param 24</label>
+                    </div>
+                    <div class="col-md-4 col-lg-4">
+                        <input type="text" name="Param24" class="text form-control" formControlName="param24">
+                    </div>
+                </div>
+                <div class="row padding-bottom-1 align-items-center">
+                    <div class="col-md-2 col-lg-2">
+                        <label for="Param25" class="pull-right">Param 25</label>
+                    </div>
+                    <div class="col-md-4 col-lg-4">
+                        <input type="text" name="Param25" class="text form-control" formControlName="param25">
+                    </div>
+                    <div class="col-md-2 col-lg-2">
+                        <label for="Param26" class="pull-right">Param 26</label>
+                    </div>
+                    <div class="col-md-4 col-lg-4">
+                        <input type="text" name="Param26" class="text form-control" formControlName="param26">
+                    </div>
+                </div>
+                <div class="row padding-bottom-1 align-items-center">
+                    <div class="col-md-2 col-lg-2">
+                        <label for="Param27" class="pull-right">Param 27</label>
+                    </div>
+                    <div class="col-md-4 col-lg-4">
+                        <input type="text" name="Param27" class="text form-control" formControlName="param27">
+                    </div>
+                    <div class="col-md-2 col-lg-2">
+                        <label for="Param28" class="pull-right">Param 28</label>
+                    </div>
+                    <div class="col-md-4 col-lg-4">
+                        <input type="text" name="Param28" class="text form-control" formControlName="param28">
+                    </div>
+                </div>
+                <div class="row padding-bottom-1 align-items-center">
+                    <div class="col-md-2 col-lg-2">
+                        <label for="Param29" class="pull-right">Param 29</label>
+                    </div>
+                    <div class="col-md-4 col-lg-4">
+                        <input type="text" name="Param29" class="text form-control" formControlName="param29">
+                    </div>
+                    <div class="col-md-2 col-lg-2">
+                        <label for="Param30" class="pull-right">Param 30</label>
+                    </div>
+                    <div class="col-md-4 col-lg-4">
+                        <input type="text" name="Param30" class="text form-control" formControlName="param30">
+                    </div>
+                </div>
+
+                <div class="row padding-bottom-1 align-items-center">
+                    <div class="col-md-2 col-lg-2">
+                        <label for="Param41" class="pull-right">Param 41</label>
+                    </div>
+                    <div class="col-md-4 col-lg-4">
+                        <input type="text" name="Param41" class="text form-control" formControlName="param41">
+                    </div>
+                    <div class="col-md-2 col-lg-2">
+                        <label for="Param42" class="pull-right">Param 42</label>
+                    </div>
+                    <div class="col-md-4 col-lg-4">
+                        <input type="text" name="Param42" class="text form-control" formControlName="param42">
+                    </div>
+                </div>
+                <div class="row padding-bottom-1 align-items-center">
+                    <div class="col-md-2 col-lg-2">
+                        <label for="Param43" class="pull-right">Param 43</label>
+                    </div>
+                    <div class="col-md-4 col-lg-4">
+                        <input type="text" name="Param43" class="text form-control" formControlName="param43">
+                    </div>
+                    <div class="col-md-2 col-lg-2">
+                        <label for="Param44" class="pull-right">Param 44</label>
+                    </div>
+                    <div class="col-md-4 col-lg-4">
+                        <input type="text" name="Param44" class="text form-control" formControlName="param44">
+                    </div>
+                </div>
+                <div class="row padding-bottom-1 align-items-center">
+                    <div class="col-md-2 col-lg-2">
+                        <label for="Param45" class="pull-right">Param 45</label>
+                    </div>
+                    <div class="col-md-4 col-lg-4">
+                        <input type="text" name="Param45" class="text form-control" formControlName="param45">
+                    </div>
+                    <div class="col-md-2 col-lg-2">
+                        <label for="Param46" class="pull-right">Param 46</label>
+                    </div>
+                    <div class="col-md-4 col-lg-4">
+                        <input type="text" name="Param46" class="text form-control" formControlName="param46">
+                    </div>
+                </div>
+                <div class="row padding-bottom-1 align-items-center">
+                    <div class="col-md-2 col-lg-2">
+                        <label for="Param47" class="pull-right">Param 47</label>
+                    </div>
+                    <div class="col-md-4 col-lg-4">
+                        <input type="text" name="Param47" class="text form-control" formControlName="param47">
+                    </div>
+                    <div class="col-md-2 col-lg-2">
+                        <label for="Param48" class="pull-right">Param 48</label>
+                    </div>
+                    <div class="col-md-4 col-lg-4">
+                        <input type="text" name="Param48" class="text form-control" formControlName="param48">
+                    </div>
+                </div>
+                <div class="row padding-bottom-1 align-items-center">
+                    <div class="col-md-2 col-lg-2">
+                        <label for="Param49" class="pull-right">Param 49</label>
+                    </div>
+                    <div class="col-md-4 col-lg-4">
+                        <input type="text" name="Param49" class="text form-control" formControlName="param49">
+                    </div>
+                    <div class="col-md-2 col-lg-2">
+                        <label for="Param50" class="pull-right">Param 50</label>
+                    </div>
+                    <div class="col-md-4 col-lg-4">
+                        <input type="text" name="Param50" class="text form-control" formControlName="param50">
+                    </div>
+                </div>
+
+                <div class="row padding-bottom-1 align-items-center">
+                    <div class="col-md-2 col-lg-2">
+                        <label for="Param51" class="pull-right">Param 51</label>
+                    </div>
+                    <div class="col-md-4 col-lg-4">
+                        <input type="text" name="Param51" class="text form-control" formControlName="param51">
+                    </div>
+                    <div class="col-md-2 col-lg-2">
+                        <label for="Param52" class="pull-right">Param 52</label>
+                    </div>
+                    <div class="col-md-4 col-lg-4">
+                        <input type="text" name="Param52" class="text form-control" formControlName="param52">
+                    </div>
+                </div>
+                <div class="row padding-bottom-1 align-items-center">
+                    <div class="col-md-2 col-lg-2">
+                        <label for="Param53" class="pull-right">Param 53</label>
+                    </div>
+                    <div class="col-md-4 col-lg-4">
+                        <input type="text" name="Param53" class="text form-control" formControlName="param53">
+                    </div>
+                    <div class="col-md-2 col-lg-2">
+                        <label for="Param54" class="pull-right">Param 54</label>
+                    </div>
+                    <div class="col-md-4 col-lg-4">
+                        <input type="text" name="Param54" class="text form-control" formControlName="param54">
+                    </div>
+                </div>
+                <div class="row padding-bottom-1 align-items-center">
+                    <div class="col-md-2 col-lg-2">
+                        <label for="Param55" class="pull-right">Param 55</label>
+                    </div>
+                    <div class="col-md-4 col-lg-4">
+                        <input type="text" name="Param55" class="text form-control" formControlName="param55">
+                    </div>
+                    <div class="col-md-2 col-lg-2">
+                        <label for="Param56" class="pull-right">Param 56</label>
+                    </div>
+                    <div class="col-md-4 col-lg-4">
+                        <input type="text" name="Param56" class="text form-control" formControlName="param56">
+                    </div>
+                </div>
+                <div class="row padding-bottom-1 align-items-center">
+                    <div class="col-md-2 col-lg-2">
+                        <label for="Param57" class="pull-right">Param 57</label>
+                    </div>
+                    <div class="col-md-4 col-lg-4">
+                        <input type="text" name="Param57" class="text form-control" formControlName="param57">
+                    </div>
+                    <div class="col-md-2 col-lg-2">
+                        <label for="Param58" class="pull-right">Param 58</label>
+                    </div>
+                    <div class="col-md-4 col-lg-4">
+                        <input type="text" name="Param58" class="text form-control" formControlName="param58">
+                    </div>
+                </div>
+                <div class="row padding-bottom-1 align-items-center">
+                    <div class="col-md-2 col-lg-2">
+                        <label for="Param59" class="pull-right">Param 59</label>
+                    </div>
+                    <div class="col-md-4 col-lg-4">
+                        <input type="text" name="Param59" class="text form-control" formControlName="param59">
+                    </div>
+                    <div class="col-md-2 col-lg-2">
+                        <label for="Param60" class="pull-right">Param 60</label>
+                    </div>
+                    <div class="col-md-4 col-lg-4">
+                        <input type="text" name="Param60" class="text form-control" formControlName="param60">
+                    </div>
+                </div>
+
+                <div class="row padding-bottom-1 align-items-center">
+                    <div class="col-md-2 col-lg-2">
+                        <label for="Param61" class="pull-right">Param 61</label>
+                    </div>
+                    <div class="col-md-4 col-lg-4">
+                        <input type="text" name="Param61" class="text form-control" formControlName="param61">
+                    </div>
+                    <div class="col-md-2 col-lg-2">
+                        <label for="Param62" class="pull-right">Param 62</label>
+                    </div>
+                    <div class="col-md-4 col-lg-4">
+                        <input type="text" name="Param62" class="text form-control" formControlName="param62">
+                    </div>
+                </div>
+                <div class="row padding-bottom-1 align-items-center">
+                    <div class="col-md-2 col-lg-2">
+                        <label for="Param63" class="pull-right">Param 63</label>
+                    </div>
+                    <div class="col-md-4 col-lg-4">
+                        <input type="text" name="Param63" class="text form-control" formControlName="param63">
+                    </div>
+                    <div class="col-md-2 col-lg-2">
+                        <label for="Param64" class="pull-right">Param 64</label>
+                    </div>
+                    <div class="col-md-4 col-lg-4">
+                        <input type="text" name="Param64" class="text form-control" formControlName="param64">
+                    </div>
+                </div>
+                <div class="row padding-bottom-1 align-items-center">
+                    <div class="col-md-2 col-lg-2">
+                        <label for="Param65" class="pull-right">Param 65</label>
+                    </div>
+                    <div class="col-md-4 col-lg-4">
+                        <input type="text" name="Param65" class="text form-control" formControlName="param65">
+                    </div>
+                    <div class="col-md-2 col-lg-2">
+                        <label for="Param66" class="pull-right">Param 66</label>
+                    </div>
+                    <div class="col-md-4 col-lg-4">
+                        <input type="text" name="Param66" class="text form-control" formControlName="param66">
+                    </div>
+                </div>
+                <div class="row padding-bottom-1 align-items-center">
+                    <div class="col-md-2 col-lg-2">
+                        <label for="Param67" class="pull-right">Param 67</label>
+                    </div>
+                    <div class="col-md-4 col-lg-4">
+                        <input type="text" name="Param67" class="text form-control" formControlName="param67">
+                    </div>
+                    <div class="col-md-2 col-lg-2">
+                        <label for="Param68" class="pull-right">Param 68</label>
+                    </div>
+                    <div class="col-md-4 col-lg-4">
+                        <input type="text" name="Param68" class="text form-control" formControlName="param68">
+                    </div>
+                </div>
+                <div class="row padding-bottom-1 align-items-center">
+                    <div class="col-md-2 col-lg-2">
+                        <label for="Param9" class="pull-right">Param 69</label>
+                    </div>
+                    <div class="col-md-4 col-lg-4">
+                        <input type="text" name="Param69" class="text form-control" formControlName="param69">
+                    </div>
+                    <div class="col-md-2 col-lg-2">
+                        <label for="Param70" class="pull-right">Param 70</label>
+                    </div>
+                    <div class="col-md-4 col-lg-4">
+                        <input type="text" name="Param70" class="text form-control" formControlName="param70">
+                    </div>
+                </div>
+
+                <div class="row padding-bottom-1 align-items-center">
+                    <div class="col-md-2 col-lg-2">
+                        <label for="Param71" class="pull-right">Param 71</label>
+                    </div>
+                    <div class="col-md-4 col-lg-4">
+                        <input type="text" name="Param71" class="text form-control" formControlName="param71">
+                    </div>
+                    <div class="col-md-2 col-lg-2">
+                        <label for="Param72" class="pull-right">Param 72</label>
+                    </div>
+                    <div class="col-md-4 col-lg-4">
+                        <input type="text" name="Param72" class="text form-control" formControlName="param72">
+                    </div>
+                </div>
+                <div class="row padding-bottom-1 align-items-center">
+                    <div class="col-md-2 col-lg-2">
+                        <label for="Param73" class="pull-right">Param 73</label>
+                    </div>
+                    <div class="col-md-4 col-lg-4">
+                        <input type="text" name="Param73" class="text form-control" formControlName="param73">
+                    </div>
+                    <div class="col-md-2 col-lg-2">
+                        <label for="Param74" class="pull-right">Param 74</label>
+                    </div>
+                    <div class="col-md-4 col-lg-4">
+                        <input type="text" name="Param74" class="text form-control" formControlName="param74">
+                    </div>
+                </div>
+                <div class="row padding-bottom-1 align-items-center">
+                    <div class="col-md-2 col-lg-2">
+                        <label for="Param75" class="pull-right">Param 75</label>
+                    </div>
+                    <div class="col-md-4 col-lg-4">
+                        <input type="text" name="Param75" class="text form-control" formControlName="param75">
+                    </div>
+                    <div class="col-md-2 col-lg-2">
+                        <label for="Param76" class="pull-right">Param 76</label>
+                    </div>
+                    <div class="col-md-4 col-lg-4">
+                        <input type="text" name="Param76" class="text form-control" formControlName="param76">
+                    </div>
+                </div>
+                <div class="row padding-bottom-1 align-items-center">
+                    <div class="col-md-2 col-lg-2">
+                        <label for="Param77" class="pull-right">Param 77</label>
+                    </div>
+                    <div class="col-md-4 col-lg-4">
+                        <input type="text" name="Param77" class="text form-control" formControlName="param77">
+                    </div>
+                    <div class="col-md-2 col-lg-2">
+                        <label for="Param78" class="pull-right">Param 78</label>
+                    </div>
+                    <div class="col-md-4 col-lg-4">
+                        <input type="text" name="Param78" class="text form-control" formControlName="param78">
+                    </div>
+                </div>
+                <div class="row padding-bottom-1 align-items-center">
+                    <div class="col-md-2 col-lg-2">
+                        <label for="Param79" class="pull-right">Param 79</label>
+                    </div>
+                    <div class="col-md-4 col-lg-4">
+                        <input type="text" name="Param79" class="text form-control" formControlName="param79">
+                    </div>
+                    <div class="col-md-2 col-lg-2">
+                        <label for="Param10" class="pull-right">Param 10</label>
+                    </div>
+                    <div class="col-md-4 col-lg-4">
+                        <input type="text" name="Param80" class="text form-control" formControlName="param80">
+                    </div>
+                </div>
+
+                <div class="row padding-bottom-1 align-items-center">
+                    <div class="col-md-2 col-lg-2">
+                        <label for="Param81" class="pull-right">Param 81</label>
+                    </div>
+                    <div class="col-md-4 col-lg-4">
+                        <input type="text" name="Param81" class="text form-control" formControlName="param81">
+                    </div>
+                    <div class="col-md-2 col-lg-2">
+                        <label for="Param82" class="pull-right">Param 82</label>
+                    </div>
+                    <div class="col-md-4 col-lg-4">
+                        <input type="text" name="Param82" class="text form-control" formControlName="param82">
+                    </div>
+                </div>
+                <div class="row padding-bottom-1 align-items-center">
+                    <div class="col-md-2 col-lg-2">
+                        <label for="Param83" class="pull-right">Param 83</label>
+                    </div>
+                    <div class="col-md-4 col-lg-4">
+                        <input type="text" name="Param83" class="text form-control" formControlName="param83">
+                    </div>
+                    <div class="col-md-2 col-lg-2">
+                        <label for="Param84" class="pull-right">Param 84</label>
+                    </div>
+                    <div class="col-md-4 col-lg-4">
+                        <input type="text" name="Param84" class="text form-control" formControlName="param84">
+                    </div>
+                </div>
+                <div class="row padding-bottom-1 align-items-center">
+                    <div class="col-md-2 col-lg-2">
+                        <label for="Param85" class="pull-right">Param 85</label>
+                    </div>
+                    <div class="col-md-4 col-lg-4">
+                        <input type="text" name="Param85" class="text form-control" formControlName="param85">
+                    </div>
+                    <div class="col-md-2 col-lg-2">
+                        <label for="Param86" class="pull-right">Param 86</label>
+                    </div>
+                    <div class="col-md-4 col-lg-4">
+                        <input type="text" name="Param86" class="text form-control" formControlName="param86">
+                    </div>
+                </div>
+                <div class="row padding-bottom-1 align-items-center">
+                    <div class="col-md-2 col-lg-2">
+                        <label for="Param87" class="pull-right">Param 87</label>
+                    </div>
+                    <div class="col-md-4 col-lg-4">
+                        <input type="text" name="Param87" class="text form-control" formControlName="param87">
+                    </div>
+                    <div class="col-md-2 col-lg-2">
+                        <label for="Param88" class="pull-right">Param 88</label>
+                    </div>
+                    <div class="col-md-4 col-lg-4">
+                        <input type="text" name="Param88" class="text form-control" formControlName="param88">
+                    </div>
+                </div>
+                <div class="row padding-bottom-1 align-items-center">
+                    <div class="col-md-2 col-lg-2">
+                        <label for="Param89" class="pull-right">Param 89</label>
+                    </div>
+                    <div class="col-md-4 col-lg-4">
+                        <input type="text" name="Param89" class="text form-control" formControlName="param89">
+                    </div>
+                    <div class="col-md-2 col-lg-2">
+                        <label for="Param90" class="pull-right">Param 90</label>
+                    </div>
+                    <div class="col-md-4 col-lg-4">
+                        <input type="text" name="Param90" class="text form-control" formControlName="param90">
+                    </div>
+                </div>
+
+                <div class="row padding-bottom-1 align-items-center">
+                    <div class="col-md-2 col-lg-2">
+                        <label for="Param91" class="pull-right">Param 91</label>
+                    </div>
+                    <div class="col-md-4 col-lg-4">
+                        <input type="text" name="Param91" class="text form-control" formControlName="param91">
+                    </div>
+                    <div class="col-md-2 col-lg-2">
+                        <label for="Param92" class="pull-right">Param 92</label>
+                    </div>
+                    <div class="col-md-4 col-lg-4">
+                        <input type="text" name="Param92" class="text form-control" formControlName="param92">
+                    </div>
+                </div>
+                <div class="row padding-bottom-1 align-items-center">
+                    <div class="col-md-2 col-lg-2">
+                        <label for="Param93" class="pull-right">Param 93</label>
+                    </div>
+                    <div class="col-md-4 col-lg-4">
+                        <input type="text" name="Param93" class="text form-control" formControlName="param93">
+                    </div>
+                    <div class="col-md-2 col-lg-2">
+                        <label for="Param94" class="pull-right">Param 94</label>
+                    </div>
+                    <div class="col-md-4 col-lg-4">
+                        <input type="text" name="Param94" class="text form-control" formControlName="param94">
+                    </div>
+                </div>
+                <div class="row padding-bottom-1 align-items-center">
+                    <div class="col-md-2 col-lg-2">
+                        <label for="Param95" class="pull-right">Param 95</label>
+                    </div>
+                    <div class="col-md-4 col-lg-4">
+                        <input type="text" name="Param95" class="text form-control" formControlName="param95">
+                    </div>
+                    <div class="col-md-2 col-lg-2">
+                        <label for="Param96" class="pull-right">Param 96</label>
+                    </div>
+                    <div class="col-md-4 col-lg-4">
+                        <input type="text" name="Param96" class="text form-control" formControlName="param96">
+                    </div>
+                </div>
+                <div class="row padding-bottom-1 align-items-center">
+                    <div class="col-md-2 col-lg-2">
+                        <label for="Param97" class="pull-right">Param 97</label>
+                    </div>
+                    <div class="col-md-4 col-lg-4">
+                        <input type="text" name="Param97" class="text form-control" formControlName="param97">
+                    </div>
+                    <div class="col-md-2 col-lg-2">
+                        <label for="Param98" class="pull-right">Param 98</label>
+                    </div>
+                    <div class="col-md-4 col-lg-4">
+                        <input type="text" name="Param98" class="text form-control" formControlName="param98">
+                    </div>
+                </div>
+                <div class="row padding-bottom-1 align-items-center">
+                    <div class="col-md-2 col-lg-2">
+                        <label for="Param99" class="pull-right">Param 99</label>
+                    </div>
+                    <div class="col-md-4 col-lg-4">
+                        <input type="text" name="Param99" class="text form-control" formControlName="param99">
+                    </div>
+                    <div class="col-md-2 col-lg-2">
+                        <label for="Param100" class="pull-right">Param 100</label>
+                    </div>
+                    <div class="col-md-4 col-lg-4">
+                        <input type="text" name="Param100" class="text form-control" formControlName="param100">
+                    </div>
+                </div>
+                <div class="row">
+                    <div class="col-md-6 col-lg-6 right-align">
+                        <button type="submit" class="button btn btn-primary" [disabled]="!testscriptForm.valid">
+                            <i class="fa fa-plus"></i> ADD
+                        </button>
+                    </div>
+                    <div class="col-md-6 col-lg-6">
+                        <button type="button" class="button btn" [routerLink]="['/admin/testscripts']">
+                            <i class="fa fa-close"> </i> CANCEL
+                        </button>
+                    </div>
+                </div>
+            </form>
+        </div>
+    </div>
+</div>

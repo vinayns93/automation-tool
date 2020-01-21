@@ -114,4 +114,5 @@ export const testScriptsColumns: any[] = [
     { label: 'Updated On', value: { field: 'updatedOn', header: 'Updated On'}},
     { label: 'User ID', value: { field: 'userId', header: 'User ID'}},
     { label: 'ID', value: { field: 'id', header: 'ID'}},
+    { label: 'Actions', value: { field: 'actions', header: 'Actions'} }
 ];
