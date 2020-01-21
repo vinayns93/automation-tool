@@ -4,6 +4,8 @@ import { ActivatedRoute, Router } from '@angular/router';
 import { first } from 'rxjs/operators';
 import { AlertService} from '../services/alert.service';
 import { AuthenticationService} from '../services/authentication.service';
+import { AuthService } from '../core/services/auth/auth.service';
+import { User } from '../core/models/user/user';
 
 @Component({
   selector: 'app-authentication',
@@ -18,7 +20,7 @@ export class AuthenticationComponent implements OnInit {
   constructor(private formBuilder: FormBuilder,
     private route: ActivatedRoute,
     private router: Router,
-    private authenticationService: AuthenticationService,
+    private authService: AuthService,
     private alertService: AlertService
     ) { }
 
@@ -28,6 +30,7 @@ export class AuthenticationComponent implements OnInit {
         username: ['', Validators.required],
         password: ['', Validators.required]
     });
+    this.authService.logout();
   }
   get f() { return this.loginForm.controls; }
   onSubmit(){
@@ -38,17 +41,10 @@ export class AuthenticationComponent implements OnInit {
         return;
     }
     this.loading = true;
-    this.router.navigate(['admin/feature']);
-    this.authenticationService.login(this.f.username.value, this.f.password.value)
-            .pipe(first())
-            .subscribe(
-                data => {
-                    this.router.navigate([this.returnUrl]);
-                },
-                error => {
-                    this.alertService.error(error);
-                    this.loading = false;
-                });
+    let user: User = new User();
+    user.userName = this.loginForm.controls["username"].value;
+    user.password = this.loginForm.controls["password"].value;
+    this.authService.login(user);
   }
   
 

@@ -3,31 +3,29 @@
         <div class="col-md-12 col-lg-12">
             <p-tabView>
                 <p-tabPanel header="BrowserController">
-                    <div class="row controller-header">
-                        <div class="col-md-12 col-lg-12">
-                           <h5 class="admin-page-header"> BROWSER CONTROLLER</h5>
-                        </div>
-                    </div>
-                    <div class="row align-items-center controller-header">
-                        <div class="col-md-3 col-lg-3">
-                            <label class="pull-right">Choose the Columns</label>
-                        </div>
-                            <div class="col-md-3 col-lg-3">
-                                <p-multiSelect (change)="LoadController3Cols()" [options]="browserControllerCols"
-                                [(ngModel)]="selectedBrowserControllerCols"></p-multiSelect>
-                        </div>
-                        <div class="col-md-6 col-lg-6 right-align">
-                            <button class="btn btn-primary pull-right" style="margin-right:27px;font-size: 0.5rem;"
-                        (click)="addBrowserController()">
+                    <div class="row controller-header align-items-center">
+                        <div class="col-md-4 col-lg-4">
+                            <button class="btn btn-primary pull-left" style="margin-right:27px;font-size: 0.5em"
+                            (click)="addBrowserController()">
                         <i class="now-ui-icons ui-1_simple-add"></i> NEW BROWSER CONTROLLER</button>
                          </div>
+                        <div class="col-md-4 col-lg-4 center-align">
+                           <h5 class="admin-page-header"> BROWSER CONTROLLER</h5>
+                        </div>
+                        <div class="col-md-2 col-lg-2" style="padding-right: 0px;">
+                            <label class="pull-right" style="font-size: 0.9em;">Table Columns</label>
+                        </div>
+                            <div class="col-md-2 col-lg-2" style="padding-left: 0.5em">
+                                <p-multiSelect (change)="LoadController3Cols()" [options]="browserControllerCols"
+                                [(ngModel)]="selectedBrowserControllerCols"></p-multiSelect>
                         </div>
                     </div>
                     <div class="row">
                         <div class="col-lg-12 col-md-12">
                             <ng-container *ngIf="selectedBrowserControllerCols.length != 0">
                             <p-table #tt [loading]="loading" [scrollable]="true" scrollHeight="1000px" 
-                            [value]="browserController" sortMode="multiple" [responsive]="true">
+                            [value]="browserController" [paginator]="true" [rows]="10"
+                            sortMode="multiple" [responsive]="true">
                             <ng-template pTemplate="colgroup" let-columns>
                                 <colgroup>
                                     <col *ngFor="let col of columns" style="width:200px">
@@ -55,9 +53,7 @@
                                 <ng-template pTemplate="body" let-controller3>
                                     <tr>                           
                                         <td *ngFor="let col of selectedBrowserControllerCols">
-                                
                                                 {{controller3[col.field]}}
-                                
                                         </td>
                                 <td class="center-align" style="width: 10em !important;">
                                     <button pButton type="button"
@@ -76,29 +72,28 @@
                                 <div class="col-md-12 col-lg-12 center-align">
                                     <h4 class="center-align none-selected">No Columns Selected</h4>
                                 </div>
+                                </div>
                             </ng-container>
+                            </div>
                         </div>
-                    </div>
+                    
                 </p-tabPanel>
                 <p-tabPanel header="ModuleController">
-                    <div class="row controller-header">
-                        <div class="col-md-12 col-lg-12">
-                           <h5 class="admin-page-header"> MODULE CONTROLLER</h5>
-                        </div>
-                    </div>
-                    <div class="row align-items-center controller-header">
-                        <div class="col-md-3 col-lg-3">
-                            <label class="pull-right">Choose the Columns</label>
-                        </div>
-                            <div class="col-md-3 col-lg-3">
-                                <p-multiSelect (change)="LoadController1Cols()" [options]="moduleControllerCols"
-                                [(ngModel)]="selectedModuleControllerCols"></p-multiSelect>
-                        </div>
-                        <div class="col-md-6 col-lg-6 right-align">
-                            <button class="btn btn-primary pull-right" style="margin-right:27px;font-size: 0.5em"
+                    <div class="row controller-header align-items-center">
+                        <div class="col-md-4 col-lg-4">
+                            <button class="btn btn-primary pull-left" style="margin-right:27px;font-size: 0.5em"
                             (click)="addModuleController()">
                         <i class="now-ui-icons ui-1_simple-add"></i> NEW MODULE CONTROLLER</button>
                          </div>
+                        <div class="col-md-4 col-lg-4">
+                           <h5 class="admin-page-header center-align"> MODULE CONTROLLER</h5>
+                        </div>
+                        <div class="col-md-2 col-lg-2" style="padding-right: 0px;">
+                            <label class="pull-right" style="font-size: 0.9em;">Table Columns</label>
+                        </div>
+                            <div class="col-md-2 col-lg-2" style="padding-left: 0.5em;">
+                                <p-multiSelect (change)="LoadController1Cols()" [options]="moduleControllerCols"
+                                [(ngModel)]="selectedModuleControllerCols"></p-multiSelect>
                         </div>
                     </div>
                     <div class="row">
@@ -145,12 +140,12 @@
                                             </td>
                                             <td class="center-align" style="width: 10em !important;">
                                                 <button pButton type="button"
-                                                    style="background-color: #100699 !important;margin-right: 5px;"
-                                                    icon="pi pi-pencil" class="ui-button-success ui-button-raised"
-                                                    (click)="onRowEditController1(controller1.id)"></button>
+                                                    style="margin-right: 5px;"
+                                                    icon="pi pi-pencil" class="edit-control rounded-button"
+                                                    (click)="onRowEditModuleController(controller1.id)"></button>
                                                 <button pButton type="button" icon="pi pi-times"
-                                                    class="ui-button-danger"
-                                                    (click)="deleteController1(controller1.id)"></button>
+                                                    class="delete-control rounded-button"
+                                                    (click)="deleteModuleController(controller1.id)"></button>
                                             </td>
                                         </tr>
                                     </ng-template>
@@ -167,24 +162,21 @@
                     </div>
                 </p-tabPanel>
                 <p-tabPanel header="TestController">
-                    <div class="row controller-header">
-                        <div class="col-md-12 col-lg-12">
-                           <h5 class="admin-page-header"> TEST CONTROLLER</h5>
-                        </div>
-                    </div>
-                    <div class="row align-items-center controller-header">
-                        <div class="col-md-3 col-lg-3">
-                            <label class="pull-right">Choose the Columns</label>
-                        </div>
-                            <div class="col-md-3 col-lg-3">
-                                <p-multiSelect (change)="LoadController2Cols()" [options]="testControllerCols"
-                                [(ngModel)]="selectedTestControllerCols"></p-multiSelect>
-                        </div>
-                        <div class="col-md-6 col-lg-6 right-align">
-                            <button class="btn btn-primary pull-right" style="margin-right:27px; font-size: 0.5em;"
+                    <div class="row controller-header align-items-center">
+                        <div class="col-md-4 col-lg-4">
+                            <button class="btn btn-primary pull-left" style="margin-right:27px; font-size: 0.5em;"
                             (click)="addTestController()">
                         <i class="now-ui-icons ui-1_simple-add"></i> NEW TEST CONTROLLER</button>
                          </div>
+                        <div class="col-md-4 col-lg-4 center-align">
+                           <h5 class="admin-page-header"> TEST CONTROLLER</h5>
+                        </div>
+                        <div class="col-md-2 col-lg-2" style="padding-right: 0px;">
+                            <label class="pull-right" style="font-size: 0.9em;">Table Columns</label>
+                        </div>
+                            <div class="col-md-2 col-lg-2" style="padding-left: 0.5em;">
+                                <p-multiSelect (change)="LoadController2Cols()" [options]="testControllerCols"
+                                [(ngModel)]="selectedTestControllerCols"></p-multiSelect>
                         </div>
                     </div>
                     <div class="row">
@@ -243,12 +235,12 @@
                                             </td>
                                             <td class="center-align" style="width: 10em !important;">
                                                 <button pButton type="button"
-                                                    style="background-color: #100699 !important;margin-right: 5px;"
-                                                    icon="pi pi-pencil" class="ui-button-success ui-button-raised"
-                                                    (click)="onRowEditController2(controller2.id)"></button>
+                                                    style="margin-right: 5px;"
+                                                    icon="pi pi-pencil" class="edit-control rounded-button"
+                                                    (click)="onRowEditTestController(controller2.id)"></button>
                                                 <button pButton type="button" icon="pi pi-times"
-                                                    class="ui-button-danger"
-                                                    (click)="deleteController2(controller2.id)"></button>
+                                                    class="delete-control rounded-button"
+                                                    (click)="deleteTestController(controller2.id)"></button>
                                             </td>
                                         </tr>
                                     </ng-template>

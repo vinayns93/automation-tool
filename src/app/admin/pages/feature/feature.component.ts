@@ -8,6 +8,7 @@ import { Router } from '@angular/router';
 import { ConfirmationDialogService } from '../../../confirmation-dialog/confirmation-dialog/confirmation-dialog.service';
 import { browserControllerColumns, testControllerColumns, moduleControllerColumns } from '../../../core/constants/feature';
 import { formatDate } from '@angular/common';
+import { FeatureService } from '../../../core';
 
 @Component({
   selector: 'app-feature',
@@ -18,8 +19,11 @@ import { formatDate } from '@angular/common';
 export class FeatureComponent implements OnInit {
 
   browserController: BrowserController[];
+  deletedBrowserController: BrowserController[];
   moduleController: ModuleController[];
+  deletedModuleController: ModuleController[];
   testController: TestController[];
+  deletedTestController: TestController[];
   browserControllerCols: SelectItem[];
   testControllerCols: any[];
   moduleControllerCols: any[];
@@ -30,7 +34,8 @@ export class FeatureComponent implements OnInit {
 
   // Cards
   constructor(private svc: TestControllerService, private router: Router,
-    private confirmationDialogService: ConfirmationDialogService, private controllerservice: TestControllerService) { }
+    private confirmationDialogService: ConfirmationDialogService, 
+    private controllerservice: FeatureService) { }
 
   public hexToRGB(hex, alpha) {
     var r = parseInt(hex.slice(1, 3), 16),
@@ -77,15 +82,44 @@ export class FeatureComponent implements OnInit {
     this.browserControllerCols = browserControllerColumns;
     this.selectedModuleControllerCols = [];
     this.selectedTestControllerCols = [];
-    this.selectedBrowserControllerCols = [];
     this.moduleControllerCols =  moduleControllerColumns;
     this.testControllerCols = testControllerColumns;
+    this.LoadAllBrowserControllerColumns();
+    this.LoadAllModuleControllerColumns();
+    this.LoadAllTestControllerColumns();
+  }
+
+  LoadAllTestControllerColumns() {
+    this.selectedTestControllerCols = [];
+    testControllerColumns.forEach(column => {
+      this.selectedTestControllerCols.push(column.value);
+    });
+  }
+
+  LoadAllModuleControllerColumns() {
+    this.selectedModuleControllerCols = [];
+    moduleControllerColumns.forEach(column => {
+      this.selectedModuleControllerCols.push(column.value);
+    });
+  }
+  LoadAllBrowserControllerColumns() {
+    this.selectedBrowserControllerCols = [];
+    browserControllerColumns.forEach(column => {
+      this.selectedBrowserControllerCols.push(column.value);
+    });
   }
 
   getBrowserControllers() {
-    this.svc.getAllBrowserController()
+    this.controllerservice.getAllBrowserController()
       .subscribe((result: BrowserController[]) => {
-        this.browserController = result;
+        this.browserController = [];
+        this.deletedBrowserController = [];
+        if(result.length > 0){
+          result.filter(browserItem => {
+            browserItem.statusID == 0 ? this.browserController.push(browserItem) 
+              : this.deletedBrowserController.push(browserItem) ;
+          });
+        }
         this.loading = false;
       },
         error => {
@@ -96,10 +130,16 @@ export class FeatureComponent implements OnInit {
   }
 
   getModuleControllers() {
-    this.svc.getAllModuleController()
+    this.controllerservice.getAllModuleController()
       .subscribe((result) => {
-        console.log(result);
-        this.moduleController = result;
+        this.moduleController = [];
+        this.deletedModuleController = [];
+        if(result.length > 0){
+          result.filter(browserItem => {
+            browserItem.statusID == 0 ? this.moduleController.push(browserItem) 
+              : this.deletedModuleController.push(browserItem) ;
+          });
+        }
       },
         error => {
           console.log(error.message);
@@ -108,9 +148,16 @@ export class FeatureComponent implements OnInit {
         })
   }
   getTestControllers() {
-    this.svc.getAllTestController()
+    this.controllerservice.getAllTestController()
       .subscribe((result) => {
-        this.testController = result;
+        this.testController = [];
+        this.deletedTestController = [];
+        if(result.length > 0){
+          result.filter(browserItem => {
+            browserItem.statusID == 0 ? this.testController.push(browserItem) 
+              : this.deletedTestController.push(browserItem) ;
+          });
+        }
       },
         error => {
           console.log(error.message);
@@ -121,24 +168,24 @@ export class FeatureComponent implements OnInit {
 
   deleteBrowserController(id: number) {
     if (this.confirmationDialogService.confirm('Are you sure you want to delete?')) {
-      this.svc.deleteBrowserController(id);
+      this.controllerservice.deleteBrowserController(id);
       setTimeout(f => {
         this.getBrowserControllers();
       }, 2200)
     }
   }
 
-  deleteController2(id: number) {
+  deleteTestController(id: number) {
     if (this.confirmationDialogService.confirm('Are you sure you want to delete?')) {
-      this.svc.deleteTestController2(id);
+      this.controllerservice.deleteTestController(id);
       setTimeout(f => {
         this.getModuleControllers();
       }, 2200)
     }
   }
-  deleteController1(id: number) {
+  deleteModuleController(id: number) {
     if (this.confirmationDialogService.confirm('Are you sure you want to delete?')) {
-      this.svc.deleteTestController1(id);
+      this.controllerservice.deleteModuleController(id);
       setTimeout(f => {
         this.getTestControllers();
       }, 2200)
@@ -157,11 +204,11 @@ export class FeatureComponent implements OnInit {
     this.controllerservice.addTestController(new TestController());
   }
 
-  onRowEditController2(id: number) {
-    this.router.navigate(['admin/feature/testcontroller2/edit', id]);
-  }
-  onRowEditController1(id: number) {
+  onRowEditModuleController(id: number) {
     this.router.navigate(['admin/feature/testcontroller1/edit', id]);
+  }
+  onRowEditTestController(id: number) {
+    this.router.navigate(['admin/feature/testcontroller2/edit', id]);
   }
   onRowEditBrowserController(id: number) {
     this.router.navigate(['admin/feature/testcontroller3/edit', id]);

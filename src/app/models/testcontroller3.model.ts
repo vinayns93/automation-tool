@@ -7,7 +7,7 @@ export class TestController3{
     lockedByUser: number;
     statusID: number;
     cudStatusID: number;
-    createdOn: Date;
-    updatedOn: Date;
+    createdOn: string;
+    updatedOn: string;
     userId: number;
 }

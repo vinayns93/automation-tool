@@ -4,6 +4,7 @@ import {Location} from '@angular/common';
 import { Router } from '@angular/router';
 import { NgbCollapse } from '@ng-bootstrap/ng-bootstrap';
 import { GlobalService } from '../../../core/services/global/global.service';
+import { AuthService } from '../../../core';
 
 @Component({
   selector: 'app-navbar',
@@ -20,7 +21,7 @@ export class NavbarComponent implements OnInit {
     public isCollapsed = true;
 
     constructor(location: Location,  private element: ElementRef, private router: Router,
-      public globalService: GlobalService) {
+      public globalService: GlobalService, private authService: AuthService) {
       this.location = location;
           this.sidebarVisible = false;
     }
@@ -153,5 +154,9 @@ export class NavbarComponent implements OnInit {
           }
       }
       return 'Dashboard';
+    }
+
+    logout(){
+      this.authService.logout();
     }
 }

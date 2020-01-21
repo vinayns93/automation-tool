@@ -1,81 +1,96 @@
-<br>
-<br>
-<h3 class="bold" style="margin-left: 20px;">
-    Edit Controller
-</h3>
-<br>
-<br>
-<form [formGroup]="testControllerForm" (ngSubmit)="onSubmit()">
-<div class="container">
-  
-        <div class="row">   
-                <div class="col-md-3">
-                    <label for="" class="pull-right">ID:</label>
-                </div>
-                <div class="col-md-3">
-                    <input type="text" class="text form-control" formControlName="id" disabled>
-                </div>
-            </div>
-    <div class="row">   
-        <div class="col-md-3">
-            <label for="" class="pull-right">SLNO:</label>
-        </div>
-        <div class="col-md-3">
-            <input type="text" class="text form-control" formControlName="slno">
+<div class="container-fluid">
+    <div class="row">
+        <div class="col-md-12 col-lg-12 center-align light-blue">
+            <h5 class="admin-page-header" style="margin-left: 20px;">
+                EDIT MODULE CONTROLLER
+            </h5>
         </div>
     </div>
-    
-    <div class="row">   
-            <div class="col-md-3">
-                <label for="" class="pull-right">Module ID:</label>
-            </div>
-            <div class="col-md-3">
-                <input type="text" class="text form-control" formControlName="moduleID">
-            </div>
-    </div>
-    <div class="row">   
-            <div class="col-md-3">
-                <label for="" class="pull-right">Module Sequence ID:</label>
-            </div>
-            <div class="col-md-3">
-                <input type="text" class="text form-control" formControlName="moduleSeqID">
-            </div>
-    </div>
-    <div class="row">   
-            <div class="col-md-3">
-                <label for="" class="pull-right">Machine ID:</label>
-            </div>
-            <div class="col-md-3">
-                <input type="text" class="text form-control" formControlName="machineID">
-            </div>
-    </div>
-    <div class="row">   
-            <div class="col-md-3">
-                <label for="" class="pull-right">Machine Sequence ID:</label>
-            </div>
-            <div class="col-md-3">
-                <input type="text" class="text form-control" formControlName="machineSequenceID">
-            </div>
-    </div>
-    <div class="row">   
-            <div class="col-md-3">
-                <label for="" class="pull-right">Execute:</label>
-            </div>
-            <div class="col-md-3">
-                <input type="text" class="text form-control" formControlName="execute">
-            </div>
+    <div class="row">
+        <div class="col-md-12 col-lg-12">
+            <form [formGroup]="testControllerForm" (ngSubmit)="onSubmit()">
+                <div class="row padding-bottom-1 align-items-center margin-top-1">
+                    <div class="col-md-2 col-lg-2">
+                        <label class="pull-right">Lock</label>
+                    </div>
+                    <div class="col-md-4 col-lg-4">
+                        <input type="checkbox" [(ngModel)]="editMControllerObj.isLocked" name="IsLocked" class="checkbox form-control" style="font-size: 0.3em" formControlName="isLocked">
+                    </div>
+                    <div class="col-md-6 col-lg-6 left-align">
+                        <label>Locked by <strong>{{editMControllerObj.lockedByUser}}</strong></label>
+                    </div>
+                </div>
+                <div class="row padding-bottom-1 align-items-center margin-top-1">
+                    <div class="col-md-2 col-lg-2">
+                        <label for="" class="pull-right">ID:</label>
+                    </div>
+                    <div class="col-md-4 col-lg-4">
+                        <input type="text" class="text form-control" [(ngModel)]="editMControllerObj.id" formControlName="id" disabled>
+                    </div>
+                    <div class="col-md-2 col-lg-2">
+                        <label for="" class="pull-right">SL NO:</label>
+                    </div>
+                    <div class="col-md-4 col-lg-4">
+                        <input type="text" class="text form-control" [(ngModel)]="editMControllerObj.slno" formControlName="slno" disabled>
+                    </div>
+                </div>
+
+                <div class="row padding-bottom-1 align-items-center margin-top-1">
+                    <div class="col-md-2 col-lg-2">
+                        <label for="" class="pull-right">Module ID:</label>
+                    </div>
+                    <div class="col-md-4 col-lg-4">
+                        <input type="text" class="text form-control" [(ngModel)]="editMControllerObj.moduleID" formControlName="moduleID">
+                    </div>
+                    <div class="col-md-2 col-lg-2">
+                        <label for="" class="pull-right">Module Seq ID:</label>
+                    </div>
+                    <div class="col-md-4 col-lg-4">
+                        <input type="text" class="text form-control" [(ngModel)]="editMControllerObj.moduleSeqID" formControlName="moduleSeqID">
+                    </div>
+                </div>
+                <div class="row padding-bottom-1 align-items-center margin-top-1">
+                    <div class="col-md-2 col-lg-2">
+                        <label for="" class="pull-right">Machine ID:</label>
+                    </div>
+                    <div class="col-md-4 col-lg-4">
+                        <input type="text" class="text form-control" [(ngModel)]="editMControllerObj.machineID" formControlName="machineID">
+                    </div>
+                    <div class="col-md-2 col-lg-2">
+                        <label for="" class="pull-right">Machine Seq ID:</label>
+                    </div>
+                    <div class="col-md-4 col-lg-4">
+                        <input type="text" class="text form-control" [(ngModel)]="editMControllerObj.machineSequenceID" formControlName="machineSequenceID">
+                    </div>
+                </div>
+                <div class="row padding-bottom-1 align-items-center margin-top-1">
+                    <div class="col-md-2 col-lg-2">
+                        <label for="" class="pull-right">Created On:</label>
+                    </div>
+                    <div class="col-md-4 col-lg-4">
+                        <input type="text" class="text form-control" [(ngModel)]="editMControllerObj.createdOn" formControlName="createdOn" disabled>
+                    </div>
+                    <div class="col-md-2 col-lg-2">
+                        <label for="" class="pull-right">Updated On:</label>
+                    </div>
+                    <div class="col-md-4 col-lg-4">
+                        <input type="text" class="text form-control" [(ngModel)]="editMControllerObj.updatedOn" formControlName="updatedOn" disabled>
+                    </div>
+                </div>
+                <div class="row">
+                    <div class="col-md-6 col-lg-6 right-align">
+                        <button type="submit" class="button btn btn-success" [disabled]="!testControllerForm.valid">
+                            <i class="fa fa-pencil"></i> SAVE 
+                            </button>
+                    </div>
+                    <div class="col-md-6 col-lg-6">
+                          <button type="button" class="button btn btn-danger" [routerLink]="['/admin/feature']">
+                            <i class="fa fa-close"> </i> CANCEL
+                        </button>
+                    </div>
+                </div>
+            </form>
+        </div>
     </div>
 </div>
-<br/>
-<br/>
-<div class="container">
-  <div class="row">
-      <div class="col-md-4">
-          <input type="submit" value="Update" class="button btn btn-primary pull-right" [disabled]="!testControllerForm.valid">
-      </div>
-      <div class="col-md-3">
-            <input type="button" value="Cancel" class="button btn" [routerLink]="['/table-list']">
-      </div>
-  </div>
-</div>
-</form>
+

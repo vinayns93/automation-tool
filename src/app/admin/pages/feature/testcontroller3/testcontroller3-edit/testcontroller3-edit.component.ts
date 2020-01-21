@@ -4,6 +4,8 @@ import { TestController3 } from '../../../../../models/testcontroller3.model';
 import { TestControllerService } from '../../../../../services/testcontroller.service';
 import { FormControl, FormGroup, Validators } from '@angular/forms';
 import { BrowserController } from '../../../../../core';
+import { FeatureService } from '../../../../../core';
+import { formatDate } from '@angular/common';
 
 @Component({
   selector: 'app-testcontroller3-edit',
@@ -23,13 +25,14 @@ export class Testcontroller3EditComponent implements OnInit {
     createdOn: new FormControl(''),
     updatedOn: new FormControl('')
   });
-  constructor(private route:ActivatedRoute, private controllerservice:TestControllerService,private router: Router) { 
+  constructor(private route:ActivatedRoute, private controllerservice:FeatureService,private router: Router) { 
   }
 
   ngOnInit() {
     this.id = Number(this.route.snapshot.paramMap.get('id'));
     console.log(this.id);
     this.getbrowserController(this.id);
+    
   }
 
   getbrowserController(num:number) {
@@ -37,37 +40,38 @@ export class Testcontroller3EditComponent implements OnInit {
    .subscribe((result)=>{
     console.log(result);
     this.editBControllerObj = result;
-    this.populateFormFields();
+    // this.populateFormFields();
   },
    error =>{
      console.log(error.message);
    },
    ()=>{
-     console.log(this.testController3);
+     console.log(this.editBControllerObj);
    })
   }
 
-   populateFormFields() {
-    if (this.testControllerForm) {
-      this.testControllerForm.reset();
-    }
-    this.testControllerForm.patchValue({
-      id: this.testController3.id,
-      vmid: this.testController3.vmid,
-      browser: this.testController3.browser,
-      exec: this.testController3.exec
-    });
-   }
+  //  populateFormFields() {
+  //   if (this.testControllerForm) {
+  //     this.testControllerForm.reset();
+  //   }
+  //   this.testControllerForm.patchValue({
+  //     id: this.editBControllerObj.id,
+  //     vmid: this.editBControllerObj.vmid,
+  //     browser: this.editBControllerObj.browser,
+  //     exec: this.editBControllerObj.exec
+  //   });
+  //  }
   
   onSubmit() {
-    let data = new TestController3();
-    data.id = this.testControllerForm.controls["id"].value;
-    data.vmid = this.testControllerForm.controls["vmid"].value;
-    data.browser = this.testControllerForm.controls["browser"].value;
-    data.exec = this.testControllerForm.controls["exec"].value;
-    data.isLocked = this.testControllerForm.controls["isLocked"].value;
+    // let data = new BrowserController();
+    // data.id = this.testControllerForm.controls["id"].value;
+    // data.vmid = this.testControllerForm.controls["vmid"].value;
+    // data.browser = this.testControllerForm.controls["browser"].value;
+    // data.exec = this.testControllerForm.controls["exec"].value;
+    // data.isLocked = this.testControllerForm.controls["isLocked"].value;
+    // data.updatedOn = formatDate(new Date(), 'yyyy/MM/dd', 'en').toString();
     
-    this.controllerservice.updateTestController3(data.id,data);
+    this.controllerservice.updateBrowserController(this.editBControllerObj.id,this.editBControllerObj);
     setTimeout(f=>{
       this.router.navigate(['/admin/feature']);
     },2200)

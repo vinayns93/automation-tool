@@ -11,7 +11,10 @@ export class TestController {
   stepsCount: number;
   testScriptName: string;
   testScriptDescription: string;
+  isLocked: boolean;
   lockedByUser: number;
+  statusID: number;
+  cudStatusID: number;
   createdOn: string;
   updatedOn: string;
   userId: number;

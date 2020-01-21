@@ -8,21 +8,22 @@ import { AddRepositoryComponent } from './pages/repository/add-repository/add-re
 import { Testcontroller1EditComponent } from './pages/feature/testcontroller1/testcontroller1-edit/testcontroller1-edit.component';
 import { Testcontroller2EditComponent } from './pages/feature/testcontroller2/testcontroller2-edit/testcontroller2-edit.component';
 import { Testcontroller3EditComponent } from './pages/feature/testcontroller3/testcontroller3-edit/testcontroller3-edit.component';
+import { AuthGuard } from '../core/guards/auth/auth.guard';
 
 export const adminRoutes: Routes = [
-      { path: 'admin/testdata', component: TestDataComponent },
-      { path: 'admin/testscripts', component: TestScriptsComponent },
-      { path: 'admin/repository', component: RepositoryComponent },
-      { path: 'admin/keywords', component: KeywordsComponent },
-      { path: 'admin/feature', component: FeatureComponent },
-      { path: 'admin/keywords/add', component: AddKeywordComponent},
-      { path: 'admin/keywords/edit/:id/:userId', component: EditKeywordComponent },
-      { path: 'admin/repository/add', component: AddRepositoryComponent},
-      { path: 'admin/repository/edit/:id/:userId', component: EditRepositoryComponent },
-      { path: 'admin/feature/testcontroller1/edit/:id', component: Testcontroller1EditComponent },
-      { path: 'admin/feature/testcontroller2/edit/:id', component: Testcontroller2EditComponent },
-      { path: 'admin/feature/testcontroller3/edit/:id', component: Testcontroller3EditComponent },
-      { path: '**', redirectTo: 'admin/testscripts', pathMatch: 'full' }
+      { path: 'admin/testdata', component: TestDataComponent, canActivate: [AuthGuard] },
+      { path: 'admin/testscripts', component: TestScriptsComponent, canActivate: [AuthGuard] },
+      { path: 'admin/repository', component: RepositoryComponent, canActivate: [AuthGuard] },
+      { path: 'admin/keywords', component: KeywordsComponent, canActivate: [AuthGuard] },
+      { path: 'admin/feature', component: FeatureComponent, canActivate: [AuthGuard] },
+      { path: 'admin/keywords/add', component: AddKeywordComponent, canActivate: [AuthGuard]},
+      { path: 'admin/keywords/edit/:id/:userId', component: EditKeywordComponent, canActivate: [AuthGuard] },
+      { path: 'admin/repository/add', component: AddRepositoryComponent, canActivate: [AuthGuard]},
+      { path: 'admin/repository/edit/:id/:userId', component: EditRepositoryComponent, canActivate: [AuthGuard] },
+      { path: 'admin/feature/testcontroller1/edit/:id', component: Testcontroller1EditComponent, canActivate: [AuthGuard] },
+      { path: 'admin/feature/testcontroller2/edit/:id', component: Testcontroller2EditComponent, canActivate: [AuthGuard] },
+      { path: 'admin/feature/testcontroller3/edit/:id', component: Testcontroller3EditComponent, canActivate: [AuthGuard] },
+      { path: '**', redirectTo: 'admin/testscripts', pathMatch: 'full', canActivate: [AuthGuard] }
 ];
 
 

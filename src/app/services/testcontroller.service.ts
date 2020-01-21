@@ -157,11 +157,12 @@ export class TestControllerService {
             }
         );
       }
-    deleteTestController1(id:number){
+      deleteModuleController(id:number){
       return this.httpClient.delete(this.apiUrl+'/Feature/DeleteTestController1/'+id)
       .subscribe(
         data  => {
           console.log("DELETE Request is successful ", data);
+          this.toastr.warning("Module Controller data deleted Successfully !");
           },
           error  => {
           console.log("Error", error);
@@ -169,11 +170,12 @@ export class TestControllerService {
       );
     }
 
-    deleteTestController2(id:number){
+    deleteTestController(id:number){
         return this.httpClient.delete(this.apiUrl+'/Feature/DeleteTestController2/'+id)
         .subscribe(
           data  => {
             console.log("DELETE Request is successful ", data);
+            this.toastr.warning("Test Controller data deleted Successfully !");
             },
             error  => {
             console.log("Error", error);
@@ -186,7 +188,7 @@ export class TestControllerService {
         .subscribe(
           data  => {
             console.log("DELETE Request is successful ", data);
-            this.toastr.error("Module Controller data deleted Successfully !");
+            this.toastr.warning("Browser Controller data deleted Successfully !");
             },
             error  => {
             console.log("Error", error);

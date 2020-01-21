@@ -1,4 +1,5 @@
 import { Component, OnInit } from '@angular/core';
+import { GlobalService } from '../../../core';
 
 @Component({
   selector: 'app-header-card',
@@ -6,6 +7,9 @@ import { Component, OnInit } from '@angular/core';
   styleUrls: ['./header-card.component.scss']
 })
 export class HeaderCardComponent implements OnInit {
+
+  public activeUsers;
+  public recordsModified;
 
   public chartColor;
   public canvas : any;
@@ -27,7 +31,7 @@ export class HeaderCardComponent implements OnInit {
   public lineChartWithNumbersAndGridColors:Array<any>
   public gradientChartOptionsConfigurationWithNumbersAndGrid: any;
 
-  constructor() { }
+  constructor(public globalService: GlobalService) { }
 
   public hexToRGB(hex, alpha) {
       var r = parseInt(hex.slice(1, 3), 16),
@@ -219,7 +223,23 @@ export class HeaderCardComponent implements OnInit {
     this.lineChartWithNumbersAndGridOptions = this.gradientChartOptionsConfigurationWithNumbersAndGrid;
 
     this.lineChartWithNumbersAndGridType = 'line';
-    
+
+    this.getActiveUsers();
+    this.getRecordsModifiedCount();
+  }
+
+  getRecordsModifiedCount() {
+    this.globalService.getRecordsModifiedCount()
+      .subscribe((recordsCount) => {
+        this.activeUsers = recordsCount;
+      });
+  }
+
+  getActiveUsers() {
+    this.globalService.getActiveUsers()
+      .subscribe((usersCount) => {
+        this.recordsModified = usersCount;
+      });
   }
   chartHovered($event){
 

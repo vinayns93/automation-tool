@@ -3,6 +3,8 @@ import { ActivatedRoute, Router } from '@angular/router';
 import { TestController1 } from '../../../../../models/testcontroller1.model';
 import { TestControllerService } from '../../../../../services/testcontroller.service';
 import { FormControl, FormGroup, Validators } from '@angular/forms';
+import { FeatureService, ModuleController } from '../../../../../core';
+import { formatDate } from '@angular/common';
 
 @Component({
   selector: 'app-testcontroller1-edit',
@@ -12,6 +14,7 @@ import { FormControl, FormGroup, Validators } from '@angular/forms';
 export class Testcontroller1EditComponent implements OnInit {
   id:number;
   testController1:TestController1;
+  editMControllerObj: ModuleController;
   testControllerForm = new FormGroup({
     id: new FormControl(''),
     slno: new FormControl('', Validators.required),
@@ -19,57 +22,47 @@ export class Testcontroller1EditComponent implements OnInit {
     moduleSeqID:new FormControl('', Validators.required),
     machineID:new FormControl('', Validators.required) ,
     machineSequenceID:new FormControl('', Validators.required),
-    execute:new FormControl('', Validators.required)
+    run:new FormControl(''),
+    isLocked: new FormControl(''),
+    createdOn: new FormControl(''),
+    updatedOn: new FormControl('')
   });
-  constructor(private route:ActivatedRoute, private controllerservice:TestControllerService,private router: Router) { 
+  constructor(private route:ActivatedRoute, private controllerservice:FeatureService,private router: Router) { 
   }
 
   ngOnInit() {
     this.id = +this.route.snapshot.paramMap.get('id');
     console.log(this.id);
-    this.getTestController1byId(this.id);
+    this.getModuleController(this.id);
   }
 
-  getTestController1byId(num:number) {
-   this.controllerservice.getController1(num)
+  getModuleController(num:number) {
+   this.controllerservice.getModuleController(num)
    .subscribe((result)=>{
     console.log(result);
-    this.testController1 = result;
-    this.populateFormFields();
+    this.editMControllerObj = result;
   },
    error =>{
      console.log(error.message);
    },
    ()=>{
-     console.log(this.testController1);
+     console.log(this.editMControllerObj);
    })
   }
-
-   populateFormFields() {
-    if (this.testControllerForm) {
-      this.testControllerForm.reset();
-    }
-    this.testControllerForm.patchValue({
-      id: this.testController1.id,
-    slno:this.testController1.slno,
-    moduleID: this.testController1.moduleID,
-    moduleSeqID:this.testController1.moduleSeqID,
-    machineID: this.testController1.machineID,
-    machineSequenceID:this.testController1.machineSequenceID,
-    });
-   }
   
   onSubmit() {
-    let data = new TestController1();
-    data.id = this.testControllerForm.controls["id"].value;
-    data.slno = this.testControllerForm.controls["slno"].value;
-    data.moduleID = this.testControllerForm.controls["moduleID"].value;
-    data.moduleSeqID = this.testControllerForm.controls["moduleSeqID"].value;
-    data.machineID = this.testControllerForm.controls["machineID"].value;
-    data.machineSequenceID = this.testControllerForm.controls["machineSequenceID"].value;
-    this.controllerservice.updateTestController1(data.id,data);
+    // let data = new ModuleController();
+    // data.moduleID = this.testControllerForm.controls["moduleID"].value;
+    // data.moduleSeqID = this.testControllerForm.controls["moduleSeqID"].value;
+    // data.machineID = this.testControllerForm.controls["machineID"].value;
+    // data.machineSequenceID = this.testControllerForm.controls["machineSequenceID"].value;
+    // data.isLocked = this.testControllerForm.controls["isLocked"].value;
+    // data.updatedOn = formatDate(new Date(), 'yyyy/MM/dd', 'en').toString();
+    this.editMControllerObj.updatedOn = formatDate(new Date(), 'yyyy/MM/dd', 'en').toString();
+
+    this.controllerservice.updateModuleController(this.editMControllerObj.id,this.editMControllerObj);
     setTimeout(f=>{
-      this.router.navigate(['/table-list']);
+      this.router.navigate(['/admin/feature']);
     },2200)
   }
 }

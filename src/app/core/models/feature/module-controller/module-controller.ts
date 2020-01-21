@@ -5,7 +5,10 @@ export class ModuleController {
     machineID: string;
     machineSequenceID: number;
     run: string;
+    isLocked: boolean;
     lockedByUser: number;
+    statusID: number;
+    cudStatusID: number;
     createdOn: string;
     updatedOn: string;
     userId: number;
