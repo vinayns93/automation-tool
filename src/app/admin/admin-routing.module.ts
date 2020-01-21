@@ -17,13 +17,13 @@ export const adminRoutes: Routes = [
       { path: 'admin/keywords', component: KeywordsComponent, canActivate: [AuthGuard] },
       { path: 'admin/feature', component: FeatureComponent, canActivate: [AuthGuard] },
       { path: 'admin/keywords/add', component: AddKeywordComponent, canActivate: [AuthGuard]},
-      { path: 'admin/keywords/edit/:id/:userId', component: EditKeywordComponent, canActivate: [AuthGuard] },
+      { path: 'admin/keywords/edit/:id', component: EditKeywordComponent, canActivate: [AuthGuard] },
       { path: 'admin/repository/add', component: AddRepositoryComponent, canActivate: [AuthGuard]},
       { path: 'admin/repository/edit/:id/:userId', component: EditRepositoryComponent, canActivate: [AuthGuard] },
       { path: 'admin/feature/testcontroller1/edit/:id', component: Testcontroller1EditComponent, canActivate: [AuthGuard] },
       { path: 'admin/feature/testcontroller2/edit/:id', component: Testcontroller2EditComponent, canActivate: [AuthGuard] },
       { path: 'admin/feature/testcontroller3/edit/:id', component: Testcontroller3EditComponent, canActivate: [AuthGuard] },
-      { path: '**', redirectTo: 'admin/testscripts', pathMatch: 'full', canActivate: [AuthGuard] }
+      { path: '**', redirectTo: 'admin/feature', pathMatch: 'full', canActivate: [AuthGuard] }
 ];
 
 

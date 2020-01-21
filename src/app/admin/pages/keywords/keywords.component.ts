@@ -77,6 +77,6 @@ export class KeywordsComponent implements OnInit {
   }
   onRowEditInit(id: number, userId: number) {
     var self = this;
-    self.router.navigate(['/admin/keywords/edit', id, 123]);
+    self.router.navigate(['admin/keywords/edit', id]);
   }
 }

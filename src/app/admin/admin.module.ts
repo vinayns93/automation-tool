@@ -26,19 +26,19 @@ import { Testcontroller2EditComponent } from './pages/feature/testcontroller2/te
 import { Testcontroller3EditComponent } from './pages/feature/testcontroller3/testcontroller3-edit/testcontroller3-edit.component';
 
 
-const routes: Routes = [
-  { path: 'admin/testdata', component: TestDataComponent },
-  { path: 'admin/testscripts', component: TestScriptsComponent },
-  { path: 'admin/repository', component: RepositoryComponent },
-  { path: 'admin/keywords', component: KeywordsComponent },
-  { path: 'admin/feature', component: FeatureComponent },
-  { path: 'admin/keywords/add', component: KeywordsAddComponent },
-  { path: 'admin/keywords/edit/:id/:userId', component: EditKeywordComponent },
-  { path: 'admin/feature/testcontroller1/edit/:id', component: Testcontroller1EditComponent },
-      { path: 'admin/feature/testcontroller2/edit/:id', component: Testcontroller2EditComponent },
-      { path: 'admin/feature/testcontroller3/edit/:id', component: Testcontroller3EditComponent },
-  { path: '**', redirectTo: 'admin/repository', pathMatch: 'full' }
-];
+// const routes: Routes = [
+//   { path: 'admin/testdata', component: TestDataComponent },
+//   { path: 'admin/testscripts', component: TestScriptsComponent },
+//   { path: 'admin/repository', component: RepositoryComponent },
+//   { path: 'admin/keywords', component: KeywordsComponent },
+//   { path: 'admin/feature', component: FeatureComponent },
+//   { path: 'admin/keywords/add', component: KeywordsAddComponent },
+//   { path: 'admin/keywords/edit/:id', component: EditKeywordComponent },
+//   { path: 'admin/feature/testcontroller1/edit/:id', component: Testcontroller1EditComponent },
+//       { path: 'admin/feature/testcontroller2/edit/:id', component: Testcontroller2EditComponent },
+//       { path: 'admin/feature/testcontroller3/edit/:id', component: Testcontroller3EditComponent },
+//   { path: '**', redirectTo: 'admin/repository', pathMatch: 'full' }
+// ];
 
 @NgModule({
   declarations: [

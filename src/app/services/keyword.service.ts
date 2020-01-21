@@ -68,6 +68,7 @@ export class KeywordService {
       .subscribe(
         data  => {
           console.log("DELETE Request is successful ", data);
+          this.toastr.warning("Keywords record has been Deleted !")
           },
           error  => {
           console.log("Error", error);

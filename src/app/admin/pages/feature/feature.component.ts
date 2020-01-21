@@ -205,13 +205,13 @@ export class FeatureComponent implements OnInit {
   }
 
   onRowEditModuleController(id: number) {
-    this.router.navigate(['admin/feature/testcontroller1/edit', id]);
+    this.router.navigate(['admin/feature/testcontroller1/edit/', id]);
   }
   onRowEditTestController(id: number) {
-    this.router.navigate(['admin/feature/testcontroller2/edit', id]);
+    this.router.navigate(['admin/feature/testcontroller2/edit/', id]);
   }
   onRowEditBrowserController(id: number) {
-    this.router.navigate(['admin/feature/testcontroller3/edit', id]);
+    this.router.navigate(['admin/feature/testcontroller3/edit/', id]);
   }
 
   public chartClicked(e: any): void {
