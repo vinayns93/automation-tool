@@ -30,7 +30,7 @@ export class KeywordService {
    }
 
    getKeyword(id:number, userId:number):Observable<Keywords>{
-    return this.httpClient.get(this.apiUrl+'/Keywords/GetKeywordById/'+id+'/'+userId)
+    return this.httpClient.get(this.apiUrl+'/Keywords/GetKeywordById/'+id+'/'+2)
     .pipe(
       map(res=>res as Keywords),
       catchError(this.errorHandle)
@@ -56,6 +56,7 @@ export class KeywordService {
       .subscribe(
         data  => {
           console.log("PUT Request is successful ", data);
+          this.toastr.success("The Keyword has been updated successfully");
           },
           error  => {
           console.log("Error", error);
@@ -64,7 +65,7 @@ export class KeywordService {
     }
 
     deleteKeyword(id:number){
-      return this.httpClient.delete(this.apiUrl+'/Keywords/DeleteKeyword/'+id)
+      return this.httpClient.delete(this.apiUrl+'/Keywords/DeleteKeyword/'+id+'/'+2)
       .subscribe(
         data  => {
           console.log("DELETE Request is successful ", data);

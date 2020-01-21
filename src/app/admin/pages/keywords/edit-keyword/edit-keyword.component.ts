@@ -1,6 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { Keywords } from '../../../../core/models';
-import { ActivatedRoute } from '@angular/router';
+import { ActivatedRoute, Router } from '@angular/router';
 import { KeywordService } from '../../../../services/keyword.service';
 import { FormGroup, FormControl, Validators } from '@angular/forms';
 
@@ -11,7 +11,7 @@ import { FormGroup, FormControl, Validators } from '@angular/forms';
 })
 export class EditKeywordComponent implements OnInit {
 
-  editKeywordObj: Keywords;
+  editKeywordObj: Keywords = new Keywords();
   id: any;
   userId: any;
   keywordsForm = new FormGroup({
@@ -31,13 +31,11 @@ export class EditKeywordComponent implements OnInit {
     param8: new FormControl('', Validators.required),
     param9: new FormControl('', Validators.required),
     param10: new FormControl('', Validators.required),
-    module: new FormControl('', Validators.required),
-    statusID: new FormControl('', Validators.required),
-    cudStatusID: new FormControl('', Validators.required),
-    isLocked: new FormControl('', Validators.required)
+    module: new FormControl('', Validators.required)
 });
 
-  constructor(private activatedRoute: ActivatedRoute, private service: KeywordService) {
+  constructor(private activatedRoute: ActivatedRoute, private service: KeywordService
+              ,private router: Router) {
     this.id = activatedRoute.snapshot.paramMap.get("id");
     this.userId = activatedRoute.snapshot.paramMap.get("userId");
    }
@@ -46,7 +44,7 @@ export class EditKeywordComponent implements OnInit {
     let getKeywordreq = this.service.getKeyword(this.id, this.userId)
     .subscribe((result: Keywords) => {
       this.editKeywordObj = result;
-      getKeywordreq.unsubscribe()
+      getKeywordreq.unsubscribe();
     },
     error => {
       console.log(error);
@@ -54,6 +52,13 @@ export class EditKeywordComponent implements OnInit {
     () => {
 
     });
+  }
+
+  onSubmit(){
+    this.service.updateKeyword(this.id, this.editKeywordObj);
+    setTimeout(f=>{
+      this.router.navigate(['/admin/keywords']);
+    },2200)
   }
 
 }

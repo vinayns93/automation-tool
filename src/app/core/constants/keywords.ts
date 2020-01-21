@@ -22,15 +22,5 @@ export const keywordsColumns: any[] = [
     { label: 'Param 7', value: { field: 'param7', header: 'Param 7'}},
     { label: 'Param 8', value: { field: 'param8', header: 'Param 8'}},
     { label: 'Param 9', value: { field: 'param9', header: 'Param 9'}},
-    { label: 'Param 10', value: { field: 'param10', header: 'Param 10'}},
-    { label: 'Param 11', value: { field: 'param11', header: 'Param 11'}},
-    { label: 'Param 12', value: { field: 'param12', header: 'Param 12'}},
-    { label: 'Param 13', value: { field: 'param13', header: 'Param 13'}},
-    { label: 'Param 14', value: { field: 'param14', header: 'Param 14'}},
-    { label: 'Param 15', value: { field: 'param15', header: 'Param 15'}},
-    { label: 'Param 16', value: { field: 'param16', header: 'Param 16'}},
-    { label: 'Param 17', value: { field: 'param17', header: 'Param 17'}},
-    { label: 'Param 18', value: { field: 'param18', header: 'Param 18'}},
-    { label: 'Param 19', value: { field: 'param19', header: 'Param 19'}},
-    { label: 'Param 20', value: { field: 'param20', header: 'Param 20'}},
+    { label: 'Param 10', value: { field: 'param10', header: 'Param 10'}}
 ];

@@ -15,7 +15,7 @@ import { formatDate } from '@angular/common';
 export class Testcontroller3EditComponent implements OnInit {
   id:number;
   testController3:TestController3;
-  editBControllerObj: BrowserController;
+  editBControllerObj: BrowserController = new BrowserController();
   testControllerForm = new FormGroup({
     id: new FormControl(''),
     vmid: new FormControl(''),

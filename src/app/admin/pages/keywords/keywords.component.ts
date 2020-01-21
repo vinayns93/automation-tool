@@ -56,7 +56,13 @@ export class KeywordsComponent implements OnInit {
     self.service.getKeywords()
       .subscribe((result: Keywords[]) => {
         //console.log(result);
-        self.keywords = result;
+        self.keywords = [];
+        if(result.length > 0){
+          result.filter(browserItem => {
+            browserItem.statusID == 0 ? this.keywords.push(browserItem) 
+              : null ;
+          });
+        }
         this.dt.reset();
         self.loading = false;
       },

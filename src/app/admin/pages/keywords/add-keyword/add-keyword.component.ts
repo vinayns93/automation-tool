@@ -70,26 +70,14 @@ export class AddKeywordComponent implements OnInit {
     data.param8 = this.keywordsForm.controls["param8"].value;
     data.param9 = this.keywordsForm.controls["param9"].value;
     data.param10 = this.keywordsForm.controls["param10"].value;
-    data.param11 = this.keywordsForm.controls["param11"].value;
-    data.param12 = this.keywordsForm.controls["param12"].value;
-    data.param13 = this.keywordsForm.controls["param13"].value;
-    data.param14 = this.keywordsForm.controls["param14"].value;
-    data.param15 = this.keywordsForm.controls["param15"].value;
-    data.param16 = this.keywordsForm.controls["param16"].value;
-    data.param17 = this.keywordsForm.controls["param17"].value;
-    data.param18 = this.keywordsForm.controls["param18"].value;
-    data.param19 = this.keywordsForm.controls["param19"].value;
-    data.param20 = this.keywordsForm.controls["param20"].value;
     data.statusID = 0;
     data.cudStatusID = 0;
-    data.isLocked = this.keywordsForm.controls["isLocked"].value;
-    if(data.isLocked)
-      data.lockedByUser = 123;
-    else
-      data.lockedByUser = 0;
-    data.createdOn = formatDate(new Date(), 'yyyy/MM/dd', 'en').toString();
-    data.updatedOn = formatDate(new Date(), 'yyyy/MM/dd', 'en').toString();
-    data.userId = 123;
+    data.isLocked = false;
+    data.lockedByUser = 0;
+    data.createdOn = formatDate(new Date(), 'yyyy-MMM-dd', 'en').toString();
+    data.updatedOn = formatDate(new Date(), 'yyyy-MMM-dd', 'en').toString();
+    data.updatedOn = "";
+    data.userId = 2;
     self.service.addKeyword(data);
     setTimeout(response => {
       self.router.navigate(['/admin/keywords']);

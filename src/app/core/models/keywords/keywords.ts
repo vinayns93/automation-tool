@@ -13,17 +13,7 @@ export class Keywords {
     param7 : string; 
     param8: string; 
     param9: string; 
-    param10: string; 
-    param11: string; 
-    param12: string; 
-    param13: string; 
-    param14: string; 
-    param15: string; 
-    param16: string; 
-    param17 : string; 
-    param18: string; 
-    param19: string; 
-    param20: string; 
+    param10: string;
     module: string;
     statusID: number;
     cudStatusID: number;

@@ -15,14 +15,15 @@ import { TestController3 } from '../../../models/testcontroller3.model';
 })
 export class FeatureService {
   public apiUrl:string;
-  public userID: number = Number(localStorage.getItem('currentUser'));;
+  public userID: number;
   
   constructor(private httpClient: HttpClient, private toastr: ToastrService){
    this.apiUrl = environment.APIURL;
+   this.userID = Number(localStorage.getItem('currentUser'));
   }
   
   getAllModuleController():Observable<ModuleController[]>{
-    return this.httpClient.get(this.apiUrl+'/Feature/GetAllModuleController/'+this.userID)
+    return this.httpClient.get(this.apiUrl+'/Feature/GetAllModuleController/'+2)
                .pipe(
                  map(res=>res as ModuleController[]),
                  catchError(this.errorHandle)
@@ -30,7 +31,7 @@ export class FeatureService {
   }
 
   getAllTestController():Observable<TestController[]>{
-   return this.httpClient.get(this.apiUrl+'/Feature/GetAllTestController/'+this.userID)
+   return this.httpClient.get(this.apiUrl+'/Feature/GetAllTestController/'+2)
               .pipe(
                 map(res=>res as TestController[]),
                 catchError(this.errorHandle)
@@ -45,7 +46,7 @@ export class FeatureService {
  }
 
  getModuleController(id:number):Observable<ModuleController>{
-   return this.httpClient.get(this.apiUrl+'/Feature/GetModuleControllerById/'+id+'/'+this.userID)
+   return this.httpClient.get(this.apiUrl+'/Feature/GetModuleControllerById/'+id+'/'+2)
    .pipe(
      map(res=>res as ModuleController),
      catchError(this.errorHandle)
@@ -53,7 +54,7 @@ export class FeatureService {
   }
 
   getTestController(id:number):Observable<TestController>{
-   return this.httpClient.get(this.apiUrl+'/Feature/GetTestControllerById/'+id+'/'+this.userID)
+   return this.httpClient.get(this.apiUrl+'/Feature/GetTestControllerById/'+id+'/'+2)
    .pipe(
      map(res=>res as TestController),
      catchError(this.errorHandle)
@@ -146,11 +147,11 @@ export class FeatureService {
        .subscribe(
          data  => {
            console.log("POST Request is successful ", data);
-           this.toastr.success("Browser Controller data added Successfully !");
+           this.toastr.success("Browser Controller record has been Added Successfully !");
            },
            error  => {
            console.log("Error", error);
-           this.toastr.error("Error creating Browser Controller instance !");
+           this.toastr.error("Error creating Browser Controller record !");
            }
        );
     }
@@ -188,7 +189,7 @@ export class FeatureService {
        .subscribe(
          data  => {
            console.log("PUT Request is successful ", data);
-           this.toastr.warning("Browser Controller data updated Successfully !");
+           this.toastr.warning("Browser Controller record with ID: "+id+" updated Successfully !");
            },
            error  => {
            console.log("Error", error);
@@ -197,7 +198,10 @@ export class FeatureService {
        );
      }
    deleteModuleController(id:number){
-     return this.httpClient.delete(this.apiUrl+'/Feature/DeleteModuleController/'+id)
+    this.getModuleController(id)
+    .subscribe((response) => {
+      let obj: ModuleController = response;
+      return this.httpClient.delete(this.apiUrl+'/Feature/DeleteModuleController/'+id)
      .subscribe(
        data  => {
          console.log("DELETE Request is successful ", data);
@@ -207,6 +211,8 @@ export class FeatureService {
          console.log("Error", error);
          }
      );
+    });
+     
    }
 
    deleteTestController(id:number){
@@ -223,11 +229,11 @@ export class FeatureService {
      }
 
      deleteBrowserController(id:number){
-       return this.httpClient.delete(this.apiUrl+'/Feature/DeleteBrowserController/'+id+'/'+this.userID)
+       return this.httpClient.delete(this.apiUrl+'/Feature/DeleteBrowserController/'+id+'/'+2)
        .subscribe(
          data  => {
            console.log("DELETE Request is successful ", data);
-           this.toastr.warning("Browser Controller data deleted Successfully !");
+           this.toastr.warning("Browser Controller record ID: "+id+" deleted Successfully !");
            },
            error  => {
            console.log("Error", error);

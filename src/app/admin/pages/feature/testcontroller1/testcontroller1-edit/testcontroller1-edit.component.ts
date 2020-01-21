@@ -22,10 +22,11 @@ export class Testcontroller1EditComponent implements OnInit {
     moduleSeqID:new FormControl('', Validators.required),
     machineID:new FormControl('', Validators.required) ,
     machineSequenceID:new FormControl('', Validators.required),
-    run:new FormControl(''),
-    isLocked: new FormControl(''),
-    createdOn: new FormControl(''),
-    updatedOn: new FormControl('')
+    run:new FormControl('')
+    //,
+    // isLocked: new FormControl(''),
+    // createdOn: new FormControl(''),
+    // updatedOn: new FormControl('')
   });
   constructor(private route:ActivatedRoute, private controllerservice:FeatureService,private router: Router) { 
   }
@@ -38,7 +39,7 @@ export class Testcontroller1EditComponent implements OnInit {
 
   getModuleController(num:number) {
    this.controllerservice.getModuleController(num)
-   .subscribe((result)=>{
+   .subscribe((result: ModuleController)=>{
     console.log(result);
     this.editMControllerObj = result;
   },
@@ -58,7 +59,7 @@ export class Testcontroller1EditComponent implements OnInit {
     // data.machineSequenceID = this.testControllerForm.controls["machineSequenceID"].value;
     // data.isLocked = this.testControllerForm.controls["isLocked"].value;
     // data.updatedOn = formatDate(new Date(), 'yyyy/MM/dd', 'en').toString();
-    this.editMControllerObj.updatedOn = formatDate(new Date(), 'yyyy/MM/dd', 'en').toString();
+    
 
     this.controllerservice.updateModuleController(this.editMControllerObj.id,this.editMControllerObj);
     setTimeout(f=>{

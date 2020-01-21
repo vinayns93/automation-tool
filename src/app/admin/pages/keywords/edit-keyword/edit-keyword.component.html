@@ -128,33 +128,13 @@
                   <div class="col-md-4 col-lg-4">
                       <input type="text" [(ngModel)]="editKeywordObj.module" name="Module" class="text form-control" formControlName="module">
                   </div>
-                  <div class="col-md-2 col-lg-2">
-                      <label for="StatusID" class="pull-right">Status ID</label>
-                  </div>
-                  <div class="col-md-4 col-lg-4">
-                      <input type="text" [(ngModel)]="editKeywordObj.statusID" name="StatusID" class="text form-control" formControlName="statusID">
-                  </div>
-              </div>
-              <div class="row padding-bottom-1">
-                  <div class="col-md-2 col-lg-2">
-                      <label for="CudStatusID" class="pull-right">Cud Status ID</label>
-                  </div>
-                  <div class="col-md-4 col-lg-4">
-                      <input type="text" [(ngModel)]="editKeywordObj.cudStatusID" name="CudStatusID" class="text form-control" formControlName="cudStatusID">
-                  </div>
-                  <div class="col-md-2 col-lg-2">
-                      <label for="IsLocked" class="pull-right">Is Locked</label>
-                  </div>
-                  <div class="col-md-4 col-lg-4">
-                      <input type="text" [(ngModel)]="editKeywordObj.isLocked" name="IsLocked" class="text form-control" formControlName="isLocked">
-                  </div>
               </div>
               <div class="row">
                   <div class="col-md-6 col-lg-6 right-align">
-                      <input type="submit" value="Add" class="button btn btn-primary" [disabled]="!keywordsForm.valid">
+                      <input type="submit" value="Add" class="button btn btn-success" [disabled]="!keywordsForm.valid">
                   </div>
                   <div class="col-md-6 col-lg-6">
-                        <input type="button" value="Cancel" class="button btn pull-left" [routerLink]="['/admin/keywords']">
+                        <input type="button" value="Cancel" class="button btn btn-danger" [routerLink]="['/admin/keywords']">
                   </div>
               </div>
           </form>

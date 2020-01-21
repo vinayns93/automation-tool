@@ -167,7 +167,7 @@ export class FeatureComponent implements OnInit {
   }
 
   deleteBrowserController(id: number) {
-    if (this.confirmationDialogService.confirm('Are you sure you want to delete?')) {
+    if (confirm('Are you sure you want to delete?')) {
       this.controllerservice.deleteBrowserController(id);
       setTimeout(f => {
         this.getBrowserControllers();

@@ -9,7 +9,7 @@
     <div class="row">
         <div class="col-md-12 col-lg-12">
             <form [formGroup]="testControllerForm" (ngSubmit)="onSubmit()">
-                <div class="row padding-bottom-1 align-items-center margin-top-1">
+                <!-- <div class="row padding-bottom-1 align-items-center margin-top-1">
                     <div class="col-md-2 col-lg-2">
                         <label class="pull-right">Lock</label>
                     </div>
@@ -19,7 +19,7 @@
                     <div class="col-md-6 col-lg-6 left-align">
                         <label>Locked by <strong>{{editMControllerObj.lockedByUser}}</strong></label>
                     </div>
-                </div>
+                </div> -->
                 <div class="row padding-bottom-1 align-items-center margin-top-1">
                     <div class="col-md-2 col-lg-2">
                         <label for="" class="pull-right">ID:</label>
@@ -65,16 +65,10 @@
                 </div>
                 <div class="row padding-bottom-1 align-items-center margin-top-1">
                     <div class="col-md-2 col-lg-2">
-                        <label for="" class="pull-right">Created On:</label>
+                        <label for="" class="pull-right">Run:</label>
                     </div>
                     <div class="col-md-4 col-lg-4">
-                        <input type="text" class="text form-control" [(ngModel)]="editMControllerObj.createdOn" formControlName="createdOn" disabled>
-                    </div>
-                    <div class="col-md-2 col-lg-2">
-                        <label for="" class="pull-right">Updated On:</label>
-                    </div>
-                    <div class="col-md-4 col-lg-4">
-                        <input type="text" class="text form-control" [(ngModel)]="editMControllerObj.updatedOn" formControlName="updatedOn" disabled>
+                        <input type="text" class="text form-control" [(ngModel)]="editMControllerObj.run" formControlName="run" disabled>
                     </div>
                 </div>
                 <div class="row">
