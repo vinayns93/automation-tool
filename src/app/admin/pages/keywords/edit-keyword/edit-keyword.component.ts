@@ -1,7 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { Keywords } from '../../../../core/models';
 import { ActivatedRoute, Router } from '@angular/router';
-import { KeywordService } from '../../../../services/keyword.service';
+import { KeywordService } from '../../../../core/services/keywords-service/keyword.service';
 import { FormGroup, FormControl, Validators } from '@angular/forms';
 
 @Component({

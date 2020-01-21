@@ -28,6 +28,7 @@ import { AuthenticationService } from './core/services/auth/authentication.servi
 import { ConfirmationDialogService } from './confirmation-dialog/confirmation-dialog/confirmation-dialog.service';
 import { GlobalService } from './core';
 import { FeatureService } from './core/services/feature-service/feature-service.service';
+import { NotificationsComponent } from './notifications/notifications.component';
 
 @NgModule({
   imports: [
@@ -62,7 +63,8 @@ import { FeatureService } from './core/services/feature-service/feature-service.
     AdminComponent,
     ConfirmationDialogComponent,
     AuthenticationComponent,
-    AlertComponent
+    AlertComponent,
+    NotificationsComponent
   ],
   providers: [TestControllerService,
     TestScriptsService,
