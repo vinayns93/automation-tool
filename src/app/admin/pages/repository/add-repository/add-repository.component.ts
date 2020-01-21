@@ -2,7 +2,7 @@ import { Component, OnInit } from '@angular/core';
 import { Repository } from '../../../../core';
 import { FormGroup, FormControl, Validators } from '@angular/forms';
 import { ActivatedRoute, Router } from '@angular/router';
-import { RepositoryService } from '../../../../services/repository.service';
+import { RepositoryService } from '../../../../core/services/repository-service/repository.service';
 import { formatDate } from '@angular/common';
 
 @Component({
@@ -17,10 +17,9 @@ export class AddRepositoryComponent implements OnInit {
   repositoryForm = new FormGroup({
     logicalName:  new FormControl('', [Validators.required, Validators.pattern(/^[a-zA-Z0-9]+$/)]),
     findMethod:  new FormControl('', [Validators.required, Validators.pattern(/^[a-zA-Z0-9]+$/)]),
-    xpathQuery_PropertyName: new FormControl('', [Validators.required, Validators.pattern(/^[a-zA-Z0-9]+$/)]),
+    xpathQueryPropertyName: new FormControl('', [Validators.required, Validators.pattern(/^[a-zA-Z0-9]+$/)]),
     propertyValue: new FormControl('', [Validators.required, Validators.pattern(/^[a-zA-Z0-9]+$/)]),
     tagName: new FormControl('', [Validators.required, Validators.pattern(/^[a-zA-Z0-9]+$/)]),
-    featureName: new FormControl('', [Validators.required, Validators.pattern(/^[a-zA-Z0-9]+$/)]),
     module: new FormControl('', [Validators.required, Validators.pattern(/^[a-zA-Z0-9]+$/)]),
     isLocked: new FormControl(''),
 });
@@ -35,10 +34,9 @@ export class AddRepositoryComponent implements OnInit {
     
     data.logicalName = this.repositoryForm.controls["logicalName"].value;
     data.findMethod = this.repositoryForm.controls["findMethod"].value;
-    data.xpathQuery_PropertyName = this.repositoryForm.controls["xpathQuery_PropertyName"].value;
+    data.xpathQueryPropertyName = this.repositoryForm.controls["xpathQueryPropertyName"].value;
     data.propertyValue = this.repositoryForm.controls["propertyValue"].value;
     data.tagName = this.repositoryForm.controls["tagName"].value;
-    data.featureName = this.repositoryForm.controls["featureName"].value;
     data.module = this.repositoryForm.controls["module"].value;
     data.statusID = 0;
     data.cudStatusID = 0;

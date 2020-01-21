@@ -1,6 +1,6 @@
 import { Component, OnInit, ViewEncapsulation, NgZone, ViewChild } from '@angular/core';
 import { Keywords } from '../../../core/models';
-import { KeywordService } from '../../../services/keyword.service';
+import { KeywordService } from '../../../core/services/keywords-service/keyword.service';
 import { Router } from '@angular/router';
 import { SelectItem } from 'primeng/api/selectitem';
 import { keywordsColumns } from '../../../core/constants/keywords';

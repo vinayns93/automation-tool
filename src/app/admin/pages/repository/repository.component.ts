@@ -1,6 +1,6 @@
 import { Component, OnInit, ViewChild } from '@angular/core';
 import { Repository } from '../../../core';
-import { RepositoryService } from '../../../services/repository.service';
+import { RepositoryService } from '../../../core/services/repository-service/repository.service';
 import { Router } from '@angular/router';
 import { SelectItem } from 'primeng/api/selectitem';
 import { Table } from 'primeng/table';
@@ -14,10 +14,11 @@ import { repositoryColumns } from '../../../core/constants/repository';
 })
 export class RepositoryComponent implements OnInit {
   repositories: Repository[];
-  cols: any[];
+  deletedRepositories: Repository[];
   loading: boolean = false;
   tableColumns: any[];
   columns: SelectItem[];
+  selectedRepositoryCols : SelectItem[];
 
   @ViewChild(Table, {static: false}) dt: Table;
   
@@ -25,27 +26,29 @@ export class RepositoryComponent implements OnInit {
 
   ngOnInit(): void {
     var self = this;
-    self.getRepositories();
+    self.selectedRepositoryCols=[];
     self.columns = repositoryColumns;
-    self.tableColumns = [];
+    self.getRepositories();
+    self.LoadAllRepositoryColumns();
   }
   
-  LoadRepositoryColumns(event) {
-    var self = this;
-    self.loading = true;
-    self.tableColumns = [];
-    if (event.value != undefined) {
-      event.value.forEach(col => {
-        self.tableColumns.push(col);
-      });
-    }
-    self.loading = false;
+  LoadAllRepositoryColumns() {
+    this.selectedRepositoryCols = [];
+    repositoryColumns.forEach(column => {
+      this.selectedRepositoryCols.push(column.value);
+    });
   }
 
   getRepositories(){
     this.service.getRepositories()
     .subscribe((result: Repository[])=>{
-      this.repositories = result;
+      this.repositories = [];
+        if(result.length > 0){
+          result.filter(browserItem => {
+            browserItem.statusID == 0 ? this.repositories.push(browserItem) 
+              : null ;
+          });
+        }
         this.dt.reset();
         this.loading = false;
     },
@@ -65,7 +68,7 @@ export class RepositoryComponent implements OnInit {
   }
 
   onRowEditInit(id:number,  userId: number){
-    this.router.navigate(['admin/repository/edit', id, userId]);
+    this.router.navigate(['admin/repository/edit', id, 123]);
   }
   
 }

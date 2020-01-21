@@ -2,8 +2,8 @@ import { Component, OnInit } from '@angular/core';
 import { FormGroup, FormBuilder, Validators,ReactiveFormsModule } from '@angular/forms';
 import { ActivatedRoute, Router } from '@angular/router';
 import { first } from 'rxjs/operators';
-import { AlertService} from '../services/alert.service';
-import { AuthenticationService} from '../services/authentication.service';
+import { AlertService} from '../core/services/shared/alert.service';
+import { AuthenticationService} from '../core/services/auth/authentication.service';
 import { AuthService } from '../core/services/auth/auth.service';
 import { User } from '../core/models/user/user';
 

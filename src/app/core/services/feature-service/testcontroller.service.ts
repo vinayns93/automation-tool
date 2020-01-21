@@ -2,12 +2,12 @@ import { Injectable } from '@angular/core';
 import { HttpClient, HttpClientModule, HttpHeaders } from '@angular/common/http';
 import { Observable, of, throwError, pipe} from 'rxjs';
 import { map, filter, catchError, mergeMap } from 'rxjs/operators';
-import { TestScript } from '../models/testscript.model';
-import { TestController1 } from '../models/testcontroller1.model';
-import { TestController2 } from '../models/testcontroller2.model';
-import { TestController3 } from '../models/testcontroller3.model';
-import { environment } from '../../environments/environment';
-import { BrowserController, ModuleController, TestController } from '../core';
+import { TestScript } from '../../models/test-scripts/testscript.model';
+import { TestController1 } from '../../models/feature/module-controller/testcontroller1.model';
+import { TestController2 } from '../../models/feature/test-controller/testcontroller2.model';
+import { TestController3 } from '../../models/feature/browser-controller/testcontroller3.model';
+import { environment } from '../../../../environments/environment';
+import { BrowserController, ModuleController, TestController } from '../..';
 import { formatDate } from '@angular/common';
 import { ToastrService } from 'ngx-toastr';
 

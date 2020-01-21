@@ -27,9 +27,9 @@ export class AuthService {
 login(user: User) {
   
     return this.http.post(this.apiUrl+'/Auth/Login',user)
-      .subscribe((validUser) => {
-        if(validUser){
-          localStorage.setItem('currentUser', JSON.stringify(user.userName));
+      .subscribe((userID) => {
+        if(userID > 0){
+          localStorage.setItem('currentUser', JSON.stringify(userID));
           this.currentUserSubject.next(user);
           this.router.navigate(['admin/feature/']);
         }

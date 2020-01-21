@@ -2,7 +2,7 @@ import { Component, OnInit } from '@angular/core';
 import { Keywords } from '../../../../core/models';
 import { FormGroup, FormControl, Validators } from '@angular/forms';
 import { ActivatedRoute, Router } from '@angular/router';
-import { KeywordService } from '../../../../services/keyword.service';
+import { KeywordService } from '../../../../core/services/keywords-service/keyword.service';
 import { formatDate } from '@angular/common';
 
 @Component({

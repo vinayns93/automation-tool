@@ -5,10 +5,10 @@ import { environment } from '../../../../environments/environment';
 import { Observable, throwError } from 'rxjs';
 import { ModuleController, TestController, BrowserController } from '../../models';
 import { map, catchError } from 'rxjs/operators';
-import { TestController1 } from '../../../models/testcontroller1.model';
-import { TestController2 } from '../../../models/testcontroller2.model';
+import { TestController1 } from '../../models/feature/module-controller/testcontroller1.model';
+import { TestController2 } from '../../models/feature/test-controller/testcontroller2.model';
 import { formatDate } from '@angular/common';
-import { TestController3 } from '../../../models/testcontroller3.model';
+import { TestController3 } from '../../models/feature/browser-controller/testcontroller3.model';
 
 @Injectable({
   providedIn: 'root'

@@ -7,16 +7,11 @@ import { NgbModule } from '@ng-bootstrap/ng-bootstrap';
 import { ToastrModule } from 'ngx-toastr';
 
 import { AppRoutingModule } from './app.routing.module';
-// import { ComponentsModule } from './components/components.module';
-
 import { AppComponent } from './app.component';
-
-
-import { TestControllerService } from './services/testcontroller.service';
-import { TestScriptsService } from './services/testscripts.service';
-import { KeywordService } from './services/keyword.service';
-import { RepositoryService } from './services/repository.service';
-import { GlobalService } from './services/global.service';
+import { TestControllerService } from './core/services/feature-service/testcontroller.service';
+import { TestScriptsService } from './core/services/test-scripts/testscripts.service';
+import { KeywordService } from './core/services/keywords-service/keyword.service';
+import { RepositoryService } from './core/services/repository-service/repository.service';
 import { ConfirmationDialogComponent } from './confirmation-dialog/confirmation-dialog/confirmation-dialog.component';
 import {
   MatSidenavModule, MatButtonModule, MatCardModule, MatDialogModule, MatInputModule, MatTableModule,
@@ -26,12 +21,13 @@ import { MultiSelectModule } from 'primeng/multiselect';
 import { AdminComponent } from './admin';
 import { SharedModule } from './shared';
 import { TableModule } from 'primeng/table'
-// import { AuthenticationModule } from './authentication';
 import { AuthenticationComponent } from './authentication/authentication.component';
 import { AlertComponent } from './directives';
-import { AlertService } from './services/alert.service';
-import { AuthenticationService } from './services/authentication.service';
+import { AlertService } from './core/services/shared/alert.service';
+import { AuthenticationService } from './core/services/auth/authentication.service';
 import { ConfirmationDialogService } from './confirmation-dialog/confirmation-dialog/confirmation-dialog.service';
+import { GlobalService } from './core';
+import { FeatureService } from './core/services/feature-service/feature-service.service';
 
 @NgModule({
   imports: [
@@ -51,10 +47,15 @@ import { ConfirmationDialogService } from './confirmation-dialog/confirmation-di
     SharedModule,
     TableModule,
     ReactiveFormsModule,
-    MatButtonModule, MatCardModule, MatDialogModule, MatInputModule, MatTableModule,
-    MatToolbarModule, MatMenuModule, MatIconModule, MatProgressSpinnerModule
-
-    // AuthenticationModule
+    MatButtonModule,
+    MatCardModule,
+    MatDialogModule,
+    MatInputModule,
+    MatTableModule,
+    MatToolbarModule,
+    MatMenuModule,
+    MatIconModule,
+    MatProgressSpinnerModule
   ],
   declarations: [
     AppComponent,
@@ -70,7 +71,8 @@ import { ConfirmationDialogService } from './confirmation-dialog/confirmation-di
     GlobalService,
     AuthenticationService,
     AlertService,
-    ConfirmationDialogService],
+    ConfirmationDialogService,
+    FeatureService],
   bootstrap: [AppComponent],
   entryComponents: [ConfirmationDialogComponent]
 })

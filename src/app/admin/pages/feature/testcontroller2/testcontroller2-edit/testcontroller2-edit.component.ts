@@ -1,7 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { ActivatedRoute, Router } from '@angular/router';
-import { TestController2 } from '../../../../../models/testcontroller2.model';
-import { TestControllerService } from '../../../../../services/testcontroller.service';
+import { TestController2 } from '../../../../../core/models/feature/test-controller/testcontroller2.model';
+import { TestControllerService } from '../../../../../core/services/feature-service/testcontroller.service';
 import { FormControl, FormGroup, Validators } from '@angular/forms';
 import { FeatureService, TestController } from '../../../../../core';
 import { formatDate } from '@angular/common';
