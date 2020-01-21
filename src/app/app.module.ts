@@ -11,7 +11,7 @@ import { AppRoutingModule } from './app.routing.module';
 
 import { AppComponent } from './app.component';
 
-//import { AdminLayoutComponent } from './layouts/admin-layout/admin-layout.component';
+
 import { TestControllerService } from './services/testcontroller.service';
 import { TestScriptsService } from './services/testscripts.service';
 import { KeywordService } from './services/keyword.service';
