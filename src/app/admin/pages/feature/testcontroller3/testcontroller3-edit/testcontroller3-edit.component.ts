@@ -1,7 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { ActivatedRoute, Router } from '@angular/router';
-import { TestController3 } from '../../../../../models/testcontroller3.model';
-import { TestControllerService } from '../../../../../services/testcontroller.service';
+import { TestController3 } from '../../../../../core/models/feature/browser-controller/testcontroller3.model';
+import { TestControllerService } from '../../../../../core/services/feature-service/testcontroller.service';
 import { FormControl, FormGroup, Validators } from '@angular/forms';
 import { BrowserController } from '../../../../../core';
 import { FeatureService } from '../../../../../core';

@@ -2,10 +2,10 @@ import { Injectable } from '@angular/core';
 import { HttpClient, HttpClientModule, HttpHeaders } from '@angular/common/http';
 import { Observable, of, throwError, pipe} from 'rxjs';
 import { map, filter, catchError, mergeMap } from 'rxjs/operators';
-import { TestScript } from '../models/testscript.model';
-import { Repository } from '../models/repository.model';
-import { Keywords } from '../models/keyword.model';
-import { environment } from '../../environments/environment';
+import { TestScript } from '../../models/test-scripts/testscript.model';
+import { Repository } from '../../models/repository/repository.model';
+import { Keywords } from '../../models/keywords/keyword.model';
+import { environment } from '../../../../environments/environment';
 import { ToastrService } from 'ngx-toastr';
 
 @Injectable({

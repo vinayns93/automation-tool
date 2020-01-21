@@ -2,40 +2,37 @@ import { Injectable } from '@angular/core';
 import { HttpClient, HttpClientModule, HttpHeaders } from '@angular/common/http';
 import { Observable, of, throwError, pipe} from 'rxjs';
 import { map, filter, catchError, mergeMap } from 'rxjs/operators';
-import { TestScript } from '../models/testscript.model';
-import { Repository } from '../models/repository.model';
-import { environment } from '../../environments/environment';
+import { TestScripts } from '../../models';
+import { environment } from '../../../../environments/environment';
 
 @Injectable({
   providedIn: 'root'
 })
-export class RepositoryService {
-
+export class TestScriptsService {
   public apiUrl:string;
-
   
    constructor(private httpClient: HttpClient){
     this.apiUrl = environment.APIURL;
    }
    
-   getRepositories():Observable<Repository[]>{
-     return this.httpClient.get(this.apiUrl+'/Repository/GetAllRepository')
+   getTestScripts():Observable<TestScripts[]>{
+     return this.httpClient.get(this.apiUrl+'/TestScripts/GetScripts')
                 .pipe(
-                  map(res=>res as Repository[]),
+                  map(res=>res as TestScripts[]),
                   catchError(this.errorHandle)
                 );
    }
 
-   getRepository(id:number, userId: number):Observable<Repository>{
-    return this.httpClient.get(this.apiUrl+'/Repository/GetRepositoryById/'+id+'/'+userId)
+   getTestScript(id:number):Observable<TestScripts>{
+    return this.httpClient.get(this.apiUrl+'/TestScripts/GetScript/'+id)
     .pipe(
-      map(res=>res as Repository),
+      map(res=>res as TestScripts),
       catchError(this.errorHandle)
     );
    }
     
-   addRepository(repo:Repository){
-       return this.httpClient.post(this.apiUrl+'/api/Repository/AddRepository',repo)
+   addTestScript(script:TestScripts){
+       return this.httpClient.post(this.apiUrl+'/TestScripts/AddScript',script)
        .subscribe(
         data  => {
           console.log("POST Request is successful ", data);
@@ -46,8 +43,8 @@ export class RepositoryService {
       );
     }
 
-    updateRepository(id:number,repo:Repository){
-      return this.httpClient.put(this.apiUrl+'/api/Repository/UpdateRepository/'+id,repo)
+    updateTestScript(id:number,script:TestScripts){
+      return this.httpClient.put(this.apiUrl+'/TestScripts/UpdateScript/'+id,script)
       .subscribe(
         data  => {
           console.log("PUT Request is successful ", data);
@@ -58,8 +55,8 @@ export class RepositoryService {
       );
     }
 
-    deleteRepository(id:number){
-      return this.httpClient.delete(this.apiUrl+'/api/Repository/DeleteRepository/'+id)
+    deleteTestScript(id:number){
+      return this.httpClient.delete(this.apiUrl+'/TestScripts/DeleteScript/'+id)
       .subscribe(
         data  => {
           console.log("DELETE Request is successful ", data);

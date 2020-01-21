@@ -3,7 +3,7 @@ import { BrowserController } from '../../../core/models/feature/browser-controll
 import { ModuleController } from '../../../core/models/feature/module-controller/module-controller';
 import { TestController } from '../../../core/models/feature/test-controller/test-controller';
 import { SelectItem } from 'primeng/api/selectitem';
-import { TestControllerService } from '../../../services/testcontroller.service';
+import { TestControllerService } from '../../../core/services/feature-service/testcontroller.service';
 import { Router } from '@angular/router';
 import { ConfirmationDialogService } from '../../../confirmation-dialog/confirmation-dialog/confirmation-dialog.service';
 import { browserControllerColumns, testControllerColumns, moduleControllerColumns } from '../../../core/constants/feature';

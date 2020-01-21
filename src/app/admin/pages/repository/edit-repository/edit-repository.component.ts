@@ -2,7 +2,7 @@ import { Component, OnInit } from '@angular/core';
 import { Repository } from '../../../../core';
 import { FormGroup, FormControl, Validators } from '@angular/forms';
 import { ActivatedRoute, Router } from '@angular/router';
-import { RepositoryService } from '../../../../services/repository.service';
+import { RepositoryService } from '../../../../core/services/repository-service/repository.service';
 
 @Component({
   selector: 'app-edit-repository',
@@ -18,10 +18,9 @@ export class EditRepositoryComponent implements OnInit {
     id: new FormControl('', Validators.required),
     logicalName:  new FormControl('', Validators.required),
     findMethod:  new FormControl('', Validators.required),
-    xpathQuery_PropertyName: new FormControl('', Validators.required),
+    xpathQueryPropertyName: new FormControl('', Validators.required),
     propertyValue: new FormControl('', Validators.required),
     tagName: new FormControl('', [Validators.required, Validators.pattern(/^[a-zA-Z0-9]+$/)]),   
-    featureName: new FormControl('', Validators.required),
     module: new FormControl('', Validators.required),
     statusID: new FormControl('', Validators.required),
     cudStatusID: new FormControl('', Validators.required),

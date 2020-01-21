@@ -1,6 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { Router } from '@angular/router';
-import { TestScriptsService } from '../../../services/testscripts.service';
+import { TestScriptsService } from '../../../core/services/test-scripts/testscripts.service';
 import { TestScripts } from '../../../core/models';
 import { testScriptsColumns } from '../../../core/constants/testscripts';
 import { SelectItem } from 'primeng/api/selectitem';
