@@ -1,4 +1,4 @@
-import { Component, OnInit, ViewEncapsulation } from '@angular/core';
+import { Component, OnInit, ViewEncapsulation, ViewChild } from '@angular/core';
 import { BrowserController } from '../../../core/models/feature/browser-controller/browser-controller';
 import { ModuleController } from '../../../core/models/feature/module-controller/module-controller';
 import { TestController } from '../../../core/models/feature/test-controller/test-controller';
@@ -9,6 +9,7 @@ import { ConfirmationDialogService } from '../../../confirmation-dialog/confirma
 import { browserControllerColumns, testControllerColumns, moduleControllerColumns } from '../../../core/constants/feature';
 import { formatDate } from '@angular/common';
 import { FeatureService } from '../../../core';
+import { Table } from 'primeng/table';
 
 @Component({
   selector: 'app-feature',
@@ -31,6 +32,10 @@ export class FeatureComponent implements OnInit {
   selectedTestControllerCols: any[];
   selectedModuleControllerCols: any[];
   loading: boolean = true;
+
+  @ViewChild(Table, { static : false}) tt: Table;
+  @ViewChild(Table, { static : false}) bt: Table;
+  @ViewChild(Table, { static : false}) mt: Table;
 
   // Cards
   constructor(private svc: TestControllerService, private router: Router,
@@ -194,14 +199,17 @@ export class FeatureComponent implements OnInit {
 
   addBrowserController(){
     this.controllerservice.addBrowserController(new BrowserController());
+    this.getBrowserControllers();
   }
 
   addModuleController(){
     this.controllerservice.addModuleController(new ModuleController());
+    this.getModuleControllers();
   }
 
   addTestController(){
     this.controllerservice.addTestController(new TestController());
+    this.getTestControllers();
   }
 
   onRowEditModuleController(id: number) {

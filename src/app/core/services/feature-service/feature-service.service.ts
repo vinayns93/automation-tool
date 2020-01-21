@@ -139,10 +139,10 @@ export class FeatureService {
      browserCntlObj.statusID = 0;
      browserCntlObj.cudStatusID = 0;
      browserCntlObj.isLocked = false;
-     browserCntlObj.lockedByUser = 0;
-     browserCntlObj.createdOn = formatDate(new Date(), 'yyyy/MM/dd', 'en').toString();
-     browserCntlObj.updatedOn = formatDate(new Date(), 'yyyy/MM/dd', 'en').toString();
-     browserCntlObj.userId = this.userID;
+     browserCntlObj.lockedByUser = null;
+     browserCntlObj.createdOn = null;
+     browserCntlObj.updatedOn = null;
+     browserCntlObj.userId = 2;
        return this.httpClient.post(this.apiUrl+'/Feature/AddBrowserController', browserCntlObj)
        .subscribe(
          data  => {

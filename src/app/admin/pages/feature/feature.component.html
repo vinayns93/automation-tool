@@ -99,7 +99,7 @@
                     <div class="row">
                         <div class="col-lg-12 col-md-12">
                             <ng-container *ngIf="selectedModuleControllerCols.length != 0">
-                            <p-table #tt1 [loading]="loading" [scrollable]="true" scrollHeight="1000px" [value]="moduleController"
+                            <p-table #mt [loading]="loading" [scrollable]="true" scrollHeight="1000px" [value]="moduleController"
                                 sortMode="multiple" [columns]="selectedModuleControllerCols" [paginator]="true" [rows]="10"
                                 [responsive]="true">
                                 <ng-template pTemplate="colgroup" let-columns>
@@ -182,7 +182,7 @@
                     <div class="row">
                         <div class="col-lg-12 col-md-12">
                             <ng-container *ngIf="selectedTestControllerCols.length != 0">
-                            <p-table #tt2 [loading]="loading" [scrollable]="true" scrollHeight="1000px" [responsive]="true"
+                            <p-table #tt [loading]="loading" [scrollable]="true" scrollHeight="1000px" [responsive]="true"
                                 [value]="testController" sortMode="multiple" [columns]="selectedTestControllerCols"
                                 [paginator]="true" [rows]="10">
                                 <ng-template pTemplate="colgroup" let-columns>

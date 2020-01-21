@@ -226,7 +226,6 @@ export class HeaderCardComponent implements OnInit {
     // this.lineChartWithNumbersAndGridOptions = this.gradientChartOptionsConfigurationWithNumbersAndGrid;
 
     // this.lineChartWithNumbersAndGridType = 'line';
-   this.currentDate = formatDate(new Date(), 'dd-MMM-yyyy', 'en').toString();
     this.getActiveUsers();
     this.getRecordsModifiedCount();
     this.getLatestFeeds();
@@ -241,6 +240,9 @@ export class HeaderCardComponent implements OnInit {
             this.latestFeeds = feeds;
           else if(feeds.length > 3)
             this.latestFeeds =  feeds.slice(-3);
+        }
+        else{
+          this.latestFeeds.push("No Activities Recorded");
         }
       });
   }
