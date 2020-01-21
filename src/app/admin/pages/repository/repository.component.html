@@ -49,10 +49,10 @@
                             <td *ngFor="let col of selectedRepositoryCols">
                                 <ng-container *ngIf="col.field == 'actions'">
                                     <button pButton type="button"
-                                        style="background-color: #100699 !important;margin-right: 5px;"
-                                        icon="pi pi-pencil" class="ui-button-success ui-button-raised"
+                                        style="background-color: #100699 !important;border-color: #100699 !important;margin-right: 5px;"
+                                        icon="pi pi-pencil" class="edit-control rounded-button"
                                         (click)="onRowEditInit(repositories.id, repositories.userId)"></button>
-                                    <button pButton type="button" icon="pi pi-times" class="ui-button-danger"
+                                    <button pButton type="button" icon="pi pi-times" class="delete-control rounded-button"
                                         (click)="deleteRepository(repositories.id)"></button>
                                 </ng-container>
                                 <ng-container *ngIf="col.field != 'actions'">

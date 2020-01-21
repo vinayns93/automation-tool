@@ -14,6 +14,7 @@ import { repositoryColumns } from '../../../core/constants/repository';
 })
 export class RepositoryComponent implements OnInit {
   repositories: Repository[];
+  deletedRepositories: Repository[];
   loading: boolean = false;
   tableColumns: any[];
   columns: SelectItem[];
@@ -41,7 +42,13 @@ export class RepositoryComponent implements OnInit {
   getRepositories(){
     this.service.getRepositories()
     .subscribe((result: Repository[])=>{
-      this.repositories = result;
+      this.repositories = [];
+        if(result.length > 0){
+          result.filter(browserItem => {
+            browserItem.statusID == 0 ? this.repositories.push(browserItem) 
+              : null ;
+          });
+        }
         this.dt.reset();
         this.loading = false;
     },
@@ -61,7 +68,7 @@ export class RepositoryComponent implements OnInit {
   }
 
   onRowEditInit(id:number,  userId: number){
-    this.router.navigate(['admin/repository/edit', id, userId]);
+    this.router.navigate(['admin/repository/edit', id, 123]);
   }
   
 }

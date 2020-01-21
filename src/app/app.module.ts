@@ -27,6 +27,7 @@ import { AlertService } from './core/services/shared/alert.service';
 import { AuthenticationService } from './core/services/auth/authentication.service';
 import { ConfirmationDialogService } from './confirmation-dialog/confirmation-dialog/confirmation-dialog.service';
 import { GlobalService } from './core';
+import { FeatureService } from './core/services/feature-service/feature-service.service';
 
 @NgModule({
   imports: [
@@ -70,7 +71,8 @@ import { GlobalService } from './core';
     GlobalService,
     AuthenticationService,
     AlertService,
-    ConfirmationDialogService],
+    ConfirmationDialogService,
+    FeatureService],
   bootstrap: [AppComponent],
   entryComponents: [ConfirmationDialogComponent]
 })

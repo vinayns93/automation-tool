@@ -12,10 +12,12 @@ import { ToastrService } from 'ngx-toastr';
 export class RepositoryService {
 
   public apiUrl: string;
+  public userID: number;
 
 
   constructor(private httpClient: HttpClient, private toastr: ToastrService) {
     this.apiUrl = environment.APIURL;
+    this.userID = Number(localStorage.getItem('currentUser'));
   }
 
   getRepositories(): Observable<Repository[]> {
@@ -27,7 +29,7 @@ export class RepositoryService {
   }
 
   getRepository(id: number, userId: number): Observable<Repository> {
-    return this.httpClient.get(this.apiUrl + '/Repository/GetRepositoryById/' + id + '/' + userId)
+    return this.httpClient.get(this.apiUrl + '/Repository/GetRepositoryById/' + id + '/' + this.userID)
       .pipe(
         map(res => res as Repository),
         catchError(this.errorHandle)
@@ -52,6 +54,7 @@ export class RepositoryService {
       .subscribe(
         data => {
           console.log("PUT Request is successful ", data);
+          this.toastr.success("Repository updated Successfully !");
         },
         error => {
           console.log("Error", error);
@@ -60,7 +63,7 @@ export class RepositoryService {
   }
 
   deleteRepository(id: number) {
-    return this.httpClient.delete(this.apiUrl + '/Repository/DeleteRepository/' + id)
+    return this.httpClient.delete(this.apiUrl + '/Repository/DeleteRepository/' + id+ '/'+this.userID)
       .subscribe(
         data => {
           console.log("DELETE Request is successful ", data);

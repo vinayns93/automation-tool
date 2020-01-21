@@ -3,6 +3,7 @@ import { Repository } from '../../../../core';
 import { FormGroup, FormControl, Validators } from '@angular/forms';
 import { ActivatedRoute, Router } from '@angular/router';
 import { RepositoryService } from '../../../../core/services/repository-service/repository.service';
+import { formatDate } from '@angular/common';
 
 @Component({
   selector: 'app-edit-repository',
@@ -27,13 +28,14 @@ export class EditRepositoryComponent implements OnInit {
     isLocked: new FormControl('', Validators.required)
 });
 
-  constructor(private activatedRoute: ActivatedRoute, private service: RepositoryService) {
+  constructor(private activatedRoute: ActivatedRoute, private repositoryService: RepositoryService,
+              private router: Router) {
     this.id = activatedRoute.snapshot.paramMap.get("id");
     this.userId = activatedRoute.snapshot.paramMap.get("userId");
    }
 
   ngOnInit() {
-    let getRepositoryreq = this.service.getRepository(this.id, this.userId)
+    let getRepositoryreq = this.repositoryService.getRepository(this.id, this.userId)
     .subscribe((result: Repository) => {
       this.editRepositoryObj = result;
       getRepositoryreq.unsubscribe()
@@ -44,5 +46,12 @@ export class EditRepositoryComponent implements OnInit {
     () => {
 
     });
+  }
+
+  onSubmit(){
+    this.repositoryService.updateRepository(this.editRepositoryObj.id, this.editRepositoryObj);
+      setTimeout(f=>{
+        this.router.navigate(['/admin/repository']);
+      },2200)
   }
 }
