@@ -1,4 +1,5 @@
 export const keywordsColumns: any[] = [
+    { label: 'ID', value: { field: 'id', header: 'ID'}},
     { label: 'Function Name', value: { field: 'functionName', header: 'Function Name'}},
     { label: 'Step Description', value: { field: 'stepDescription', header: 'Step Description'}},
     { label: 'Action or Keyword', value: { field: 'actionOrKeyword', header: 'Action or Keyword'}},
@@ -12,7 +13,6 @@ export const keywordsColumns: any[] = [
     { label: 'Created On', value: { field: 'createdOn', header: 'Created On'}},
     { label: 'Updated On', value: { field: 'updatedOn', header: 'Updated On'}},
     { label: 'User ID', value: { field: 'userId', header: 'User ID'}},
-    { label: 'ID', value: { field: 'id', header: 'ID'}},
     { label: 'Param 1', value: { field: 'param1', header: 'Param 1'}},
     { label: 'Param 2', value: { field: 'param2', header: 'Param 2'}},
     { label: 'Param 3', value: { field: 'param3', header: 'Param 3'}},

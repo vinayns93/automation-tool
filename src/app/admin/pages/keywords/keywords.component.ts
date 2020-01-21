@@ -29,6 +29,14 @@ export class KeywordsComponent implements OnInit {
     self.getKeywords();
     self.columns = keywordsColumns;
     self.tableColumns = [];
+    self.LoadAllKeywordsColumns();
+  }
+
+  LoadAllKeywordsColumns() {
+    this.tableColumns = [];
+    keywordsColumns.forEach(column => {
+      this.tableColumns.push(column.value);
+    });
   }
 
   loadKeywordsColumns(event) {

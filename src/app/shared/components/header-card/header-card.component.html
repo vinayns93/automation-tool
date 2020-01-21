@@ -73,7 +73,7 @@
         <div class="card card-chart">
             <div class="card-header">
                 <h5>Timeline</h5>
-              <h4 class=" primary-color">Recent Operations</h4>
+              <h4 class=" primary-color">Latest Feeds</h4>
             </div>
             <div class="card-body" class="no-padding-top no-padding-bottom">
                 <div class="row align-items-center padding-top-07 limit-row-style">
@@ -82,15 +82,10 @@
                   </div>
                   <div class="col-lg-8">
                     <div class="row">
-                      <div class="col-lg-12 light-border-bottom card-list-row">
-                        <i class="fa fa-pencil" aria-hidden="true"></i> Arpit updated 3m ago
+                      <div class="col-lg-12 light-border-bottom card-list-row" *ngFor="let feed of latestFeeds">
+                        <i class="fa fa-{{feed.includes('update') ? 'pencil' : (feed.includes('edit') ? 'pencil-square-o' : 'address-card')}}" aria-hidden="true"></i> {{feed}}
                       </div>
-                      <div class="col-lg-12 light-border-bottom card-list-row">
-                        <i class="fa fa-pencil-square-o" aria-hidden="true"></i> Arpit edited 7m ago
-                        </div>
-                        <div class="col-lg-12 card-list-row">
-                          <i class="fa fa-address-card" aria-hidden="true"></i> Arpit logged in 12m ago
-                          </div>
+                      
                     </div>
                   </div>
                     

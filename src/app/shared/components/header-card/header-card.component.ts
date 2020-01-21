@@ -10,6 +10,7 @@ export class HeaderCardComponent implements OnInit {
 
   public activeUsers;
   public recordsModified;
+  public latestFeeds: string [];
 
   public chartColor;
   public canvas : any;
@@ -226,6 +227,20 @@ export class HeaderCardComponent implements OnInit {
 
     this.getActiveUsers();
     this.getRecordsModifiedCount();
+    this.getLatestFeeds();
+  }
+
+  getLatestFeeds() {
+    this.globalService.getLatestFeeds()
+      .subscribe((feeds) => {
+        this.latestFeeds = [];
+        if(feeds.length > 0){
+          if(feeds.length <= 3)
+            this.latestFeeds = feeds;
+          else if(feeds.length > 3)
+            this.latestFeeds =  feeds.slice(-3);
+        }
+      });
   }
 
   getRecordsModifiedCount() {
