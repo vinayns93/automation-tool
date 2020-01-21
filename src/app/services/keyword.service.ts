@@ -6,6 +6,7 @@ import { TestScript } from '../models/testscript.model';
 import { Repository } from '../models/repository.model';
 import { Keywords } from '../models/keyword.model';
 import { environment } from '../../environments/environment';
+import { ToastrService } from 'ngx-toastr';
 
 @Injectable({
   providedIn: 'root'
@@ -16,7 +17,7 @@ export class KeywordService {
 
   
   
-   constructor(private httpClient: HttpClient){
+   constructor(private httpClient: HttpClient, private toastr: ToastrService){
      this.apiUrl = environment.APIURL;
    }
    
@@ -42,6 +43,7 @@ export class KeywordService {
         data  => {
           console.log("POST Request is successful");
           console.log(data);
+          this.toastr.success("Keywords instance created successfully !");
           },
           error  => {
           console.log("Error", error);
