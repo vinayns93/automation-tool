@@ -26,17 +26,29 @@ export class TestScriptsComponent implements OnInit {
     this.columns= testScriptsColumns;
     this.tableColumns = [];
 
-    // this.LoadTestScriptsColumns();
+    this.LoadTestScriptsColumns();
   }
 
-  LoadTestScriptsColumns(event){
+  LoadTestScriptsColumns() {
+    this.tableColumns = [];
+    testScriptsColumns.forEach(column => {
+      let col = column.value;
+      if(!(col.header.includes('Param '))) {
+        this.tableColumns.push(col);
+      }
+    });
+  }
+
+  loadTestScriptsColumns(event){
     var self = this;
     self.loading = true;
     self.tableColumns = [];
     if(event.value != undefined){
       event.value.forEach(col => {
+        if(col)
         self.tableColumns.push(col);
       });
+      
     }
     self.loading = false;
   }
@@ -46,7 +58,13 @@ export class TestScriptsComponent implements OnInit {
     self.service.getTestScripts()
     .subscribe((result: TestScript[])=>{
       //console.log(result);
-      self.testscripts = result;
+      self.testscripts = [];
+      if(result.length > 0){
+        result.filter(browserItem => {
+          browserItem.statusID == 0 ? this.testscripts.push(browserItem) 
+            : null ;
+          });
+      }
       self.loading =false;
       
     },

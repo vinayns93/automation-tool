@@ -10,12 +10,6 @@
         <div class="col-md-12 col-lg-12">
             <form [formGroup]="repositoryForm" (ngSubmit)="onSubmit()">
                 <div class="row padding-bottom-1 align-items-center margin-top-1">
-                    <div class="col-md-12 col-lg-12 center-align">
-                        <label>Lock</label>
-                        <input type="checkbox" value="Locked" name="IsLocked" class="checkbox form-control" style="font-size: 0.3em" formControlName="isLocked">
-                    </div>
-                </div>
-                <div class="row padding-bottom-1 align-items-center margin-top-1">
                     <div class="col-md-2 col-lg-2">
                         <label for="logicalName" class="pull-right">Logical Name</label>
                     </div>
@@ -61,12 +55,12 @@
                 </div>               
                 <div class="row">
                     <div class="col-md-6 col-lg-6 right-align">
-                        <button type="submit" class="button btn btn-primary" [disabled]="!repositoryForm.valid">
-                            <i class="fa fa-plus"></i> ADD
+                        <button type="submit" class="button btn btn-success" [disabled]="!repositoryForm.valid">
+                            <i class="fa fa-plus"></i> SAVE
                             </button>
                     </div>
                     <div class="col-md-6 col-lg-6">
-                          <button type="button" class="button btn" [routerLink]="['/admin/repository']">
+                          <button type="button" class="button btn btn-danger" [routerLink]="['/admin/repository']">
                             <i class="fa fa-close"> </i> CANCEL
                         </button>
                     </div>

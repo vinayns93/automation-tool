@@ -111,7 +111,7 @@
                   <div class="col-lg-8 col-md-8">
                     <div class="row">
                       <div class="col-lg-12 col-md-12 light-border-bottom card-list-row" *ngFor="let feed of latestFeeds">
-                        <i class="fa fa-{{feed.includes('update') ? 'pencil' : (feed.includes('edit') ? 'pencil-square-o' : 'address-card')}}" aria-hidden="true"></i> {{feed}}
+                        <i class="fa fa-{{(feed.includes('update') || feed.includes('Modif')) ? 'pencil' : (feed.includes('edit') ? 'pencil-square-o' : 'address-card')}}" aria-hidden="true"></i> {{feed}}
                       </div>
                       
                     </div>

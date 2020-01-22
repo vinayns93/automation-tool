@@ -20,17 +20,31 @@ export class TestDataComponent implements OnInit {
   groupField = "tcid";
   first;
 
+  onSort(){
+    this.updateRowGroupMetaData();
+  }
+
   constructor(private service: TestDataService) { }
 
   ngOnInit() {
     this.columns = testDataColumns;
     this.tableColumns = [];
-    this.getTestdata();
-  }
-
-  onSort(){
+    this.getAllTestdata();
+    this.LoadAllTestDataColumns();
     this.updateRowGroupMetaData();
   }
+
+  LoadAllTestDataColumns() {
+    this.tableColumns = [];
+    testDataColumns.forEach(column => {
+      let col = column.value;
+      if(!(col.header.includes('Param '))) {
+        this.tableColumns.push(col);
+      }
+    });
+  }
+
+  
 
   customSort(event: SortEvent){
     event.data.sort((a, b) => {
@@ -67,9 +81,9 @@ export class TestDataComponent implements OnInit {
     self.loading = false;
   }
 
-  getTestdata() {
+  getAllTestdata() {
     var self = this;
-    self.service.getTestData()
+    self.service.getAllTestData()
     .subscribe((result: TestData[])=>{
       //console.log(result);
       self.testData = result;
@@ -101,6 +115,19 @@ export class TestDataComponent implements OnInit {
             self.rowGroupMetadata[groupVal] = { index: i, size: 1};
         }
         }
+    }
+  }
+
+  onRowEditInit(id, userId) {
+    // this.router.navigate(['admin/testdata/edit', id, 2]);
+  }
+
+  deleteTestData(id, tcid, iterations) {
+    if(confirm("Are you sure to delete?")) {
+      this.service.deleteTestData(id, tcid, iterations);
+       setTimeout(f=>{
+         this.getAllTestdata();
+       },2200)
     }
   }
 }

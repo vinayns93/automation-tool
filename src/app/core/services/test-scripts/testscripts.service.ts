@@ -58,10 +58,11 @@ export class TestScriptsService {
     }
 
     deleteTestScript(id:number){
-      return this.httpClient.delete(this.apiUrl+'/TestScripts/DeleteScript/'+id)
+      return this.httpClient.delete(this.apiUrl+'/TestScripts/DeleteScript/'+id+'/'+2)
       .subscribe(
         data  => {
           console.log("DELETE Request is successful ", data);
+          this.toastr.warning("Delete has been successfull")
           },
           error  => {
           console.log("Error", error);

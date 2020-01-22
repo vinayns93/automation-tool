@@ -1,53 +1,84 @@
-<div style="background-color: #d8e2eb;">
-  <div class="container" style="padding-top:60px;">
-    <div class="row">
+
+  <div class="container-fluid"  style="background-color: #d8e2eb;padding-bottom: 0px;padding-top: 0px;">
+    <div class="row align-items-center" style="height: 90vh;">
       <div class="col-md-6 mx-auto">
         <div class="card-group">
           <div class="card p-4">
             <div class="card-body">
               <form name="form" (ngSubmit)="onSubmit()" [formGroup]="loginForm">
-                <h2 style="text-align:center">Automation Framework</h2>
-                <div class="form-group">
-                  <div class="input-group mb-3">
-                    <!-- <div class="input-group-prepend">  
-                    <span class="input-group-text"><i class="icon-user"></i></span>  
-                  </div>   -->
-                    <input type="text" placeholder="Username" formControlName="username" class="form-control"
-                      [ngClass]="{ 'is-invalid': submitted && f.username.errors }" />
-                    <div *ngIf="submitted && f.username.errors" class="invalid-feedback">
-                      <div *ngIf="f.username.errors.required">Username is required</div>
-                    </div>
-                  </div>
-                </div>
-                <div class="input-group mb-4">
-                  <!-- <div class="input-group-prepend">  
-                    <span class="input-group-text"><i class="icon-lock"></i></span>  
-                  </div>   -->
-                  <input type="password" placeholder="Password" formControlName="password" class="form-control"
-                    [ngClass]="{ 'is-invalid': submitted && f.password.errors }" />
-                  <div *ngIf="submitted && f.password.errors" class="invalid-feedback">
-                    <div *ngIf="f.password.errors.required">Password is required</div>
+              <div class="container-fluid">
+                <div class="row">
+                  <div class="col-12" style="padding-left: 0px;padding-right: 0px;">
+                    <h2 style="text-align:center;margin-top: 1em;margin-bottom: 2em;">AUTOMATION FRAMEWORK</h2>
                   </div>
                 </div>
                 <div class="row">
-                  <div class="col-6 text-right">
-                    <input type="checkbox" id="chkRememberMe" class="form-check-input">
-                    <label class="form-check-label" style="padding-right: 8em;">Remember me</label>
+                  <div class="col-1"></div>
+                  <div class="col-10">
+                    <div class="form-group" style="margin-bottom: 2.5em;">
+                      <div class="input-group mb-3">
+                        <!-- <div class="input-group-prepend">  
+                        <span class="input-group-text"><i class="icon-user"></i></span>  
+                      </div>   -->
+                        <input style="border-color: black;text-align: center;font-size: 1em;height: 2.5em;" type="text" placeholder="ENTER YOUR USERNAME" formControlName="username" class="form-control"
+                          [ngClass]="{ 'is-invalid': submitted && f.username.errors }" />
+                        <div *ngIf="submitted && f.username.errors" class="invalid-feedback">
+                          <div *ngIf="f.username.errors.required">Username is required</div>
+                        </div>
+                      </div>
+                    </div>
+                    <div class="input-group mb-4" style="margin-bottom: 0.5em !important;">
+                      <!-- <div class="input-group-prepend">  
+                        <span class="input-group-text"><i class="icon-lock"></i></span>  
+                      </div>   -->
+                      <input style="border-color: black;text-align: center;font-size: 1em;height: 2.5em" type="password" placeholder="ENTER YOUR PASSWORD" formControlName="password" class="form-control"
+                        [ngClass]="{ 'is-invalid': submitted && f.password.errors }" />
+                      <div *ngIf="submitted && f.password.errors" class="invalid-feedback">
+                        <div *ngIf="f.password.errors.required">Password is required</div>
+                      </div>
+                    </div>
                   </div>
-                  <div class="col-6 text-right">
-                    <!-- <button type="button" class="btn btn-link px-0">Forgot password?</button> -->
-                    <a href="#" style="color: #9A9A9A;font-size: 0.8571em;">Forgot password?</a>
+                  <div class="col-1"></div>
+                </div>
+                <div class="row align-items-center">
+                  <div class="col-1"></div>
+                  <div class="col-10">
+                    <div class="row align-items-center" style="margin-bottom: 4em;">
+                      <div class="col-1" style="text-align: right;padding-right: 0.5em;">
+                        <input type="checkbox" id="chkRememberMe" class="chk-control" style="width: 1em;margin: 0px;">
+                      </div>
+                      <div class="col-5" style="text-align: left;padding-left: 0px;">
+                        <label class="form-check-label" style="color: black">Remember me</label>
+                      </div>
+                      <div class="col-6" style="text-align: right;">
+                        <!-- <button type="button" class="btn btn-link px-0">Forgot password?</button> -->
+                        <a href="#" style="color: black;font-size: 0.8571em;">Forgot Password?</a>
+                      </div>
+                    </div>
                   </div>
+                  <div class="col-1"></div>
                 </div>
-                <div class="col-6" style="padding-left: 13em;">
-                  <button type="submit" class="btn btn-primary px-6" style="background-color: #0a2293;">Log In</button>
+                <div class="row align-items-center">
+                  <div class="col-1"></div>
+                  <div class="col-4" style="text-align: left;">
+                    <button type="reset" class="btn btn-primary px-6" style="background-color: #0a2293;width: 100%;"><i class="fa fa-sync"></i> &nbsp;&nbsp;RESET</button>
+                  </div>
+                  <div class="col-2"></div>
+                  <div class="col-4" style="text-align: left;">
+                    <button type="submit" class="btn btn-primary px-6" style="background-color: #0a2293;width: 100%;">LOG IN &nbsp;&nbsp;<i class="fa fa-arrow-right"></i></button>
+                  </div>
+                  <div class="col-1"></div>
                 </div>
-              </form>
+              </div>
+            </form>
             </div>
           </div>
         </div>
       </div>
     </div>
+    <div class="row align-items-end" style="height: 10vh;">
+      <div class="col-12" style="padding: 0px;">
+        <app-page-footer></app-page-footer>
+      </div>
+    </div>
   </div>
-</div>
-<div style="background-color: #d8e2eb; height: 20em;"></div>

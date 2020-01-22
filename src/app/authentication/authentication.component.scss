@@ -1,1 +1,12 @@
 @import '../../assets/scss/toastr.scss';
+
+.chk-control {
+    background-color: transparent;
+    border: 1px solid #E3E3E3;
+    border-radius: 30px;
+    color: #2c2c2c;
+    line-height: normal;
+    font-size: 0.8571em;
+    transition: color 0.3s ease-in-out, border-color 0.3s ease-in-out, background-color 0.3s ease-in-out;
+    box-shadow: none;
+}

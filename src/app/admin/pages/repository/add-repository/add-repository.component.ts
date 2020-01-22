@@ -21,7 +21,6 @@ export class AddRepositoryComponent implements OnInit {
     propertyValue: new FormControl('', [Validators.required, Validators.pattern(/^[a-zA-Z0-9]+$/)]),
     tagName: new FormControl('', [Validators.required, Validators.pattern(/^[a-zA-Z0-9]+$/)]),
     module: new FormControl('', [Validators.required, Validators.pattern(/^[a-zA-Z0-9]+$/)]),
-    isLocked: new FormControl(''),
 });
   constructor(private route:ActivatedRoute, private service:RepositoryService,private router: Router) { }
 

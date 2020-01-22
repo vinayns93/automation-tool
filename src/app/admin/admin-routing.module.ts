@@ -27,7 +27,7 @@ export const adminRoutes: Routes = [
       { path: 'admin/feature/testcontroller1/edit/:id', component: Testcontroller1EditComponent, canActivate: [AuthGuard] },
       { path: 'admin/feature/testcontroller2/edit/:id', component: Testcontroller2EditComponent, canActivate: [AuthGuard] },
       { path: 'admin/feature/testcontroller3/edit/:id', component: Testcontroller3EditComponent, canActivate: [AuthGuard] },
-      { path: '**', redirectTo: 'admin/feature', pathMatch: 'full', canActivate: [AuthGuard] }
+      { path: '**', redirectTo: 'admin/repository', pathMatch: 'full', canActivate: [AuthGuard] }
 ];
 
 

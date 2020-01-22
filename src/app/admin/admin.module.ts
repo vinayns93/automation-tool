@@ -24,6 +24,8 @@ import { TestDataComponent } from './pages/test-data/test-data.component';
 import { KeywordsComponent } from './pages/keywords/keywords.component';
 import { RepositoryComponent } from './pages/repository/repository.component';
 import { FeatureComponent } from './pages/feature/feature.component';
+import { AddTestDataComponent } from './pages/test-data/add-test-data/add-test-data.component';
+import { EditTestDataComponent } from './pages/test-data/edit-test-data/edit-test-data.component';
 
 @NgModule({
   declarations: [
@@ -41,7 +43,9 @@ import { FeatureComponent } from './pages/feature/feature.component';
     Testcontroller2EditComponent,
     Testcontroller3EditComponent,
     AddTestScriptComponent,
-    EditTestScriptComponent
+    EditTestScriptComponent,
+    AddTestDataComponent,
+    EditTestDataComponent
   ],
   imports: [
     CommonModule,

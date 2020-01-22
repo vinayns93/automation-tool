@@ -1,18 +1,23 @@
 <div class="col-md-12">
-    <div class="row align-items-center ">
-        <div class="col-md-3 col-lg-3">
-            <label class="pull-right">Choose the Columns</label>
-        </div>
-        <div class="col-md-3 col-lg-3">
-            <p-multiSelect (onChange)="LoadTestScriptsColumns($event)" [options]="columns" [(ngModel)]="cols">
-            </p-multiSelect>
-        </div>
-        <div class="col-md-6 col-lg-6 right-align">
-            <button class="btn btn-primary pull-right" style="margin-right:27px; font-size: 0.5rem;"
+    <div class="row align-items-center" style="padding-top: 2em; padding-bottom: 2em;">
+        <div class="col-md-4 col-lg-4">
+            <button class="btn btn-primary pull-left" style="margin-right:27px; font-size: 0.5rem;"
                 [routerLink]="['/admin/testscripts/add']">
                 <i class="now-ui-icons ui-1_simple-add"></i>ADD NEW TESTSCRIPT</button>
         </div>
-    </div>
+        <div class="col-md-4 col-lg-4 center-align">
+           <!-- <h5 class="admin-page-header"> BROWSER CONTROLLER</h5> -->
+        </div>
+        <div class="col-md-2 col-lg-2" style="padding-right: 0px;">
+            <label class="pull-right" style="font-size: 0.9em;">Table Columns</label>
+        </div>
+            <div class="col-md-2 col-lg-2" style="padding-left: 0.5em">
+                <p-multiSelect (onChange)="loadTestScriptsColumns($event)" [options]="columns" 
+                [(ngModel)]="tableColumns">
+                </p-multiSelect>
+        </div>
+        </div>
+    
     <div class="row">
         <div class="col-md-12 col-lg-12">
             <ng-container *ngIf="tableColumns.length != 0">
@@ -42,7 +47,7 @@
                                         (click)="onRowEditInit(testscripts.id)"></button>
                                     <button pButton type="button" icon="pi pi-times"
                                         class="rounded-button delete-control"
-                                        (click)="deleteTestScript(testscripts.id)"></button>
+                                        (click)="deleteScript(testscripts.id)"></button>
                                 </ng-container>
                                 <ng-container *ngIf="col.field != 'actions'">
                                     {{testscripts[col.field]}}
