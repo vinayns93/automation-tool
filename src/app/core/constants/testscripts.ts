@@ -1,4 +1,5 @@
 export const testScriptsColumns: any[] = [
+    { label: 'ID', value: { field: 'id', header: 'ID'}},
     { label: 'Test Case ID', value: { field: 'testCaseID', header: 'Test Case ID'}},
     { label: 'TC_StepID', value: { field: 'tc_stepID', header: 'TC_StepID'}},
     { label: 'TestScript Name', value: { field: 'testScriptName', header: 'TestScript Name'}},
@@ -113,6 +114,5 @@ export const testScriptsColumns: any[] = [
     { label: 'Created On', value: { field: 'createdOn', header: 'Created On'}},
     { label: 'Updated On', value: { field: 'updatedOn', header: 'Updated On'}},
     { label: 'User ID', value: { field: 'userId', header: 'User ID'}},
-    { label: 'ID', value: { field: 'id', header: 'ID'}},
     { label: 'Actions', value: { field: 'actions', header: 'Actions'} }
 ];

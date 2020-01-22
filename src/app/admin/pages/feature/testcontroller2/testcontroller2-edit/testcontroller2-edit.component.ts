@@ -1,9 +1,9 @@
 import { Component, OnInit } from '@angular/core';
 import { ActivatedRoute, Router } from '@angular/router';
-import { TestController2 } from '../../../../../core/models/feature/test-controller/testcontroller2.model';
+import { TestController } from '../../../../../core/models/feature/test-controller/test-controller';
 import { TestControllerService } from '../../../../../core/services/feature-service/testcontroller.service';
 import { FormControl, FormGroup, Validators } from '@angular/forms';
-import { FeatureService, TestController } from '../../../../../core';
+import { FeatureService } from '../../../../../core';
 import { formatDate } from '@angular/common';
 
 
@@ -14,7 +14,7 @@ import { formatDate } from '@angular/common';
 })
 export class Testcontroller2EditComponent implements OnInit {
   id:number;
-  testController2:TestController2;
+  testController2:TestController;
   editTControllerObj: TestController;
   testControllerForm = new FormGroup({
     id: new FormControl(''),
@@ -26,7 +26,7 @@ export class Testcontroller2EditComponent implements OnInit {
     browsers:new FormControl('', Validators.required),
     sequenceID:new FormControl('', Validators.required),
     testType:new FormControl('', Validators.required),
-    jira_ID:new FormControl('', Validators.required),
+    jiraID:new FormControl('', Validators.required),
     // stepsCount:new FormControl('', Validators.required),
     testScriptName:new FormControl('', Validators.required),
     testScriptDescription:new FormControl('', Validators.required)

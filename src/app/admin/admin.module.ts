@@ -26,6 +26,9 @@ import { RepositoryComponent } from './pages/repository/repository.component';
 import { FeatureComponent } from './pages/feature/feature.component';
 import { AddTestDataComponent } from './pages/test-data/add-test-data/add-test-data.component';
 import { EditTestDataComponent } from './pages/test-data/edit-test-data/edit-test-data.component';
+import { AddModuleControllerComponent } from './pages/feature/testcontroller1/add-module-controller/add-module-controller.component';
+import { AddTestControllerComponent } from './pages/feature/testcontroller2/add-test-controller/add-test-controller.component';
+import { AddBrowserControllerComponent } from './pages/feature/testcontroller3/add-browser-controller/add-browser-controller.component';
 
 @NgModule({
   declarations: [
@@ -45,7 +48,10 @@ import { EditTestDataComponent } from './pages/test-data/edit-test-data/edit-tes
     AddTestScriptComponent,
     EditTestScriptComponent,
     AddTestDataComponent,
-    EditTestDataComponent
+    EditTestDataComponent,
+    AddModuleControllerComponent,
+    AddTestControllerComponent,
+    AddBrowserControllerComponent
   ],
   imports: [
     CommonModule,

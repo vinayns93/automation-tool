@@ -5,25 +5,21 @@ import { environment } from '../../../../environments/environment';
 import { Observable, throwError } from 'rxjs';
 import { ModuleController, TestController, BrowserController } from '../../models';
 import { map, catchError } from 'rxjs/operators';
-import { TestController1 } from '../../models/feature/module-controller/testcontroller1.model';
-import { TestController2 } from '../../models/feature/test-controller/testcontroller2.model';
-import { formatDate } from '@angular/common';
-import { TestController3 } from '../../models/feature/browser-controller/testcontroller3.model';
 
 @Injectable({
   providedIn: 'root'
 })
 export class FeatureService {
   public apiUrl:string;
-  public userID: number;
+  public userID: string;
   
   constructor(private httpClient: HttpClient, private toastr: ToastrService){
    this.apiUrl = environment.APIURL;
-   this.userID = Number(localStorage.getItem('currentUser'));
+   this.userID = localStorage.getItem('currentUser');
   }
   
   getAllModuleController():Observable<ModuleController[]>{
-    return this.httpClient.get(this.apiUrl+'/Feature/GetAllModuleController/'+2)
+    return this.httpClient.get(this.apiUrl+'/Feature/GetAllModuleController/'+this.userID)
                .pipe(
                  map(res=>res as ModuleController[]),
                  catchError(this.errorHandle)
@@ -31,7 +27,7 @@ export class FeatureService {
   }
 
   getAllTestController():Observable<TestController[]>{
-   return this.httpClient.get(this.apiUrl+'/Feature/GetAllTestController/'+2)
+   return this.httpClient.get(this.apiUrl+'/Feature/GetAllTestController/'+this.userID)
               .pipe(
                 map(res=>res as TestController[]),
                 catchError(this.errorHandle)
@@ -46,7 +42,7 @@ export class FeatureService {
  }
 
  getModuleController(id:number):Observable<ModuleController>{
-   return this.httpClient.get(this.apiUrl+'/Feature/GetModuleControllerById/'+id+'/'+2)
+   return this.httpClient.get(this.apiUrl+'/Feature/GetModuleControllerById/'+id+'/'+this.userID)
    .pipe(
      map(res=>res as ModuleController),
      catchError(this.errorHandle)
@@ -54,7 +50,7 @@ export class FeatureService {
   }
 
   getTestController(id:number):Observable<TestController>{
-   return this.httpClient.get(this.apiUrl+'/Feature/GetTestControllerById/'+id+'/'+2)
+   return this.httpClient.get(this.apiUrl+'/Feature/GetTestControllerById/'+id+'/'+this.userID)
    .pipe(
      map(res=>res as TestController),
      catchError(this.errorHandle)
@@ -69,22 +65,8 @@ export class FeatureService {
    );
   }
    
-  addModuleController(data: ModuleController){
-    let moduleCntlObj: ModuleController = new ModuleController();
-     moduleCntlObj.slno = 0;
-     moduleCntlObj.moduleID = "Module1";
-     moduleCntlObj.moduleSeqID = 111;
-     moduleCntlObj.machineID = "MACHINE_VISHNU";
-     moduleCntlObj.machineSequenceID = 222;
-     moduleCntlObj.run = "YES";
-     moduleCntlObj.isLocked = false;
-     moduleCntlObj.lockedByUser = 0;
-     moduleCntlObj.statusID = 0;
-     moduleCntlObj.cudStatusID = 0;
-     moduleCntlObj.createdOn = formatDate(new Date(), 'yyyy/MM/dd', 'en').toString();
-     moduleCntlObj.updatedOn = formatDate(new Date(), 'yyyy/MM/dd', 'en').toString();
-     moduleCntlObj.userId = this.userID;
-      return this.httpClient.post(this.apiUrl+'/Feature/AddModuleController',moduleCntlObj)
+  addModuleController(moduleController: ModuleController){
+      return this.httpClient.post(this.apiUrl+'/Feature/AddModuleController',moduleController)
       .subscribe(
        data  => {
          console.log("POST Request is successful ", data);
@@ -97,28 +79,8 @@ export class FeatureService {
      );
    }
 
-   addTestController(data: TestController){
-    let testCntlObj: TestController = new TestController();
-    testCntlObj.sNo = 0;
-    testCntlObj.featureID = "Feature1";
-    testCntlObj.testCaseID = "TC_1";
-    testCntlObj.run = "YES";
-    testCntlObj.iterations = 0;
-    testCntlObj.browsers = "Chrome";
-    testCntlObj.sequenceID = 111;
-    testCntlObj.testType = "Regression";
-    testCntlObj.jirA_ID = "SN-5577";
-    testCntlObj.stepsCount = 0;
-    testCntlObj.testScriptName = "Script 1";
-    testCntlObj.testScriptDescription = "Test Script Desc";
-    testCntlObj.isLocked = false;
-    testCntlObj.lockedByUser = 0;
-    testCntlObj.statusID = 0;
-    testCntlObj.cudStatusID = 0;
-    testCntlObj.createdOn = formatDate(new Date(), 'yyyy/MM/dd', 'en').toString();
-    testCntlObj.updatedOn = formatDate(new Date(), 'yyyy/MM/dd', 'en').toString();
-    testCntlObj.userId = this.userID;
-       return this.httpClient.post(this.apiUrl+'/Feature/AddTestController',testCntlObj)
+   addTestController(testControllerObj: TestController){
+       return this.httpClient.post(this.apiUrl+'/Feature/AddTestController',testControllerObj)
        .subscribe(
          data  => {
            console.log("POST Request is successful ", data);
@@ -131,19 +93,8 @@ export class FeatureService {
        );
     }
 
-    addBrowserController(data: BrowserController){
-     let browserCntlObj: BrowserController = new BrowserController();
-     browserCntlObj.vmid = "Test 1";
-     browserCntlObj.browser = "Chorme";
-     browserCntlObj.exec = "YES";
-     browserCntlObj.statusID = 0;
-     browserCntlObj.cudStatusID = 0;
-     browserCntlObj.isLocked = false;
-     browserCntlObj.lockedByUser = null;
-     browserCntlObj.createdOn = null;
-     browserCntlObj.updatedOn = null;
-     browserCntlObj.userId = 2;
-       return this.httpClient.post(this.apiUrl+'/Feature/AddBrowserController', browserCntlObj)
+    addBrowserController(browserController: BrowserController){    
+       return this.httpClient.post(this.apiUrl+'/Feature/AddBrowserController', browserController)
        .subscribe(
          data  => {
            console.log("POST Request is successful ", data);
@@ -200,8 +151,7 @@ export class FeatureService {
    deleteModuleController(id:number){
     this.getModuleController(id)
     .subscribe((response) => {
-      let obj: ModuleController = response;
-      return this.httpClient.delete(this.apiUrl+'/Feature/DeleteModuleController/'+id)
+      return this.httpClient.delete(this.apiUrl+'/Feature/DeleteModuleController/'+id+'/'+this.userID)
      .subscribe(
        data  => {
          console.log("DELETE Request is successful ", data);
@@ -229,7 +179,7 @@ export class FeatureService {
      }
 
      deleteBrowserController(id:number){
-       return this.httpClient.delete(this.apiUrl+'/Feature/DeleteBrowserController/'+id+'/'+2)
+       return this.httpClient.delete(this.apiUrl+'/Feature/DeleteBrowserController/'+id+'/'+this.userID)
        .subscribe(
          data  => {
            console.log("DELETE Request is successful ", data);

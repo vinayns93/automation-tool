@@ -7,7 +7,7 @@ export class TestController {
   browsers: string;
   sequenceID: number;
   testType: string;
-  jirA_ID: string;
+  jiraID: string;
   stepsCount: number;
   testScriptName: string;
   testScriptDescription: string;

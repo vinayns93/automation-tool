@@ -1,9 +1,9 @@
 import { Component, OnInit } from '@angular/core';
 import { ActivatedRoute, Router } from '@angular/router';
-import { TestController1 } from '../../../../../core/models/feature/module-controller/testcontroller1.model';
+import { ModuleController } from '../../../../../core/models/feature/module-controller/module-controller';
 import { TestControllerService } from '../../../../../core/services/feature-service/testcontroller.service';
 import { FormControl, FormGroup, Validators } from '@angular/forms';
-import { FeatureService, ModuleController } from '../../../../../core';
+import { FeatureService } from '../../../../../core';
 import { formatDate } from '@angular/common';
 
 @Component({
@@ -13,8 +13,7 @@ import { formatDate } from '@angular/common';
 })
 export class Testcontroller1EditComponent implements OnInit {
   id:number;
-  testController1:TestController1;
-  editMControllerObj: ModuleController;
+  editMControllerObj: ModuleController = new ModuleController();
   testControllerForm = new FormGroup({
     id: new FormControl(''),
     slno: new FormControl('', Validators.required),
@@ -22,13 +21,9 @@ export class Testcontroller1EditComponent implements OnInit {
     moduleSeqID:new FormControl('', Validators.required),
     machineID:new FormControl('', Validators.required) ,
     machineSequenceID:new FormControl('', Validators.required),
-    run:new FormControl('')
-    //,
-    // isLocked: new FormControl(''),
-    // createdOn: new FormControl(''),
-    // updatedOn: new FormControl('')
+    run:new FormControl('')    
   });
-  constructor(private route:ActivatedRoute, private controllerservice:FeatureService,private router: Router) { 
+  constructor(private route:ActivatedRoute, private featureService:FeatureService,private router: Router) { 
   }
 
   ngOnInit() {
@@ -38,7 +33,7 @@ export class Testcontroller1EditComponent implements OnInit {
   }
 
   getModuleController(num:number) {
-   this.controllerservice.getModuleController(num)
+   this.featureService.getModuleController(num)
    .subscribe((result: ModuleController)=>{
     console.log(result);
     this.editMControllerObj = result;
@@ -61,7 +56,7 @@ export class Testcontroller1EditComponent implements OnInit {
     // data.updatedOn = formatDate(new Date(), 'yyyy/MM/dd', 'en').toString();
     
 
-    this.controllerservice.updateModuleController(this.editMControllerObj.id,this.editMControllerObj);
+    this.featureService.updateModuleController(this.editMControllerObj.id,this.editMControllerObj);
     setTimeout(f=>{
       this.router.navigate(['/admin/feature']);
     },2200)

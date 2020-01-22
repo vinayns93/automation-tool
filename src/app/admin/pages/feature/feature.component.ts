@@ -189,7 +189,7 @@ export class FeatureComponent implements OnInit {
     }
   }
   deleteModuleController(id: number) {
-    if (this.confirmationDialogService.confirm('Are you sure you want to delete?')) {
+    if (confirm('Are you sure you want to delete?')) {
       this.controllerservice.deleteModuleController(id);
       setTimeout(f => {
         this.getTestControllers();
@@ -197,20 +197,20 @@ export class FeatureComponent implements OnInit {
     }
   }
 
-  addBrowserController(){
-    this.controllerservice.addBrowserController(new BrowserController());
-    this.getBrowserControllers();
-  }
+  // addBrowserController(){
+  //   this.controllerservice.addBrowserController(new BrowserController());
+  //   this.getBrowserControllers();
+  // }
 
-  addModuleController(){
-    this.controllerservice.addModuleController(new ModuleController());
-    this.getModuleControllers();
-  }
+  // addModuleController(){
+  //   this.controllerservice.addModuleController(new ModuleController());
+  //   this.getModuleControllers();
+  // }
 
-  addTestController(){
-    this.controllerservice.addTestController(new TestController());
-    this.getTestControllers();
-  }
+  // addTestController(){
+  //   this.controllerservice.addTestController(new TestController());
+  //   this.getTestControllers();
+  // }
 
   onRowEditModuleController(id: number) {
     this.router.navigate(['admin/feature/testcontroller1/edit/', id]);

@@ -1,0 +1,50 @@
+<div class="container-fluid">
+    <div class="row">
+        <div class="col-md-12 col-lg-12 center-align light-blue">
+            <h5 class="admin-page-header" style="margin-left: 20px;">
+                ADD NEW BROWSER CONTROLLER
+            </h5>
+        </div>
+    </div>
+    <div class="row">
+        <div class="col-md-12 col-lg-12">
+            <form [formGroup]="browserControllerForm" (ngSubmit)="onSubmit()">
+                <div class="row padding-bottom-1 align-items-center margin-top-1">
+                    <div class="col-md-2 col-lg-2">
+                        <label for="vmid" class="pull-right">vmid</label>
+                    </div>
+                    <div class="col-md-4 col-lg-4">
+                        <input type="text" name="vmid" class="text form-control" formControlName="vmid">
+                    </div>
+                    <div class="col-md-2 col-lg-2">
+                        <label for="browser" class="pull-right">browser</label>
+                    </div>
+                    <div class="col-md-4 col-lg-4">
+                        <input type="text" name="browser" class="text form-control" formControlName="browser">
+                    </div>
+                </div>
+                <div class="row padding-bottom-1 align-items-center">
+                    <div class="col-md-2 col-lg-2">
+                        <label for="exec" class="pull-right">exec</label>
+                    </div>
+                    <div class="col-md-4 col-lg-4">
+                        <input type="text" name="exec" class="text form-control" formControlName="exec">
+                    </div>
+                </div>
+                <div class="row">
+                    <div class="col-md-6 col-lg-6 right-align">
+                        <button type="submit" class="button btn btn-success" [disabled]="!browserControllerForm.valid">
+                            <i class="fa fa-plus"></i> SAVE
+                            </button>
+                    </div>
+                    <div class="col-md-6 col-lg-6">
+                          <button type="button" class="button btn btn-danger" [routerLink]="['/admin/feature']">
+                            <i class="fa fa-close"> </i> CANCEL
+                        </button>
+                    </div>
+                </div>
+            </form>
+        </div>
+    </div>
+</div>
+

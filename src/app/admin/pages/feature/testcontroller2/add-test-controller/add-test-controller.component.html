@@ -1,0 +1,114 @@
+<div class="container-fluid">
+    <div class="row">
+        <div class="col-md-12 col-lg-12 center-align light-blue">
+            <h5 class="admin-page-header" style="margin-left: 20px;">
+                ADD NEW TEST CONTROLLER
+            </h5>
+        </div>
+    </div>
+    <div class="row">
+        <div class="col-md-12 col-lg-12">
+            <form [formGroup]="testControllerForm" (ngSubmit)="onSubmit()">
+                <div class="row padding-bottom-1 align-items-center margin-top-1">
+                    <div class="col-md-2 col-lg-2">
+                        <label for="sNo" class="pull-right">sNo</label>
+                    </div>
+                    <div class="col-md-4 col-lg-4">
+                        <input type="number" name="sNo" class="text form-control" formControlName="sNo">
+                    </div>
+                    <div class="col-md-2 col-lg-2">
+                        <label for="featureID" class="pull-right">featureID</label>
+                    </div>
+                    <div class="col-md-4 col-lg-4">
+                        <input type="text" name="featureID" class="text form-control" formControlName="featureID">
+                    </div>
+                </div>
+                <div class="row padding-bottom-1 align-items-center">
+                    <div class="col-md-2 col-lg-2">
+                        <label for="testCaseID" class="pull-right">testCaseID</label>
+                    </div>
+                    <div class="col-md-4 col-lg-4">
+                        <input type="text" name="testCaseID" class="text form-control" formControlName="testCaseID">
+                    </div>
+                    <div class="col-md-2 col-lg-2">
+                        <label for="run" class="pull-right">run</label>
+                    </div>
+                    <div class="col-md-4 col-lg-4">
+                        <input type="text" name="run" class="text form-control" formControlName="run">
+                    </div>
+                </div>
+                <div class="row padding-bottom-1 align-items-center">
+                    <div class="col-md-2 col-lg-2">
+                        <label for="iterations" class="pull-right">iterations</label>
+                    </div>
+                    <div class="col-md-4 col-lg-4">
+                        <input type="number" name="iterations" class="text form-control" formControlName="iterations">
+                    </div>
+                    <div class="col-md-2 col-lg-2">
+                        <label for="browsers" class="pull-right">browsers</label>
+                    </div>
+                    <div class="col-md-4 col-lg-4">
+                        <input type="text" name="browsers" class="text form-control" formControlName="browsers">
+                    </div>
+                </div>
+                <div class="row padding-bottom-1 align-items-center">
+                    <div class="col-md-2 col-lg-2">
+                        <label for="sequenceID" class="pull-right">sequenceID</label>
+                    </div>
+                    <div class="col-md-4 col-lg-4">
+                        <input type="number" name="sequenceID" class="text form-control" formControlName="sequenceID">
+                    </div>
+                    <div class="col-md-2 col-lg-2">
+                        <label for="testType" class="pull-right">testType</label>
+                    </div>
+                    <div class="col-md-4 col-lg-4">
+                        <input type="text" name="testType" class="text form-control" formControlName="testType">
+                    </div>
+                </div>
+                <div class="row padding-bottom-1 align-items-center">
+                    <div class="col-md-2 col-lg-2">
+                        <label for="jiraID" class="pull-right">jiraID</label>
+                    </div>
+                    <div class="col-md-4 col-lg-4">
+                        <input type="text" name="jiraID" class="text form-control" formControlName="jiraID">
+                    </div>
+                    <div class="col-md-2 col-lg-2">
+                        <label for="stepsCount" class="pull-right">stepsCount</label>
+                    </div>
+                    <div class="col-md-4 col-lg-4">
+                        <input type="number" name="stepsCount" class="text form-control" formControlName="stepsCount">
+                    </div>
+                </div>
+                <div class="row padding-bottom-1 align-items-center">
+                    <div class="col-md-2 col-lg-2">
+                        <label for="testScriptName" class="pull-right">testScriptName</label>
+                    </div>
+                    <div class="col-md-4 col-lg-4">
+                        <input type="text" name="testScriptName" class="text form-control" formControlName="testScriptName">
+                    </div>
+                    <div class="col-md-2 col-lg-2">
+                        <label for="testScriptDescription" class="pull-right">testScriptDescription</label>
+                    </div>
+                    <div class="col-md-4 col-lg-4">
+                        <input type="text" name="testScriptDescription" class="text form-control" formControlName="testScriptDescription">
+                    </div>
+                </div>
+                <div class="row">
+                    <div class="col-md-6 col-lg-6 right-align">
+                        <button type="submit" class="button btn btn-success" [disabled]="!testControllerForm.valid">
+                            <i class="fa fa-plus"></i> SAVE
+                            </button>
+                    </div>
+                    <div class="col-md-6 col-lg-6">
+                          <button type="button" class="button btn btn-danger" [routerLink]="['/admin/feature']">
+                            <i class="fa fa-close"> </i> CANCEL
+                        </button>
+                    </div>
+                </div>
+            </form>
+        </div>
+    </div>
+</div>
+
+
+
