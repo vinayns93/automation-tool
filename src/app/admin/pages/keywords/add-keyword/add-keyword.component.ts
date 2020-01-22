@@ -13,7 +13,7 @@ import { formatDate } from '@angular/common';
 export class AddKeywordComponent implements OnInit {
 
   keywords:Keywords;
-  newKeywordObj: Keywords;
+  newKeywordObj: Keywords = new Keywords();
   keywordsForm = new FormGroup({
     functionName:  new FormControl('', [Validators.required, Validators.pattern(/^[a-zA-Z0-9]+$/)]),
     stepDescription:  new FormControl('', [Validators.required, Validators.pattern(/^[a-zA-Z0-9]+$/)]),
@@ -21,9 +21,6 @@ export class AddKeywordComponent implements OnInit {
     objectLogicalName: new FormControl('', [Validators.required, Validators.pattern(/^[a-zA-Z0-9]+$/)]),
     run: new FormControl('', [Validators.required, Validators.pattern(/^[a-zA-Z0-9]+$/)]),
     module: new FormControl('', [Validators.required, Validators.pattern(/^[a-zA-Z0-9]+$/)]),
-    // statusID: new FormControl('', [Validators.required, Validators.pattern(/^[0-9]+$/)]),
-    // cudStatusID: new FormControl('', [Validators.required, Validators.pattern(/^[0-9]+$/)]),
-    isLocked: new FormControl(''),
     param1: new FormControl(''),
     param2: new FormControl(''),
     param3: new FormControl(''),
@@ -33,17 +30,7 @@ export class AddKeywordComponent implements OnInit {
     param7: new FormControl(''),
     param8: new FormControl(''),
     param9: new FormControl(''),
-    param10: new FormControl(''),
-    param11: new FormControl(''),
-    param12: new FormControl(''),
-    param13: new FormControl(''),
-    param14: new FormControl(''),
-    param15: new FormControl(''),
-    param16: new FormControl(''),
-    param17: new FormControl(''),
-    param18: new FormControl(''),
-    param19: new FormControl(''),
-    param20: new FormControl('')
+    param10: new FormControl('')
 });
   constructor(private route:ActivatedRoute, private service:KeywordService,private router: Router) { }
 
@@ -74,10 +61,9 @@ export class AddKeywordComponent implements OnInit {
     data.cudStatusID = 0;
     data.isLocked = false;
     data.lockedByUser = 0;
-    data.createdOn = formatDate(new Date(), 'yyyy-MMM-dd', 'en').toString();
-    data.updatedOn = formatDate(new Date(), 'yyyy-MMM-dd', 'en').toString();
+    data.createdOn = null;
+    data.updatedOn = null;
     data.updatedOn = "";
-    data.userId = 2;
     self.service.addKeyword(data);
     setTimeout(response => {
       self.router.navigate(['/admin/keywords']);

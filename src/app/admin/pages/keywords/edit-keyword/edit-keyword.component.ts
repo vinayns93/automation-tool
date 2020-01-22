@@ -13,7 +13,6 @@ export class EditKeywordComponent implements OnInit {
 
   editKeywordObj: Keywords = new Keywords();
   id: any;
-  userId: any;
   keywordsForm = new FormGroup({
     id: new FormControl('', Validators.required),
     functionName:  new FormControl('', Validators.required),
@@ -37,11 +36,10 @@ export class EditKeywordComponent implements OnInit {
   constructor(private activatedRoute: ActivatedRoute, private service: KeywordService
               ,private router: Router) {
     this.id = activatedRoute.snapshot.paramMap.get("id");
-    this.userId = activatedRoute.snapshot.paramMap.get("userId");
    }
 
   ngOnInit() {
-    let getKeywordreq = this.service.getKeyword(this.id, this.userId)
+    let getKeywordreq = this.service.getKeyword(this.id)
     .subscribe((result: Keywords) => {
       this.editKeywordObj = result;
       getKeywordreq.unsubscribe();

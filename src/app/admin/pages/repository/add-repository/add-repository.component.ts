@@ -39,14 +39,10 @@ export class AddRepositoryComponent implements OnInit {
     data.module = this.repositoryForm.controls["module"].value;
     data.statusID = 0;
     data.cudStatusID = 0;
-    data.isLocked = this.repositoryForm.controls["isLocked"].value;
-    if(data.isLocked)
-      data.lockedByUser = 123;
-    else
-      data.lockedByUser = 0;
-    data.createdOn = (new Date());
-    data.updatedOn = (new Date());
-    data.userId = 123;
+    data.isLocked = false;
+    data.lockedByUser = 0;
+    data.createdOn = null;
+    data.updatedOn = null;
     self.service.addRepository(data);
     setTimeout(response => {
       self.router.navigate(['/admin/repository']);

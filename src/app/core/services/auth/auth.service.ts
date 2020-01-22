@@ -3,7 +3,6 @@ import { BehaviorSubject, Observable } from 'rxjs';
 import { HttpClient } from '@angular/common/http';
 import { User } from '../../models/user/user';
 import { environment } from '../../../../environments/environment';
-import { map } from 'rxjs/operators';
 import { Router } from '@angular/router';
 import { ToastrService } from 'ngx-toastr';
 
@@ -40,16 +39,6 @@ login(user: User) {
       error => {
         console.log("Error: "+error)
       });
-        // .pipe(map(validUser => {
-        //     // login successful if there's a jwt token in the response
-        //     // if (user && user.token) {
-        //       if (validUser) {
-        //         // store user details and jwt token in local storage to keep user logged in between page refreshes
-        //         localStorage.setItem('currentUser', JSON.stringify(validUser));
-        //         this.currentUserSubject.next(validUser);
-        //     }
-        //     return validUser;
-        // }));
 }
 
 logout() {

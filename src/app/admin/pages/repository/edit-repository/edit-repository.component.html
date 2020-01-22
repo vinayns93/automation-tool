@@ -14,7 +14,7 @@
                         <label for="ID" class="pull-right">ID</label>
                     </div>
                     <div class="col-md-4 col-lg-4">
-                        <input type="text" name="ID" [(ngModel)]="editRepositoryObj.id" class="text form-control" formControlName="id">
+                        <input type="text" name="ID" [(ngModel)]="editRepositoryObj.id" class="text form-control" formControlName="id" disabled>
                     </div>
                     <div class="col-md-2 col-lg-2">
                         <label for="logicalName" class="pull-right">Logical Name</label>
@@ -58,27 +58,8 @@
                     <div class="col-md-4 col-lg-4">
                         <input type="text" [(ngModel)]="editRepositoryObj.module" name="Module" class="text form-control" formControlName="module">
                     </div>
-                    <div class="col-md-2 col-lg-2">
-                        <label for="StatusID" class="pull-right">Status ID</label>
-                    </div>
-                    <div class="col-md-4 col-lg-4">
-                        <input type="text" [(ngModel)]="editRepositoryObj.statusID" name="StatusID" class="text form-control" formControlName="statusID">
-                    </div>
                 </div>
-                <div class="row padding-bottom-1">
-                    <div class="col-md-2 col-lg-2">
-                        <label for="CudStatusID" class="pull-right">Cud Status ID</label>
-                    </div>
-                    <div class="col-md-4 col-lg-4">
-                        <input type="text" [(ngModel)]="editRepositoryObj.cudStatusID" name="CudStatusID" class="text form-control" formControlName="cudStatusID">
-                    </div>
-                    <div class="col-md-2 col-lg-2">
-                        <label for="IsLocked" class="pull-right">Is Locked</label>
-                    </div>
-                    <div class="col-md-4 col-lg-4">
-                        <input type="text" [(ngModel)]="editRepositoryObj.isLocked" name="IsLocked" class="text form-control" formControlName="isLocked">
-                    </div>
-                </div>
+                
                 <div class="row">
                     <div class="col-md-6 col-lg-6 right-align">
                         <input type="submit" value="SAVE" class="button btn btn-success" [disabled]="!repositoryForm.valid">

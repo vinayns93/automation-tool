@@ -12,12 +12,12 @@ import { ToastrService } from 'ngx-toastr';
 export class RepositoryService {
 
   public apiUrl: string;
-  public userID: number;
+  public userID: string;
 
 
   constructor(private httpClient: HttpClient, private toastr: ToastrService) {
     this.apiUrl = environment.APIURL;
-    this.userID = Number(localStorage.getItem('currentUser'));
+    this.userID = localStorage.getItem('currentUser');
   }
 
   getRepositories(): Observable<Repository[]> {
@@ -28,7 +28,7 @@ export class RepositoryService {
       );
   }
 
-  getRepository(id: number, userId: number): Observable<Repository> {
+  getRepository(id: number): Observable<Repository> {
     return this.httpClient.get(this.apiUrl + '/Repository/GetRepositoryById/' + id + '/' + this.userID)
       .pipe(
         map(res => res as Repository),
@@ -37,6 +37,7 @@ export class RepositoryService {
   }
 
   addRepository(repo: Repository) {
+    repo.userId = Number(this.userID);
     return this.httpClient.post(this.apiUrl + '/Repository/AddRepository', repo)
       .subscribe(
         data => {

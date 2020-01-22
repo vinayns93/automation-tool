@@ -20,9 +20,6 @@ export class AddTestScriptComponent implements OnInit {
     functionName: new FormControl('', [Validators.required, Validators.pattern(/^[a-zA-Z0-9]+$/)]),
     run: new FormControl('', [Validators.required, Validators.pattern(/^[a-zA-Z0-9]+$/)]),
     module: new FormControl('', [Validators.required, Validators.pattern(/^[a-zA-Z0-9]+$/)]),
-    // statusID: new FormControl('', [Validators.required, Validators.pattern(/^[0-9]+$/)]),
-    // cudStatusID: new FormControl('', [Validators.required, Validators.pattern(/^[0-9]+$/)]),
-    //isLocked: new FormControl(''),
     param1: new FormControl(''),
     param2: new FormControl(''),
     param3: new FormControl(''),
@@ -245,7 +242,6 @@ export class AddTestScriptComponent implements OnInit {
     data.lockedByUser = 0;
     data.createdOn = null;
     data.updatedOn = null;
-    data.userId = 2;
     self.testScriptsService.addTestScript(data);
     setTimeout(() => {
       self.router.navigate(['/admin/testscripts']);

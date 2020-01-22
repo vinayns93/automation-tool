@@ -14,11 +14,12 @@ import { ToastrService } from 'ngx-toastr';
 export class KeywordService {
 
   public apiUrl:string;
-
+  public userID: string;
   
   
    constructor(private httpClient: HttpClient, private toastr: ToastrService){
      this.apiUrl = environment.APIURL;
+     this.userID = localStorage.getItem('currentUser');
    }
    
    getKeywords(): Observable<Keywords[]>{
@@ -29,8 +30,8 @@ export class KeywordService {
                 );
    }
 
-   getKeyword(id:number, userId:number):Observable<Keywords>{
-    return this.httpClient.get(this.apiUrl+'/Keywords/GetKeywordById/'+id+'/'+2)
+   getKeyword(id:number):Observable<Keywords>{
+    return this.httpClient.get(this.apiUrl+'/Keywords/GetKeywordById/'+id+'/'+this.userID)
     .pipe(
       map(res=>res as Keywords),
       catchError(this.errorHandle)
@@ -38,6 +39,7 @@ export class KeywordService {
    }
     
    addKeyword(keyword:Keywords){
+     keyword.userId = Number(this.userID);
        return this.httpClient.post(this.apiUrl+'/Keywords/AddKeyword',keyword)
        .subscribe(
         data  => {
@@ -65,7 +67,7 @@ export class KeywordService {
     }
 
     deleteKeyword(id:number){
-      return this.httpClient.delete(this.apiUrl+'/Keywords/DeleteKeyword/'+id+'/'+2)
+      return this.httpClient.delete(this.apiUrl+'/Keywords/DeleteKeyword/'+id+'/'+this.userID)
       .subscribe(
         data  => {
           console.log("DELETE Request is successful ", data);

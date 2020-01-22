@@ -11,9 +11,11 @@ import { ToastrService } from 'ngx-toastr';
 })
 export class TestScriptsService {
   public apiUrl:string;
+  public userID: string;
   
    constructor(private httpClient: HttpClient, private toastr: ToastrService){
     this.apiUrl = environment.APIURL;
+    this.userID = localStorage.getItem('currentUser');
    }
    
    getTestScripts():Observable<TestScript[]>{
@@ -25,7 +27,7 @@ export class TestScriptsService {
    }
 
    getTestScript(id:number):Observable<TestScript>{
-    return this.httpClient.get(this.apiUrl+'/TestScripts/GetScript/'+id)
+    return this.httpClient.get(this.apiUrl+'/TestScripts/GetScript/'+id+'/'+this.userID)
     .pipe(
       map(res=>res as TestScript),
       catchError(this.errorHandle)
@@ -33,6 +35,7 @@ export class TestScriptsService {
    }
     
    addTestScript(script:TestScript){
+        script.userId = Number(this.userID);
        return this.httpClient.post(this.apiUrl+'/TestScripts/AddScript',script)
        .subscribe(
         data  => {
@@ -50,6 +53,7 @@ export class TestScriptsService {
       .subscribe(
         data  => {
           console.log("PUT Request is successful ", data);
+          this.toastr.warning("Test Script updation is successfull");
           },
           error  => {
           console.log("Error", error);
@@ -58,11 +62,11 @@ export class TestScriptsService {
     }
 
     deleteTestScript(id:number){
-      return this.httpClient.delete(this.apiUrl+'/TestScripts/DeleteScript/'+id+'/'+2)
+      return this.httpClient.delete(this.apiUrl+'/TestScripts/DeleteScript/'+id+'/'+this.userID)
       .subscribe(
         data  => {
           console.log("DELETE Request is successful ", data);
-          this.toastr.warning("Delete has been successfull")
+          this.toastr.warning("testscript Delete has been successfull")
           },
           error  => {
           console.log("Error", error);
