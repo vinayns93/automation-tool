@@ -54,6 +54,7 @@ export class KeywordService {
     }
 
     updateKeyword(id:number,keyword:Keywords){
+      keyword.userId = Number(this.userID);
       return this.httpClient.put(this.apiUrl+'/Keywords/UpdateKeyword/'+id,keyword)
       .subscribe(
         data  => {

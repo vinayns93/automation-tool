@@ -11,17 +11,18 @@
             <form [formGroup]="testControllerForm" (ngSubmit)="onSubmit()">
                 
                 <div class="row padding-bottom-1 align-items-center margin-top-1">
+                    
                     <div class="col-md-2 col-lg-2">
-                        <label for="" class="pull-right">ID:</label>
+                        <label for="" class="pull-right">Iterations:</label>
                     </div>
                     <div class="col-md-4 col-lg-4">
-                        <input type="text" class="text form-control" [(ngModel)]="editTControllerObj.id" formControlName="id" disabled>
+                        <input type="text" class="text form-control" [(ngModel)]="editTControllerObj.iterations" formControlName="iterations">
                     </div>
                     <div class="col-md-2 col-lg-2">
-                        <label for="" class="pull-right">SL NO:</label>
+                        <label for="" class="pull-right">Run:</label>
                     </div>
                     <div class="col-md-4 col-lg-4">
-                        <input type="text" class="text form-control" [(ngModel)]="editTControllerObj.sNo" formControlName="sNo" disabled>
+                        <input type="text" class="text form-control" [(ngModel)]="editTControllerObj.run" formControlName="run">
                     </div>
                 </div>
 
@@ -64,7 +65,7 @@
                         <label for="" class="pull-right">JIRA ID:</label>
                     </div>
                     <div class="col-md-4 col-lg-4">
-                        <input type="text" class="text form-control" [(ngModel)]="editTControllerObj.jirA_ID" formControlName="jirA_ID">
+                        <input type="text" class="text form-control" [(ngModel)]="editTControllerObj.jiraID" formControlName="jiraID">
                     </div>
                 </div>
                 <div class="row padding-bottom-1 align-items-center margin-top-1">
@@ -83,16 +84,10 @@
                 </div>
                 <div class="row padding-bottom-1 align-items-center margin-top-1">
                     <div class="col-md-2 col-lg-2">
-                        <label for="" class="pull-right">Created On:</label>
+                        <label for="" class="pull-right">Steps Count</label>
                     </div>
                     <div class="col-md-4 col-lg-4">
-                        <input type="text" class="text form-control" [(ngModel)]="editTControllerObj.createdOn" formControlName="createdOn" disabled>
-                    </div>
-                    <div class="col-md-2 col-lg-2">
-                        <label for="" class="pull-right">Updated On:</label>
-                    </div>
-                    <div class="col-md-4 col-lg-4">
-                        <input type="text" class="text form-control" [(ngModel)]="editTControllerObj.updatedOn" formControlName="updatedOn" disabled>
+                        <input type="text" class="text form-control" [(ngModel)]="editTControllerObj.stepsCount" formControlName="stepsCount">
                     </div>
                 </div>
                 <div class="row">

@@ -49,6 +49,7 @@ export class TestScriptsService {
     }
 
     updateTestScript(id:number,script:TestScript){
+      script.userId = Number(this.userID);
       return this.httpClient.put(this.apiUrl+'/TestScripts/UpdateScript/'+id,script)
       .subscribe(
         data  => {

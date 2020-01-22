@@ -3,7 +3,6 @@ import { BrowserController } from '../../../core/models/feature/browser-controll
 import { ModuleController } from '../../../core/models/feature/module-controller/module-controller';
 import { TestController } from '../../../core/models/feature/test-controller/test-controller';
 import { SelectItem } from 'primeng/api/selectitem';
-import { TestControllerService } from '../../../core/services/feature-service/testcontroller.service';
 import { Router } from '@angular/router';
 import { ConfirmationDialogService } from '../../../confirmation-dialog/confirmation-dialog/confirmation-dialog.service';
 import { browserControllerColumns, testControllerColumns, moduleControllerColumns } from '../../../core/constants/feature';
@@ -38,7 +37,7 @@ export class FeatureComponent implements OnInit {
   @ViewChild(Table, { static : false}) mt: Table;
 
   // Cards
-  constructor(private svc: TestControllerService, private router: Router,
+  constructor(private router: Router,
     private confirmationDialogService: ConfirmationDialogService, 
     private controllerservice: FeatureService) { }
 
@@ -181,7 +180,7 @@ export class FeatureComponent implements OnInit {
   }
 
   deleteTestController(id: number) {
-    if (this.confirmationDialogService.confirm('Are you sure you want to delete?')) {
+    if (confirm('Are you sure you want to delete?')) {
       this.controllerservice.deleteTestController(id);
       setTimeout(f => {
         this.getModuleControllers();

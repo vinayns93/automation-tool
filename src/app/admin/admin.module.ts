@@ -14,9 +14,9 @@ import { AddKeywordComponent } from './pages/keywords/add-keyword/add-keyword.co
 import { EditKeywordComponent } from './pages/keywords/edit-keyword/edit-keyword.component';
 import { AddRepositoryComponent } from './pages/repository/add-repository/add-repository.component';
 import { EditRepositoryComponent } from './pages/repository/edit-repository/edit-repository.component';
-import { Testcontroller1EditComponent } from './pages/feature/testcontroller1/testcontroller1-edit/testcontroller1-edit.component';
-import { Testcontroller2EditComponent } from './pages/feature/testcontroller2/testcontroller2-edit/testcontroller2-edit.component';
-import { Testcontroller3EditComponent } from './pages/feature/testcontroller3/testcontroller3-edit/testcontroller3-edit.component';
+import { Testcontroller1EditComponent } from './pages/feature/module-controller/edit-module-controller/edit-module-controller.component';
+import { EditTestControllerComponent } from './pages/feature/test-controller/edit-test-controller/edit-test-controller.component';
+import { EditBrowserControllerComponent } from './pages/feature/browser-controller/edit-browser-controller/edit-browser-controller.component';
 import { AddTestScriptComponent } from './pages/test-scripts/add-test-script/add-test-script.component';
 import { EditTestScriptComponent } from './pages/test-scripts/edit-test-script/edit-test-script.component';
 import { TestScriptsComponent } from './pages/test-scripts/test-scripts.component';
@@ -26,9 +26,9 @@ import { RepositoryComponent } from './pages/repository/repository.component';
 import { FeatureComponent } from './pages/feature/feature.component';
 import { AddTestDataComponent } from './pages/test-data/add-test-data/add-test-data.component';
 import { EditTestDataComponent } from './pages/test-data/edit-test-data/edit-test-data.component';
-import { AddModuleControllerComponent } from './pages/feature/testcontroller1/add-module-controller/add-module-controller.component';
-import { AddTestControllerComponent } from './pages/feature/testcontroller2/add-test-controller/add-test-controller.component';
-import { AddBrowserControllerComponent } from './pages/feature/testcontroller3/add-browser-controller/add-browser-controller.component';
+import { AddModuleControllerComponent } from './pages/feature/module-controller/add-module-controller/add-module-controller.component';
+import { AddTestControllerComponent } from './pages/feature/test-controller/add-test-controller/add-test-controller.component';
+import { AddBrowserControllerComponent } from './pages/feature/browser-controller/add-browser-controller/add-browser-controller.component';
 
 @NgModule({
   declarations: [
@@ -43,8 +43,8 @@ import { AddBrowserControllerComponent } from './pages/feature/testcontroller3/a
     AddRepositoryComponent,
     EditRepositoryComponent,
     Testcontroller1EditComponent,
-    Testcontroller2EditComponent,
-    Testcontroller3EditComponent,
+    EditTestControllerComponent,
+    EditBrowserControllerComponent,
     AddTestScriptComponent,
     EditTestScriptComponent,
     AddTestDataComponent,

@@ -51,6 +51,7 @@ export class RepositoryService {
   }
 
   updateRepository(id: number, repo: Repository) {
+    repo.userId = Number(this.userID);
     return this.httpClient.put(this.apiUrl + '/Repository/UpdateRepository/' + id, repo)
       .subscribe(
         data => {

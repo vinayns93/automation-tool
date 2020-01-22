@@ -30,7 +30,7 @@ login(user: User) {
         if(userID > 0){
           localStorage.setItem('currentUser', JSON.stringify(userID));
           this.currentUserSubject.next(user);
-          this.router.navigate(['admin/repository/']);
+          this.router.navigate(['admin/feature/']);
         }
         else{
           this.toastr.error("Please enter Valid Credentials !");

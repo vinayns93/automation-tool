@@ -1,18 +1,17 @@
 import { Component, OnInit } from '@angular/core';
 import { ActivatedRoute, Router } from '@angular/router';
 import { TestController3 } from '../../../../../core/models/feature/browser-controller/testcontroller3.model';
-import { TestControllerService } from '../../../../../core/services/feature-service/testcontroller.service';
 import { FormControl, FormGroup, Validators } from '@angular/forms';
 import { BrowserController } from '../../../../../core';
 import { FeatureService } from '../../../../../core';
 import { formatDate } from '@angular/common';
 
 @Component({
-  selector: 'app-testcontroller3-edit',
-  templateUrl: './testcontroller3-edit.component.html',
-  styleUrls: ['./testcontroller3-edit.component.scss']
+  selector: 'app-browser-edit-controller',
+  templateUrl: './edit-browser-controller.component.html',
+  styleUrls: ['./edit-browser-controller.component.scss']
 })
-export class Testcontroller3EditComponent implements OnInit {
+export class EditBrowserControllerComponent implements OnInit {
   id:number;
   testController3:TestController3;
   editBControllerObj: BrowserController = new BrowserController();

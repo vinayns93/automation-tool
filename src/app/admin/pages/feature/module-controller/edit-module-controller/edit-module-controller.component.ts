@@ -1,15 +1,14 @@
 import { Component, OnInit } from '@angular/core';
 import { ActivatedRoute, Router } from '@angular/router';
 import { ModuleController } from '../../../../../core/models/feature/module-controller/module-controller';
-import { TestControllerService } from '../../../../../core/services/feature-service/testcontroller.service';
 import { FormControl, FormGroup, Validators } from '@angular/forms';
 import { FeatureService } from '../../../../../core';
 import { formatDate } from '@angular/common';
 
 @Component({
-  selector: 'app-testcontroller1-edit',
-  templateUrl: './testcontroller1-edit.component.html',
-  styleUrls: ['./testcontroller1-edit.component.scss']
+  selector: 'app-edit-module-controller',
+  templateUrl: './edit-module-controller.component.html',
+  styleUrls: ['./edit-module-controller.component.scss']
 })
 export class Testcontroller1EditComponent implements OnInit {
   id:number;

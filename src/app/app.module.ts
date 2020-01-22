@@ -8,7 +8,6 @@ import { ToastrModule } from 'ngx-toastr';
 
 import { AppRoutingModule } from './app.routing.module';
 import { AppComponent } from './app.component';
-import { TestControllerService } from './core/services/feature-service/testcontroller.service';
 import { TestScriptsService } from './core/services/test-scripts/testscripts.service';
 import { KeywordService } from './core/services/keywords-service/keyword.service';
 import { RepositoryService } from './core/services/repository-service/repository.service';
@@ -66,7 +65,7 @@ import { NotificationsComponent } from './notifications/notifications.component'
     AlertComponent,
     NotificationsComponent
   ],
-  providers: [TestControllerService,
+  providers: [
     TestScriptsService,
     KeywordService,
     RepositoryService,

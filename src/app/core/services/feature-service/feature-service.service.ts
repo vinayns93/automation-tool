@@ -108,6 +108,7 @@ export class FeatureService {
     }
 
     updateModuleController(id:number,moduleController:ModuleController){
+      moduleController.userId = Number(this.userID);
      return this.httpClient.put(this.apiUrl+'/Feature/UpdateModuleController/'+id,moduleController)
      .subscribe(
        data  => {
@@ -122,6 +123,7 @@ export class FeatureService {
    }
 
    updateTestController(id:number,testController:TestController){
+    testController.userId = Number(this.userID);
        return this.httpClient.put(this.apiUrl+'/Feature/UpdateTestController/'+id,testController)
        .subscribe(
          data  => {
@@ -136,6 +138,7 @@ export class FeatureService {
      }
 
      updateBrowserController(id:number,browserController:BrowserController){
+      browserController.userId = Number(this.userID);
        return this.httpClient.put(this.apiUrl+'/Feature/UpdateBrowserController/'+id,browserController)
        .subscribe(
          data  => {
@@ -166,7 +169,7 @@ export class FeatureService {
    }
 
    deleteTestController(id:number){
-       return this.httpClient.delete(this.apiUrl+'/Feature/DeleteTestController/'+id)
+       return this.httpClient.delete(this.apiUrl+'/Feature/DeleteTestController/'+id+'/'+this.userID)
        .subscribe(
          data  => {
            console.log("DELETE Request is successful ", data);
