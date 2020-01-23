@@ -134,26 +134,13 @@ export class NavbarComponent implements OnInit {
                   $toggle.classList.remove('toggled');
               }, 400);
             }.bind(this);
-
             html.classList.add('nav-open');
             this.mobile_menu_visible = 1;
-
         }
     };
 
-    getTitle(){
-      var titlee = this.location.prepareExternalUrl(this.location.path());
-      if(titlee.charAt(0) === '#'){
-          titlee = titlee.slice( 2 );
-      }
-      titlee = titlee.split('/').pop();
-
-      for(var item = 0; item < this.listTitles.length; item++){
-          if(this.listTitles[item].path === titlee){
-              return this.listTitles[item].title;
-          }
-      }
-      return 'Dashboard';
+    getTitle(): string{
+      return this.globalService.GetCurrentTab();
     }
 
     logout(){

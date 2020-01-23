@@ -1,5 +1,5 @@
 import { Component, OnInit } from '@angular/core';
-import { TestData, TestDataService } from '../../../core';
+import { TestData, TestDataService, GlobalService } from '../../../core';
 import { SelectItem } from 'primeng/api/selectitem';
 import { testDataColumns } from '../../../core/constants/testdata';
 import { SortEvent } from 'primeng/api/sortevent';
@@ -24,7 +24,7 @@ export class TestDataComponent implements OnInit {
     this.updateRowGroupMetaData();
   }
 
-  constructor(private service: TestDataService) { }
+  constructor(private service: TestDataService, private globalService: GlobalService) { }
 
   ngOnInit() {
     this.columns = testDataColumns;
@@ -32,6 +32,7 @@ export class TestDataComponent implements OnInit {
     this.getAllTestdata();
     this.LoadAllTestDataColumns();
     this.updateRowGroupMetaData();
+    this.globalService.SetCurrentTab('TESTDATA');
   }
 
   LoadAllTestDataColumns() {
@@ -85,7 +86,6 @@ export class TestDataComponent implements OnInit {
     var self = this;
     self.service.getAllTestData()
     .subscribe((result: TestData[])=>{
-      //console.log(result);
       self.testData = result;
       self.loading = false;
       this.updateRowGroupMetaData();

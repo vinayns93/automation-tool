@@ -12,28 +12,28 @@ import { ToastrModule, ToastrService } from 'ngx-toastr';
 export class TestDataService {
 
   deleteTestData(id: any, tcid: any, iterations: any) {
-    this.getAllTestData()
-    .subscribe((result: TestData[])=>{
-        if(result.length > 0){
-          var newId: any = result.filter(tdItem => 
-            (tdItem.tcid == tcid) && (tdItem.iterations != iterations))[0].id;
-            if(newId){
-              return this.httpClient.delete(this.apiUrl+'/Keywords/DeleteKeyword/'+id+'/'+2)
-                .subscribe(
-                  data  => {
-                  this.toastr.warning("Test Data  (iteration 1) has been Deleted !");
-                  return this.httpClient.delete(this.apiUrl+'/Keywords/DeleteKeyword/'+newId+'/'+2)
-                    .subscribe( data => {
-                      this.toastr.warning("Test Data  (iteration 2) has been Deleted !");
-                    });
-                  },
-                  error  => {
-                  console.log("Error", error);
-                }
-              );
-            }
-        }
-    });
+    // this.getAllTestData()
+    // .subscribe((result: TestData[])=>{
+    //     if(result.length > 0){
+    //       var newId: any = result.filter(tdItem => 
+    //         (tdItem.tcid == tcid) && (tdItem.iterations != iterations))[0].id;
+    //         if(newId){
+    //           return this.httpClient.delete(this.apiUrl+'/Keywords/DeleteKeyword/'+id+'/'+2)
+    //             .subscribe(
+    //               data  => {
+    //               this.toastr.warning("Test Data  (iteration 1) has been Deleted !");
+    //               return this.httpClient.delete(this.apiUrl+'/Keywords/DeleteKeyword/'+newId+'/'+2)
+    //                 .subscribe( data => {
+    //                   this.toastr.warning("Test Data  (iteration 2) has been Deleted !");
+    //                 });
+    //               },
+    //               error  => {
+    //               console.log("Error", error);
+    //             }
+    //           );
+    //         }
+    //     }
+    // });
 
     
   }

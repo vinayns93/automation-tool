@@ -1,22 +1,91 @@
+
 <div class="container-fluid">
-  <div class="row align-items-center padding-top-1 ">
-      <div class="col-lg-3 col-md-3">
-          <div class="card card-chart">
-              <div class="card-header">
-                  <h5>Current User</h5>
-                <h4 class="primary-color">Profile</h4>
+  <div class="row align-items-center" style="padding-top: 1em;">
+    <div class="col-lg-3 col-md-3" style="text-align: center;">
+      <div class="card card-chart" style="height: 6.5em !important;background: #100699;">
+          <div class="card-body" style="height: 6.5em">
+            <div class="row align-items-center limit-row-style" style="height: 6.5em;">
+              <div class="col-lg-4 col-md-4 center-align primary-color">
+                <i style="color: white" class="fa fa-users fa-4x" aria-hidden="true"></i>
               </div>
-              <div class="card-body">
-                  <div class="row align-items-center limit-row-style">
+              <div class="col-lg-8 col-md-8">
+                <div class="row align-items-center">
+                  <div class="col-lg-12 col-md-12" style="border-left: 1.5px solid white; margin-left: 1em;text-align: left;">
+                    <h6 class="card-sub-text" style="font-size:2em;color: white;">{{globalService.activeUsers}} <span style="font-size: 0.7em !important;text-transform: none;"> Users</span></h6>
+                    <h6 class="card-sub-text" style="font-weight: 500; font-style: normal;font-size: 0.7em;color: white;">Active Users</h6>
+                  </div>
+                </div>
+              </div>
+          </div>
+          </div>
+        </div>
+  </div>
+  <div class="col-lg-6 col-md-6" style="text-align: center;">
+    <div class="card card-chart" style="height: 10em !important;">
+      <div class="card-body" style="height: 10em !important;">
+          <div class="row align-items-center limit-row-style" style="height: 10em !important;">
+              <div class="col-lg-4 col-md-4 center-align primary-color">
+                <i class="fa fa-user-circle-o" style="font-size:7em; color: #4d4d4d" aria-hidden="true"></i>
+              </div>
+              <div class="col-lg-8 col-md-8">
+                
+              </div>
+          </div>
+
+      </div>
+  </div>
+  </div>
+  <div class="col-lg-3 col-md-3" style="text-align: center;">
+    <div class="card card-chart" style="height: 6.5em !important;background: #100699;">
+        <div class="card-body" style="height: 6.5em;">
+          <div class="row align-items-center limit-row-style" style="height: 6.5em;">
+            <div class="col-lg-4 col-md-4 center-align primary-color">
+              <i style="color: white" class="fa fa-folder-open fa-4x" aria-hidden="true"></i>
+            </div>
+            <div class="col-lg-8 col-md-8">
+              <div class="row align-items-center">
+                <div class="col-lg-12 col-md-12" style="border-left: 1.5px solid white; margin-left: 1em;text-align: left;">
+                  <h6 class="card-sub-text" style="font-size:2em;color: white;">{{globalService.recordsModified}}<span style="font-size: 0.7em !important;text-transform: none;"> Records</span></h6>
+                  <h6 class="card-sub-text" style="font-weight: 500; font-style: normal;font-size: 0.7em;color: white;">Modified Records</h6>
+                </div>
+              </div>
+            </div>
+        </div>
+        </div>
+      </div>
+</div>
+  <!-- <div class="col-lg-4 col-md-4" style="text-align: center;">
+    <div class="card card-chart" style="height: 7em;background: #100699;">
+      <div class="card-body" style="height: 7em;">
+        <div class="row align-items-center limit-row-style" style="height: 7em;">
+          <div class="col-lg-4 col-md-4 center-align primary-color">
+            <i style="color: white;" class="fa fa-folder-open fa-4x" aria-hidden="true"></i>
+          </div>
+          <div class="col-lg-8 col-md-8">
+            <div class="row align-items-center">
+              <div class="col-lg-12 col-md-12">
+                <h6 class="card-sub-text" style="border-left: 1.5px solid white; margin-left: 1em;text-align: left">{{globalService.recordsModified}} Records</h6>
+                <h6 class="card-sub-text" style="font-size:1.4em;color: white;">Modified Records</h6>
+              </div>
+            </div>
+          </div>
+      </div>
+      </div>
+      
+    </div>
+  </div> -->
+    <!-- <div class="col-lg-4 col-md-4" style="text-align: center;">
+          <div class="card card-chart" style="height: 7em;">
+              <div class="card-body" style="height: 7em;">
+                  <div class="row align-items-center limit-row-style" style="height: 7em;">
                       <div class="col-lg-4 col-md-4 center-align primary-color">
-                        <i class="fa fa-user-circle fa-5x" aria-hidden="true"></i>
+                        <i class="fa fa-user-circle fa-4x" aria-hidden="true"></i>
                       </div>
                       <div class="col-lg-8 col-md-8">
                         <div class="row">
                           <div class="col-lg-12 col-md-12">
-                            <h4 class="card-main-text">ARPIT DWIVEDI</h4>
-                            <h6 class="card-sub-text">Registered on Jan 4, 2019</h6>
-                            <h5 class="card-extra-text">27 operations till date</h5>
+                            <h6 class="card-sub-text" style="font-size: 1.4em;">User ID: {{globalService.currentUserID}}</h6>
+                            <h6 class="card-sub-text" style="font-size: 0.7em;font-weight: 500; font-style: normal;">User Profile</h6>
                           </div>
                         </div>
                       </div>
@@ -24,104 +93,11 @@
   
               </div>
           </div>
-      </div>
+      </div> -->
       
-      <div class="col-lg-3 col-md-3">
-          <div class="card card-chart">
-              <div class="card-header">
-                <h5>User Statistics</h5>
-                <h4 class=" primary-color">Users</h4>
-              </div>
-              <div class="card-body">
-                <div class="row align-items-center limit-row-style">
-                  <div class="col-lg-4 col-md-4 center-align primary-color">
-                    <i class="fa fa-users fa-5x" aria-hidden="true"></i>
-                  </div>
-                  <div class="col-lg-8 col-md-8">
-                    <div class="row align-items-center">
-                      <div class="col-lg-12 col-md-12">
-                        <h2 style="margin-bottom: 0px;">{{activeUsers}}</h2>
-                        <h6 class="card-sub-text">Active Users</h6>
-                        <h5 class="card-extra-text">Last updated on {{currentDate}}</h5>
-                      </div>
-                    </div>
-                  </div>
-              </div>
-                <!-- <div class="chart-area">
-                  <canvas baseChart id="lineChartExample"
-                  width="100%"
-                  height="100%"
-                              [datasets]="lineChartData"
-                              [labels]="lineChartLabels"
-                              [colors]="lineChartColors"
-                              [options]="lineChartOptions"
-                              [chartType]="lineChartType"
-                              (chartHover)="chartHovered($event)"
-                              (chartClick)="chartClicked($event)"></canvas>
-                </div> -->
-              </div>
-            </div>
-      </div>
-      <div class="col-lg-3 col-md-3">
-        <div class="card card-chart">
-          <div class="card-header">
-            <h5>Records Statistics</h5>
-            <h4 class=" primary-color">Records</h4>
-          </div>
-          <div class="card-body" style="padding-top: 0px; padding-bottom: 0px;">
-            <div class="row align-items-center limit-row-style">
-              <div class="col-lg-4 col-md-4 center-align primary-color">
-                <i class="fa fa-folder-open fa-5x" aria-hidden="true"></i>
-              </div>
-              <div class="col-lg-8 col-md-8">
-                <div class="row align-items-center">
-                  <div class="col-lg-12 col-md-12">
-                    <h2 style="margin-bottom: 0px;">{{recordsModified}}</h2>
-                    <h6 class="card-sub-text">Modified Records</h6>
-                    <h5 class="card-extra-text">Last updated on {{currentDate}}</h5>
-                  </div>
-                </div>
-              </div>
-          </div>
-            <!-- <div class="chart-area">
-              <canvas baseChart id="lineChartExampleWithNumbersAndGrid"
-                          [datasets]="lineChartWithNumbersAndGridData"
-                          [labels]="lineChartWithNumbersAndGridLabels"
-                          [colors]="lineChartWithNumbersAndGridColors"
-                          [options]="lineChartWithNumbersAndGridOptions"
-                          [chartType]="lineChartWithNumbersAndGridType"
-                          (chartHover)="chartHovered($event)"
-                          (chartClick)="chartClicked($event)"></canvas>
-            </div> -->
-          </div>
-          
-        </div>
-      </div>
-      <div class="col-lg-3 col-md-3">
-        <div class="card card-chart">
-            <div class="card-header">
-                <h5>Timeline</h5>
-              <h4 class=" primary-color">Latest Feeds</h4>
-            </div>
-            <div class="card-body" class="no-padding-top no-padding-bottom">
-                <div class="row align-items-center padding-top-07 limit-row-style">
-                  <div class="col-lg-4 col-md-4 center-align primary-color">
-                    <i class="fa fa-clock-o fa-5x" aria-hidden="true"></i>
-                  </div>
-                  <div class="col-lg-8 col-md-8">
-                    <div class="row">
-                      <div class="col-lg-12 col-md-12 light-border-bottom card-list-row" *ngFor="let feed of latestFeeds">
-                        <i class="fa fa-{{(feed.includes('update') || feed.includes('Modif')) ? 'pencil' : (feed.includes('edit') ? 'pencil-square-o' : 'address-card')}}" aria-hidden="true"></i> {{feed}}
-                      </div>
-                      
-                    </div>
-                  </div>
-                    
-                </div>
-  
-            </div>
-        </div>
-    </div>
+      
+      
+      
     
   </div>
   </div>

@@ -1,12 +1,44 @@
 @import '../../assets/scss/toastr.scss';
 
+
 .chk-control {
     background-color: transparent;
     border: 1px solid #E3E3E3;
     border-radius: 30px;
     color: #2c2c2c;
     line-height: normal;
-    font-size: 0.8571em;
-    transition: color 0.3s ease-in-out, border-color 0.3s ease-in-out, background-color 0.3s ease-in-out;
-    box-shadow: none;
 }
+
+.login-card {
+    
+    // margin: 5em auto;
+    height: 70vh !important;
+    width: 90% !important;
+    box-shadow:
+    0 2.8px 2.2px rgba(0, 0, 0, 0.034),
+    0 6.7px 5.3px rgba(0, 0, 0, 0.048),
+    0 12.5px 10px rgba(0, 0, 0, 0.06),
+    0 22.3px 17.9px rgba(0, 0, 0, 0.072),
+    0 41.8px 33.4px rgba(0, 0, 0, 0.086),
+    0 100px 80px rgba(0, 0, 0, 0.12);
+    border-radius: 1em !important;
+}
+
+.overlay-box {
+    height: 10vh;
+    width: 4em;
+    position: fixed;
+    top: 9vh;
+    right: 30vh;
+    z-index: 999;
+    background: #0033A1;
+    box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2),
+                0 6px 20px 0 rgba(0, 0, 0, 0.19);
+    -moz-box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2),
+        0 6px 20px 0 rgba(0, 0, 0, 0.19);
+    -webkit-box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2),
+        0 6px 20px 0 rgba(0, 0, 0, 0.19);
+        border-radius: 100%;
+}
+
+

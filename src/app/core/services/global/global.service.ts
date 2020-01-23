@@ -8,12 +8,51 @@ import { map, catchError } from 'rxjs/operators';
   providedIn: 'root'
 })
 export class GlobalService {
+
   public apiUrl:string;
-
   opened: boolean = false;
+  currentTabName: string;
 
+  public activeUsers;
+  public recordsModified;
+  public feedData: string[] = [];
+  currentUserID: string;
+  
   constructor(private httpClient: HttpClient) { 
     this.apiUrl = environment.APIURL;
+    this.activeUsers = 0;
+    this.recordsModified = 0;
+    this.feedData.push("No Activity Recorded");
+    this.currentUserID = localStorage.getItem('currentUser');
+  }
+
+  updateActiveUsers(){
+    var self = this;
+    self.getActiveUsers()
+      .subscribe((users) => {
+        if(users)
+          self.activeUsers = users;
+      });
+  }
+
+  updateRecordsModified(){
+    var self = this;
+    self.getRecordsModifiedCount()
+      .subscribe((records) => {
+        if(records)
+          self.recordsModified = records;
+      });
+  }
+
+  updateLatestFeeds(){
+    var self = this;
+    self.getLatestFeeds()
+      .subscribe((feeds) => {
+        if(feeds.length > 0)
+          self.feedData = feeds.splice(-1, 3);
+        else  
+          self.feedData.push("No Activity Recorded");
+      });
   }
 
   getActiveUsers():Observable<number>{
@@ -38,6 +77,14 @@ export class GlobalService {
                  map(res=>res as string[]),
                  catchError(this.errorHandle)
                );
+  }
+
+  SetCurrentTab(tabName){
+    this.currentTabName = tabName;
+  }
+
+  GetCurrentTab(): string {
+    return this.currentTabName;
   }
 
   errorHandle(error:Response){

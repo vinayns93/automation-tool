@@ -7,7 +7,7 @@ import { Router } from '@angular/router';
 import { ConfirmationDialogService } from '../../../confirmation-dialog/confirmation-dialog/confirmation-dialog.service';
 import { browserControllerColumns, testControllerColumns, moduleControllerColumns } from '../../../core/constants/feature';
 import { formatDate } from '@angular/common';
-import { FeatureService } from '../../../core';
+import { FeatureService, GlobalService } from '../../../core';
 import { Table } from 'primeng/table';
 
 @Component({
@@ -39,7 +39,7 @@ export class FeatureComponent implements OnInit {
   // Cards
   constructor(private router: Router,
     private confirmationDialogService: ConfirmationDialogService, 
-    private controllerservice: FeatureService) { }
+    private controllerservice: FeatureService, private globalService: GlobalService) { }
 
   public hexToRGB(hex, alpha) {
     var r = parseInt(hex.slice(1, 3), 16),
@@ -91,6 +91,7 @@ export class FeatureComponent implements OnInit {
     this.LoadAllBrowserControllerColumns();
     this.LoadAllModuleControllerColumns();
     this.LoadAllTestControllerColumns();
+    this.globalService.SetCurrentTab('FEATURE');
   }
 
   LoadAllTestControllerColumns() {
@@ -222,10 +223,10 @@ export class FeatureComponent implements OnInit {
   }
 
   public chartClicked(e: any): void {
-    console.log(e);
+    
   }
 
   public chartHovered(e: any): void {
-    console.log(e);
+    
   }
 }

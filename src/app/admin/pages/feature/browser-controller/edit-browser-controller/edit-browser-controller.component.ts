@@ -29,7 +29,6 @@ export class EditBrowserControllerComponent implements OnInit {
 
   ngOnInit() {
     this.id = Number(this.route.snapshot.paramMap.get('id'));
-    console.log(this.id);
     this.getbrowserController(this.id);
     
   }
@@ -37,38 +36,15 @@ export class EditBrowserControllerComponent implements OnInit {
   getbrowserController(num:number) {
    this.controllerservice.getBrowserController(num)
    .subscribe((result)=>{
-    console.log(result);
     this.editBControllerObj = result;
-    // this.populateFormFields();
   },
    error =>{
      console.log(error.message);
    },
-   ()=>{
-     console.log(this.editBControllerObj);
-   })
+   ()=>{ })
   }
-
-  //  populateFormFields() {
-  //   if (this.testControllerForm) {
-  //     this.testControllerForm.reset();
-  //   }
-  //   this.testControllerForm.patchValue({
-  //     id: this.editBControllerObj.id,
-  //     vmid: this.editBControllerObj.vmid,
-  //     browser: this.editBControllerObj.browser,
-  //     exec: this.editBControllerObj.exec
-  //   });
-  //  }
   
   onSubmit() {
-    // let data = new BrowserController();
-    // data.id = this.testControllerForm.controls["id"].value;
-    // data.vmid = this.testControllerForm.controls["vmid"].value;
-    // data.browser = this.testControllerForm.controls["browser"].value;
-    // data.exec = this.testControllerForm.controls["exec"].value;
-    // data.isLocked = this.testControllerForm.controls["isLocked"].value;
-    // data.updatedOn = formatDate(new Date(), 'yyyy/MM/dd', 'en').toString();
     
     this.controllerservice.updateBrowserController(this.editBControllerObj.id,this.editBControllerObj);
     setTimeout(f=>{

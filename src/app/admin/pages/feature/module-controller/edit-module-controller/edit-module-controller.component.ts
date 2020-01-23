@@ -27,22 +27,18 @@ export class Testcontroller1EditComponent implements OnInit {
 
   ngOnInit() {
     this.id = +this.route.snapshot.paramMap.get('id');
-    console.log(this.id);
     this.getModuleController(this.id);
   }
 
   getModuleController(num:number) {
    this.featureService.getModuleController(num)
    .subscribe((result: ModuleController)=>{
-    console.log(result);
     this.editMControllerObj = result;
   },
    error =>{
      console.log(error.message);
    },
-   ()=>{
-     console.log(this.editMControllerObj);
-   })
+   ()=>{ })
   }
   
   onSubmit() {

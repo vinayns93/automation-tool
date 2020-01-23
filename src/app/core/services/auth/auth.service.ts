@@ -37,7 +37,7 @@ login(user: User) {
         }
       },
       error => {
-        console.log("Error: "+error)
+        this.toastr.error("Error while validating User !");
       });
 }
 

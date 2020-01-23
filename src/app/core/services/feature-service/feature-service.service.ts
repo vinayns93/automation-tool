@@ -5,6 +5,7 @@ import { environment } from '../../../../environments/environment';
 import { Observable, throwError } from 'rxjs';
 import { ModuleController, TestController, BrowserController } from '../../models';
 import { map, catchError } from 'rxjs/operators';
+import { GlobalService } from '../global/global.service';
 
 @Injectable({
   providedIn: 'root'
@@ -13,7 +14,8 @@ export class FeatureService {
   public apiUrl:string;
   public userID: string;
   
-  constructor(private httpClient: HttpClient, private toastr: ToastrService){
+  constructor(private httpClient: HttpClient, private toastr: ToastrService,
+              public globalService: GlobalService){
    this.apiUrl = environment.APIURL;
    this.userID = localStorage.getItem('currentUser');
   }
@@ -69,12 +71,10 @@ export class FeatureService {
       return this.httpClient.post(this.apiUrl+'/Feature/AddModuleController',moduleController)
       .subscribe(
        data  => {
-         console.log("POST Request is successful ", data);
-         this.toastr.success("Module Controller data added Successfully !");
+         this.toastr.success("Module Controller instance has been Added Successfully !");
          },
          error  => {
-         console.log("Error", error);
-         this.toastr.error("Error creating Module Controller instance !");
+         this.toastr.error("Error while creating Module Controller instance !");
          }
      );
    }
@@ -83,12 +83,10 @@ export class FeatureService {
        return this.httpClient.post(this.apiUrl+'/Feature/AddTestController',testControllerObj)
        .subscribe(
          data  => {
-           console.log("POST Request is successful ", data);
-           this.toastr.success("Test Controller data added Successfully !");
+           this.toastr.success("Test Controller instance has been Added Successfully !");
            },
            error  => {
-           console.log("Error", error);
-           this.toastr.error("Error creating Test Controller instance !");
+           this.toastr.error("Error while creating Test Controller instance !");
            }
        );
     }
@@ -97,12 +95,10 @@ export class FeatureService {
        return this.httpClient.post(this.apiUrl+'/Feature/AddBrowserController', browserController)
        .subscribe(
          data  => {
-           console.log("POST Request is successful ", data);
            this.toastr.success("Browser Controller record has been Added Successfully !");
            },
            error  => {
-           console.log("Error", error);
-           this.toastr.error("Error creating Browser Controller record !");
+           this.toastr.error("Error while creating Browser Controller instance !");
            }
        );
     }
@@ -112,12 +108,11 @@ export class FeatureService {
      return this.httpClient.put(this.apiUrl+'/Feature/UpdateModuleController/'+id,moduleController)
      .subscribe(
        data  => {
-         console.log("PUT Request is successful ", data);
          this.toastr.warning("Module Controller data updated Successfully !");
+         this.globalService.updateRecordsModified();
          },
          error  => {
-         console.log("Error", error);
-         this.toastr.error("Error in updating Module Controller data !");
+         this.toastr.error("Error while updating Module Controller instance !");
          }
      );
    }
@@ -127,12 +122,11 @@ export class FeatureService {
        return this.httpClient.put(this.apiUrl+'/Feature/UpdateTestController/'+id,testController)
        .subscribe(
          data  => {
-           console.log("PUT Request is successful ", data);
-           this.toastr.warning("Module Controller data updated Successfully !");
+           this.toastr.warning("Module Controller instance (ID: "+id+") has been Updated Successfully !");
+           this.globalService.updateRecordsModified();
            },
            error  => {
-           console.log("Error", error);
-           this.toastr.error("Error in updating Test Controller data !");
+           this.toastr.error("Error while Updating Test Controller insatnce !");
            }
        );
      }
@@ -142,12 +136,11 @@ export class FeatureService {
        return this.httpClient.put(this.apiUrl+'/Feature/UpdateBrowserController/'+id,browserController)
        .subscribe(
          data  => {
-           console.log("PUT Request is successful ", data);
-           this.toastr.warning("Browser Controller record with ID: "+id+" updated Successfully !");
+           this.toastr.warning("Browser Controller instance (ID: "+id+") has been Updated Successfully !");
+           this.globalService.updateRecordsModified();
            },
            error  => {
-           console.log("Error", error);
-           this.toastr.error("Error in updating Browser Controller data !");
+           this.toastr.error("Error while Updating Browser Controller instance !");
            }
        );
      }
@@ -157,11 +150,10 @@ export class FeatureService {
       return this.httpClient.delete(this.apiUrl+'/Feature/DeleteModuleController/'+id+'/'+this.userID)
      .subscribe(
        data  => {
-         console.log("DELETE Request is successful ", data);
-         this.toastr.warning("Module Controller data deleted Successfully !");
+         this.toastr.warning("Module Controller instance (ID: "+id+") has been deleted Successfully !");
          },
          error  => {
-         console.log("Error", error);
+         this.toastr.error("Error while Deleting Module Controller instance (ID: "+id+") ");
          }
      );
     });
@@ -172,11 +164,10 @@ export class FeatureService {
        return this.httpClient.delete(this.apiUrl+'/Feature/DeleteTestController/'+id+'/'+this.userID)
        .subscribe(
          data  => {
-           console.log("DELETE Request is successful ", data);
-           this.toastr.warning("Test Controller data deleted Successfully !");
+           this.toastr.warning("Test Controller instance (ID: "+id+") Deleted Successfully !");
            },
            error  => {
-           console.log("Error", error);
+           this.toastr.error("Error while Deleting Test Controller instance (ID: "+id+")");
            }
        );
      }
@@ -185,14 +176,15 @@ export class FeatureService {
        return this.httpClient.delete(this.apiUrl+'/Feature/DeleteBrowserController/'+id+'/'+this.userID)
        .subscribe(
          data  => {
-           console.log("DELETE Request is successful ", data);
-           this.toastr.warning("Browser Controller record ID: "+id+" deleted Successfully !");
+           this.toastr.warning("Browser Controller instance (ID: "+id+") deleted Successfully !");
            },
            error  => {
-           console.log("Error", error);
+           this.toastr.error("Error while Deleting Browser Controller instance !");
+           console.log(error);
            }
        );
      }
+
   errorHandle(error:Response){
     console.log(error);
     return throwError(error);

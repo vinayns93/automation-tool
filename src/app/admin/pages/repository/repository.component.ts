@@ -1,5 +1,5 @@
 import { Component, OnInit, ViewChild } from '@angular/core';
-import { Repository } from '../../../core';
+import { Repository, GlobalService } from '../../../core';
 import { RepositoryService } from '../../../core/services/repository-service/repository.service';
 import { Router } from '@angular/router';
 import { SelectItem } from 'primeng/api/selectitem';
@@ -22,7 +22,8 @@ export class RepositoryComponent implements OnInit {
 
   @ViewChild(Table, {static: false}) dt: Table;
   
-  constructor(private service: RepositoryService,private router:Router){ }
+  constructor(private service: RepositoryService,private router:Router,
+    private globalService: GlobalService){ }
 
   ngOnInit(): void {
     var self = this;
@@ -30,6 +31,7 @@ export class RepositoryComponent implements OnInit {
     self.columns = repositoryColumns;
     self.getRepositories();
     self.LoadAllRepositoryColumns();
+    self.globalService.SetCurrentTab('REPOSITORY');
   }
   
   LoadAllRepositoryColumns() {

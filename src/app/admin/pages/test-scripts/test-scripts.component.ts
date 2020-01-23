@@ -4,6 +4,7 @@ import { TestScriptsService } from '../../../core/services/test-scripts/testscri
 import { TestScript } from '../../../core/models';
 import { testScriptsColumns } from '../../../core/constants/testscripts';
 import { SelectItem } from 'primeng/api/selectitem';
+import { GlobalService } from '../../../core';
 
 @Component({
   selector: 'app-test-scripts',
@@ -19,14 +20,15 @@ export class TestScriptsComponent implements OnInit {
   columns: SelectItem[];
   loading:boolean = false;
 
-  constructor(private service: TestScriptsService,private router:Router) { }
+  constructor(private service: TestScriptsService,private router:Router,
+    private globalService: GlobalService) { }
 
   ngOnInit() {
     this.getTestScripts();
     this.columns= testScriptsColumns;
     this.tableColumns = [];
-
     this.LoadTestScriptsColumns();
+    this.globalService.SetCurrentTab('TESTSCRIPTS');
   }
 
   LoadTestScriptsColumns() {
@@ -57,7 +59,6 @@ export class TestScriptsComponent implements OnInit {
     var self = this;
     self.service.getTestScripts()
     .subscribe((result: TestScript[])=>{
-      //console.log(result);
       self.testscripts = [];
       if(result.length > 0){
         result.filter(browserItem => {
@@ -71,9 +72,7 @@ export class TestScriptsComponent implements OnInit {
      error =>{
        console.log(error.message);
      },
-     ()=>{
-       //console.log(this.testControllers3);
-     })
+     ()=>{ })
   }
 
   deleteScript(id:number){

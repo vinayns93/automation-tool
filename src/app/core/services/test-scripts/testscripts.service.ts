@@ -1,10 +1,11 @@
 import { Injectable } from '@angular/core';
-import { HttpClient, HttpClientModule, HttpHeaders } from '@angular/common/http';
-import { Observable, of, throwError, pipe} from 'rxjs';
-import { map, filter, catchError, mergeMap } from 'rxjs/operators';
+import { HttpClient } from '@angular/common/http';
+import { Observable, throwError} from 'rxjs';
+import { map, catchError } from 'rxjs/operators';
 import { TestScript } from '../../models';
 import { environment } from '../../../../environments/environment';
 import { ToastrService } from 'ngx-toastr';
+import { GlobalService } from '..';
 
 @Injectable({
   providedIn: 'root'
@@ -13,7 +14,8 @@ export class TestScriptsService {
   public apiUrl:string;
   public userID: string;
   
-   constructor(private httpClient: HttpClient, private toastr: ToastrService){
+   constructor(private httpClient: HttpClient, private toastr: ToastrService,
+    public globalService: GlobalService){
     this.apiUrl = environment.APIURL;
     this.userID = localStorage.getItem('currentUser');
    }
@@ -53,8 +55,8 @@ export class TestScriptsService {
       return this.httpClient.put(this.apiUrl+'/TestScripts/UpdateScript/'+id,script)
       .subscribe(
         data  => {
-          console.log("PUT Request is successful ", data);
           this.toastr.warning("Test Script updation is successfull");
+          this.globalService.getRecordsModifiedCount();
           },
           error  => {
           console.log("Error", error);

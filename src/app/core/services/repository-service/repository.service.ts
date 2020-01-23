@@ -5,6 +5,7 @@ import { map, catchError } from 'rxjs/operators';
 import { Repository } from '../../models/repository/repository.model';
 import { environment } from '../../../../environments/environment';
 import { ToastrService } from 'ngx-toastr';
+import { GlobalService } from '..';
 
 @Injectable({
   providedIn: 'root'
@@ -15,7 +16,8 @@ export class RepositoryService {
   public userID: string;
 
 
-  constructor(private httpClient: HttpClient, private toastr: ToastrService) {
+  constructor(private httpClient: HttpClient, private toastr: ToastrService,
+    public globalService: GlobalService) {
     this.apiUrl = environment.APIURL;
     this.userID = localStorage.getItem('currentUser');
   }
@@ -55,8 +57,8 @@ export class RepositoryService {
     return this.httpClient.put(this.apiUrl + '/Repository/UpdateRepository/' + id, repo)
       .subscribe(
         data => {
-          console.log("PUT Request is successful ", data);
-          this.toastr.success("Repository updated Successfully !");
+          this.toastr.success("Repository instance has been updated Successfully !");
+          this.globalService.updateRecordsModified();
         },
         error => {
           console.log("Error", error);
