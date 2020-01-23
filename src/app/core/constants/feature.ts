@@ -41,11 +41,11 @@ export const browserControllerColumns: any[] = [
     { label: 'VMID', value: { field: 'vmid', header: 'VMID'} },
     { label: 'Browser', value: { field: 'browser', header: 'Browser' } },
     { label: 'Exec', value: { field: 'exec', header: 'Exec' } },
-    { label: 'Status ID', value: { field: 'statusID', header: 'Status ID' } },
-    { label: 'Cud Status ID', value: { field: 'cudStatusID', header: 'Cud Status ID' } },
-    { label: 'Is Locked', value: { field: 'isLocked', header: 'Is Locked' } },
-    { label: 'Locked By User', value: { field: 'lockedByUser', header: 'Locked By User' } },
-    { label: 'Created On', value: { field: 'createdOn', header: 'Created On' } },
-    { label: 'Updated On', value: { field: 'updatedOn', header: 'Updated On' } },
-    { label: 'User ID', value: { field: 'userId', header: 'User ID' } }
+    // { label: 'Status ID', value: { field: 'statusID', header: 'Status ID' } },
+    // { label: 'Cud Status ID', value: { field: 'cudStatusID', header: 'Cud Status ID' } },
+    // { label: 'Is Locked', value: { field: 'isLocked', header: 'Is Locked' } },
+    // { label: 'Locked By User', value: { field: 'lockedByUser', header: 'Locked By User' } },
+    // { label: 'Created On', value: { field: 'createdOn', header: 'Created On' } },
+    // { label: 'Updated On', value: { field: 'updatedOn', header: 'Updated On' } },
+    // { label: 'User ID', value: { field: 'userId', header: 'User ID' } }
 ];

@@ -7,6 +7,7 @@ import { MultiSelectModule } from 'primeng/multiselect';
 import { TableModule } from 'primeng/table';
 import { TabViewModule } from 'primeng/tabview';
 import { ButtonModule } from 'primeng/button';
+import {DropdownModule} from 'primeng/dropdown';
 
 import { adminRoutes } from './admin-routing.module';
 import { SharedModule } from '../shared';
@@ -62,7 +63,8 @@ import { AddBrowserControllerComponent } from './pages/feature/browser-controlle
     ButtonModule,
     ReactiveFormsModule,
     FormsModule,
-    TabViewModule
+    TabViewModule,
+    DropdownModule
   ],
   schemas: [
     CUSTOM_ELEMENTS_SCHEMA
