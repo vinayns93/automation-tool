@@ -6,18 +6,17 @@
                 <i class="now-ui-icons ui-1_simple-add"></i>ADD NEW TESTSCRIPT</button>
         </div>
         <div class="col-md-4 col-lg-4 center-align">
-           <!-- <h5 class="admin-page-header"> BROWSER CONTROLLER</h5> -->
+            <!-- <h5 class="admin-page-header"> BROWSER CONTROLLER</h5> -->
         </div>
         <div class="col-md-2 col-lg-2" style="padding-right: 0px;">
             <label class="pull-right" style="font-size: 0.9em;">Table Columns</label>
         </div>
-            <div class="col-md-2 col-lg-2" style="padding-left: 0.5em">
-                <p-multiSelect (onChange)="loadTestScriptsColumns($event)" [options]="columns" 
-                [(ngModel)]="tableColumns">
-                </p-multiSelect>
+        <div class="col-md-2 col-lg-2" style="padding-left: 0.5em">
+            <p-multiSelect (onChange)="loadTestScriptsColumns($event)" [options]="columns" [(ngModel)]="tableColumns">
+            </p-multiSelect>
         </div>
-        </div>
-    
+    </div>
+
     <div class="row">
         <div class="col-md-12 col-lg-12">
             <ng-container *ngIf="tableColumns.length != 0">
@@ -37,6 +36,24 @@
                             </th>
                             <th>Actions</th>
                         </tr>
+                        <tr>
+                            <th *ngFor="let col of tableColumns" [ngSwitch]="col.field">
+                                <input *ngSwitchCase="'id'" pInputText type="text"
+                                    (input)="tt.filter($event.target.value, col.field, 'contains')">
+                                <input *ngSwitchCase="'testCaseID'" pInputText type="text"
+                                    (input)="tt.filter($event.target.value, col.field, 'contains')">
+                                <input *ngSwitchCase="'tc_stepID'" pInputText type="text"
+                                    (input)="tt.filter($event.target.value, col.field, 'contains')">
+                                <input *ngSwitchCase="'testScriptName'" pInputText type="text"
+                                    (input)="tt.filter($event.target.value, col.field, 'contains')">
+                                <input *ngSwitchCase="'functionDescription'" pInputText type="text"
+                                    (input)="tt.filter($event.target.value, col.field, 'contains')">
+                                <input *ngSwitchCase="'functionName'" pInputText type="text"
+                                    (input)="tt.filter($event.target.value, col.field, 'contains')">
+                                    <input *ngSwitchCase="'module'" pInputText type="text"
+                                    (input)="tt.filter($event.target.value, col.field, 'contains')">
+                            </th>
+                        </tr>
                     </ng-template>
                     <ng-template pTemplate="body" let-testscripts>
                         <tr>
@@ -46,8 +63,8 @@
                                         class="rounded-button edit-control"
                                         (click)="onRowEditInit(testscripts.id)"></button>
                                     <button pButton type="button" icon="pi pi-times"
-                                        class="rounded-button delete-control"
-                                        (click)="deleteScript(testscripts.id)"></button>
+                                        class="rounded-button delete-control" (click)="deleteScript(testscripts.id)"
+                                        disabled></button>
                                 </ng-container>
                                 <ng-container *ngIf="col.field != 'actions'">
                                     {{testscripts[col.field]}}

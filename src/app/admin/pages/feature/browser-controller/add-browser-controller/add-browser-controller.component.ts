@@ -30,7 +30,7 @@ export class AddBrowserControllerComponent implements OnInit {
   }
 
   ChangeExecType(event, dd: Dropdown){
-    this.selectedExec = dd.selectedOption.label; // this is your selected item label
+    this.selectedExec = dd.selectedOption.label;
  }
  
   onSubmit() {
