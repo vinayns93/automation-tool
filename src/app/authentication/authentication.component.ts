@@ -17,6 +17,8 @@ export class AuthenticationComponent implements OnInit {
     loading = false;
     submitted = false;
     returnUrl: string;
+    username: any;
+    password: any;
   constructor(private formBuilder: FormBuilder,
     private route: ActivatedRoute,
     private router: Router,
@@ -37,13 +39,13 @@ export class AuthenticationComponent implements OnInit {
     this.submitted = true;
 
     // stop here if form is invalid
-    if (this.loginForm.invalid) {
-        return;
-    }
+    // if (this.loginForm.invalid) {
+    //     return;
+    // }
     this.loading = true;
     let user: User = new User();
-    user.userName = this.loginForm.controls["username"].value;
-    user.password = this.loginForm.controls["password"].value;
+    user.userName = this.username;
+    user.password = this.password;
     this.authService.login(user);
   }
   
