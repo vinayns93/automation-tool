@@ -16,6 +16,7 @@ import {
   MatSidenavModule, MatButtonModule, MatCardModule, MatDialogModule, MatInputModule, MatTableModule,
   MatToolbarModule, MatMenuModule, MatIconModule, MatProgressSpinnerModule
 } from '@angular/material';
+import { MatFormFieldModule } from '@angular/material/form-field';
 import { MultiSelectModule } from 'primeng/multiselect';
 import { AdminComponent } from './admin';
 import { SharedModule } from './shared';
@@ -55,7 +56,8 @@ import { NotificationsComponent } from './notifications/notifications.component'
     MatToolbarModule,
     MatMenuModule,
     MatIconModule,
-    MatProgressSpinnerModule
+    MatProgressSpinnerModule,
+    MatFormFieldModule
   ],
   declarations: [
     AppComponent,

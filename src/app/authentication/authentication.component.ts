@@ -1,5 +1,5 @@
 import { Component, OnInit } from '@angular/core';
-import { FormGroup, FormBuilder, Validators,ReactiveFormsModule } from '@angular/forms';
+import { FormGroup, FormBuilder, Validators,ReactiveFormsModule, FormControl } from '@angular/forms';
 import { ActivatedRoute, Router } from '@angular/router';
 import { first } from 'rxjs/operators';
 import { AlertService} from '../core/services/shared/alert.service';
@@ -13,12 +13,17 @@ import { User } from '../core/models/user/user';
   styleUrls: ['./authentication.component.scss']
 })
 export class AuthenticationComponent implements OnInit {
-    loginForm: FormGroup;
     loading = false;
     submitted = false;
     returnUrl: string;
     username: any;
     password: any;
+
+    loginForm: FormGroup = new FormGroup({
+      username: new FormControl('', [Validators.required]),
+      password: new FormControl('', [Validators.required])
+    });
+
   constructor(private formBuilder: FormBuilder,
     private route: ActivatedRoute,
     private router: Router,
@@ -28,20 +33,14 @@ export class AuthenticationComponent implements OnInit {
 
   ngOnInit() {
 
-    this.loginForm = this.formBuilder.group({
-        username: ['', Validators.required],
-        password: ['', Validators.required]
-    });
+    
     this.authService.logout();
   }
-  get f() { return this.loginForm.controls; }
   onSubmit(){
     this.submitted = true;
 
-    // stop here if form is invalid
-    // if (this.loginForm.invalid) {
-    //     return;
-    // }
+    this.username = this.loginForm.get('username').value;
+    this.password = this.loginForm.get('password').value;
     this.loading = true;
     let user: User = new User();
     user.userName = this.username;

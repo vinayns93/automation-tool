@@ -27,7 +27,7 @@ login(user: User) {
   
     return this.http.post(this.apiUrl+'/Auth/Login',user)
       .subscribe((userID) => {
-        if(userID > 0){
+        if(userID < 0){
           localStorage.setItem('currentUser', JSON.stringify(userID));
           this.currentUserSubject.next(user);
           this.router.navigate(['admin/feature/']);

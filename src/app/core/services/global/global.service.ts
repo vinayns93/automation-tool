@@ -3,6 +3,7 @@ import { environment } from '../../../../environments/environment';
 import { Observable, throwError } from 'rxjs';
 import { HttpClient } from '@angular/common/http';
 import { map, catchError } from 'rxjs/operators';
+import { FormGroup } from '@angular/forms';
 
 @Injectable({
   providedIn: 'root'
@@ -25,6 +26,7 @@ export class GlobalService {
     this.feedData.push("No Activity Recorded");
     this.currentUserID = localStorage.getItem('currentUser');
   }
+
 
   updateActiveUsers(){
     var self = this;

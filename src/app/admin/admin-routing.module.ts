@@ -16,24 +16,24 @@ import { AddTestControllerComponent } from './pages/feature/test-controller/add-
 import { AddBrowserControllerComponent } from './pages/feature/browser-controller/add-browser-controller/add-browser-controller.component';
 
 export const adminRoutes: Routes = [
-      { path: 'admin/testdata', component: TestDataComponent, canActivate: [AuthGuard] },
-      { path: 'admin/testscripts', component: TestScriptsComponent, canActivate: [AuthGuard] },
-      { path: 'admin/testscripts/add', component: AddTestScriptComponent, canActivate: [AuthGuard] },
-      { path: 'admin/testscripts/edit/:id', component: EditTestScriptComponent, canActivate: [AuthGuard] },
-      { path: 'admin/repository', component: RepositoryComponent, canActivate: [AuthGuard] },
-      { path: 'admin/keywords', component: KeywordsComponent, canActivate: [AuthGuard] },
-      { path: 'admin/feature', component: FeatureComponent, canActivate: [AuthGuard] },
-      { path: 'admin/keywords/add', component: AddKeywordComponent, canActivate: [AuthGuard]},
-      { path: 'admin/keywords/edit/:id', component: EditKeywordComponent, canActivate: [AuthGuard] },
-      { path: 'admin/repository/add', component: AddRepositoryComponent, canActivate: [AuthGuard]},
-      { path: 'admin/repository/edit/:id/:userId', component: EditRepositoryComponent, canActivate: [AuthGuard] },
-      { path: 'admin/feature/testcontroller1/edit/:id', component: Testcontroller1EditComponent, canActivate: [AuthGuard] },
-      { path: 'admin/feature/testcontroller2/edit/:id', component: EditTestControllerComponent, canActivate: [AuthGuard] },
-      { path: 'admin/feature/testcontroller3/edit/:id', component: EditBrowserControllerComponent, canActivate: [AuthGuard] },
-      { path: 'admin/feature/modulecontroller/add', component: AddModuleControllerComponent, canActivate: [AuthGuard] },
-      { path: 'admin/feature/testcontroller/add', component: AddTestControllerComponent, canActivate: [AuthGuard] },
-      { path: 'admin/feature/browsercontroller/add', component: AddBrowserControllerComponent, canActivate: [AuthGuard] },
-      { path: '**', redirectTo: 'admin/feature', pathMatch: 'full', canActivate: [AuthGuard] }
+      { path: 'admin/testdata', component: TestDataComponent },
+      { path: 'admin/testscripts', component: TestScriptsComponent },
+      { path: 'admin/testscripts/add', component: AddTestScriptComponent },
+      { path: 'admin/testscripts/edit/:id', component: EditTestScriptComponent },
+      { path: 'admin/repository', component: RepositoryComponent },
+      { path: 'admin/keywords', component: KeywordsComponent },
+      { path: 'admin/feature', component: FeatureComponent },
+      { path: 'admin/keywords/add', component: AddKeywordComponent},
+      { path: 'admin/keywords/edit/:id', component: EditKeywordComponent },
+      { path: 'admin/repository/add', component: AddRepositoryComponent},
+      { path: 'admin/repository/edit/:id/:userId', component: EditRepositoryComponent },
+      { path: 'admin/feature/testcontroller1/edit/:id', component: Testcontroller1EditComponent },
+      { path: 'admin/feature/testcontroller2/edit/:id', component: EditTestControllerComponent },
+      { path: 'admin/feature/testcontroller3/edit/:id', component: EditBrowserControllerComponent },
+      { path: 'admin/feature/modulecontroller/add', component: AddModuleControllerComponent },
+      { path: 'admin/feature/testcontroller/add', component: AddTestControllerComponent },
+      { path: 'admin/feature/browsercontroller/add', component: AddBrowserControllerComponent },
+      { path: '**', redirectTo: 'admin/feature', pathMatch: 'full' }
 ];
 
 

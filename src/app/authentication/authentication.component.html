@@ -16,29 +16,72 @@
       </div>
     </div>
     <div class="col-md-4 col-lg-4" style="text-align: center;">
-      <form  class="material-form">
-      <div class="row">
-        <div class="col-md-12 col-lg-12">
-          <mat-form-field class="input-full-width">
-            <input matInput name="Username" [(ngModel)]="username" placeholder="Username">
-          </mat-form-field>
+      <!-- <mat-card class="login-card">
+        <mat-card-content>
+          <form [formGroup]="loginForm" class="login-form">
+            <div class="controls-container">
+            <mat-form-field>
+              <input formControlName="username" matInput placeholder="Username">
+            </mat-form-field>
+            <mat-form-field>
+              <input formControlName="password" matInput placeholder="Password">
+            </mat-form-field>
+            <div class="button-row">
+              <button class="form-button" mat-raised-button color="primary" type="submit">Submit</button>
+              <button class="form-button" mat-raised-button color="warn">Reset</button>
+            </div>
+          </div>
+          </form>
+        </mat-card-content>
+      </mat-card> -->
+      <mat-card>
+        <form [formGroup]="loginForm" class="login-form">
+        <div class="container-fluid">
+          <div class="row align-items-center" style="height: 50vh;">
+            <div class="col-md-12 col-lg-12">
+              <div class="row">
+                <div class="col-md-12 col-lg-12">
+                  <mat-form-field class="control-full-width">
+                    <span matPrefix><i style="color: #808080;" style="color: #808080;" class="fa fa-user-circle-o"></i>&nbsp;&nbsp;</span>
+                    <input class="montserrat-font" formControlName="username" matInput placeholder="Username">
+                    <mat-error *ngIf="loginForm.controls['username'].errors?.required">Username cannot be Empty</mat-error>
+                </mat-form-field>
+                </div>
+              </div>
+              <div class="row">
+                <div class="col-md-12 col-lg-12">
+                <mat-form-field class="control-full-width">
+                  <span matPrefix><i style="color: #808080;" class="fa fa-key"></i>&nbsp;&nbsp;</span>
+                  <input class="montserrat-font" formControlName="password" matInput placeholder="Password">
+                  <mat-error *ngIf="loginForm.controls['password'].errors?.required">Password cannot be Empty</mat-error>
+                </mat-form-field>
+                </div>
+              </div>
+              <div class="row">
+                <div class="col-md-6 col-lg-6">
+                  <button [disabled]="loginForm.invalid" (click)="onSubmit()" class="form-button montserrat-font" style="background-color: #0033A1 !important;border-color: #0033A1 !important;" mat-raised-button color="primary" type="submit">SUBMIT</button>
+                </div>
+                <div class="col-md-6 col-lg-6">
+                  <button class="form-button montserrat-font" mat-raised-button color="warn">RESET</button>
+                </div>
+              </div>
+              <!-- <div class="row">
+                <div class="col-md-6 col-lg-6">
+                  <button class="form-button montserrat-font" style="background-color: #0033A1 !important;border-color: #0033A1 !important;" mat-raised-button color="primary" type="submit">SUBMIT</button>
+                </div>
+                <div</ class="col-md-6 col-lg-6">
+                  <button class="form-button montserrat-font" style="background-colorr="warn">RESET</button>
+                </div>
+
+            </div> -->
+          </div>
         </div>
-        <div class="col-md-12 col-lg-12">
-          <mat-form-field class="input-full-width">
-            <input matInput name="Password" [(ngModel)]="password" type="password" placeholder="Password">
-          </mat-form-field>
         </div>
-        <div class="col-md-6 col-lg-6" style="text-align: left;">
-          <button (click)="onSubmit()" style="width: 80%" mat-raised-button color="primary">Login &nbsp;&nbsp;<i class="fa fa-arrow-right"></i></button>
-        </div>
-        <div class="col-md-6 col-lg-6" style="text-align: right;">
-          <button style="width: 80%" mat-raised-button color="primary">Reset &nbsp;&nbsp;<i class="fa fa-sync"></i></button>
-        </div>
-      </div>
-    </form>
-       
-      
-        
+      </form>
+      </mat-card>
     </div>
   </div>
+</div>
+<div id="lock-icon-overlay">
+  <i class="fa fa-lock lock-icon"></i>
 </div>
