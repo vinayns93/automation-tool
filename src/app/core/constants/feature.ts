@@ -45,7 +45,7 @@ export const browserControllerColumns: any[] = [
     // { label: 'Cud Status ID', value: { field: 'cudStatusID', header: 'Cud Status ID' } },
     // { label: 'Is Locked', value: { field: 'isLocked', header: 'Is Locked' } },
     // { label: 'Locked By User', value: { field: 'lockedByUser', header: 'Locked By User' } },
-    { label: 'Created On', value: { field: 'createdOn', header: 'Created On' } },
-    { label: 'Updated On', value: { field: 'updatedOn', header: 'Updated On' } },
+    // { label: 'Created On', value: { field: 'createdOn', header: 'Created On' } },
+    // { label: 'Updated On', value: { field: 'updatedOn', header: 'Updated On' } },
     // { label: 'User ID', value: { field: 'userId', header: 'User ID' } }
 ];

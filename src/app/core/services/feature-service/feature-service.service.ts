@@ -93,6 +93,7 @@ export class FeatureService {
     }
 
     addBrowserController(browserController: BrowserController){    
+      browserController.userId = this.user.userId;
        return this.httpClient.post(this.apiUrl+'/Feature/AddBrowserController', browserController)
        .subscribe(
          data  => {

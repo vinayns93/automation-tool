@@ -3,6 +3,7 @@ import { TestScript } from '../../../../core/models';
 import { FormGroup, Validators, FormControl } from '@angular/forms';
 import { ActivatedRoute, Router } from '@angular/router';
 import { TestScriptsService } from '../../../../core/services/test-scripts/testscripts.service';
+import { Dropdown } from 'primeng/dropdown/dropdown';
 
 @Component({
   selector: 'app-add-test-script',
@@ -10,6 +11,8 @@ import { TestScriptsService } from '../../../../core/services/test-scripts/tests
   styleUrls: ['./add-test-script.component.scss']
 })
 export class AddTestScriptComponent implements OnInit {
+  runValues: any;
+  selectedRun: string;
   testScript: TestScript;
   newTestScriptObj: TestScript;
   testscriptForm = new FormGroup({
@@ -18,7 +21,7 @@ export class AddTestScriptComponent implements OnInit {
     testScriptName: new FormControl('', [Validators.required, Validators.pattern(/^[a-zA-Z0-9]+$/)]),
     functionDescription: new FormControl('', [Validators.required, Validators.pattern(/^[a-zA-Z0-9]+$/)]),
     functionName: new FormControl('', [Validators.required, Validators.pattern(/^[a-zA-Z0-9]+$/)]),
-    run: new FormControl('', [Validators.required, Validators.pattern(/^[a-zA-Z0-9]+$/)]),
+    run: new FormControl(''),
     module: new FormControl('', [Validators.required, Validators.pattern(/^[a-zA-Z0-9]+$/)]),
     param1: new FormControl(''),
     param2: new FormControl(''),
@@ -121,10 +124,19 @@ export class AddTestScriptComponent implements OnInit {
     param99: new FormControl(''),
     param100: new FormControl('')
   });
-  constructor(private testScriptsService: TestScriptsService, private router: Router) { }
+  constructor(private testScriptsService: TestScriptsService, private router: Router) { 
+    this.runValues = [
+      { label: 'YC' },
+      { label: 'YS' },
+      { label: 'NO' },
+    ];
+  }
 
   ngOnInit() {
   }
+  ChangeRunType(event, dd: Dropdown){
+    this.selectedRun = dd.selectedOption.label;
+ }
   onSubmit() {
     var self = this;
     let data = new TestScript();
@@ -134,7 +146,7 @@ export class AddTestScriptComponent implements OnInit {
     data.testScriptName = this.testscriptForm.controls["testScriptName"].value;
     data.functionDescription = this.testscriptForm.controls["functionDescription"].value;
     data.functionName = this.testscriptForm.controls["functionName"].value;
-    data.run = this.testscriptForm.controls["run"].value;
+    data.run = this.selectedRun;
     data.module = this.testscriptForm.controls["module"].value;
     data.param1 = this.testscriptForm.controls["param1"].value;
     data.param2 = this.testscriptForm.controls["param2"].value;

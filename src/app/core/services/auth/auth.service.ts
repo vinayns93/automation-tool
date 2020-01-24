@@ -19,15 +19,14 @@ export class AuthService {
         this.currentUser = this.currentUserSubject.asObservable();
         this.apiUrl = environment.APIURL;
   }
-  public get currentUserValue(): User {
-    return this.currentUserSubject.value;
-}
 
 login(user: User) {
     return this.http.post(this.apiUrl+'/Auth/Login',user)
       .subscribe((userData: User) => {
         if(userData.userName)
         if(userData.userId > 0){
+          if(userData.roleId == null)
+          userData.roleId = 2;
           localStorage.setItem('currentUser', JSON.stringify(userData));
           this.currentUserSubject.next(user);
           this.router.navigate(['admin/feature/']);

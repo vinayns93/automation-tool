@@ -31,7 +31,8 @@ export class FeatureComponent implements OnInit {
   selectedTestControllerCols: any[];
   selectedModuleControllerCols: any[];
   loading: boolean = true;
-
+  frozenCols: any[];
+  
   @ViewChild(Table, { static : false}) tt: Table;
   @ViewChild(Table, { static : false}) bt: Table;
   @ViewChild(Table, { static : false}) mt: Table;
@@ -92,6 +93,7 @@ export class FeatureComponent implements OnInit {
     this.LoadAllModuleControllerColumns();
     this.LoadAllTestControllerColumns();
     this.globalService.SetCurrentTab('FEATURE');
+   
   }
 
   LoadAllTestControllerColumns() {

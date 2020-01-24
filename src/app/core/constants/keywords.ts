@@ -26,7 +26,6 @@ export const keywordsColumns: any[] = [
 ];
 
 export const keyWordsRunOptions: any[] = [
-    
     { label: 'Choose the Run', value: { field: 'YS', header: 'YS'}},
     { label: 'YS', value: { field: 'YS', header: 'YS'}},
     { label: 'YC', value: { field: 'YC', header: 'YC'}},
