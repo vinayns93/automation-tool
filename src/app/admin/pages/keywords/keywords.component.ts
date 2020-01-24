@@ -22,8 +22,7 @@ export class KeywordsComponent implements OnInit {
 
   @ViewChild(Table, { static: false }) dt: Table;
 
-  constructor(private service: KeywordService, private router: Router,
-              public globalService: GlobalService) { }
+  constructor(private service: KeywordService, private router: Router, public globalService: GlobalService) { }
 
   ngOnInit() {
     var self = this;

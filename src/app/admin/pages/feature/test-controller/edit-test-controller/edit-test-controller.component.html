@@ -1,9 +1,9 @@
 <div class="container-fluid">
     <div class="row">
-        <div class="col-md-12 col-lg-12 center-align light-blue">
-            <h5 class="admin-page-header" style="margin-left: 20px;">
+        <div class="col-md-12 col-lg-12 center-align">
+            <h6 class="admin-page-header" style="margin-left: 20px;">
                 EDIT TEST CONTROLLER
-            </h5>
+            </h6>
         </div>
     </div>
     <div class="row">
@@ -16,13 +16,15 @@
                         <label for="" class="pull-right">Iterations:</label>
                     </div>
                     <div class="col-md-4 col-lg-4">
-                        <input type="text" class="text form-control" [(ngModel)]="editTControllerObj.iterations" formControlName="iterations">
+                        <input disabled type="text" class="text form-control" [(ngModel)]="editTControllerObj.iterations" formControlName="iterations">
                     </div>
                     <div class="col-md-2 col-lg-2">
                         <label for="" class="pull-right">Run:</label>
                     </div>
                     <div class="col-md-4 col-lg-4">
-                        <input type="text" class="text form-control" [(ngModel)]="editTControllerObj.run" formControlName="run">
+                        <!-- <input type="text" class="text form-control" [(ngModel)]="editTControllerObj.run" formControlName="run"> -->
+                        <p-dropdown #dd [options]="runValues" name="run" [(ngModel)]="editTControllerObj.run" 
+                        formControlName="run"></p-dropdown>
                     </div>
                 </div>
 
@@ -31,13 +33,13 @@
                         <label for="" class="pull-right">Feature ID:</label>
                     </div>
                     <div class="col-md-4 col-lg-4">
-                        <input type="text" class="text form-control" [(ngModel)]="editTControllerObj.featureID" formControlName="featureID">
+                        <input disabled type="text" class="text form-control" [(ngModel)]="editTControllerObj.featureID" formControlName="featureID">
                     </div>
                     <div class="col-md-2 col-lg-2">
                         <label for="" class="pull-right">Test Case ID:</label>
                     </div>
                     <div class="col-md-4 col-lg-4">
-                        <input type="text" class="text form-control" [(ngModel)]="editTControllerObj.testCaseID" formControlName="testCaseID">
+                        <input disabled type="text" class="text form-control" [(ngModel)]="editTControllerObj.testCaseID" formControlName="testCaseID">
                     </div>
                 </div>
                 <div class="row padding-bottom-1 align-items-center margin-top-1">
@@ -51,7 +53,7 @@
                         <label for="" class="pull-right">Sequence ID:</label>
                     </div>
                     <div class="col-md-4 col-lg-4">
-                        <input type="text" class="text form-control" [(ngModel)]="editTControllerObj.sequenceID" formControlName="sequenceID">
+                        <input disabled type="text" class="text form-control" [(ngModel)]="editTControllerObj.sequenceID" formControlName="sequenceID">
                     </div>
                 </div>
                 <div class="row padding-bottom-1 align-items-center margin-top-1">
@@ -59,13 +61,13 @@
                         <label for="" class="pull-right">Test Type:</label>
                     </div>
                     <div class="col-md-4 col-lg-4">
-                        <input type="text" class="text form-control" [(ngModel)]="editTControllerObj.testType" formControlName="testType">
+                        <input disabled type="text" class="text form-control" [(ngModel)]="editTControllerObj.testType" formControlName="testType">
                     </div>
                     <div class="col-md-2 col-lg-2">
                         <label for="" class="pull-right">JIRA ID:</label>
                     </div>
                     <div class="col-md-4 col-lg-4">
-                        <input type="text" class="text form-control" [(ngModel)]="editTControllerObj.jiraID" formControlName="jiraID">
+                        <input disabled type="text" class="text form-control" [(ngModel)]="editTControllerObj.jiraID" formControlName="jiraID">
                     </div>
                 </div>
                 <div class="row padding-bottom-1 align-items-center margin-top-1">
@@ -73,13 +75,13 @@
                         <label for="" class="pull-right">Test Script Name:</label>
                     </div>
                     <div class="col-md-4 col-lg-4">
-                        <input type="text" class="text form-control" [(ngModel)]="editTControllerObj.testScriptName" formControlName="testScriptName">
+                        <input disabled type="text" class="text form-control" [(ngModel)]="editTControllerObj.testScriptName" formControlName="testScriptName">
                     </div>
                     <div class="col-md-2 col-lg-2">
                         <label for="" class="pull-right">Test Script Description:</label>
                     </div>
                     <div class="col-md-4 col-lg-4">
-                        <input type="text" class="text form-control" [(ngModel)]="editTControllerObj.testScriptDescription" formControlName="testScriptDescription">
+                        <input disabled type="text" class="text form-control" [(ngModel)]="editTControllerObj.testScriptDescription" formControlName="testScriptDescription">
                     </div>
                 </div>
                 <div class="row padding-bottom-1 align-items-center margin-top-1">
@@ -87,7 +89,7 @@
                         <label for="" class="pull-right">Steps Count</label>
                     </div>
                     <div class="col-md-4 col-lg-4">
-                        <input type="text" class="text form-control" [(ngModel)]="editTControllerObj.stepsCount" formControlName="stepsCount">
+                        <input disabled type="text" class="text form-control" [(ngModel)]="editTControllerObj.stepsCount" formControlName="stepsCount">
                     </div>
                 </div>
                 <div class="row">

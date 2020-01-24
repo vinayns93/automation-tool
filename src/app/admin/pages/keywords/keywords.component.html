@@ -1,8 +1,3 @@
-<!-- <div class="panel-header panel-header-sm" style="height: 50px !important; padding: 0px;">
-</div>
-<app-header-card></app-header-card> -->
-<!-- <div class="main-content"> -->
-   <!-- <div class="row"> -->
      <div class="col-md-12">
          <div class="row align-items-center" style="padding-top: 2em; padding-bottom: 2em;">
             <div class="col-md-4 col-lg-4">
@@ -10,9 +5,6 @@
                 [routerLink]="['/admin/keywords/add']"> 
                     <i class="now-ui-icons ui-1_simple-add"></i> ADD NEW KEYWORD</button>
              </div>
-            <div class="col-md-4 col-lg-4 center-align">
-               <!-- <h5 class="admin-page-header"> BROWSER CONTROLLER</h5> -->
-            </div>
             <div class="col-md-2 col-lg-2" style="padding-right: 0px;">
                 <label class="pull-right" style="font-size: 0.9em;">Table Columns</label>
             </div>
@@ -30,7 +22,7 @@
                 [autoLayout]="true">
                 <ng-template pTemplate="colgroup" let-columns>
                     <colgroup>
-                        <col *ngFor="let col of columns" style="width:200px">
+                        <col *ngFor="let col of tableColumns" style="width:200px">
                     </colgroup>
                 </ng-template>
                     <ng-template pTemplate="header">
@@ -50,8 +42,7 @@
                             </td>
                             <td *ngFor="let col of tableColumns">
                                 {{keywords[col.field]}}
-                            </td>
-                            
+                            </td>                            
                         </tr>
                     </ng-template>
                 </p-table>
@@ -65,23 +56,4 @@
             </ng-container>
             </div>
         </div>
-        <!-- <div class="row">
-            <div class="col-md-12 col-lg-12">
-                <button class="btn btn-primary pull-right" style="margin-right:27px;font-size: 0.5rem;" 
-              [routerLink]="['/admin/keywords/add']"> 
-                  <i class="now-ui-icons ui-1_simple-add"></i> Add</button>
-            </div>
-        </div> -->
-          <!-- <div class="card"> -->
-            <!-- <div class="card-header"> -->
-              
-            <!-- </div> -->
-            <!-- <div class="card-body"> -->
-          
-              
-            
-            <!-- </div> -->
-          <!-- </div> -->
-     <!-- </div> -->
-    <!-- </div> -->
 </div>

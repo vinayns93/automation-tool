@@ -1,26 +1,22 @@
 <div class="container-fluid">
     <div class="row">
-        <div class="col-md-12 col-lg-12 center-align light-blue">
-            <h5 class="admin-page-header" style="margin-left: 20px;">
+        <div class="col-md-12 col-lg-12 center-align">
+            <h6 class="admin-page-header" style="margin-left: 20px;">
                 ADD NEW TEST CONTROLLER
-            </h5>
+            </h6>
         </div>
     </div>
     <div class="row">
         <div class="col-md-12 col-lg-12">
             <form [formGroup]="testControllerForm" (ngSubmit)="onSubmit()">
-                <div class="row padding-bottom-1 align-items-center margin-top-1">
-                    <div class="col-md-2 col-lg-2">
-                        <label for="sNo" class="pull-right">sNo</label>
-                    </div>
-                    <div class="col-md-4 col-lg-4">
-                        <input type="number" name="sNo" class="text form-control" formControlName="sNo">
-                    </div>
+                <div class="row padding-bottom-1 align-items-center margin-top-1">                   
                     <div class="col-md-2 col-lg-2">
                         <label for="featureID" class="pull-right">featureID</label>
                     </div>
                     <div class="col-md-4 col-lg-4">
-                        <input type="text" name="featureID" class="text form-control" formControlName="featureID">
+                        <!-- <input type="text" name="featureID" class="text form-control" formControlName="featureID"> -->
+                        <p-dropdown #dd [options]="objFeatureID" name="objFeatureID" [editable]="true"
+                         formControlName="featureID" placeholder="Select objFeatureID"></p-dropdown>
                     </div>
                 </div>
                 <div class="row padding-bottom-1 align-items-center">
@@ -34,7 +30,9 @@
                         <label for="run" class="pull-right">run</label>
                     </div>
                     <div class="col-md-4 col-lg-4">
-                        <input type="text" name="run" class="text form-control" formControlName="run">
+                        <!-- <input type="text" name="run" class="text form-control" formControlName="run"> -->
+                        <p-dropdown #dd [options]="runValues" name="run" [(ngModel)]="selectedRun" 
+                        formControlName="run" placeholder="Choose Run"></p-dropdown>
                     </div>
                 </div>
                 <div class="row padding-bottom-1 align-items-center">

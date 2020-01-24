@@ -13,9 +13,9 @@ import { formatDate } from '@angular/common';
 export class Testcontroller1EditComponent implements OnInit {
   id:number;
   editMControllerObj: ModuleController = new ModuleController();
+  runValues : any;
   testControllerForm = new FormGroup({
     id: new FormControl(''),
-    slno: new FormControl('', Validators.required),
     moduleID: new FormControl('', Validators.required),
     moduleSeqID:new FormControl('', Validators.required),
     machineID:new FormControl('', Validators.required) ,
@@ -26,6 +26,10 @@ export class Testcontroller1EditComponent implements OnInit {
   }
 
   ngOnInit() {
+    this.runValues = [
+      { label: 'Y', value: 'Y' },
+      { label: 'N' , value: 'N'}
+    ];
     this.id = +this.route.snapshot.paramMap.get('id');
     this.getModuleController(this.id);
   }

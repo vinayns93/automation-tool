@@ -4,6 +4,7 @@ export class Keywords {
     actionOrKeyword: string; 
     objectLogicalName: string; 
     run: string; 
+    module: string;
     param1: string; 
     param2: string; 
     param3: string; 
@@ -13,8 +14,7 @@ export class Keywords {
     param7 : string; 
     param8: string; 
     param9: string; 
-    param10: string;
-    module: string;
+    param10: string;    
     statusID: number;
     cudStatusID: number;
     isLocked: boolean;

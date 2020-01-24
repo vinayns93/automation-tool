@@ -1,9 +1,9 @@
 <div class="container-fluid">
     <div class="row">
-        <div class="col-md-12 col-lg-12 center-align light-blue">
-            <h5 class="admin-page-header" style="margin-left: 20px;">
+        <div class="col-md-12 col-lg-12 center-align">
+            <h6 class="admin-page-header" style="margin-left: 20px;">
                 EDIT MODULE CONTROLLER
-            </h5>
+            </h6>
         </div>
     </div>
     <div class="row">
@@ -20,33 +20,33 @@
                         <label>Locked by <strong>{{editMControllerObj.lockedByUser}}</strong></label>
                     </div>
                 </div> -->
-                <div class="row padding-bottom-1 align-items-center margin-top-1">
-                    <!-- <div class="col-md-2 col-lg-2">
+                <!-- <div class="row padding-bottom-1 align-items-center margin-top-1">
+                    <div class="col-md-2 col-lg-2">
                         <label for="" class="pull-right">ID:</label>
                     </div>
                     <div class="col-md-4 col-lg-4">
                         <input type="text" class="text form-control" [(ngModel)]="editMControllerObj.id" formControlName="id" disabled>
-                    </div> -->
+                    </div>
                     <div class="col-md-2 col-lg-2">
                         <label for="" class="pull-right">SL NO:</label>
                     </div>
                     <div class="col-md-4 col-lg-4">
                         <input type="text" class="text form-control" [(ngModel)]="editMControllerObj.slno" formControlName="slno" disabled>
                     </div>
-                </div>
+                </div> -->
 
                 <div class="row padding-bottom-1 align-items-center margin-top-1">
                     <div class="col-md-2 col-lg-2">
                         <label for="" class="pull-right">Module ID:</label>
                     </div>
                     <div class="col-md-4 col-lg-4">
-                        <input type="text" class="text form-control" [(ngModel)]="editMControllerObj.moduleID" formControlName="moduleID">
+                        <input disabled type="text" class="text form-control" [(ngModel)]="editMControllerObj.moduleID" formControlName="moduleID">
                     </div>
                     <div class="col-md-2 col-lg-2">
                         <label for="" class="pull-right">Module Seq ID:</label>
                     </div>
                     <div class="col-md-4 col-lg-4">
-                        <input type="text" class="text form-control" [(ngModel)]="editMControllerObj.moduleSeqID" formControlName="moduleSeqID">
+                        <input disabled type="text" class="text form-control" [(ngModel)]="editMControllerObj.moduleSeqID" formControlName="moduleSeqID">
                     </div>
                 </div>
                 <div class="row padding-bottom-1 align-items-center margin-top-1">
@@ -54,13 +54,13 @@
                         <label for="" class="pull-right">Machine ID:</label>
                     </div>
                     <div class="col-md-4 col-lg-4">
-                        <input type="text" class="text form-control" [(ngModel)]="editMControllerObj.machineID" formControlName="machineID">
+                        <input disabled type="text" class="text form-control" [(ngModel)]="editMControllerObj.machineID" formControlName="machineID">
                     </div>
                     <div class="col-md-2 col-lg-2">
                         <label for="" class="pull-right">Machine Seq ID:</label>
                     </div>
                     <div class="col-md-4 col-lg-4">
-                        <input type="text" class="text form-control" [(ngModel)]="editMControllerObj.machineSequenceID" formControlName="machineSequenceID">
+                        <input disabled type="text" class="text form-control" [(ngModel)]="editMControllerObj.machineSequenceID" formControlName="machineSequenceID">
                     </div>
                 </div>
                 <div class="row padding-bottom-1 align-items-center margin-top-1">
@@ -68,7 +68,9 @@
                         <label for="" class="pull-right">Run:</label>
                     </div>
                     <div class="col-md-4 col-lg-4">
-                        <input type="text" class="text form-control" [(ngModel)]="editMControllerObj.run" formControlName="run" disabled>
+                        <!-- <input type="text" class="text form-control" [(ngModel)]="editMControllerObj.run" formControlName="run" > -->
+                        <p-dropdown #dd [options]="runValues" name="exec" [(ngModel)]="editMControllerObj.run" 
+                         formControlName="run"></p-dropdown>
                     </div>
                 </div>
                 <div class="row">

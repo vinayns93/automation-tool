@@ -3,6 +3,7 @@ import { FormGroup, FormControl, Validators } from '@angular/forms';
 import { TestController } from '../../../../../core/models/feature/test-controller/test-controller';
 import { Router } from '@angular/router';
 import { FeatureService } from '../../../../../core/services/feature-service/feature-service.service';
+import { SelectItem } from 'primeng/api/selectitem';
 
 @Component({
   selector: 'app-add-test-controller',
@@ -11,11 +12,14 @@ import { FeatureService } from '../../../../../core/services/feature-service/fea
 })
 export class AddTestControllerComponent implements OnInit {
   testController:TestController;
+  runValues : any;
+  selectedRun : any;
+  objFeatureID: SelectItem[] = [];
+
   testControllerForm = new FormGroup({
-    sNo:  new FormControl('', [Validators.required, Validators.pattern(/^[a-zA-Z0-9]+$/)]),
-    featureID:  new FormControl('', [Validators.required, Validators.pattern(/^[a-zA-Z0-9]+$/)]),
+    featureID:  new FormControl(''),
     testCaseID:  new FormControl('', [Validators.required, Validators.pattern(/^[a-zA-Z0-9]+$/)]),
-    run: new FormControl('', [Validators.required, Validators.pattern(/^[a-zA-Z0-9]+$/)]),
+    run: new FormControl(''),
     iterations: new FormControl('', [Validators.required, Validators.pattern(/^[a-zA-Z0-9]+$/)]),
     browsers: new FormControl('', [Validators.required, Validators.pattern(/^[a-zA-Z0-9]+$/)]),
     sequenceID: new FormControl('', [Validators.required, Validators.pattern(/^[a-zA-Z0-9]+$/)]),
@@ -28,12 +32,26 @@ export class AddTestControllerComponent implements OnInit {
   constructor(private featureService:FeatureService,private router: Router) { }
 
   ngOnInit() {
+    this.populateFeatureID()
+    this.runValues = [
+      { label: 'Y', value: 'Y' },
+      { label: 'N' , value: 'N'}
+    ];
+  }
+  populateFeatureID() {
+    this.featureService.getAllFeatureID()
+      .subscribe((FeatureID) => {
+        if(FeatureID){
+          FeatureID.forEach(data => {
+            this.objFeatureID.push({label: data, value: data});
+          });
+        }
+        return this.objFeatureID;
+      });
   }
   onSubmit(){
     var self = this;
     let data = new TestController();
-    
-    data.sNo = this.testControllerForm.controls["sNo"].value;
     data.featureID = this.testControllerForm.controls["featureID"].value;
     data.testCaseID = this.testControllerForm.controls["testCaseID"].value;
     data.run = this.testControllerForm.controls["run"].value;
@@ -51,7 +69,6 @@ export class AddTestControllerComponent implements OnInit {
     data.createdOn='';
     data.isLocked = false;
     data.lockedByUser = 0;
-    data.userId = 123;
     self.featureService.addTestController(data);
     setTimeout(response => {
       self.router.navigate(['/admin/feature']);

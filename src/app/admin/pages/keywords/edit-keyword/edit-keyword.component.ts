@@ -4,8 +4,6 @@ import { ActivatedRoute, Router } from '@angular/router';
 import { KeywordService } from '../../../../core/services/keywords-service/keyword.service';
 import { FormGroup, FormControl, Validators } from '@angular/forms';
 import { SelectItem}  from 'primeng/api';
-import { keyWordsRunOptions } from '../../../../core/constants/keywords';
-
 
 @Component({
   selector: 'app-edit-keyword',
@@ -14,21 +12,40 @@ import { keyWordsRunOptions } from '../../../../core/constants/keywords';
 })
 export class EditKeywordComponent implements OnInit {
 
-  run_K_Values: SelectItem[];
+  runValues:any;
 
   editKeywordObj: Keywords = new Keywords();
   id: any;
   keywordsForm = new FormGroup({
-    run: new FormControl('', [Validators.required, Validators.pattern(/^[a-zA-Z0-9]+$/)]),
+    functionName:  new FormControl('', [Validators.required]),
+    stepDescription:  new FormControl('', [Validators.required]),
+    actionOrKeyword: new FormControl('', [Validators.required]),
+    objectLogicalName: new FormControl(''),
+    run: new FormControl(''),
+    module: new FormControl(''),
+    id: new FormControl(''),
+    param1: new FormControl(''),
+    param2: new FormControl(''),
+    param3: new FormControl(''),
+    param4: new FormControl(''),
+    param5: new FormControl(''),
+    param6: new FormControl(''),
+    param7: new FormControl(''),
+    param8: new FormControl(''),
+    param9: new FormControl(''),
+    param10: new FormControl('')
 });
 
-  constructor(private activatedRoute: ActivatedRoute, private service: KeywordService
-              ,private router: Router) {
+  constructor(private activatedRoute: ActivatedRoute, private service: KeywordService, private router: Router) {
     this.id = activatedRoute.snapshot.paramMap.get("id");
    }
 
   ngOnInit() {
-    this.run_K_Values = keyWordsRunOptions;
+    this.runValues = [
+      { label: 'YC', value: 'YC' },
+      { label: 'YS', value: 'YS' },
+      { label: 'NO' , value: 'NO'}
+    ];  
     let getKeywordreq = this.service.getKeyword(this.id)
     .subscribe((result: Keywords) => {
       this.editKeywordObj = result;

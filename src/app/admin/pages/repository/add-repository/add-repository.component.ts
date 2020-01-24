@@ -15,7 +15,7 @@ export class AddRepositoryComponent implements OnInit {
   repository:Repository;
   newrepositoryObj: Repository;
   findMethodOptions:any;
-
+  findMethodValue:any;
   repositoryForm = new FormGroup({
     logicalName:  new FormControl('', [Validators.required, Validators.pattern(/^[a-zA-Z0-9]+$/)]),
     findMethod:  new FormControl('', [Validators.required, Validators.pattern(/^[a-zA-Z0-9]+$/)]),

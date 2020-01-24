@@ -10,23 +10,27 @@ import { FeatureService } from '../../../../../core/services/feature-service/fea
 })
 export class AddModuleControllerComponent implements OnInit {
   moduleController:ModuleController;
+  runValues: any;
+  selectedRun : any;
   moduleControllerForm = new FormGroup({
-    slno:  new FormControl('', [Validators.required, Validators.pattern(/^[a-zA-Z0-9]+$/)]),
     moduleID:  new FormControl('', [Validators.required, Validators.pattern(/^[a-zA-Z0-9]+$/)]),
     moduleSeqID:  new FormControl('', [Validators.required, Validators.pattern(/^[a-zA-Z0-9]+$/)]),
     machineID: new FormControl('', [Validators.required, Validators.pattern(/^[a-zA-Z0-9]+$/)]),
     machineSequenceID: new FormControl('', [Validators.required, Validators.pattern(/^[a-zA-Z0-9]+$/)]),
-    run: new FormControl('', [Validators.required, Validators.pattern(/^[a-zA-Z0-9]+$/)]),
+    run: new FormControl(''),
 });
   constructor(private featureService:FeatureService,private router: Router) { }
 
   ngOnInit() {
+    this.runValues = [
+      { label: 'Y', value: 'Y' },
+      { label: 'N' , value: 'N'}
+    ];  
   }
   onSubmit(){
     var self = this;
     let data = new ModuleController();
-    
-    data.slno = this.moduleControllerForm.controls["slno"].value;
+
     data.moduleID = this.moduleControllerForm.controls["moduleID"].value;
     data.moduleSeqID = this.moduleControllerForm.controls["moduleSeqID"].value;
     data.machineID = this.moduleControllerForm.controls["machineID"].value;
@@ -34,7 +38,6 @@ export class AddModuleControllerComponent implements OnInit {
     data.run = this.moduleControllerForm.controls["run"].value;
     data.statusID = 0;
     data.cudStatusID = 0;   
-    data.userId = 123;
     data.createdOn =null;
     data.updatedOn = null;
     self.featureService.addModuleController(data);

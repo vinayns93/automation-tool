@@ -14,13 +14,13 @@ import { formatDate } from '@angular/common';
 export class EditTestControllerComponent implements OnInit {
   id:number;
   testController2:TestController;
+  runValues:any;
+
   editTControllerObj: TestController = new TestController();
   testControllerForm = new FormGroup({
-    
-    sno: new FormControl(''),
     featureID: new FormControl('', Validators.required),
     testCaseID:new FormControl('', Validators.required),
-    run:new FormControl('', Validators.required) ,
+    run:new FormControl('') ,
     iterations:new FormControl('', Validators.required),
     browsers:new FormControl('', Validators.required),
     sequenceID:new FormControl('', Validators.required),
@@ -34,6 +34,10 @@ export class EditTestControllerComponent implements OnInit {
   }
 
   ngOnInit() {
+    this.runValues = [
+      { label: 'Y', value: 'Y' },
+      { label: 'N' , value: 'N'}
+    ];
     this.id = +this.route.snapshot.paramMap.get('id');
     this.getTestController(this.id);
   }
@@ -47,27 +51,9 @@ export class EditTestControllerComponent implements OnInit {
      console.log(error.message);
    },
    ()=>{ })
-  }
-
-   
+  }   
   
   onSubmit() {
-    // let data = new TestController2();
-    // data.id = this.testControllerForm.controls["id"].value;
-    // data.sno = this.testControllerForm.controls["sno"].value;
-    // data.featureID = this.testControllerForm.controls["featureID"].value;
-    // data.testCaseID = this.testControllerForm.controls["testCaseID"].value;
-    // data.run = this.testControllerForm.controls["run"].value;
-    // data.iterations = this.testControllerForm.controls["iterations"].value;
-    // data.browsers = this.testControllerForm.controls["browsers"].value;
-    // data.sequenceID = this.testControllerForm.controls["sequenceID"].value;
-    // data.testType = this.testControllerForm.controls["testType"].value;
-    // data.jira_ID = this.testControllerForm.controls["jira_ID"].value;
-    // data.testScriptName = this.testControllerForm.controls["testScriptName"].value;
-    // data.testScriptDescription = this.testControllerForm.controls["testScriptDescription"].value;
-    // data.stepsCount = this.testControllerForm.controls["stepsCount"].value;
-    this.editTControllerObj.updatedOn = formatDate(new Date(), 'yyyy/MM/dd', 'en').toString();
-    
     this.controllerservice.updateTestController(this.editTControllerObj.id,this.editTControllerObj);
     setTimeout(f=>{
       this.router.navigate(['/admin/feature/']);
