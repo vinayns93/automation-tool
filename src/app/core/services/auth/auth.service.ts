@@ -24,11 +24,11 @@ export class AuthService {
 }
 
 login(user: User) {
-  
     return this.http.post(this.apiUrl+'/Auth/Login',user)
-      .subscribe((userID) => {
-        if(userID < 0){
-          localStorage.setItem('currentUser', JSON.stringify(userID));
+      .subscribe((userData: User) => {
+        if(userData.userName)
+        if(userData.userId > 0){
+          localStorage.setItem('currentUser', JSON.stringify(userData));
           this.currentUserSubject.next(user);
           this.router.navigate(['admin/feature/']);
         }

@@ -45,6 +45,8 @@ export class AuthenticationComponent implements OnInit {
     let user: User = new User();
     user.userName = this.username;
     user.password = this.password;
+    user.userId = 0;
+    user.roleId = 0;
     this.authService.login(user);
   }
   

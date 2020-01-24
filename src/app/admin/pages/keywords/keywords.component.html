@@ -35,22 +35,23 @@
                 </ng-template>
                     <ng-template pTemplate="header">
                         <tr>
+                            <th style="width: 10em !important">Actions</th>
                             <th *ngFor="let col of tableColumns" [pSortableColumn]="col.field">
                                 {{col.header}}
                                 <p-sortIcon [field]="col.field"></p-sortIcon>
                             </th>
-                            <th style="width: 10em !important">Actions</th>
                         </tr>
                     </ng-template>
                     <ng-template pTemplate="body" let-keywords>
                         <tr>
-                            <td *ngFor="let col of tableColumns">
-                                {{keywords[col.field]}}
-                            </td>
                             <td class="center-align" style="width: 10em !important">
                                 <button pButton type="button" style="margin-right: 5px;" icon="pi pi-pencil" class="rounded-button edit-control" (click)="onRowEditInit(keywords.id, keywords.userId)"></button>
                                 <button pButton type="button" icon="pi pi-times" class="rounded-button delete-control" (click)="deleteKeyword(keywords.id)"></button>
                             </td>
+                            <td *ngFor="let col of tableColumns">
+                                {{keywords[col.field]}}
+                            </td>
+                            
                         </tr>
                     </ng-template>
                 </p-table>

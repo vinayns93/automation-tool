@@ -6,13 +6,13 @@ export const keywordsColumns: any[] = [
     { label: 'Object Logical Name', value: { field: 'objectLogicalName', header: 'Object Logical Name'}},
     { label: 'Run', value: { field: 'run', header: 'Run'}},
     { label: 'Module', value: { field: 'module', header: 'Module'}},
-    { label: 'Status ID', value: { field: 'statusID', header: 'Status ID'}},
-    { label: 'Cud Status ID', value: { field: 'cudStatusID', header: 'Cud Status ID'}},
-    { label: 'Is Locked', value: { field: 'isLocked', header: 'Is Locked'}},
-    { label: 'Locked By User', value: { field: 'lockedByUser', header: 'Locked By User'}},
+    // { label: 'Status ID', value: { field: 'statusID', header: 'Status ID'}},
+    // { label: 'Cud Status ID', value: { field: 'cudStatusID', header: 'Cud Status ID'}},
+    // { label: 'Is Locked', value: { field: 'isLocked', header: 'Is Locked'}},
+    // { label: 'Locked By User', value: { field: 'lockedByUser', header: 'Locked By User'}},
     { label: 'Created On', value: { field: 'createdOn', header: 'Created On'}},
     { label: 'Updated On', value: { field: 'updatedOn', header: 'Updated On'}},
-    { label: 'User ID', value: { field: 'userId', header: 'User ID'}},
+    // { label: 'User ID', value: { field: 'userId', header: 'User ID'}},
     { label: 'Param 1', value: { field: 'param1', header: 'Param 1'}},
     { label: 'Param 2', value: { field: 'param2', header: 'Param 2'}},
     { label: 'Param 3', value: { field: 'param3', header: 'Param 3'}},
@@ -23,4 +23,12 @@ export const keywordsColumns: any[] = [
     { label: 'Param 8', value: { field: 'param8', header: 'Param 8'}},
     { label: 'Param 9', value: { field: 'param9', header: 'Param 9'}},
     { label: 'Param 10', value: { field: 'param10', header: 'Param 10'}}
+];
+
+export const keyWordsRunOptions: any[] = [
+    
+    { label: 'Choose the Run', value: { field: 'YS', header: 'YS'}},
+    { label: 'YS', value: { field: 'YS', header: 'YS'}},
+    { label: 'YC', value: { field: 'YC', header: 'YC'}},
+    { label: 'NO', value: { field: 'NO', header: 'NO'}},
 ];

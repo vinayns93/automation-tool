@@ -4,6 +4,7 @@ import { Observable, throwError } from 'rxjs';
 import { HttpClient } from '@angular/common/http';
 import { map, catchError } from 'rxjs/operators';
 import { FormGroup } from '@angular/forms';
+import { User } from '../../models/user/user';
 
 @Injectable({
   providedIn: 'root'
@@ -17,14 +18,14 @@ export class GlobalService {
   public activeUsers;
   public recordsModified;
   public feedData: string[] = [];
-  currentUserID: string;
+  currentUser: User;
   
   constructor(private httpClient: HttpClient) { 
     this.apiUrl = environment.APIURL;
     this.activeUsers = 0;
     this.recordsModified = 0;
     this.feedData.push("No Activity Recorded");
-    this.currentUserID = localStorage.getItem('currentUser');
+    this.currentUser = JSON.parse(localStorage.getItem('currentUser'));
   }
 
 

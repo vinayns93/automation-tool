@@ -33,11 +33,12 @@
                             </ng-template>
                                 <ng-template pTemplate="header">
                                     <tr>
+                                        <th style="width: 10em !important;text-align: center;">Actions</th>
                                         <th *ngFor="let col of selectedBrowserControllerCols" [pSortableColumn]="col.field">
                                             {{col.header}}
                                             <p-sortIcon [field]="col.field"></p-sortIcon>
                                         </th>
-                                        <th style="width: 10em !important;">Actions</th>
+                                        
                                     </tr>
                                     <!-- <tr>
                                         <th *ngFor="let col of columns" [ngSwitch]="col.field">
@@ -51,18 +52,19 @@
                                     </tr> -->
                                 </ng-template>
                                 <ng-template pTemplate="body" let-controller3>
-                                    <tr>                           
+                                    <tr>  
+                                        <td class="center-align" style="width: 10em !important;">
+                                            <button pButton type="button"
+                                            style="margin-right: 5px"
+                                                            icon="pi pi-pencil" class="rounded-button edit-control"
+                                                            (click)="onRowEditBrowserController(controller3.id)"></button>
+                                                        <button pButton type="button" icon="pi pi-times" class="rounded-button delete-control"
+                                                            (click)="deleteBrowserController(controller3.id)"></button>
+                                        </td>                          
                                         <td *ngFor="let col of selectedBrowserControllerCols">
                                                 {{controller3[col.field]}}
                                         </td>
-                                <td class="center-align" style="width: 10em !important;">
-                                    <button pButton type="button"
-                                    style="margin-right: 5px"
-                                                    icon="pi pi-pencil" class="rounded-button edit-control"
-                                                    (click)="onRowEditBrowserController(controller3.id)"></button>
-                                                <button pButton type="button" icon="pi pi-times" class="rounded-button delete-control"
-                                                    (click)="deleteBrowserController(controller3.id)"></button>
-                                </td>        
+                                       
                                     </tr>
                                 </ng-template>
                             </p-table>

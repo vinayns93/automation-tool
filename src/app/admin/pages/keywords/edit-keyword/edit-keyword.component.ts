@@ -3,6 +3,9 @@ import { Keywords } from '../../../../core/models';
 import { ActivatedRoute, Router } from '@angular/router';
 import { KeywordService } from '../../../../core/services/keywords-service/keyword.service';
 import { FormGroup, FormControl, Validators } from '@angular/forms';
+import { SelectItem}  from 'primeng/api';
+import { keyWordsRunOptions } from '../../../../core/constants/keywords';
+
 
 @Component({
   selector: 'app-edit-keyword',
@@ -11,26 +14,12 @@ import { FormGroup, FormControl, Validators } from '@angular/forms';
 })
 export class EditKeywordComponent implements OnInit {
 
+  run_K_Values: SelectItem[];
+
   editKeywordObj: Keywords = new Keywords();
   id: any;
   keywordsForm = new FormGroup({
-    id: new FormControl('', Validators.required),
-    functionName:  new FormControl('', Validators.required),
-    stepDescription:  new FormControl('', Validators.required),
-    actionOrKeyword: new FormControl('', Validators.required),
-    objectLogicalName: new FormControl('', Validators.required),
     run: new FormControl('', [Validators.required, Validators.pattern(/^[a-zA-Z0-9]+$/)]),
-    param1: new FormControl('', [Validators.required]),
-    param2: new FormControl('', Validators.required),
-    param3: new FormControl('', Validators.required),
-    param4: new FormControl('', Validators.required),
-    param5: new FormControl('', Validators.required),
-    param6: new FormControl('', Validators.required),
-    param7: new FormControl('', Validators.required),
-    param8: new FormControl('', Validators.required),
-    param9: new FormControl('', Validators.required),
-    param10: new FormControl('', Validators.required),
-    module: new FormControl('', Validators.required)
 });
 
   constructor(private activatedRoute: ActivatedRoute, private service: KeywordService
@@ -39,6 +28,7 @@ export class EditKeywordComponent implements OnInit {
    }
 
   ngOnInit() {
+    this.run_K_Values = keyWordsRunOptions;
     let getKeywordreq = this.service.getKeyword(this.id)
     .subscribe((result: Keywords) => {
       this.editKeywordObj = result;

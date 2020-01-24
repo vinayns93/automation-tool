@@ -17,7 +17,7 @@ export class TestScriptsService {
    constructor(private httpClient: HttpClient, private toastr: ToastrService,
     public globalService: GlobalService){
     this.apiUrl = environment.APIURL;
-    this.userID = localStorage.getItem('currentUser');
+    this.userID = (JSON.parse(localStorage.getItem('currentUser'))).userId;
    }
    
    getTestScripts():Observable<TestScript[]>{

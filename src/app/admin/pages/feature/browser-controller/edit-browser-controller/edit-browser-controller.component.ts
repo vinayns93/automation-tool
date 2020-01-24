@@ -16,13 +16,7 @@ export class EditBrowserControllerComponent implements OnInit {
   testController3:TestController3;
   editBControllerObj: BrowserController = new BrowserController();
   testControllerForm = new FormGroup({
-    id: new FormControl(''),
-    vmid: new FormControl(''),
-    browser: new FormControl('', Validators.required),
-    exec: new FormControl('', Validators.required),
-    isLocked: new FormControl(''),
-    createdOn: new FormControl(''),
-    updatedOn: new FormControl('')
+    exec: new FormControl('', Validators.required)
   });
   constructor(private route:ActivatedRoute, private controllerservice:FeatureService,private router: Router) { 
   }

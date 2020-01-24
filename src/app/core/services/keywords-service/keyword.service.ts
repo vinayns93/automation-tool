@@ -6,6 +6,7 @@ import { Keywords } from '../../models/keywords/keyword.model';
 import { environment } from '../../../../environments/environment';
 import { ToastrService } from 'ngx-toastr';
 import { GlobalService } from '..';
+import { User } from '../../models/user/user';
 
 @Injectable({
   providedIn: 'root'
@@ -13,17 +14,17 @@ import { GlobalService } from '..';
 export class KeywordService {
 
   public apiUrl:string;
-  public userID: string;
+  public user: User;
   
   
    constructor(private httpClient: HttpClient, private toastr: ToastrService,
     public globalService: GlobalService){
      this.apiUrl = environment.APIURL;
-     this.userID = localStorage.getItem('currentUser');
+     this.user = JSON.parse(localStorage.getItem('currentUser'));
    }
    
    getKeywords(): Observable<Keywords[]>{
-     return this.httpClient.get(this.apiUrl+'/Keywords/GetAllKeywords')
+     return this.httpClient.get(this.apiUrl+'/Keywords/GetAllKeywords/'+this.user.userId)
                 .pipe(
                   map(res=>res as Keywords[]),
                   catchError(this.errorHandle)
@@ -31,7 +32,7 @@ export class KeywordService {
    }
 
    getKeyword(id:number):Observable<Keywords>{
-    return this.httpClient.get(this.apiUrl+'/Keywords/GetKeywordById/'+id+'/'+this.userID)
+    return this.httpClient.get(this.apiUrl+'/Keywords/GetKeywordById/'+id+'/'+this.user.userId)
     .pipe(
       map(res=>res as Keywords),
       catchError(this.errorHandle)
@@ -39,7 +40,7 @@ export class KeywordService {
    }
     
    addKeyword(keyword:Keywords){
-     keyword.userId = Number(this.userID);
+     keyword.userId = Number(this.user.userId);
        return this.httpClient.post(this.apiUrl+'/Keywords/AddKeyword',keyword)
        .subscribe(
         data  => {
@@ -54,7 +55,7 @@ export class KeywordService {
     }
 
     updateKeyword(id:number,keyword:Keywords){
-      keyword.userId = Number(this.userID);
+      keyword.userId = Number(this.user.userId);
       return this.httpClient.put(this.apiUrl+'/Keywords/UpdateKeyword/'+id,keyword)
       .subscribe(
         data  => {
@@ -68,7 +69,7 @@ export class KeywordService {
     }
 
     deleteKeyword(id:number){
-      return this.httpClient.delete(this.apiUrl+'/Keywords/DeleteKeyword/'+id+'/'+this.userID)
+      return this.httpClient.delete(this.apiUrl+'/Keywords/DeleteKeyword/'+id+'/'+this.user.userId)
       .subscribe(
         data  => {
           console.log("DELETE Request is successful ", data);

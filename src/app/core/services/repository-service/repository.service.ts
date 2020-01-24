@@ -6,6 +6,7 @@ import { Repository } from '../../models/repository/repository.model';
 import { environment } from '../../../../environments/environment';
 import { ToastrService } from 'ngx-toastr';
 import { GlobalService } from '..';
+import { User } from '../../models/user/user';
 
 @Injectable({
   providedIn: 'root'
@@ -13,13 +14,13 @@ import { GlobalService } from '..';
 export class RepositoryService {
 
   public apiUrl: string;
-  public userID: string;
+  public user: User;
 
 
   constructor(private httpClient: HttpClient, private toastr: ToastrService,
     public globalService: GlobalService) {
     this.apiUrl = environment.APIURL;
-    this.userID = localStorage.getItem('currentUser');
+    this.user = JSON.parse(localStorage.getItem('currentUser'));
   }
 
   getRepositories(): Observable<Repository[]> {
@@ -31,7 +32,7 @@ export class RepositoryService {
   }
 
   getRepository(id: number): Observable<Repository> {
-    return this.httpClient.get(this.apiUrl + '/Repository/GetRepositoryById/' + id + '/' + this.userID)
+    return this.httpClient.get(this.apiUrl + '/Repository/GetRepositoryById/' + id + '/' + this.user.userId)
       .pipe(
         map(res => res as Repository),
         catchError(this.errorHandle)
@@ -39,7 +40,7 @@ export class RepositoryService {
   }
 
   addRepository(repo: Repository) {
-    repo.userId = Number(this.userID);
+    repo.userId = Number(this.user.userId);
     return this.httpClient.post(this.apiUrl + '/Repository/AddRepository', repo)
       .subscribe(
         data => {
@@ -53,7 +54,7 @@ export class RepositoryService {
   }
 
   updateRepository(id: number, repo: Repository) {
-    repo.userId = Number(this.userID);
+    repo.userId = Number(this.user.userId);
     return this.httpClient.put(this.apiUrl + '/Repository/UpdateRepository/' + id, repo)
       .subscribe(
         data => {
@@ -67,7 +68,7 @@ export class RepositoryService {
   }
 
   deleteRepository(id: number) {
-    return this.httpClient.delete(this.apiUrl + '/Repository/DeleteRepository/' + id+ '/'+this.userID)
+    return this.httpClient.delete(this.apiUrl + '/Repository/DeleteRepository/' + id+ '/'+this.user.userId)
       .subscribe(
         data => {
           console.log("DELETE Request is successful ", data);

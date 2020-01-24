@@ -6,22 +6,23 @@ import { Observable, throwError } from 'rxjs';
 import { ModuleController, TestController, BrowserController } from '../../models';
 import { map, catchError } from 'rxjs/operators';
 import { GlobalService } from '../global/global.service';
+import { User } from '../../models/user/user';
 
 @Injectable({
   providedIn: 'root'
 })
 export class FeatureService {
   public apiUrl:string;
-  public userID: string;
+  public user: User;
   
   constructor(private httpClient: HttpClient, private toastr: ToastrService,
               public globalService: GlobalService){
    this.apiUrl = environment.APIURL;
-   this.userID = localStorage.getItem('currentUser');
+   this.user = JSON.parse(localStorage.getItem('currentUser'));
   }
   
   getAllModuleController():Observable<ModuleController[]>{
-    return this.httpClient.get(this.apiUrl+'/Feature/GetAllModuleController/'+this.userID)
+    return this.httpClient.get(this.apiUrl+'/Feature/GetAllModuleController/'+this.user.userId)
                .pipe(
                  map(res=>res as ModuleController[]),
                  catchError(this.errorHandle)
@@ -29,7 +30,7 @@ export class FeatureService {
   }
 
   getAllTestController():Observable<TestController[]>{
-   return this.httpClient.get(this.apiUrl+'/Feature/GetAllTestController/'+this.userID)
+   return this.httpClient.get(this.apiUrl+'/Feature/GetAllTestController/'+this.user.userId)
               .pipe(
                 map(res=>res as TestController[]),
                 catchError(this.errorHandle)
@@ -44,7 +45,7 @@ export class FeatureService {
  }
 
  getModuleController(id:number):Observable<ModuleController>{
-   return this.httpClient.get(this.apiUrl+'/Feature/GetModuleControllerById/'+id+'/'+this.userID)
+   return this.httpClient.get(this.apiUrl+'/Feature/GetModuleControllerById/'+id+'/'+this.user.userId)
    .pipe(
      map(res=>res as ModuleController),
      catchError(this.errorHandle)
@@ -52,7 +53,7 @@ export class FeatureService {
   }
 
   getTestController(id:number):Observable<TestController>{
-   return this.httpClient.get(this.apiUrl+'/Feature/GetTestControllerById/'+id+'/'+this.userID)
+   return this.httpClient.get(this.apiUrl+'/Feature/GetTestControllerById/'+id+'/'+this.user.userId)
    .pipe(
      map(res=>res as TestController),
      catchError(this.errorHandle)
@@ -104,7 +105,7 @@ export class FeatureService {
     }
 
     updateModuleController(id:number,moduleController:ModuleController){
-      moduleController.userId = Number(this.userID);
+      moduleController.userId = Number(this.user.userId);
      return this.httpClient.put(this.apiUrl+'/Feature/UpdateModuleController/'+id,moduleController)
      .subscribe(
        data  => {
@@ -118,7 +119,7 @@ export class FeatureService {
    }
 
    updateTestController(id:number,testController:TestController){
-    testController.userId = Number(this.userID);
+    testController.userId = Number(this.user.userId);
        return this.httpClient.put(this.apiUrl+'/Feature/UpdateTestController/'+id,testController)
        .subscribe(
          data  => {
@@ -132,7 +133,7 @@ export class FeatureService {
      }
 
      updateBrowserController(id:number,browserController:BrowserController){
-      browserController.userId = Number(this.userID);
+      browserController.userId = Number(this.user.userId);
        return this.httpClient.put(this.apiUrl+'/Feature/UpdateBrowserController/'+id,browserController)
        .subscribe(
          data  => {
@@ -147,7 +148,7 @@ export class FeatureService {
    deleteModuleController(id:number){
     this.getModuleController(id)
     .subscribe((response) => {
-      return this.httpClient.delete(this.apiUrl+'/Feature/DeleteModuleController/'+id+'/'+this.userID)
+      return this.httpClient.delete(this.apiUrl+'/Feature/DeleteModuleController/'+id+'/'+this.user.userId)
      .subscribe(
        data  => {
          this.toastr.warning("Module Controller instance (ID: "+id+") has been deleted Successfully !");
@@ -161,7 +162,7 @@ export class FeatureService {
    }
 
    deleteTestController(id:number){
-       return this.httpClient.delete(this.apiUrl+'/Feature/DeleteTestController/'+id+'/'+this.userID)
+       return this.httpClient.delete(this.apiUrl+'/Feature/DeleteTestController/'+id+'/'+this.user.userId)
        .subscribe(
          data  => {
            this.toastr.warning("Test Controller instance (ID: "+id+") Deleted Successfully !");
@@ -173,7 +174,7 @@ export class FeatureService {
      }
 
      deleteBrowserController(id:number){
-       return this.httpClient.delete(this.apiUrl+'/Feature/DeleteBrowserController/'+id+'/'+this.userID)
+       return this.httpClient.delete(this.apiUrl+'/Feature/DeleteBrowserController/'+id+'/'+this.user.userId)
        .subscribe(
          data  => {
            this.toastr.warning("Browser Controller instance (ID: "+id+") deleted Successfully !");
