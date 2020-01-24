@@ -6,22 +6,24 @@ import { TestScript } from '../../models';
 import { environment } from '../../../../environments/environment';
 import { ToastrService } from 'ngx-toastr';
 import { GlobalService } from '..';
+import { User } from '../../models/user/user';
 
 @Injectable({
   providedIn: 'root'
 })
 export class TestScriptsService {
   public apiUrl:string;
-  public userID: string;
+  public user: User;
   
    constructor(private httpClient: HttpClient, private toastr: ToastrService,
     public globalService: GlobalService){
     this.apiUrl = environment.APIURL;
-    this.userID = (JSON.parse(localStorage.getItem('currentUser'))).userId;
+    this.user = (JSON.parse(localStorage.getItem('currentUser'))
+    );
    }
    
    getTestScripts():Observable<TestScript[]>{
-     return this.httpClient.get(this.apiUrl+'/TestScripts/GetScripts')
+     return this.httpClient.get(this.apiUrl+'/TestScripts/GetScripts'+'/' + this.user.userId)
                 .pipe(
                   map(res=>res as TestScript[]),
                   catchError(this.errorHandle)
@@ -29,7 +31,7 @@ export class TestScriptsService {
    }
 
    getTestScript(id:number):Observable<TestScript>{
-    return this.httpClient.get(this.apiUrl+'/TestScripts/GetScript/'+id+'/'+this.userID)
+    return this.httpClient.get(this.apiUrl+'/TestScripts/GetScript/'+id+'/'+this.user.userId)
     .pipe(
       map(res=>res as TestScript),
       catchError(this.errorHandle)
@@ -37,7 +39,7 @@ export class TestScriptsService {
    }
     
    addTestScript(script:TestScript){
-        script.userId = Number(this.userID);
+        script.userId = Number(this.user.userId);
        return this.httpClient.post(this.apiUrl+'/TestScripts/AddScript',script)
        .subscribe(
         data  => {
@@ -51,7 +53,7 @@ export class TestScriptsService {
     }
 
     updateTestScript(id:number,script:TestScript){
-      script.userId = Number(this.userID);
+      script.userId = Number(this.user.userId);
       return this.httpClient.put(this.apiUrl+'/TestScripts/UpdateScript/'+id,script)
       .subscribe(
         data  => {
@@ -65,7 +67,7 @@ export class TestScriptsService {
     }
 
     deleteTestScript(id:number){
-      return this.httpClient.delete(this.apiUrl+'/TestScripts/DeleteScript/'+id+'/'+this.userID)
+      return this.httpClient.delete(this.apiUrl+'/TestScripts/DeleteScript/'+id+'/'+this.user.userId)
       .subscribe(
         data  => {
           console.log("DELETE Request is successful ", data);

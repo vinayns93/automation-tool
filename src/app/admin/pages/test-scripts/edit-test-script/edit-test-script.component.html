@@ -1,9 +1,9 @@
 <div class="container-fluid">
     <div class="row">
-        <div class="col-md-12 col-lg-12 center-align light-blue">
-            <h5 class="admin-page-header" style="margin-left: 20px;">
+        <div class="col-md-12 col-lg-12 center-align">
+            <h6 class="admin-page-header" style="margin-left: 20px;">
                 EDIT TESTSCRIPT
-            </h5>
+            </h6>
         </div>
     </div>
     <div class="row">
@@ -11,16 +11,18 @@
             <form [formGroup]="testscriptForm" (ngSubmit)="onSubmit()">
                 <div class="row padding-bottom-1 align-items-center margin-top-1">
                     <div class="col-md-2 col-lg-2">
-                        <label for="testCaseID" class="pull-right" >Test Case ID</label>
+                        <label for="testCaseID" class="pull-right">Test Case ID</label>
                     </div>
                     <div class="col-md-4 col-lg-4">
-                        <input disabled type="text" [(ngModel)]="editTestScriptObj.testCaseID" name="testCaseID" class="text form-control" formControlName="testCaseID">
+                        <input disabled type="text" [(ngModel)]="editTestScriptObj.testCaseID" name="testCaseID"
+                            class="text form-control" formControlName="testCaseID">
                     </div>
                     <div class="col-md-2 col-lg-2">
                         <label for="tcStepID" class="pull-right">Test Case Step ID</label>
                     </div>
                     <div class="col-md-4 col-lg-4">
-                        <input disabled type="text" [(ngModel)]="editTestScriptObj.tcStepID" name="tcStepID" class="text form-control" formControlName="tcStepID">
+                        <input disabled type="text" [(ngModel)]="editTestScriptObj.tcStepID" name="tcStepID"
+                            class="text form-control" formControlName="tcStepID">
                     </div>
                 </div>
                 <div class="row padding-bottom-1 align-items-center">
@@ -28,15 +30,15 @@
                         <label for="testScriptName" class="pull-right">Test Script Name</label>
                     </div>
                     <div class="col-md-4 col-lg-4">
-                        <input disabled type="text" [(ngModel)]="editTestScriptObj.testScriptName" name="testScriptName" class="text form-control"
-                            formControlName="testScriptName">
+                        <input disabled type="text" [(ngModel)]="editTestScriptObj.testScriptName" name="testScriptName"
+                            class="text form-control" formControlName="testScriptName">
                     </div>
                     <div class="col-md-2 col-lg-2">
                         <label for="functionDescription" class="pull-right">Function Description</label>
                     </div>
                     <div class="col-md-4 col-lg-4">
-                        <input disabled type="text" [(ngModel)]="editTestScriptObj.functionDescription" name="functionDescription" class="text form-control"
-                            formControlName="functionDescription">
+                        <input disabled type="text" [(ngModel)]="editTestScriptObj.functionDescription"
+                            name="functionDescription" class="text form-control" formControlName="functionDescription">
                     </div>
                 </div>
                 <div class="row padding-bottom-1 align-items-center">
@@ -44,19 +46,26 @@
                         <label for="functionName" class="pull-right">Function Name</label>
                     </div>
                     <div class="col-md-4 col-lg-4">
-                        <input disabled type="text" [(ngModel)]="editTestScriptObj.functionName" name="functionName" class="text form-control" formControlName="functionName">
+                        <input disabled type="text" [(ngModel)]="editTestScriptObj.functionName" name="functionName"
+                            class="text form-control" formControlName="functionName">
                     </div>
                     <div class="col-md-2 col-lg-2">
                         <label for="run" class="pull-right">Run</label>
                     </div>
                     <div class="col-md-4 col-lg-4">
-                        <input type="text" [(ngModel)]="editTestScriptObj.run" name="run" class="text form-control" formControlName="run">
+                        <!-- <input type="text" [(ngModel)]="editTestScriptObj.run" name="run" class="text form-control"
+                            formControlName="run"> -->
+                            <p-dropdown #dd [options]="runValues" name="run" [(ngModel)]="editTestScriptObj.run" 
+                         formControlName="run"></p-dropdown>
                     </div>
+                </div>
+                <div class="row padding-bottom-1 align-items-center">
                     <div class="col-md-2 col-lg-2">
                         <label for="module" class="pull-right">Module</label>
                     </div>
                     <div class="col-md-4 col-lg-4">
-                        <input disabled type="text" [(ngModel)]="editTestScriptObj.module" name="module" class="text form-control" formControlName="module">
+                        <input disabled type="text" [(ngModel)]="editTestScriptObj.module" name="module"
+                            class="text form-control" formControlName="module">
                     </div>
                 </div>
                 <div class="row padding-bottom-1 align-items-center">
@@ -64,13 +73,15 @@
                         <label for="Param1" class="pull-right">Param 1</label>
                     </div>
                     <div class="col-md-4 col-lg-4">
-                        <input disabled type="text" [(ngModel)]="editTestScriptObj.param1" name="Param1" class="text form-control" formControlName="param1">
+                        <input disabled type="text" [(ngModel)]="editTestScriptObj.param1" name="Param1"
+                            class="text form-control" formControlName="param1">
                     </div>
                     <div class="col-md-2 col-lg-2">
                         <label for="Param2" class="pull-right">Param 2</label>
                     </div>
                     <div class="col-md-4 col-lg-4">
-                        <input  disabled type="text" [(ngModel)]="editTestScriptObj.param2" name="Param2" class="text form-control" formControlName="param2">
+                        <input disabled type="text" [(ngModel)]="editTestScriptObj.param2" name="Param2"
+                            class="text form-control" formControlName="param2">
                     </div>
                 </div>
                 <div class="row padding-bottom-1 align-items-center">
@@ -78,13 +89,15 @@
                         <label for="Param3" class="pull-right">Param 3</label>
                     </div>
                     <div class="col-md-4 col-lg-4">
-                        <input  disabled type="text" [(ngModel)]="editTestScriptObj.param3" name="Param3" class="text form-control" formControlName="param3">
+                        <input disabled type="text" [(ngModel)]="editTestScriptObj.param3" name="Param3"
+                            class="text form-control" formControlName="param3">
                     </div>
                     <div class="col-md-2 col-lg-2">
                         <label for="Param4" class="pull-right">Param 4</label>
                     </div>
                     <div class="col-md-4 col-lg-4">
-                        <input disabled type="text" [(ngModel)]="editTestScriptObj.param4" name="Param4" class="text form-control" formControlName="param4">
+                        <input disabled type="text" [(ngModel)]="editTestScriptObj.param4" name="Param4"
+                            class="text form-control" formControlName="param4">
                     </div>
                 </div>
                 <div class="row padding-bottom-1 align-items-center">
@@ -92,13 +105,15 @@
                         <label for="Param5" class="pull-right">Param 5</label>
                     </div>
                     <div class="col-md-4 col-lg-4">
-                        <input  disabled type="text" [(ngModel)]="editTestScriptObj.param5" name="Param5" class="text form-control" formControlName="param5">
+                        <input disabled type="text" [(ngModel)]="editTestScriptObj.param5" name="Param5"
+                            class="text form-control" formControlName="param5">
                     </div>
                     <div class="col-md-2 col-lg-2">
                         <label for="Param6" class="pull-right">Param 6</label>
                     </div>
                     <div class="col-md-4 col-lg-4">
-                        <input  disabled type="text" [(ngModel)]="editTestScriptObj.param6" name="Param6" class="text form-control" formControlName="param6">
+                        <input disabled type="text" [(ngModel)]="editTestScriptObj.param6" name="Param6"
+                            class="text form-control" formControlName="param6">
                     </div>
                 </div>
                 <div class="row padding-bottom-1 align-items-center">
@@ -106,13 +121,15 @@
                         <label for="Param7" class="pull-right">Param 7</label>
                     </div>
                     <div class="col-md-4 col-lg-4">
-                        <input  disabled type="text" [(ngModel)]="editTestScriptObj.param7" name="Param7" class="text form-control" formControlName="param7">
+                        <input disabled type="text" [(ngModel)]="editTestScriptObj.param7" name="Param7"
+                            class="text form-control" formControlName="param7">
                     </div>
                     <div class="col-md-2 col-lg-2">
                         <label for="Param8" class="pull-right">Param 8</label>
                     </div>
                     <div class="col-md-4 col-lg-4">
-                        <input  disabled type="text" [(ngModel)]="editTestScriptObj.param8" name="Param8" class="text form-control" formControlName="param8">
+                        <input disabled type="text" [(ngModel)]="editTestScriptObj.param8" name="Param8"
+                            class="text form-control" formControlName="param8">
                     </div>
                 </div>
                 <div class="row padding-bottom-1 align-items-center">
@@ -120,13 +137,15 @@
                         <label for="Param9" class="pull-right">Param 9</label>
                     </div>
                     <div class="col-md-4 col-lg-4">
-                        <input  disabled type="text" [(ngModel)]="editTestScriptObj.param9" name="Param9" class="text form-control" formControlName="param9">
+                        <input disabled type="text" [(ngModel)]="editTestScriptObj.param9" name="Param9"
+                            class="text form-control" formControlName="param9">
                     </div>
                     <div class="col-md-2 col-lg-2">
                         <label for="Param10" class="pull-right">Param 10</label>
                     </div>
                     <div class="col-md-4 col-lg-4">
-                        <input  disabled type="text" [(ngModel)]="editTestScriptObj.param10" name="Param10" class="text form-control" formControlName="param10">
+                        <input disabled type="text" [(ngModel)]="editTestScriptObj.param10" name="Param10"
+                            class="text form-control" formControlName="param10">
                     </div>
                 </div>
                 <div class="row padding-bottom-1 align-items-center">
@@ -134,13 +153,15 @@
                         <label for="Param11" class="pull-right">Param 11</label>
                     </div>
                     <div class="col-md-4 col-lg-4">
-                        <input  disabled type="text" [(ngModel)]="editTestScriptObj.param11" name="Param11" class="text form-control" formControlName="param11">
+                        <input disabled type="text" [(ngModel)]="editTestScriptObj.param11" name="Param11"
+                            class="text form-control" formControlName="param11">
                     </div>
                     <div class="col-md-2 col-lg-2">
                         <label for="Param12" class="pull-right">Param 12</label>
                     </div>
                     <div class="col-md-4 col-lg-4">
-                        <input  disabled type="text" [(ngModel)]="editTestScriptObj.param12" name="Param12" class="text form-control" formControlName="param12">
+                        <input disabled type="text" [(ngModel)]="editTestScriptObj.param12" name="Param12"
+                            class="text form-control" formControlName="param12">
                     </div>
                 </div>
                 <div class="row padding-bottom-1 align-items-center">
@@ -148,13 +169,15 @@
                         <label for="Param13" class="pull-right">Param 13</label>
                     </div>
                     <div class="col-md-4 col-lg-4">
-                        <input  disabled type="text" [(ngModel)]="editTestScriptObj.param13" name="Param13" class="text form-control" formControlName="param13">
+                        <input disabled type="text" [(ngModel)]="editTestScriptObj.param13" name="Param13"
+                            class="text form-control" formControlName="param13">
                     </div>
                     <div class="col-md-2 col-lg-2">
                         <label for="Param14" class="pull-right">Param 14</label>
                     </div>
                     <div class="col-md-4 col-lg-4">
-                        <input  disabled type="text" [(ngModel)]="editTestScriptObj.param14" name="Param14" class="text form-control" formControlName="param14">
+                        <input disabled type="text" [(ngModel)]="editTestScriptObj.param14" name="Param14"
+                            class="text form-control" formControlName="param14">
                     </div>
                 </div>
                 <div class="row padding-bottom-1 align-items-center">
@@ -162,13 +185,15 @@
                         <label for="Param15" class="pull-right">Param 15</label>
                     </div>
                     <div class="col-md-4 col-lg-4">
-                        <input  disabled type="text" [(ngModel)]="editTestScriptObj.param15" name="Param5" class="text form-control" formControlName="param5">
+                        <input disabled type="text" [(ngModel)]="editTestScriptObj.param15" name="Param5"
+                            class="text form-control" formControlName="param5">
                     </div>
                     <div class="col-md-2 col-lg-2">
                         <label for="Param16" class="pull-right">Param 16</label>
                     </div>
                     <div class="col-md-4 col-lg-4">
-                        <input  disabled type="text" [(ngModel)]="editTestScriptObj.param16" name="Param16" class="text form-control" formControlName="param16">
+                        <input disabled type="text" [(ngModel)]="editTestScriptObj.param16" name="Param16"
+                            class="text form-control" formControlName="param16">
                     </div>
                 </div>
                 <div class="row padding-bottom-1 align-items-center">
@@ -176,13 +201,15 @@
                         <label for="Param17" class="pull-right">Param 17</label>
                     </div>
                     <div class="col-md-4 col-lg-4">
-                        <input  disabled type="text" [(ngModel)]="editTestScriptObj.param17" name="Param17" class="text form-control" formControlName="param17">
+                        <input disabled type="text" [(ngModel)]="editTestScriptObj.param17" name="Param17"
+                            class="text form-control" formControlName="param17">
                     </div>
                     <div class="col-md-2 col-lg-2">
                         <label for="Param18" class="pull-right">Param 18</label>
                     </div>
                     <div class="col-md-4 col-lg-4">
-                        <input  disabled type="text" [(ngModel)]="editTestScriptObj.param18" name="Param18" class="text form-control" formControlName="param18">
+                        <input disabled type="text" [(ngModel)]="editTestScriptObj.param18" name="Param18"
+                            class="text form-control" formControlName="param18">
                     </div>
                 </div>
                 <div class="row padding-bottom-1 align-items-center">
@@ -190,28 +217,31 @@
                         <label for="Param19" class="pull-right">Param 19</label>
                     </div>
                     <div class="col-md-4 col-lg-4">
-                        <input  disabled type="text" [(ngModel)]="editTestScriptObj.param19" name="Param19" class="text form-control" formControlName="param19">
+                        <input disabled type="text" [(ngModel)]="editTestScriptObj.param19" name="Param19"
+                            class="text form-control" formControlName="param19">
                     </div>
                     <div class="col-md-2 col-lg-2">
                         <label for="Param20" class="pull-right">Param 20</label>
                     </div>
                     <div class="col-md-4 col-lg-4">
-                        <input  disabled type="text" [(ngModel)]="editTestScriptObj.param20" name="Param20" class="text form-control" formControlName="param20">
+                        <input disabled type="text" [(ngModel)]="editTestScriptObj.param20" name="Param20"
+                            class="text form-control" formControlName="param20">
                     </div>
                 </div>
-
                 <div class="row padding-bottom-1 align-items-center">
                     <div class="col-md-2 col-lg-2">
                         <label for="Param21" class="pull-right">Param 21</label>
                     </div>
                     <div class="col-md-4 col-lg-4">
-                        <input  disabled type="text" [(ngModel)]="editTestScriptObj.param21" name="Param21" class="text form-control" formControlName="param21">
+                        <input disabled type="text" [(ngModel)]="editTestScriptObj.param21" name="Param21"
+                            class="text form-control" formControlName="param21">
                     </div>
                     <div class="col-md-2 col-lg-2">
                         <label for="Param22" class="pull-right">Param 22</label>
                     </div>
                     <div class="col-md-4 col-lg-4">
-                        <input  disabled type="text" [(ngModel)]="editTestScriptObj.param22" name="Param22" class="text form-control" formControlName="param22">
+                        <input disabled type="text" [(ngModel)]="editTestScriptObj.param22" name="Param22"
+                            class="text form-control" formControlName="param22">
                     </div>
                 </div>
                 <div class="row padding-bottom-1 align-items-center">
@@ -219,13 +249,15 @@
                         <label for="Param23" class="pull-right">Param 23</label>
                     </div>
                     <div class="col-md-4 col-lg-4">
-                        <input  disabled type="text" [(ngModel)]="editTestScriptObj.param23" name="Param23" class="text form-control" formControlName="param23">
+                        <input disabled type="text" [(ngModel)]="editTestScriptObj.param23" name="Param23"
+                            class="text form-control" formControlName="param23">
                     </div>
                     <div class="col-md-2 col-lg-2">
                         <label for="Param24" class="pull-right">Param 24</label>
                     </div>
                     <div class="col-md-4 col-lg-4">
-                        <input  disabled type="text" [(ngModel)]="editTestScriptObj.param24" name="Param24" class="text form-control" formControlName="param24">
+                        <input disabled type="text" [(ngModel)]="editTestScriptObj.param24" name="Param24"
+                            class="text form-control" formControlName="param24">
                     </div>
                 </div>
                 <div class="row padding-bottom-1 align-items-center">
@@ -233,13 +265,15 @@
                         <label for="Param25" class="pull-right">Param 25</label>
                     </div>
                     <div class="col-md-4 col-lg-4">
-                        <input  disabled type="text" [(ngModel)]="editTestScriptObj.param25" name="Param25" class="text form-control" formControlName="param25">
+                        <input disabled type="text" [(ngModel)]="editTestScriptObj.param25" name="Param25"
+                            class="text form-control" formControlName="param25">
                     </div>
                     <div class="col-md-2 col-lg-2">
                         <label for="Param26" class="pull-right">Param 26</label>
                     </div>
                     <div class="col-md-4 col-lg-4">
-                        <input  disabled type="text" [(ngModel)]="editTestScriptObj.param26" name="Param26" class="text form-control" formControlName="param26">
+                        <input disabled type="text" [(ngModel)]="editTestScriptObj.param26" name="Param26"
+                            class="text form-control" formControlName="param26">
                     </div>
                 </div>
                 <div class="row padding-bottom-1 align-items-center">
@@ -247,13 +281,15 @@
                         <label for="Param27" class="pull-right">Param 27</label>
                     </div>
                     <div class="col-md-4 col-lg-4">
-                        <input  disabled type="text" [(ngModel)]="editTestScriptObj.param27" name="Param27" class="text form-control" formControlName="param27">
+                        <input disabled type="text" [(ngModel)]="editTestScriptObj.param27" name="Param27"
+                            class="text form-control" formControlName="param27">
                     </div>
                     <div class="col-md-2 col-lg-2">
                         <label for="Param28" class="pull-right">Param 28</label>
                     </div>
                     <div class="col-md-4 col-lg-4">
-                        <input  disabled type="text" [(ngModel)]="editTestScriptObj.param28" name="Param28" class="text form-control" formControlName="param28">
+                        <input disabled type="text" [(ngModel)]="editTestScriptObj.param28" name="Param28"
+                            class="text form-control" formControlName="param28">
                     </div>
                 </div>
                 <div class="row padding-bottom-1 align-items-center">
@@ -261,13 +297,15 @@
                         <label for="Param29" class="pull-right">Param 29</label>
                     </div>
                     <div class="col-md-4 col-lg-4">
-                        <input  disabled type="text" [(ngModel)]="editTestScriptObj.param29" name="Param29" class="text form-control" formControlName="param29">
+                        <input disabled type="text" [(ngModel)]="editTestScriptObj.param29" name="Param29"
+                            class="text form-control" formControlName="param29">
                     </div>
                     <div class="col-md-2 col-lg-2">
                         <label for="Param30" class="pull-right">Param 30</label>
                     </div>
                     <div class="col-md-4 col-lg-4">
-                        <input  disabled type="text" [(ngModel)]="editTestScriptObj.param30" name="Param30" class="text form-control" formControlName="param30">
+                        <input disabled type="text" [(ngModel)]="editTestScriptObj.param30" name="Param30"
+                            class="text form-control" formControlName="param30">
                     </div>
                 </div>
                 <div class="row padding-bottom-1 align-items-center">
@@ -275,13 +313,15 @@
                         <label for="Param29" class="pull-right">Param 31</label>
                     </div>
                     <div class="col-md-4 col-lg-4">
-                        <input  disabled type="text" [(ngModel)]="editTestScriptObj.param31" name="Param31" class="text form-control" formControlName="param31">
+                        <input disabled type="text" [(ngModel)]="editTestScriptObj.param31" name="Param31"
+                            class="text form-control" formControlName="param31">
                     </div>
                     <div class="col-md-2 col-lg-2">
                         <label for="Param30" class="pull-right">Param 32</label>
                     </div>
                     <div class="col-md-4 col-lg-4">
-                        <input  disabled type="text" [(ngModel)]="editTestScriptObj.param32" name="Param32" class="text form-control" formControlName="param32">
+                        <input disabled type="text" [(ngModel)]="editTestScriptObj.param32" name="Param32"
+                            class="text form-control" formControlName="param32">
                     </div>
                 </div>
                 <div class="row padding-bottom-1 align-items-center">
@@ -289,13 +329,15 @@
                         <label for="Param29" class="pull-right">Param 33</label>
                     </div>
                     <div class="col-md-4 col-lg-4">
-                        <input  disabled type="text" [(ngModel)]="editTestScriptObj.param33" name="Param33" class="text form-control" formControlName="param33">
+                        <input disabled type="text" [(ngModel)]="editTestScriptObj.param33" name="Param33"
+                            class="text form-control" formControlName="param33">
                     </div>
                     <div class="col-md-2 col-lg-2">
                         <label for="Param30" class="pull-right">Param 34</label>
                     </div>
                     <div class="col-md-4 col-lg-4">
-                        <input  disabled type="text" [(ngModel)]="editTestScriptObj.param34" name="Param34" class="text form-control" formControlName="param34">
+                        <input disabled type="text" [(ngModel)]="editTestScriptObj.param34" name="Param34"
+                            class="text form-control" formControlName="param34">
                     </div>
                 </div>
                 <div class="row padding-bottom-1 align-items-center">
@@ -303,13 +345,15 @@
                         <label for="Param29" class="pull-right">Param 35</label>
                     </div>
                     <div class="col-md-4 col-lg-4">
-                        <input  disabled type="text" [(ngModel)]="editTestScriptObj.param35" name="Param35" class="text form-control" formControlName="param35">
+                        <input disabled type="text" [(ngModel)]="editTestScriptObj.param35" name="Param35"
+                            class="text form-control" formControlName="param35">
                     </div>
                     <div class="col-md-2 col-lg-2">
                         <label for="Param30" class="pull-right">Param 36</label>
                     </div>
                     <div class="col-md-4 col-lg-4">
-                        <input  disabled type="text" [(ngModel)]="editTestScriptObj.param36" name="Param36" class="text form-control" formControlName="param36">
+                        <input disabled type="text" [(ngModel)]="editTestScriptObj.param36" name="Param36"
+                            class="text form-control" formControlName="param36">
                     </div>
                 </div>
                 <div class="row padding-bottom-1 align-items-center">
@@ -317,13 +361,15 @@
                         <label for="Param29" class="pull-right">Param 37</label>
                     </div>
                     <div class="col-md-4 col-lg-4">
-                        <input  disabled type="text" [(ngModel)]="editTestScriptObj.param37" name="Param37" class="text form-control" formControlName="param37">
+                        <input disabled type="text" [(ngModel)]="editTestScriptObj.param37" name="Param37"
+                            class="text form-control" formControlName="param37">
                     </div>
                     <div class="col-md-2 col-lg-2">
                         <label for="Param30" class="pull-right">Param 38</label>
                     </div>
                     <div class="col-md-4 col-lg-4">
-                        <input  disabled type="text" [(ngModel)]="editTestScriptObj.param38" name="Param38" class="text form-control" formControlName="param38">
+                        <input disabled type="text" [(ngModel)]="editTestScriptObj.param38" name="Param38"
+                            class="text form-control" formControlName="param38">
                     </div>
                 </div>
                 <div class="row padding-bottom-1 align-items-center">
@@ -331,13 +377,15 @@
                         <label for="Param29" class="pull-right">Param 39</label>
                     </div>
                     <div class="col-md-4 col-lg-4">
-                        <input  disabled type="text" [(ngModel)]="editTestScriptObj.param39" name="Param39" class="text form-control" formControlName="param39">
+                        <input disabled type="text" [(ngModel)]="editTestScriptObj.param39" name="Param39"
+                            class="text form-control" formControlName="param39">
                     </div>
                     <div class="col-md-2 col-lg-2">
                         <label for="Param30" class="pull-right">Param 40</label>
                     </div>
                     <div class="col-md-4 col-lg-4">
-                        <input  disabled type="text" [(ngModel)]="editTestScriptObj.param40" name="Param40" class="text form-control" formControlName="param40">
+                        <input disabled type="text" [(ngModel)]="editTestScriptObj.param40" name="Param40"
+                            class="text form-control" formControlName="param40">
                     </div>
                 </div>
                 <div class="row padding-bottom-1 align-items-center">
@@ -345,13 +393,15 @@
                         <label for="Param41" class="pull-right">Param 41</label>
                     </div>
                     <div class="col-md-4 col-lg-4">
-                        <input  disabled type="text" [(ngModel)]="editTestScriptObj.param41" name="Param41" class="text form-control" formControlName="param41">
+                        <input disabled type="text" [(ngModel)]="editTestScriptObj.param41" name="Param41"
+                            class="text form-control" formControlName="param41">
                     </div>
                     <div class="col-md-2 col-lg-2">
                         <label for="Param42" class="pull-right">Param 42</label>
                     </div>
                     <div class="col-md-4 col-lg-4">
-                        <input  disabled type="text" [(ngModel)]="editTestScriptObj.param42" name="Param42" class="text form-control" formControlName="param42">
+                        <input disabled type="text" [(ngModel)]="editTestScriptObj.param42" name="Param42"
+                            class="text form-control" formControlName="param42">
                     </div>
                 </div>
                 <div class="row padding-bottom-1 align-items-center">
@@ -359,13 +409,15 @@
                         <label for="Param43" class="pull-right">Param 43</label>
                     </div>
                     <div class="col-md-4 col-lg-4">
-                        <input  disabled type="text" [(ngModel)]="editTestScriptObj.param43" name="Param43" class="text form-control" formControlName="param43">
+                        <input disabled type="text" [(ngModel)]="editTestScriptObj.param43" name="Param43"
+                            class="text form-control" formControlName="param43">
                     </div>
                     <div class="col-md-2 col-lg-2">
                         <label for="Param44" class="pull-right">Param 44</label>
                     </div>
                     <div class="col-md-4 col-lg-4">
-                        <input  disabled type="text" [(ngModel)]="editTestScriptObj.param44" name="Param44" class="text form-control" formControlName="param44">
+                        <input disabled type="text" [(ngModel)]="editTestScriptObj.param44" name="Param44"
+                            class="text form-control" formControlName="param44">
                     </div>
                 </div>
                 <div class="row padding-bottom-1 align-items-center">
@@ -373,13 +425,15 @@
                         <label for="Param45" class="pull-right">Param 45</label>
                     </div>
                     <div class="col-md-4 col-lg-4">
-                        <input  disabled type="text" [(ngModel)]="editTestScriptObj.param45" name="Param45" class="text form-control" formControlName="param45">
+                        <input disabled type="text" [(ngModel)]="editTestScriptObj.param45" name="Param45"
+                            class="text form-control" formControlName="param45">
                     </div>
                     <div class="col-md-2 col-lg-2">
                         <label for="Param46" class="pull-right">Param 46</label>
                     </div>
                     <div class="col-md-4 col-lg-4">
-                        <input  disabled type="text" [(ngModel)]="editTestScriptObj.param46" name="Param46" class="text form-control" formControlName="param46">
+                        <input disabled type="text" [(ngModel)]="editTestScriptObj.param46" name="Param46"
+                            class="text form-control" formControlName="param46">
                     </div>
                 </div>
                 <div class="row padding-bottom-1 align-items-center">
@@ -387,13 +441,15 @@
                         <label for="Param47" class="pull-right">Param 47</label>
                     </div>
                     <div class="col-md-4 col-lg-4">
-                        <input  disabled type="text" [(ngModel)]="editTestScriptObj.param47" name="Param47" class="text form-control" formControlName="param47">
+                        <input disabled type="text" [(ngModel)]="editTestScriptObj.param47" name="Param47"
+                            class="text form-control" formControlName="param47">
                     </div>
                     <div class="col-md-2 col-lg-2">
                         <label for="Param48" class="pull-right">Param 48</label>
                     </div>
                     <div class="col-md-4 col-lg-4">
-                        <input  disabled type="text" [(ngModel)]="editTestScriptObj.param48" name="Param48" class="text form-control" formControlName="param48">
+                        <input disabled type="text" [(ngModel)]="editTestScriptObj.param48" name="Param48"
+                            class="text form-control" formControlName="param48">
                     </div>
                 </div>
                 <div class="row padding-bottom-1 align-items-center">
@@ -401,13 +457,15 @@
                         <label for="Param49" class="pull-right">Param 49</label>
                     </div>
                     <div class="col-md-4 col-lg-4">
-                        <input  disabled type="text" [(ngModel)]="editTestScriptObj.param49" name="Param49" class="text form-control" formControlName="param49">
+                        <input disabled type="text" [(ngModel)]="editTestScriptObj.param49" name="Param49"
+                            class="text form-control" formControlName="param49">
                     </div>
                     <div class="col-md-2 col-lg-2">
                         <label for="Param50" class="pull-right">Param 50</label>
                     </div>
                     <div class="col-md-4 col-lg-4">
-                        <input  disabled type="text" [(ngModel)]="editTestScriptObj.param50" name="Param50" class="text form-control" formControlName="param50">
+                        <input disabled type="text" [(ngModel)]="editTestScriptObj.param50" name="Param50"
+                            class="text form-control" formControlName="param50">
                     </div>
                 </div>
 
@@ -416,13 +474,15 @@
                         <label for="Param51" class="pull-right">Param 51</label>
                     </div>
                     <div class="col-md-4 col-lg-4">
-                        <input  disabled type="text" [(ngModel)]="editTestScriptObj.param51" name="Param51" class="text form-control" formControlName="param51">
+                        <input disabled type="text" [(ngModel)]="editTestScriptObj.param51" name="Param51"
+                            class="text form-control" formControlName="param51">
                     </div>
                     <div class="col-md-2 col-lg-2">
                         <label for="Param52" class="pull-right">Param 52</label>
                     </div>
                     <div class="col-md-4 col-lg-4">
-                        <input  disabled type="text" [(ngModel)]="editTestScriptObj.param52" name="Param52" class="text form-control" formControlName="param52">
+                        <input disabled type="text" [(ngModel)]="editTestScriptObj.param52" name="Param52"
+                            class="text form-control" formControlName="param52">
                     </div>
                 </div>
                 <div class="row padding-bottom-1 align-items-center">
@@ -430,13 +490,15 @@
                         <label for="Param53" class="pull-right">Param 53</label>
                     </div>
                     <div class="col-md-4 col-lg-4">
-                        <input  disabled type="text" [(ngModel)]="editTestScriptObj.param53" name="Param53" class="text form-control" formControlName="param53">
+                        <input disabled type="text" [(ngModel)]="editTestScriptObj.param53" name="Param53"
+                            class="text form-control" formControlName="param53">
                     </div>
                     <div class="col-md-2 col-lg-2">
                         <label for="Param54" class="pull-right">Param 54</label>
                     </div>
                     <div class="col-md-4 col-lg-4">
-                        <input  disabled type="text" [(ngModel)]="editTestScriptObj.param54" name="Param54" class="text form-control" formControlName="param54">
+                        <input disabled type="text" [(ngModel)]="editTestScriptObj.param54" name="Param54"
+                            class="text form-control" formControlName="param54">
                     </div>
                 </div>
                 <div class="row padding-bottom-1 align-items-center">
@@ -444,13 +506,15 @@
                         <label for="Param55" class="pull-right">Param 55</label>
                     </div>
                     <div class="col-md-4 col-lg-4">
-                        <input  disabled type="text" [(ngModel)]="editTestScriptObj.param55" name="Param55" class="text form-control" formControlName="param55">
+                        <input disabled type="text" [(ngModel)]="editTestScriptObj.param55" name="Param55"
+                            class="text form-control" formControlName="param55">
                     </div>
                     <div class="col-md-2 col-lg-2">
                         <label for="Param56" class="pull-right">Param 56</label>
                     </div>
                     <div class="col-md-4 col-lg-4">
-                        <input  disabled type="text" [(ngModel)]="editTestScriptObj.param56" name="Param56" class="text form-control" formControlName="param56">
+                        <input disabled type="text" [(ngModel)]="editTestScriptObj.param56" name="Param56"
+                            class="text form-control" formControlName="param56">
                     </div>
                 </div>
                 <div class="row padding-bottom-1 align-items-center">
@@ -458,13 +522,15 @@
                         <label for="Param57" class="pull-right">Param 57</label>
                     </div>
                     <div class="col-md-4 col-lg-4">
-                        <input  disabled type="text" [(ngModel)]="editTestScriptObj.param57" name="Param57" class="text form-control" formControlName="param57">
+                        <input disabled type="text" [(ngModel)]="editTestScriptObj.param57" name="Param57"
+                            class="text form-control" formControlName="param57">
                     </div>
                     <div class="col-md-2 col-lg-2">
                         <label for="Param58" class="pull-right">Param 58</label>
                     </div>
                     <div class="col-md-4 col-lg-4">
-                        <input  disabled type="text" [(ngModel)]="editTestScriptObj.param58" name="Param58" class="text form-control" formControlName="param58">
+                        <input disabled type="text" [(ngModel)]="editTestScriptObj.param58" name="Param58"
+                            class="text form-control" formControlName="param58">
                     </div>
                 </div>
                 <div class="row padding-bottom-1 align-items-center">
@@ -472,13 +538,15 @@
                         <label for="Param59" class="pull-right">Param 59</label>
                     </div>
                     <div class="col-md-4 col-lg-4">
-                        <input  disabled type="text" [(ngModel)]="editTestScriptObj.param59" name="Param59" class="text form-control" formControlName="param59">
+                        <input disabled type="text" [(ngModel)]="editTestScriptObj.param59" name="Param59"
+                            class="text form-control" formControlName="param59">
                     </div>
                     <div class="col-md-2 col-lg-2">
                         <label for="Param60" class="pull-right">Param 60</label>
                     </div>
                     <div class="col-md-4 col-lg-4">
-                        <input  disabled type="text" [(ngModel)]="editTestScriptObj.param60" name="Param60" class="text form-control" formControlName="param60">
+                        <input disabled type="text" [(ngModel)]="editTestScriptObj.param60" name="Param60"
+                            class="text form-control" formControlName="param60">
                     </div>
                 </div>
 
@@ -487,13 +555,15 @@
                         <label for="Param61" class="pull-right">Param 61</label>
                     </div>
                     <div class="col-md-4 col-lg-4">
-                        <input  disabled type="text" [(ngModel)]="editTestScriptObj.param61" name="Param61" class="text form-control" formControlName="param61">
+                        <input disabled type="text" [(ngModel)]="editTestScriptObj.param61" name="Param61"
+                            class="text form-control" formControlName="param61">
                     </div>
                     <div class="col-md-2 col-lg-2">
                         <label for="Param62" class="pull-right">Param 62</label>
                     </div>
                     <div class="col-md-4 col-lg-4">
-                        <input  disabled type="text" [(ngModel)]="editTestScriptObj.param62" name="Param62" class="text form-control" formControlName="param62">
+                        <input disabled type="text" [(ngModel)]="editTestScriptObj.param62" name="Param62"
+                            class="text form-control" formControlName="param62">
                     </div>
                 </div>
                 <div class="row padding-bottom-1 align-items-center">
@@ -501,13 +571,15 @@
                         <label for="Param63" class="pull-right">Param 63</label>
                     </div>
                     <div class="col-md-4 col-lg-4">
-                        <input  disabled type="text" [(ngModel)]="editTestScriptObj.param63" name="Param63" class="text form-control" formControlName="param63">
+                        <input disabled type="text" [(ngModel)]="editTestScriptObj.param63" name="Param63"
+                            class="text form-control" formControlName="param63">
                     </div>
                     <div class="col-md-2 col-lg-2">
                         <label for="Param64" class="pull-right">Param 64</label>
                     </div>
                     <div class="col-md-4 col-lg-4">
-                        <input  disabled type="text" [(ngModel)]="editTestScriptObj.param64" name="Param64" class="text form-control" formControlName="param64">
+                        <input disabled type="text" [(ngModel)]="editTestScriptObj.param64" name="Param64"
+                            class="text form-control" formControlName="param64">
                     </div>
                 </div>
                 <div class="row padding-bottom-1 align-items-center">
@@ -515,13 +587,15 @@
                         <label for="Param65" class="pull-right">Param 65</label>
                     </div>
                     <div class="col-md-4 col-lg-4">
-                        <input  disabled type="text" [(ngModel)]="editTestScriptObj.param65" name="Param65" class="text form-control" formControlName="param65">
+                        <input disabled type="text" [(ngModel)]="editTestScriptObj.param65" name="Param65"
+                            class="text form-control" formControlName="param65">
                     </div>
                     <div class="col-md-2 col-lg-2">
                         <label for="Param66" class="pull-right">Param 66</label>
                     </div>
                     <div class="col-md-4 col-lg-4">
-                        <input  disabled type="text" [(ngModel)]="editTestScriptObj.param66" name="Param66" class="text form-control" formControlName="param66">
+                        <input disabled type="text" [(ngModel)]="editTestScriptObj.param66" name="Param66"
+                            class="text form-control" formControlName="param66">
                     </div>
                 </div>
                 <div class="row padding-bottom-1 align-items-center">
@@ -529,13 +603,15 @@
                         <label for="Param67" class="pull-right">Param 67</label>
                     </div>
                     <div class="col-md-4 col-lg-4">
-                        <input  disabled type="text" [(ngModel)]="editTestScriptObj.param67" name="Param67" class="text form-control" formControlName="param67">
+                        <input disabled type="text" [(ngModel)]="editTestScriptObj.param67" name="Param67"
+                            class="text form-control" formControlName="param67">
                     </div>
                     <div class="col-md-2 col-lg-2">
                         <label for="Param68" class="pull-right">Param 68</label>
                     </div>
                     <div class="col-md-4 col-lg-4">
-                        <input  disabled type="text" [(ngModel)]="editTestScriptObj.param68" name="Param68" class="text form-control" formControlName="param68">
+                        <input disabled type="text" [(ngModel)]="editTestScriptObj.param68" name="Param68"
+                            class="text form-control" formControlName="param68">
                     </div>
                 </div>
                 <div class="row padding-bottom-1 align-items-center">
@@ -543,13 +619,15 @@
                         <label for="Param9" class="pull-right">Param 69</label>
                     </div>
                     <div class="col-md-4 col-lg-4">
-                        <input  disabled type="text" [(ngModel)]="editTestScriptObj.param69" name="Param69" class="text form-control" formControlName="param69">
+                        <input disabled type="text" [(ngModel)]="editTestScriptObj.param69" name="Param69"
+                            class="text form-control" formControlName="param69">
                     </div>
                     <div class="col-md-2 col-lg-2">
                         <label for="Param70" class="pull-right">Param 70</label>
                     </div>
                     <div class="col-md-4 col-lg-4">
-                        <input  disabled type="text" [(ngModel)]="editTestScriptObj.param70" name="Param70" class="text form-control" formControlName="param70">
+                        <input disabled type="text" [(ngModel)]="editTestScriptObj.param70" name="Param70"
+                            class="text form-control" formControlName="param70">
                     </div>
                 </div>
 
@@ -558,13 +636,15 @@
                         <label for="Param71" class="pull-right">Param 71</label>
                     </div>
                     <div class="col-md-4 col-lg-4">
-                        <input  disabled type="text" [(ngModel)]="editTestScriptObj.param71" name="Param71" class="text form-control" formControlName="param71">
+                        <input disabled type="text" [(ngModel)]="editTestScriptObj.param71" name="Param71"
+                            class="text form-control" formControlName="param71">
                     </div>
                     <div class="col-md-2 col-lg-2">
                         <label for="Param72" class="pull-right">Param 72</label>
                     </div>
                     <div class="col-md-4 col-lg-4">
-                        <input  disabled type="text" [(ngModel)]="editTestScriptObj.param72" name="Param72" class="text form-control" formControlName="param72">
+                        <input disabled type="text" [(ngModel)]="editTestScriptObj.param72" name="Param72"
+                            class="text form-control" formControlName="param72">
                     </div>
                 </div>
                 <div class="row padding-bottom-1 align-items-center">
@@ -572,13 +652,15 @@
                         <label for="Param73" class="pull-right">Param 73</label>
                     </div>
                     <div class="col-md-4 col-lg-4">
-                        <input  disabled type="text" [(ngModel)]="editTestScriptObj.param73" name="Param73" class="text form-control" formControlName="param73">
+                        <input disabled type="text" [(ngModel)]="editTestScriptObj.param73" name="Param73"
+                            class="text form-control" formControlName="param73">
                     </div>
                     <div class="col-md-2 col-lg-2">
                         <label for="Param74" class="pull-right">Param 74</label>
                     </div>
                     <div class="col-md-4 col-lg-4">
-                        <input  disabled type="text" [(ngModel)]="editTestScriptObj.param74" name="Param74" class="text form-control" formControlName="param74">
+                        <input disabled type="text" [(ngModel)]="editTestScriptObj.param74" name="Param74"
+                            class="text form-control" formControlName="param74">
                     </div>
                 </div>
                 <div class="row padding-bottom-1 align-items-center">
@@ -586,13 +668,15 @@
                         <label for="Param75" class="pull-right">Param 75</label>
                     </div>
                     <div class="col-md-4 col-lg-4">
-                        <input  disabled type="text" [(ngModel)]="editTestScriptObj.param75" name="Param75" class="text form-control" formControlName="param75">
+                        <input disabled type="text" [(ngModel)]="editTestScriptObj.param75" name="Param75"
+                            class="text form-control" formControlName="param75">
                     </div>
                     <div class="col-md-2 col-lg-2">
                         <label for="Param76" class="pull-right">Param 76</label>
                     </div>
                     <div class="col-md-4 col-lg-4">
-                        <input  disabled type="text" [(ngModel)]="editTestScriptObj.param76" name="Param76" class="text form-control" formControlName="param76">
+                        <input disabled type="text" [(ngModel)]="editTestScriptObj.param76" name="Param76"
+                            class="text form-control" formControlName="param76">
                     </div>
                 </div>
                 <div class="row padding-bottom-1 align-items-center">
@@ -600,13 +684,15 @@
                         <label for="Param77" class="pull-right">Param 77</label>
                     </div>
                     <div class="col-md-4 col-lg-4">
-                        <input  disabled type="text" [(ngModel)]="editTestScriptObj.param77" name="Param77" class="text form-control" formControlName="param77">
+                        <input disabled type="text" [(ngModel)]="editTestScriptObj.param77" name="Param77"
+                            class="text form-control" formControlName="param77">
                     </div>
                     <div class="col-md-2 col-lg-2">
                         <label for="Param78" class="pull-right">Param 78</label>
                     </div>
                     <div class="col-md-4 col-lg-4">
-                        <input  disabled type="text" [(ngModel)]="editTestScriptObj.param78" name="Param78" class="text form-control" formControlName="param78">
+                        <input disabled type="text" [(ngModel)]="editTestScriptObj.param78" name="Param78"
+                            class="text form-control" formControlName="param78">
                     </div>
                 </div>
                 <div class="row padding-bottom-1 align-items-center">
@@ -614,13 +700,15 @@
                         <label for="Param79" class="pull-right">Param 79</label>
                     </div>
                     <div class="col-md-4 col-lg-4">
-                        <input  disabled type="text" [(ngModel)]="editTestScriptObj.param79" name="Param79" class="text form-control" formControlName="param79">
+                        <input disabled type="text" [(ngModel)]="editTestScriptObj.param79" name="Param79"
+                            class="text form-control" formControlName="param79">
                     </div>
                     <div class="col-md-2 col-lg-2">
                         <label for="Param10" class="pull-right">Param 10</label>
                     </div>
                     <div class="col-md-4 col-lg-4">
-                        <input  disabled type="text" [(ngModel)]="editTestScriptObj.param80" name="Param80" class="text form-control" formControlName="param80">
+                        <input disabled type="text" [(ngModel)]="editTestScriptObj.param80" name="Param80"
+                            class="text form-control" formControlName="param80">
                     </div>
                 </div>
 
@@ -629,13 +717,15 @@
                         <label for="Param81" class="pull-right">Param 81</label>
                     </div>
                     <div class="col-md-4 col-lg-4">
-                        <input  disabled type="text" [(ngModel)]="editTestScriptObj.param81" name="Param81" class="text form-control" formControlName="param81">
+                        <input disabled type="text" [(ngModel)]="editTestScriptObj.param81" name="Param81"
+                            class="text form-control" formControlName="param81">
                     </div>
                     <div class="col-md-2 col-lg-2">
                         <label for="Param82" class="pull-right">Param 82</label>
                     </div>
                     <div class="col-md-4 col-lg-4">
-                        <input  disabled type="text" [(ngModel)]="editTestScriptObj.param82" name="Param82" class="text form-control" formControlName="param82">
+                        <input disabled type="text" [(ngModel)]="editTestScriptObj.param82" name="Param82"
+                            class="text form-control" formControlName="param82">
                     </div>
                 </div>
                 <div class="row padding-bottom-1 align-items-center">
@@ -643,13 +733,15 @@
                         <label for="Param83" class="pull-right">Param 83</label>
                     </div>
                     <div class="col-md-4 col-lg-4">
-                        <input  disabled type="text" [(ngModel)]="editTestScriptObj.param83" name="Param83" class="text form-control" formControlName="param83">
+                        <input disabled type="text" [(ngModel)]="editTestScriptObj.param83" name="Param83"
+                            class="text form-control" formControlName="param83">
                     </div>
                     <div class="col-md-2 col-lg-2">
                         <label for="Param84" class="pull-right">Param 84</label>
                     </div>
                     <div class="col-md-4 col-lg-4">
-                        <input  disabled type="text" [(ngModel)]="editTestScriptObj.param84" name="Param84" class="text form-control" formControlName="param84">
+                        <input disabled type="text" [(ngModel)]="editTestScriptObj.param84" name="Param84"
+                            class="text form-control" formControlName="param84">
                     </div>
                 </div>
                 <div class="row padding-bottom-1 align-items-center">
@@ -657,13 +749,15 @@
                         <label for="Param85" class="pull-right">Param 85</label>
                     </div>
                     <div class="col-md-4 col-lg-4">
-                        <input  disabled type="text" [(ngModel)]="editTestScriptObj.param85" name="Param85" class="text form-control" formControlName="param85">
+                        <input disabled type="text" [(ngModel)]="editTestScriptObj.param85" name="Param85"
+                            class="text form-control" formControlName="param85">
                     </div>
                     <div class="col-md-2 col-lg-2">
                         <label for="Param86" class="pull-right">Param 86</label>
                     </div>
                     <div class="col-md-4 col-lg-4">
-                        <input  disabled type="text" [(ngModel)]="editTestScriptObj.param86" name="Param86" class="text form-control" formControlName="param86">
+                        <input disabled type="text" [(ngModel)]="editTestScriptObj.param86" name="Param86"
+                            class="text form-control" formControlName="param86">
                     </div>
                 </div>
                 <div class="row padding-bottom-1 align-items-center">
@@ -671,13 +765,15 @@
                         <label for="Param87" class="pull-right">Param 87</label>
                     </div>
                     <div class="col-md-4 col-lg-4">
-                        <input  disabled type="text" [(ngModel)]="editTestScriptObj.param87" name="Param87" class="text form-control" formControlName="param87">
+                        <input disabled type="text" [(ngModel)]="editTestScriptObj.param87" name="Param87"
+                            class="text form-control" formControlName="param87">
                     </div>
                     <div class="col-md-2 col-lg-2">
                         <label for="Param88" class="pull-right">Param 88</label>
                     </div>
                     <div class="col-md-4 col-lg-4">
-                        <input  disabled type="text" [(ngModel)]="editTestScriptObj.param88" name="Param88" class="text form-control" formControlName="param88">
+                        <input disabled type="text" [(ngModel)]="editTestScriptObj.param88" name="Param88"
+                            class="text form-control" formControlName="param88">
                     </div>
                 </div>
                 <div class="row padding-bottom-1 align-items-center">
@@ -685,13 +781,15 @@
                         <label for="Param89" class="pull-right">Param 89</label>
                     </div>
                     <div class="col-md-4 col-lg-4">
-                        <input  disabled type="text" [(ngModel)]="editTestScriptObj.param89" name="Param89" class="text form-control" formControlName="param89">
+                        <input disabled type="text" [(ngModel)]="editTestScriptObj.param89" name="Param89"
+                            class="text form-control" formControlName="param89">
                     </div>
                     <div class="col-md-2 col-lg-2">
                         <label for="Param90" class="pull-right">Param 90</label>
                     </div>
                     <div class="col-md-4 col-lg-4">
-                        <input  disabled type="text" [(ngModel)]="editTestScriptObj.param90" name="Param90" class="text form-control" formControlName="param90">
+                        <input disabled type="text" [(ngModel)]="editTestScriptObj.param90" name="Param90"
+                            class="text form-control" formControlName="param90">
                     </div>
                 </div>
 
@@ -700,13 +798,15 @@
                         <label for="Param91" class="pull-right">Param 91</label>
                     </div>
                     <div class="col-md-4 col-lg-4">
-                        <input  disabled type="text" [(ngModel)]="editTestScriptObj.param91" name="Param91" class="text form-control" formControlName="param91">
+                        <input disabled type="text" [(ngModel)]="editTestScriptObj.param91" name="Param91"
+                            class="text form-control" formControlName="param91">
                     </div>
                     <div class="col-md-2 col-lg-2">
                         <label for="Param92" class="pull-right">Param 92</label>
                     </div>
                     <div class="col-md-4 col-lg-4">
-                        <input  disabled type="text" [(ngModel)]="editTestScriptObj.param92" name="Param92" class="text form-control" formControlName="param92">
+                        <input disabled type="text" [(ngModel)]="editTestScriptObj.param92" name="Param92"
+                            class="text form-control" formControlName="param92">
                     </div>
                 </div>
                 <div class="row padding-bottom-1 align-items-center">
@@ -714,13 +814,15 @@
                         <label for="Param93" class="pull-right">Param 93</label>
                     </div>
                     <div class="col-md-4 col-lg-4">
-                        <input  disabled type="text" [(ngModel)]="editTestScriptObj.param93" name="Param93" class="text form-control" formControlName="param93">
+                        <input disabled type="text" [(ngModel)]="editTestScriptObj.param93" name="Param93"
+                            class="text form-control" formControlName="param93">
                     </div>
                     <div class="col-md-2 col-lg-2">
                         <label for="Param94" class="pull-right">Param 94</label>
                     </div>
                     <div class="col-md-4 col-lg-4">
-                        <input  disabled type="text" [(ngModel)]="editTestScriptObj.param94" name="Param94" class="text form-control" formControlName="param94">
+                        <input disabled type="text" [(ngModel)]="editTestScriptObj.param94" name="Param94"
+                            class="text form-control" formControlName="param94">
                     </div>
                 </div>
                 <div class="row padding-bottom-1 align-items-center">
@@ -728,13 +830,15 @@
                         <label for="Param95" class="pull-right">Param 95</label>
                     </div>
                     <div class="col-md-4 col-lg-4">
-                        <input  disabled type="text" [(ngModel)]="editTestScriptObj.param95" name="Param95" class="text form-control" formControlName="param95">
+                        <input disabled type="text" [(ngModel)]="editTestScriptObj.param95" name="Param95"
+                            class="text form-control" formControlName="param95">
                     </div>
                     <div class="col-md-2 col-lg-2">
                         <label for="Param96" class="pull-right">Param 96</label>
                     </div>
                     <div class="col-md-4 col-lg-4">
-                        <input  disabled type="text" [(ngModel)]="editTestScriptObj.param96" name="Param96" class="text form-control" formControlName="param96">
+                        <input disabled type="text" [(ngModel)]="editTestScriptObj.param96" name="Param96"
+                            class="text form-control" formControlName="param96">
                     </div>
                 </div>
                 <div class="row padding-bottom-1 align-items-center">
@@ -742,13 +846,15 @@
                         <label for="Param97" class="pull-right">Param 97</label>
                     </div>
                     <div class="col-md-4 col-lg-4">
-                        <input  disabled type="text" [(ngModel)]="editTestScriptObj.param97" name="Param97" class="text form-control" formControlName="param97">
+                        <input disabled type="text" [(ngModel)]="editTestScriptObj.param97" name="Param97"
+                            class="text form-control" formControlName="param97">
                     </div>
                     <div class="col-md-2 col-lg-2">
                         <label for="Param98" class="pull-right">Param 98</label>
                     </div>
                     <div class="col-md-4 col-lg-4">
-                        <input  disabled type="text" [(ngModel)]="editTestScriptObj.param98" name="Param98" class="text form-control" formControlName="param98">
+                        <input disabled type="text" [(ngModel)]="editTestScriptObj.param98" name="Param98"
+                            class="text form-control" formControlName="param98">
                     </div>
                 </div>
                 <div class="row padding-bottom-1 align-items-center">
@@ -756,13 +862,15 @@
                         <label for="Param99" class="pull-right">Param 99</label>
                     </div>
                     <div class="col-md-4 col-lg-4">
-                        <input  disabled type="text" [(ngModel)]="editTestScriptObj.param99" name="Param99" class="text form-control" formControlName="param99">
+                        <input disabled type="text" [(ngModel)]="editTestScriptObj.param99" name="Param99"
+                            class="text form-control" formControlName="param99">
                     </div>
                     <div class="col-md-2 col-lg-2">
                         <label for="Param100" class="pull-right">Param 100</label>
                     </div>
                     <div class="col-md-4 col-lg-4">
-                        <input disabled type="text" [(ngModel)]="editTestScriptObj.param100" name="Param100" class="text form-control" formControlName="param100">
+                        <input disabled type="text" [(ngModel)]="editTestScriptObj.param100" name="Param100"
+                            class="text form-control" formControlName="param100">
                     </div>
                 </div>
                 <div class="row">

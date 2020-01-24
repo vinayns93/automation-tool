@@ -1,6 +1,6 @@
 export class TestScript {
     testCaseID: string;
-    tcStepID: number;
+    tcStepID: string;
     testScriptName: string;
     functionDescription: string;
     functionName: string;

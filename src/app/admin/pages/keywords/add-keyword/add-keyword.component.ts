@@ -55,8 +55,6 @@ export class AddKeywordComponent implements OnInit {
       .subscribe((logicalNames) => {
         if(logicalNames){
           logicalNames.forEach(data => {
-            // this.option_value.label = data;
-            // this.option_value.value = data;
             this.objLogicalNames.push({label: data, value: data});
           });
         }

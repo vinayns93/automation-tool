@@ -13,7 +13,8 @@ export class EditTestScriptComponent implements OnInit {
 
   editTestScriptObj: TestScript = new TestScript();
   id: any;
-
+  runValues:any;
+  
   testscriptForm = new FormGroup({
     testCaseID: new FormControl(''),
     tcStepID: new FormControl(''),
@@ -130,6 +131,11 @@ export class EditTestScriptComponent implements OnInit {
   }
 
   ngOnInit() {
+    this.runValues = [
+      { label: 'YC', value: 'YC' },
+      { label: 'YS', value: 'YS' },
+      { label: 'NO' , value: 'NO'}
+    ];  
     let gettestSriptreq = this.testScriptService.getTestScript(this.id)
     .subscribe((result: TestScript) => {
       this.editTestScriptObj = result;

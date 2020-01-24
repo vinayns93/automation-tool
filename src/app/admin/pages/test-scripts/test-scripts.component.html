@@ -42,7 +42,7 @@
                                     (input)="tt.filter($event.target.value, col.field, 'contains')">
                                 <input *ngSwitchCase="'testCaseID'" pInputText type="text"
                                     (input)="tt.filter($event.target.value, col.field, 'contains')">
-                                <input *ngSwitchCase="'tc_stepID'" pInputText type="text"
+                                <input *ngSwitchCase="'tcStepID'" pInputText type="text"
                                     (input)="tt.filter($event.target.value, col.field, 'contains')">
                                 <input *ngSwitchCase="'testScriptName'" pInputText type="text"
                                     (input)="tt.filter($event.target.value, col.field, 'contains')">
@@ -50,7 +50,9 @@
                                     (input)="tt.filter($event.target.value, col.field, 'contains')">
                                 <input *ngSwitchCase="'functionName'" pInputText type="text"
                                     (input)="tt.filter($event.target.value, col.field, 'contains')">
-                                    <input *ngSwitchCase="'module'" pInputText type="text"
+                                <input *ngSwitchCase="'module'" pInputText type="text"
+                                    (input)="tt.filter($event.target.value, col.field, 'contains')">
+                                <input *ngSwitchCase="'run'" pInputText type="text"
                                     (input)="tt.filter($event.target.value, col.field, 'contains')">
                             </th>
                         </tr>

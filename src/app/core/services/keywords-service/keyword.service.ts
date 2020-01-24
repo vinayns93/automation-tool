@@ -80,7 +80,13 @@ export class KeywordService {
           }
       );
     }
-
+    getAllFunctionNames(): Observable<string[]> {
+      return this.httpClient.get(this.apiUrl + '/Keywords/GetAllFunctionNames')
+        .pipe(
+          map(res => res as string[]),
+          catchError(this.errorHandle)
+        );
+    }
    errorHandle(error:Response){
      console.log(error);
      return throwError(error);

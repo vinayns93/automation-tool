@@ -9,12 +9,6 @@
     <div class="row">
         <div class="col-md-12 col-lg-12">
             <form [formGroup]="testscriptForm" (ngSubmit)="onSubmit()">
-                <!-- <div class="row padding-bottom-1 align-items-center margin-top-1">
-                    <div class="col-md-12 col-lg-12 center-align">
-                        <label>Lock</label>
-                        <input type="checkbox" value="Locked" name="IsLocked" class="checkbox form-control" style="font-size: 0.3em" formControlName="isLocked">
-                    </div>
-                </div> -->
                 <div class="row padding-bottom-1 align-items-center margin-top-1">
                     <div class="col-md-2 col-lg-2">
                         <label for="testCaseID" class="pull-right">testCaseID</label>
@@ -50,16 +44,21 @@
                         <label for="functionName" class="pull-right">functionName</label>
                     </div>
                     <div class="col-md-4 col-lg-4">
-                        <input type="text" name="functionName" class="text form-control" formControlName="functionName">
+                        <!-- <input type="text" name="functionName" class="text form-control" formControlName="functionName"> -->
+                        <p-dropdown #dd [options]="objFunctionNames" name="ObjectFunctionName" [editable]="true"
+                         formControlName="functionName" placeholder="Select FunctionName"></p-dropdown>
                     </div>
                     <div class="col-md-2 col-lg-2">
                         <label for="run" class="pull-right">run</label>
                     </div>
                     <div class="col-md-4 col-lg-4">
                         <!-- <input type="text" name="run" class="text form-control" formControlName="run"> -->
-                        <p-dropdown #dd [options]="runValues" name="run" [(ngModel)]="selectedRun" 
-                        (onChange)="ChangeRunType($event, dd)" formControlName="run"></p-dropdown>
+                        <p-dropdown #dd [options]="runValues" name="run" [(ngModel)]="selectedRun"
+                            (onChange)="ChangeRunType($event, dd)" formControlName="run"></p-dropdown>
                     </div>
+
+                </div>
+                <div class="row padding-bottom-1 align-items-center">
                     <div class="col-md-2 col-lg-2">
                         <label for="module" class="pull-right">module</label>
                     </div>
@@ -631,7 +630,6 @@
                         <input type="text" name="Param80" class="text form-control" formControlName="param80">
                     </div>
                 </div>
-
                 <div class="row padding-bottom-1 align-items-center">
                     <div class="col-md-2 col-lg-2">
                         <label for="Param81" class="pull-right">Param 81</label>
@@ -702,7 +700,6 @@
                         <input type="text" name="Param90" class="text form-control" formControlName="param90">
                     </div>
                 </div>
-
                 <div class="row padding-bottom-1 align-items-center">
                     <div class="col-md-2 col-lg-2">
                         <label for="Param91" class="pull-right">Param 91</label>

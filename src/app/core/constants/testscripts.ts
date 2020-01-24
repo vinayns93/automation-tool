@@ -2,7 +2,7 @@ export const testScriptsColumns: any[] = [
     { label: 'Actions', value: { field: 'actions', header: 'Actions'} },
     { label: 'ID', value: { field: 'id', header: 'ID'}},
     { label: 'Test Case ID', value: { field: 'testCaseID', header: 'Test Case ID'}},
-    { label: 'TC_StepID', value: { field: 'tc_stepID', header: 'TC_StepID'}},
+    { label: 'TC_StepID', value: { field: 'tcStepID', header: 'TC_StepID'}},
     { label: 'TestScript Name', value: { field: 'testScriptName', header: 'TestScript Name'}},
     { label: 'Function Description', value: { field: 'functionDescription', header: 'Function Description'}},
     { label: 'Function Name', value: { field: 'functionName', header: 'Function Name'}},

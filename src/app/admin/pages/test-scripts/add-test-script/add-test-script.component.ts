@@ -4,6 +4,8 @@ import { FormGroup, Validators, FormControl } from '@angular/forms';
 import { ActivatedRoute, Router } from '@angular/router';
 import { TestScriptsService } from '../../../../core/services/test-scripts/testscripts.service';
 import { Dropdown } from 'primeng/dropdown/dropdown';
+import { SelectItem } from 'primeng/api/selectitem';
+import { KeywordService } from '../../../../core/services/keywords-service/keyword.service';
 
 @Component({
   selector: 'app-add-test-script',
@@ -15,6 +17,8 @@ export class AddTestScriptComponent implements OnInit {
   selectedRun: string;
   testScript: TestScript;
   newTestScriptObj: TestScript;
+  objFunctionNames : SelectItem[]= [];
+
   testscriptForm = new FormGroup({
     testCaseID: new FormControl('', [Validators.required, Validators.pattern(/^[a-zA-Z0-9]+$/)]),
     tcStepID: new FormControl('', [Validators.required, Validators.pattern(/^[a-zA-Z0-9]+$/)]),
@@ -124,7 +128,7 @@ export class AddTestScriptComponent implements OnInit {
     param99: new FormControl(''),
     param100: new FormControl('')
   });
-  constructor(private testScriptsService: TestScriptsService, private router: Router) { 
+  constructor(private testScriptsService: TestScriptsService, private router: Router, private keywordService: KeywordService) { 
     this.runValues = [
       { label: 'YC' },
       { label: 'YS' },
@@ -133,10 +137,20 @@ export class AddTestScriptComponent implements OnInit {
   }
 
   ngOnInit() {
+    this.populateFunctionNames();
   }
-  ChangeRunType(event, dd: Dropdown){
-    this.selectedRun = dd.selectedOption.label;
- }
+ 
+ populateFunctionNames() {
+  this.keywordService.getAllFunctionNames()
+    .subscribe((functionNames) => {
+      if(functionNames){
+        functionNames.forEach(data => {
+          this.objFunctionNames.push({label: data, value: data});
+        });
+      }
+      return this.objFunctionNames;
+    });
+}
   onSubmit() {
     var self = this;
     let data = new TestScript();
