@@ -14,6 +14,8 @@ export class AddRepositoryComponent implements OnInit {
 
   repository:Repository;
   newrepositoryObj: Repository;
+  findMethodOptions:any;
+
   repositoryForm = new FormGroup({
     logicalName:  new FormControl('', [Validators.required, Validators.pattern(/^[a-zA-Z0-9]+$/)]),
     findMethod:  new FormControl('', [Validators.required, Validators.pattern(/^[a-zA-Z0-9]+$/)]),
@@ -25,6 +27,10 @@ export class AddRepositoryComponent implements OnInit {
   constructor(private route:ActivatedRoute, private service:RepositoryService,private router: Router) { }
 
   ngOnInit() {
+    this.findMethodOptions = [
+      {label: 'EVALUATEXPATH', value: 'EVALUATEXPATH'},
+      {label: 'EVALUATEID', value: 'EVALUATEID'}
+    ];
   }
 
   onSubmit(){

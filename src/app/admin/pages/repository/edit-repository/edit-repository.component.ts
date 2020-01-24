@@ -13,6 +13,7 @@ import { formatDate } from '@angular/common';
 export class EditRepositoryComponent implements OnInit {
 
   editRepositoryObj: Repository = new Repository();
+  findMethodOptions : any;
   id: any;
   repositoryForm = new FormGroup({
     id: new FormControl('', Validators.required),
@@ -31,6 +32,10 @@ export class EditRepositoryComponent implements OnInit {
    }
 
   ngOnInit() {
+    this.findMethodOptions = [
+      {label: 'EVALUATEXPATH', value: 'EVALUATEXPATH'},
+      {label: 'EVALUATEID', value: 'EVALUATEID'}
+    ];
     let getRepositoryreq = this.repositoryService.getRepository(this.id)
     .subscribe((result: Repository) => {
       this.editRepositoryObj = result;

@@ -29,11 +29,11 @@
                             <th *ngFor="let col of selectedRepositoryCols" [pSortableColumn]="col.field">
                                 {{col.header}}
                                 <p-sortIcon [field]="col.field"></p-sortIcon>
-                            </th>
-                            <th>Actions</th>
+                            </th>                            
                         </tr>
                         <tr>
                             <th *ngFor="let col of selectedRepositoryCols" [ngSwitch]="col.field">
+                                <input *ngSwitchCase="'id'" pInputText type="text" style="width:80%;" (input)="re.filter($event.target.value, col.field, 'contains')">
                                 <input *ngSwitchCase="'logicalName'" pInputText type="text" style="width:80%;" (input)="re.filter($event.target.value, col.field, 'contains')">
                                 <input *ngSwitchCase="'findMethod'" pInputText type="text" style="width:80%;" (input)="re.filter($event.target.value, col.field, 'contains')">
                                 <input *ngSwitchCase="'xpathQueryPropertyName'" pInputText type="text" style="width:80%;" (input)="re.filter($event.target.value, col.field, 'contains')">
@@ -53,7 +53,7 @@
                                         icon="pi pi-pencil" class="edit-control rounded-button"
                                         (click)="onRowEditInit(repositories.id, repositories.userId)"></button>
                                     <button pButton type="button" icon="pi pi-times" class="delete-control rounded-button"
-                                        (click)="deleteRepository(repositories.id)"></button>
+                                        (click)="deleteRepository(repositories.id)" [disabled]="(globalService.currentUser.roleId == 2 ? true : false)"></button>
                                 </ng-container>
                                 <ng-container *ngIf="col.field != 'actions'">
                                     {{repositories[col.field]}}

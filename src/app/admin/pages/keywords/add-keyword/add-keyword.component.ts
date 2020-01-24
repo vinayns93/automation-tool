@@ -44,7 +44,6 @@ export class AddKeywordComponent implements OnInit {
   ngOnInit() {
     this.populatelogicalNames();
     this.runValues = [
-      { label: 'Choose the run', value: 'Default'},
       { label: 'YC', value: 'YC' },
       { label: 'YS' , value: 'YS'},
       { label: 'NO' , value: 'NO'}
@@ -54,7 +53,6 @@ export class AddKeywordComponent implements OnInit {
   populatelogicalNames() {
     this.repositoryService.getLogicalNames()
       .subscribe((logicalNames) => {
-        this.objLogicalNames.push({label: 'Select Object Logical Name', value: ''});
         if(logicalNames){
           logicalNames.forEach(data => {
             // this.option_value.label = data;

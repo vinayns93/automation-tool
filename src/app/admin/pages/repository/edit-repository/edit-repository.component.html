@@ -1,9 +1,9 @@
 <div class="container-fluid">
     <div class="row">
-        <div class="col-md-12 col-lg-12 center-align light-blue">
-            <h5 class="admin-page-header" style="margin-left: 20px;">
+        <div class="col-md-12 col-lg-12 center-align">
+            <h6 class="admin-page-header" style="margin-left: 20px;">
                 EDIT REPOSITORY
-            </h5>
+            </h6>
         </div>
     </div>
     <div class="row">
@@ -28,7 +28,9 @@
                         <label for="findMethod" class="pull-right">Find Method</label>
                     </div>
                     <div class="col-md-4 col-lg-4">
-                        <input type="text" [(ngModel)]="editRepositoryObj.findMethod" name="findMethod" class="text form-control" formControlName="findMethod">
+                        <!-- <input type="text" [(ngModel)]="editRepositoryObj.findMethod" name="findMethod" class="text form-control" formControlName="findMethod"> -->
+                        <p-dropdown [options]="findMethodOptions" [(ngModel)]="editRepositoryObj.findMethod" editable="true" 
+                        placeholder="Enter Find Method" formControlName="findMethod"></p-dropdown>
                     </div>
                     <div class="col-md-2 col-lg-2">
                         <label for="xpathQueryPropertyName" class="pull-right">xpathQueryPropertyName</label>

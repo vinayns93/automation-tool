@@ -1,9 +1,9 @@
 <div class="container-fluid">
     <div class="row">
-        <div class="col-md-12 col-lg-12 center-align light-blue">
-            <h5 class="admin-page-header" style="margin-left: 20px;">
+        <div class="col-md-12 col-lg-12 center-align">
+            <h6 class="admin-page-header" style="margin-left: 20px;">
                 ADD NEW KEYWORD
-            </h5>
+            </h6>
         </div>
     </div>
     <div class="row">
@@ -44,14 +44,14 @@
                     </div>
                     <div class="col-md-4 col-lg-4">
                         <p-dropdown #dd [options]="objLogicalNames" name="ObjectLogicalName"
-                         formControlName="objectLogicalName" ></p-dropdown>
+                         formControlName="objectLogicalName" placeholder="Select ObjectLogicalName"></p-dropdown>
                     </div>
                     <div class="col-md-2 col-lg-2">
                         <label for="Run" class="pull-right">Run</label>
                     </div>
                     <div class="col-md-4 col-lg-4">
-                        <p-dropdown #dd [options]="runValues" name="exec" 
-                         formControlName="run"></p-dropdown>
+                        <p-dropdown #dd [options]="runValues" name="run" 
+                         formControlName="run" placeholder="Select Run"></p-dropdown>
                     </div>
                 </div>
                 
