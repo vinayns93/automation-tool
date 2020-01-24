@@ -24,7 +24,7 @@ export class AddTestScriptComponent implements OnInit {
     tcStepID: new FormControl('', [Validators.required, Validators.pattern(/^[a-zA-Z0-9]+$/)]),
     testScriptName: new FormControl('', [Validators.required, Validators.pattern(/^[a-zA-Z0-9]+$/)]),
     functionDescription: new FormControl('', [Validators.required, Validators.pattern(/^[a-zA-Z0-9]+$/)]),
-    functionName: new FormControl('', [Validators.required, Validators.pattern(/^[a-zA-Z0-9]+$/)]),
+    functionName: new FormControl(''),
     run: new FormControl(''),
     module: new FormControl('', [Validators.required, Validators.pattern(/^[a-zA-Z0-9]+$/)]),
     param1: new FormControl(''),
@@ -128,15 +128,14 @@ export class AddTestScriptComponent implements OnInit {
     param99: new FormControl(''),
     param100: new FormControl('')
   });
-  constructor(private testScriptsService: TestScriptsService, private router: Router, private keywordService: KeywordService) { 
+  constructor(private testScriptsService: TestScriptsService, private router: Router, private keywordService: KeywordService) { }
+
+  ngOnInit() {
     this.runValues = [
       { label: 'YC' },
       { label: 'YS' },
       { label: 'NO' },
     ];
-  }
-
-  ngOnInit() {
     this.populateFunctionNames();
   }
  
@@ -160,7 +159,7 @@ export class AddTestScriptComponent implements OnInit {
     data.testScriptName = this.testscriptForm.controls["testScriptName"].value;
     data.functionDescription = this.testscriptForm.controls["functionDescription"].value;
     data.functionName = this.testscriptForm.controls["functionName"].value;
-    data.run = this.selectedRun;
+    data.run = this.testscriptForm.controls["run"].value;
     data.module = this.testscriptForm.controls["module"].value;
     data.param1 = this.testscriptForm.controls["param1"].value;
     data.param2 = this.testscriptForm.controls["param2"].value;

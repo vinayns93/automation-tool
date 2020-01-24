@@ -1,30 +1,29 @@
-     <div class="col-md-12">
-         <div class="row align-items-center" style="padding-top: 2em; padding-bottom: 2em;">
-            <div class="col-md-4 col-lg-4">
-                <button class="btn btn-primary pull-left" style="margin-right:27px;font-size: 0.5rem;" 
-                [routerLink]="['/admin/keywords/add']"> 
-                    <i class="now-ui-icons ui-1_simple-add"></i> ADD NEW KEYWORD</button>
-             </div>
-            <div class="col-md-2 col-lg-2" style="padding-right: 0px;">
-                <label class="pull-right" style="font-size: 0.9em;">Table Columns</label>
-            </div>
-                <div class="col-md-2 col-lg-2" style="padding-left: 0.5em">
-                    <p-multiSelect (onChange)="loadKeywordsColumns($event)" [options]="columns" 
-                    [(ngModel)]="tableColumns"></p-multiSelect>
-            </div>
-            </div>
-         <div class="row">
-            <div class="col-md-12 col-lg-12">
-                <ng-container *ngIf="tableColumns.length != 0">
-                <p-table #dt [resizableColumns]="true" [scrollable]="true" [responsive]="true" 
-                [loading]="loading" [value]="keywords" [columns]="tableColumns" 
-                [paginator]="true" [rows]="10" sortMode="multiple"
-                [autoLayout]="true">
-                <ng-template pTemplate="colgroup" let-columns>
-                    <colgroup>
-                        <col *ngFor="let col of tableColumns" style="width:200px">
-                    </colgroup>
-                </ng-template>
+<div class="col-md-12">
+    <div class="row align-items-center" style="padding-top: 2em; padding-bottom: 2em;">
+        <div class="col-md-4 col-lg-4">
+            <button class="btn btn-primary pull-left" style="margin-right:27px;font-size: 0.5rem;"
+                [routerLink]="['/admin/keywords/add']">
+                <i class="now-ui-icons ui-1_simple-add"></i> ADD NEW KEYWORD</button>
+        </div>
+        <div class="col-md-2 col-lg-2" style="padding-right: 0px;">
+            <label class="pull-right" style="font-size: 0.9em;">Table Columns</label>
+        </div>
+        <div class="col-md-2 col-lg-2" style="padding-left: 0.5em">
+            <p-multiSelect (onChange)="loadKeywordsColumns($event)" [options]="columns" [(ngModel)]="tableColumns">
+            </p-multiSelect>
+        </div>
+    </div>
+    <div class="row">
+        <div class="col-md-12 col-lg-12">
+            <ng-container *ngIf="tableColumns.length != 0">
+                <p-table #dt [resizableColumns]="true" [scrollable]="true" [responsive]="true" [loading]="loading"
+                    [value]="keywords" [columns]="tableColumns" [paginator]="true" [rows]="10" sortMode="multiple"
+                    [autoLayout]="true">
+                    <ng-template pTemplate="colgroup" let-columns>
+                        <colgroup>
+                            <col *ngFor="let col of tableColumns" style="width:200px">
+                        </colgroup>
+                    </ng-template>
                     <ng-template pTemplate="header">
                         <tr>
                             <th style="width: 10em !important">Actions</th>
@@ -33,16 +32,39 @@
                                 <p-sortIcon [field]="col.field"></p-sortIcon>
                             </th>
                         </tr>
+                        <tr>
+                            <th></th>
+                            <th *ngFor="let col of tableColumns" [ngSwitch]="col.field">
+                                <input *ngSwitchCase="'id'" pInputText type="text"
+                                    (input)="tt.filter($event.target.value, col.field, 'contains')">
+                                <input *ngSwitchCase="'functionName'" pInputText type="text"
+                                    (input)="tt.filter($event.target.value, col.field, 'contains')">
+                                <input *ngSwitchCase="'stepDescription'" pInputText type="text"
+                                    (input)="tt.filter($event.target.value, col.field, 'contains')">
+                                <input *ngSwitchCase="'actionOrKeyword'" pInputText type="text"
+                                    (input)="tt.filter($event.target.value, col.field, 'contains')">
+                                <input *ngSwitchCase="'objectLogicalName'" pInputText type="text"
+                                    (input)="tt.filter($event.target.value, col.field, 'contains')">
+                                <input *ngSwitchCase="'run'" pInputText type="text"
+                                    (input)="tt.filter($event.target.value, col.field, 'contains')">
+                                <input *ngSwitchCase="'module'" pInputText type="text"
+                                    (input)="tt.filter($event.target.value, col.field, 'contains')">
+                            </th>
+                        </tr>
                     </ng-template>
                     <ng-template pTemplate="body" let-keywords>
                         <tr>
                             <td class="center-align" style="width: 10em !important">
-                                <button pButton type="button" style="margin-right: 5px;" icon="pi pi-pencil" class="rounded-button edit-control" (click)="onRowEditInit(keywords.id, keywords.userId)"></button>
-                                <button pButton type="button" icon="pi pi-times" class="rounded-button delete-control" (click)="deleteKeyword(keywords.id)" [disabled]="(globalService.currentUser.roleId == 2 ? true : false)"></button>
+                                <button pButton type="button" style="margin-right: 5px;" icon="pi pi-pencil"
+                                    class="rounded-button edit-control"
+                                    (click)="onRowEditInit(keywords.id, keywords.userId)"></button>
+                                <button pButton type="button" icon="pi pi-times" class="rounded-button delete-control"
+                                    (click)="deleteKeyword(keywords.id)"
+                                    [disabled]="(globalService.currentUser.roleId == 2 ? true : false)"></button>
                             </td>
                             <td *ngFor="let col of tableColumns">
                                 {{keywords[col.field]}}
-                            </td>                            
+                            </td>
                         </tr>
                     </ng-template>
                 </p-table>
@@ -54,6 +76,6 @@
                     </div>
                 </div>
             </ng-container>
-            </div>
         </div>
+    </div>
 </div>

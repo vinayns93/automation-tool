@@ -25,8 +25,6 @@ login(user: User) {
       .subscribe((userData: User) => {
         if(userData.userName)
         if(userData.userId > 0){
-          if(userData.roleId == null)
-          userData.roleId = 2;
           localStorage.setItem('currentUser', JSON.stringify(userData));
           this.currentUserSubject.next(user);
           this.router.navigate(['admin/feature/']);
