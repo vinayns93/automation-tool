@@ -46,7 +46,7 @@
                         <tr>
                             <td class="center-align" style="width: 10em !important">
                                 <button pButton type="button" style="margin-right: 5px;" icon="pi pi-pencil" class="rounded-button edit-control" (click)="onRowEditInit(keywords.id, keywords.userId)"></button>
-                                <button pButton type="button" icon="pi pi-times" class="rounded-button delete-control" (click)="deleteKeyword(keywords.id)"></button>
+                                <button pButton type="button" icon="pi pi-times" class="rounded-button delete-control" (click)="deleteKeyword(keywords.id)" [disabled]="(globalService.currentUser.roleId == 2 ? true : false)"></button>
                             </td>
                             <td *ngFor="let col of tableColumns">
                                 {{keywords[col.field]}}

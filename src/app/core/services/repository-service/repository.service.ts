@@ -5,13 +5,22 @@ import { map, catchError } from 'rxjs/operators';
 import { Repository } from '../../models/repository/repository.model';
 import { environment } from '../../../../environments/environment';
 import { ToastrService } from 'ngx-toastr';
-import { GlobalService } from '..';
+import { GlobalService } from '../global/global.service';
 import { User } from '../../models/user/user';
 
 @Injectable({
   providedIn: 'root'
 })
 export class RepositoryService {
+
+
+  getLogicalNames(): Observable<string[]> {
+    return this.httpClient.get(this.apiUrl + '/Repository/GetAllLogicalNames')
+      .pipe(
+        map(res => res as string[]),
+        catchError(this.errorHandle)
+      );
+  }
 
   public apiUrl: string;
   public user: User;

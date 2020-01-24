@@ -40,16 +40,18 @@
                 </div>
                 <div class="row padding-bottom-1 align-items-center">
                     <div class="col-md-2 col-lg-2">
-                        <label for="ObjectLogicalName" class="pull-right">Object Logical Name</label>
+                        <label class="pull-right">Object Logical Name</label>
                     </div>
                     <div class="col-md-4 col-lg-4">
-                        <input type="ObjectLogicalName" name="ID" class="text form-control" formControlName="objectLogicalName">
+                        <p-dropdown #dd [options]="objLogicalNames" name="ObjectLogicalName"
+                         formControlName="objectLogicalName" ></p-dropdown>
                     </div>
                     <div class="col-md-2 col-lg-2">
                         <label for="Run" class="pull-right">Run</label>
                     </div>
                     <div class="col-md-4 col-lg-4">
-                        <input type="text" name="Run" class="text form-control" formControlName="run">
+                        <p-dropdown #dd [options]="runValues" name="exec" 
+                         formControlName="run"></p-dropdown>
                     </div>
                 </div>
                 

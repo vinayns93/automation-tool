@@ -3,7 +3,9 @@ import { Keywords } from '../../../../core/models';
 import { FormGroup, FormControl, Validators } from '@angular/forms';
 import { ActivatedRoute, Router } from '@angular/router';
 import { KeywordService } from '../../../../core/services/keywords-service/keyword.service';
-import { formatDate } from '@angular/common';
+import { RepositoryService } from '../../../../core/services/repository-service/repository.service';
+import { SelectItem } from 'primeng/api/selectitem';
+import { MultiSelectItem } from 'primeng/multiselect/public_api';
 
 @Component({
   selector: 'app-add-keyword',
@@ -12,15 +14,19 @@ import { formatDate } from '@angular/common';
 })
 export class AddKeywordComponent implements OnInit {
 
+  objLogicalNames: SelectItem[] = [];
+  options_LogicalName: any;
+  option_value: SelectItem;
+  runValues: any;
   keywords:Keywords;
   newKeywordObj: Keywords = new Keywords();
   keywordsForm = new FormGroup({
-    functionName:  new FormControl('', [Validators.required, Validators.pattern(/^[a-zA-Z0-9]+$/)]),
-    stepDescription:  new FormControl('', [Validators.required, Validators.pattern(/^[a-zA-Z0-9]+$/)]),
-    actionOrKeyword: new FormControl('', [Validators.required, Validators.pattern(/^[a-zA-Z0-9]+$/)]),
-    objectLogicalName: new FormControl('', [Validators.required, Validators.pattern(/^[a-zA-Z0-9]+$/)]),
-    run: new FormControl('', [Validators.required, Validators.pattern(/^[a-zA-Z0-9]+$/)]),
-    module: new FormControl('', [Validators.required, Validators.pattern(/^[a-zA-Z0-9]+$/)]),
+    functionName:  new FormControl('', [Validators.required]),
+    stepDescription:  new FormControl('', [Validators.required]),
+    actionOrKeyword: new FormControl('', [Validators.required]),
+    objectLogicalName: new FormControl(''),
+    run: new FormControl(''),
+    module: new FormControl(''),
     param1: new FormControl(''),
     param2: new FormControl(''),
     param3: new FormControl(''),
@@ -32,9 +38,32 @@ export class AddKeywordComponent implements OnInit {
     param9: new FormControl(''),
     param10: new FormControl('')
 });
-  constructor(private route:ActivatedRoute, private service:KeywordService,private router: Router) { }
+  constructor(private route:ActivatedRoute, private service:KeywordService,
+              private router: Router, public repositoryService: RepositoryService) { }
 
   ngOnInit() {
+    this.populatelogicalNames();
+    this.runValues = [
+      { label: 'Choose the run', value: 'Default'},
+      { label: 'YC', value: 'YC' },
+      { label: 'YS' , value: 'YS'},
+      { label: 'NO' , value: 'NO'}
+    ];
+  }
+
+  populatelogicalNames() {
+    this.repositoryService.getLogicalNames()
+      .subscribe((logicalNames) => {
+        this.objLogicalNames.push({label: 'Select Object Logical Name', value: ''});
+        if(logicalNames){
+          logicalNames.forEach(data => {
+            // this.option_value.label = data;
+            // this.option_value.value = data;
+            this.objLogicalNames.push({label: data, value: data});
+          });
+        }
+        return this.objLogicalNames;
+      });
   }
 
   onSubmit(){
