@@ -37,8 +37,7 @@
                                         <th *ngFor="let col of selectedBrowserControllerCols" [pSortableColumn]="col.field">
                                             {{col.header}}
                                             <p-sortIcon [field]="col.field"></p-sortIcon>
-                                        </th>
-                                        
+                                        </th>                                        
                                     </tr>
                                     <tr>
                                         <th></th>
@@ -62,7 +61,7 @@
                                                             icon="pi pi-pencil" class="rounded-button edit-control"
                                                             (click)="onRowEditBrowserController(controller3.id)"></button>
                                                         <button pButton type="button" icon="pi pi-times" class="rounded-button delete-control"
-                                                            (click)="deleteBrowserController(controller3.id)" [disabled]="(globalService.currentUser.roleId == 1 ? true : false)"></button>
+                                                            (click)="deleteBrowserController(controller3.id)" [disabled]="(globalService.currentUser.roleId == 2 ? true : false)"></button>
                                         </td>                          
                                         <td *ngFor="let col of selectedBrowserControllerCols">
                                                 {{controller3[col.field]}}

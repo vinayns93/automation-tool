@@ -19,13 +19,7 @@ export class AddBrowserControllerComponent implements OnInit {
     browser: new FormControl('', [Validators.required, Validators.pattern(/^[a-zA-Z0-9]+$/)]),
     exec: new FormControl(''),
   });
-  constructor(private featureService: FeatureService, private router: Router) {
-    this.execValues = [
-      { label: 'Choose the run', value: 'Default'},
-      { label: 'Y', value: 'Y' },
-      { label: 'N' , value: 'N'}
-    ];
-  }
+  constructor(private featureService: FeatureService, private router: Router) { }
 
   ngOnInit() {
     this.execValues = [
@@ -34,10 +28,6 @@ export class AddBrowserControllerComponent implements OnInit {
       { label: 'N' , value: 'N'}
     ];  
   }
-
-  ChangeExecType(event){
-    console.log(event);
- }
  
   onSubmit() {
     var self = this;

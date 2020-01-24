@@ -40,7 +40,7 @@ export class FeatureComponent implements OnInit {
   // Cards
   constructor(private router: Router,
     private confirmationDialogService: ConfirmationDialogService, 
-    private controllerservice: FeatureService, private globalService: GlobalService) { }
+    private controllerservice: FeatureService, public globalService: GlobalService) { }
 
   public hexToRGB(hex, alpha) {
     var r = parseInt(hex.slice(1, 3), 16),
