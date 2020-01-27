@@ -20,7 +20,7 @@ export class NavbarComponent implements OnInit {
     private sidebarVisible: boolean;
     public user: User;
     public isCollapsed = true;
-    private userRole:string;
+    public userRole:string;
 
     constructor(location: Location,  private element: ElementRef, private router: Router,
       public globalService: GlobalService, private authService: AuthService) {
