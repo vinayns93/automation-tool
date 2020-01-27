@@ -43,6 +43,7 @@ export class RepositoryComponent implements OnInit {
   }
 
   getRepositories() {
+    this.loading = true;
     this.service.getRepositories()
       .subscribe((result: Repository[]) => {
         this.repositories = [];

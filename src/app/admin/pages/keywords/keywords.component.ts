@@ -30,7 +30,7 @@ export class KeywordsComponent implements OnInit {
     self.columns = keywordsColumns;
     self.tableColumns = [];
     self.LoadAllKeywordsColumns();
-    self.globalService.SetCurrentTab('KEYWORD');
+    self.globalService.SetCurrentTab('KEYWORDS');
   }
 
   LoadAllKeywordsColumns() {
@@ -54,6 +54,7 @@ export class KeywordsComponent implements OnInit {
 
   getKeywords() {
     var self = this;
+    self.loading = true;
     self.service.getKeywords()
       .subscribe((result: Keywords[]) => {
         self.keywords = [];
