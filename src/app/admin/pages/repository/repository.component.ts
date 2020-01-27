@@ -18,22 +18,23 @@ export class RepositoryComponent implements OnInit {
   loading: boolean = false;
   tableColumns: any[];
   columns: SelectItem[];
-  selectedRepositoryCols : SelectItem[];
+  selectedRepositoryCols: SelectItem[];
+  selectedRepositoryRows: Repository[];
 
-  @ViewChild(Table, {static: false}) dt: Table;
-  
-  constructor(private service: RepositoryService,private router:Router,
-    private globalService: GlobalService){ }
+  @ViewChild(Table, { static: false }) dt: Table;
+
+  constructor(private service: RepositoryService, private router: Router,
+    private globalService: GlobalService) { }
 
   ngOnInit(): void {
     var self = this;
-    self.selectedRepositoryCols=[];
+    self.selectedRepositoryCols = [];
     self.columns = repositoryColumns;
     self.getRepositories();
     self.LoadAllRepositoryColumns();
     self.globalService.SetCurrentTab('REPOSITORY');
   }
-  
+
   LoadAllRepositoryColumns() {
     this.selectedRepositoryCols = [];
     repositoryColumns.forEach(column => {
@@ -41,36 +42,42 @@ export class RepositoryComponent implements OnInit {
     });
   }
 
-  getRepositories(){
+  getRepositories() {
     this.service.getRepositories()
-    .subscribe((result: Repository[])=>{
-      this.repositories = [];
-        if(result.length > 0){
+      .subscribe((result: Repository[]) => {
+        this.repositories = [];
+        if (result.length > 0) {
           result.filter(browserItem => {
-            browserItem.statusID == 0 ? this.repositories.push(browserItem) 
-              : null ;
+            browserItem.statusID == 0 ? this.repositories.push(browserItem)
+              : null;
           });
         }
         this.dt.reset();
         this.loading = false;
-    },
-     error =>{
-       console.log(error.message);
-     },
-     ()=>{ })
+      },
+        error => {
+          console.log(error.message);
+        },
+        () => { })
   }
 
-  deleteRepository(id:number){
-    if(confirm("Are you sure to delete?")) {
+  deleteRepository(id: number) {
+    if (confirm("Are you sure to delete?")) {
       this.service.deleteRepository(id);
-       setTimeout(f=>{
-         this.getRepositories();
-       },2200)
+      setTimeout(f => {
+        this.getRepositories();
+      }, 2200)
     }
   }
 
-  onRowEditInit(id:number,  userId: number){
+  onRowEditInit(id: number, userId: number) {
     this.router.navigate(['admin/repository/edit', id, 123]);
   }
-  
+  onRowSelect(event) {
+    console.log(event);
+  }
+
+  onRowUnselect(event) {
+    console.log(event);
+  }
 }

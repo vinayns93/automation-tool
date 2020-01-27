@@ -1,4 +1,5 @@
 export const moduleControllerColumns: any[] = [
+    { label: 'Actions', value: { field: 'actions', header: 'Actions'} },
     { label: 'ID', value: { field: 'id', header: 'ID' } },
     // { label: 'SL NO', value: { field: 'slno', header: 'SLNO'} },
     { label: 'Module ID', value: { field: 'moduleID', header: 'Module ID' } },
@@ -16,6 +17,7 @@ export const moduleControllerColumns: any[] = [
 ];
 
 export const testControllerColumns: any[] = [
+    { label: 'Actions', value: { field: 'actions', header: 'Actions'} },
     { label: 'ID', value: { field: 'id', header: 'ID' } },
     // { label: 'SL NO', value: { field: 'sNo', header: 'SLNO'} },
     { label: 'Feature ID', value: { field: 'featureID', header: 'Feature ID' } },
@@ -37,6 +39,7 @@ export const testControllerColumns: any[] = [
 ];
 
 export const browserControllerColumns: any[] = [
+    { label: 'Actions', value: { field: 'actions', header: 'Actions'} },
     { label: 'ID', value: { field: 'id', header: 'ID' } },
     { label: 'VMID', value: { field: 'vmid', header: 'VMID'} },
     { label: 'Browser', value: { field: 'browser', header: 'Browser' } },
