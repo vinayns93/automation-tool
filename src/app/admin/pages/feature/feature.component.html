@@ -34,7 +34,7 @@
                                                 <p-tableHeaderCheckbox></p-tableHeaderCheckbox>
                                             </th>
                                             <th *ngFor="let col of selectedBrowserControllerCols"
-                                                [pSortableColumn]="col.field" style="width: 150px;">
+                                                [pSortableColumn]="col.field" style="width: 200px;">
                                                 {{col.header}}
                                                 <p-sortIcon [field]="col.field"></p-sortIcon>
                                             </th>
@@ -59,16 +59,16 @@
                                             <td style="width: 4em;">
                                                 <p-tableCheckbox [value]="rowData"></p-tableCheckbox>
                                             </td>
-                                            <td *ngFor="let col of selectedBrowserControllerCols" style="width: 150px;">
+                                            <td *ngFor="let col of selectedBrowserControllerCols" style="width: 200px;">
                                                 <ng-container *ngIf="col.field == 'actions'">
-                                                    <button pButton type="button"
-                                                        style="margin-right: 5px;background-color: #100699 !important;border-color: #100699 !important;"
-                                                        icon="pi pi-pencil" class="rounded-button edit-control"
-                                                        (click)="onRowEditBrowserController(controller3.id)"></button>
-                                                    <button pButton type="button" icon="pi pi-times"
-                                                        class="rounded-button delete-control"
-                                                        (click)="deleteBrowserController(controller3.id)"
-                                                        [disabled]="(globalService.currentUser.roleId == 2 ? true : false)"></button>
+                                                    <button class="edit-btn"
+                                                        (click)="onRowEditBrowserController(controller3.id)">
+                                                        <i class="fa fa-pencil"></i>
+                                                    </button>
+                                                    <button class="delete-btn" (click)="deleteBrowserController(controller3.id)"
+                                                        [disabled]="(globalService.currentUser.roleId == 2 ? true : false)">
+                                                        <i class="fa fa-close"></i>
+                                                    </button>
                                                 </ng-container>
                                                 <ng-container *ngIf="col.field != 'actions'">
                                                     {{controller3[col.field]}}
@@ -121,7 +121,7 @@
                                                 <p-tableHeaderCheckbox></p-tableHeaderCheckbox>
                                             </th>
                                             <th *ngFor="let col of selectedModuleControllerCols"
-                                                [pSortableColumn]="col.field" style="width: 150px;">
+                                                [pSortableColumn]="col.field" style="width: 200px;">
                                                 {{col.header}}
                                                 <p-sortIcon [field]="col.field"></p-sortIcon>
                                             </th>
@@ -153,16 +153,16 @@
                                             <td style="width: 4em;">
                                                 <p-tableCheckbox [value]="rowData"></p-tableCheckbox>
                                             </td>
-                                            <td *ngFor="let col of selectedModuleControllerCols" style="width: 150px;">
+                                            <td *ngFor="let col of selectedModuleControllerCols" style="width: 200px;">
                                                 <ng-container *ngIf="col.field == 'actions'">
-                                                    <button pButton type="button"
-                                                        style="margin-right: 5px;background-color: #100699 !important;border-color: #100699 !important;"
-                                                        icon="pi pi-pencil" class="edit-control rounded-button"
-                                                        (click)="onRowEditModuleController(controller1.id)"></button>
-                                                    <button pButton type="button" icon="pi pi-times"
-                                                        class="delete-control rounded-button"
-                                                        (click)="deleteModuleController(controller1.id)"
-                                                        [disabled]="(globalService.currentUser.roleId == 2 ? true : false)"></button>
+                                                    <button class="edit-btn"
+                                                        (click)="onRowEditModuleController(controller1.id)">
+                                                        <i class="fa fa-pencil"></i>
+                                                    </button>
+                                                    <button class="delete-btn" (click)="deleteModuleController(controller1.id)"
+                                                        [disabled]="(globalService.currentUser.roleId == 2 ? true : false)">
+                                                        <i class="fa fa-close"></i>
+                                                    </button>
                                                 </ng-container>
                                                 <ng-container *ngIf="col.field != 'actions'">
                                                     {{controller1[col.field]}}
@@ -214,7 +214,7 @@
                                                 <p-tableHeaderCheckbox></p-tableHeaderCheckbox>
                                             </th>
                                             <th *ngFor="let col of selectedTestControllerCols"
-                                                [pSortableColumn]="col.field" style="width: 150px;">
+                                                [pSortableColumn]="col.field" style="width: 200px;">
                                                 {{col.header}}
                                                 <p-sortIcon [field]="col.field"></p-sortIcon>
                                             </th>
@@ -264,16 +264,15 @@
                                             <td style="width: 4em;">
                                                 <p-tableCheckbox [value]="rowData"></p-tableCheckbox>
                                             </td>
-                                            <td *ngFor="let col of selectedTestControllerCols" style="width: 150px;">
+                                            <td *ngFor="let col of selectedTestControllerCols" style="width: 200px;">
                                                 <ng-container *ngIf="col.field == 'actions'">
-                                                    <button pButton type="button"
-                                                        style="margin-right: 5px;background-color: #100699 !important;border-color: #100699 !important;"
-                                                        icon="pi pi-pencil" class="edit-control rounded-button"
-                                                        (click)="onRowEditTestController(controller2.id)"></button>
-                                                    <button pButton type="button" icon="pi pi-times"
-                                                        class="delete-control rounded-button"
-                                                        (click)="deleteTestController(controller2.id)"
-                                                        [disabled]="(globalService.currentUser.roleId == 2 ? true : false)"></button>
+                                                    <button class="edit-btn" (click)="onRowEditTestController(controller2.id)">
+                                                        <i class="fa fa-pencil"></i>
+                                                    </button>
+                                                    <button class="delete-btn" (click)="deleteTestController(controller2.id)"
+                                                        [disabled]="(globalService.currentUser.roleId == 2 ? true : false)">
+                                                        <i class="fa fa-close"></i>
+                                                    </button>
                                                 </ng-container>
                                                 <ng-container *ngIf="col.field != 'actions'">
                                                     {{controller2[col.field]}}
