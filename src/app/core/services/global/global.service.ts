@@ -19,6 +19,11 @@ export class GlobalService {
   public recordsModified;
   public feedData: string[] = [];
   currentUser: User;
+  featureRecordsCount: number;
+  keywordRecordsCount: number;
+  repositoryRecordsCount: number;
+  testScriptsRecordsCount: number;
+  testDataRecordsCount: number;
   
   constructor(private httpClient: HttpClient) { 
     this.apiUrl = environment.APIURL;
@@ -26,6 +31,11 @@ export class GlobalService {
     this.recordsModified = 0;
     this.feedData.push("No Activity Recorded");
     this.currentUser = JSON.parse(localStorage.getItem('currentUser'));
+    this.featureRecordsCount = 0;
+    this.keywordRecordsCount = 0;
+    this.repositoryRecordsCount = 0;
+    this.testScriptsRecordsCount = 0;
+    this.testDataRecordsCount = 0;
   }
 
 
@@ -78,6 +88,109 @@ export class GlobalService {
     return this.httpClient.get(this.apiUrl+'/Dashboard/GetLatestFeeds/')
                .pipe(
                  map(res=>res as string[]),
+                 catchError(this.errorHandle)
+               );
+  }
+
+  setFeatureRecordsCount(){
+    let moduleCount: number = 0;
+    let testCount: number = 0;
+    let browserCount: number = 0;
+    this.getModuleRecordsCount()
+      .subscribe((moduleCountResult) => {
+        moduleCount = moduleCountResult;
+        this.getBrowserRecordsCount()
+          .subscribe((browserCountResult) => {
+            browserCount = browserCountResult;
+            this.getTestRecordsCount()
+              .subscribe((testCountResult) => {
+                testCount = testCountResult;
+                this.featureRecordsCount = moduleCountResult + browserCountResult + testCountResult
+              });
+          });
+      });
+  }
+
+  setKeywordsRecordsCount(){
+    this.getKeywordsCount()
+      .subscribe((keywordsCountResult) => {
+        this.keywordRecordsCount = keywordsCountResult;
+      });
+  }
+
+  setRepositoryRecordsCount(){
+    this.getRepositoryCount()
+      .subscribe((repositoryCountResult) => {
+        this.repositoryRecordsCount = repositoryCountResult;
+      });
+  }
+
+  setTestDataRecordsCount(){
+    this.getTestDataCount()
+      .subscribe((testDataCountResult) => {
+        this.testDataRecordsCount = testDataCountResult;
+      });
+  }
+
+  setTestScriptsRecordsCount(){
+    this.getTestScriptsCount()
+      .subscribe((testScriptsCountResult) => {
+        this.testScriptsRecordsCount = testScriptsCountResult;
+      });
+  }
+
+  getModuleRecordsCount():Observable<number>{
+    return this.httpClient.get(this.apiUrl+'/Feature/GetModuleRecordsCount/')
+               .pipe(
+                 map(res=>res as number),
+                 catchError(this.errorHandle)
+               );
+  }
+
+  getTestRecordsCount():Observable<number>{
+    return this.httpClient.get(this.apiUrl+'/Feature/GetTestControllerRecordsCount/')
+               .pipe(
+                 map(res=>res as number),
+                 catchError(this.errorHandle)
+               );
+  }
+
+  getBrowserRecordsCount():Observable<number>{
+    return this.httpClient.get(this.apiUrl+'/Feature/GetBrowserRecordsCount/')
+               .pipe(
+                 map(res=>res as number),
+                 catchError(this.errorHandle)
+               );
+  }
+
+  getKeywordsCount():Observable<number>{
+    return this.httpClient.get(this.apiUrl+'/Keywords/GetRecordsCount/')
+               .pipe(
+                 map(res=>res as number),
+                 catchError(this.errorHandle)
+               );
+  }
+
+  getRepositoryCount():Observable<number>{
+    return this.httpClient.get(this.apiUrl+'/Repository/GetRecordsCount/')
+               .pipe(
+                 map(res=>res as number),
+                 catchError(this.errorHandle)
+               );
+  }
+
+  getTestDataCount():Observable<number>{
+    return this.httpClient.get(this.apiUrl+'/TestData/GetRecordsCount/')
+               .pipe(
+                 map(res=>res as number),
+                 catchError(this.errorHandle)
+               );
+  }
+
+  getTestScriptsCount():Observable<number>{
+    return this.httpClient.get(this.apiUrl+'/TestScripts/GetRecordsCount/')
+               .pipe(
+                 map(res=>res as number),
                  catchError(this.errorHandle)
                );
   }

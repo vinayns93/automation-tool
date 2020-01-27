@@ -1,6 +1,6 @@
 <div class="container-fluid">
   <div class="row align-items-center" style="padding-top: 1em;">
-    <div class="col-1"></div>
+    
     <div class="col-2">
       <div class="row">
         <div class="col-12">
@@ -17,7 +17,7 @@
             <div class="col-6" style="text-align: left;padding-left: 0px;">
               <div class="row">
                 <div class="col-12">
-                  <span class="card-number blue-card-number">8768</span>
+                  <span class="card-number blue-card-number">{{globalService.repositoryRecordsCount}}</span>
                   </div>
                   <div class="col-12">
                     <span class="card-subtitle blue-card-text-color">Number of Records</span>
@@ -46,7 +46,7 @@
             <div class="col-6" style="text-align: left;padding-left: 0px;">
               <div class="row">
                 <div class="col-12">
-                  <span class="card-number green-card-text-color">5546</span>
+                  <span class="card-number green-card-text-color">{{globalService.keywordRecordsCount}}</span>
                   </div>
                   <div class="col-12">
                     <span class="card-subtitle green-card-text-color">Number of Records</span>
@@ -75,7 +75,7 @@
             <div class="col-6" style="text-align: left;padding-left: 0px;">
               <div class="row">
                 <div class="col-12">
-                  <span class="card-number red-card-text-color">8768</span>
+                  <span class="card-number red-card-text-color">{{globalService.featureRecordsCount}}</span>
                   </div>
                   <div class="col-12">
                     <span class="card-subtitle red-card-text-color">Number of Records</span>
@@ -104,7 +104,7 @@
             <div class="col-6" style="text-align: left;padding-left: 0px;">
               <div class="row">
                 <div class="col-12">
-                  <span class="card-number yellow-card-text-color">665</span>
+                  <span class="card-number yellow-card-text-color">{{globalService.testScriptsRecordsCount}}</span>
                   </div>
                   <div class="col-12">
                     <span class="card-subtitle yellow-card-text-color">Number of Records</span>
@@ -133,7 +133,7 @@
             <div class="col-6" style="text-align: left;padding-left: 0px;">
               <div class="row">
                 <div class="col-12">
-                  <span class="card-number purple-card-text-color">7765</span>
+                  <span class="card-number purple-card-text-color">{{globalService.testDataRecordsCount}}</span>
                   </div>
                   <div class="col-12">
                     <span class="card-subtitle purple-card-text-color">Number of Records</span>
@@ -146,7 +146,33 @@
         </div>
       </div>
     </div>
-    <div class="col-1"></div>
+    <div class="col-2">
+      <div class="row">
+        <div class="col-12">
+          <div class="card-container turquoise-card">
+            <div class="row align-items-center" style="padding-top: 3px">
+              <div class="col-12">
+                <span class="card-name turquoise-card-text-color">USER ACTIVITY</span>
+              </div>
+            </div>
+            <div class="row align-items-end" style="padding-bottom: 7px;">
+              <div class="col-6" style="text-align: center;">
+                <i class="fa fa-user-circle card-icon turquoise-card-icon"></i>
+              </div>
+              <div class="col-6" style="text-align: left;padding-left: 0px;">
+                <div class="row">
+                  <div class="col-12">
+                    <span class="card-number turquoise-card-text-color">7765</span>
+                    </div>
+                    <div class="col-12">
+                      <span class="card-subtitle turquoise-card-text-color">Number of Records</span>
+                      </div>
+                    </div>
+              </div>
+              
+            </div>
+            </div>
+    </div>
       
       
       

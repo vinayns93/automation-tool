@@ -18,6 +18,11 @@ export class HeaderCardComponent implements OnInit {
     this.globalService.updateLatestFeeds();
     this.globalService.updateRecordsModified();
     this.today = formatDate(new Date(), 'dd/MMM/yyyy', 'en').toString();
+    this.globalService.setFeatureRecordsCount();
+    this.globalService.setKeywordsRecordsCount();
+    this.globalService.setRepositoryRecordsCount();
+    this.globalService.setTestScriptsRecordsCount();
+    this.globalService.setTestDataRecordsCount();
   }
 }
 
