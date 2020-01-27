@@ -1,4 +1,4 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, OnInit, ViewEncapsulation } from '@angular/core';
 import { Router } from '@angular/router';
 import { TestScriptsService } from '../../../core/services/test-scripts/testscripts.service';
 import { TestScript } from '../../../core/models';
@@ -10,7 +10,8 @@ import { GlobalService } from '../../../core';
   selector: 'app-test-scripts',
   templateUrl: './test-scripts.component.html',
   styleUrls: ['./test-scripts.component.scss'],
-  providers:[TestScriptsService]
+  providers:[TestScriptsService],
+  encapsulation: ViewEncapsulation.None
 })
 export class TestScriptsComponent implements OnInit {
 

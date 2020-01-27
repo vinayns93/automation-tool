@@ -25,51 +25,68 @@
                     [autoLayout]="true">
                     <ng-template pTemplate="colgroup" let-columns>
                         <colgroup>
-                            <col *ngFor="let col of columns" style="width:200px">
+                            <col *ngFor="let col of columns" style="width:160px">
                         </colgroup>
                     </ng-template>
                     <ng-template pTemplate="header">
                         <tr>
-                            <th *ngFor="let col of tableColumns" [pSortableColumn]="col.field">
+                            <th *ngFor="let col of tableColumns" [pSortableColumn]="col.field" style="text-align: center;">
                                 {{col.header}}
                                 <p-sortIcon [field]="col.field"></p-sortIcon>
                             </th>
-                            <th>Actions</th>
+                            <th style="text-align: center;">Actions</th>
                         </tr>
                         <tr>
-                            <th *ngFor="let col of tableColumns" [ngSwitch]="col.field">
-                                <input *ngSwitchCase="'id'" pInputText type="text"
+                            <th *ngFor="let col of tableColumns" [ngSwitch]="col.field" style="text-align: center;">
+                                <input style="width: 100%;" *ngSwitchCase="'id'" pInputText type="text"
                                     (input)="tt.filter($event.target.value, col.field, 'contains')">
-                                <input *ngSwitchCase="'testCaseID'" pInputText type="text"
+                                <input style="width: 100%;" *ngSwitchCase="'testCaseID'" pInputText type="text"
                                     (input)="tt.filter($event.target.value, col.field, 'contains')">
-                                <input *ngSwitchCase="'tcStepID'" pInputText type="text"
+                                <input style="width: 100%;" *ngSwitchCase="'tcStepID'" pInputText type="text"
                                     (input)="tt.filter($event.target.value, col.field, 'contains')">
-                                <input *ngSwitchCase="'testScriptName'" pInputText type="text"
+                                <input style="width: 100%;" *ngSwitchCase="'testScriptName'" pInputText type="text"
                                     (input)="tt.filter($event.target.value, col.field, 'contains')">
-                                <input *ngSwitchCase="'functionDescription'" pInputText type="text"
+                                <input style="width: 100%;" *ngSwitchCase="'functionDescription'" pInputText type="text"
                                     (input)="tt.filter($event.target.value, col.field, 'contains')">
-                                <input *ngSwitchCase="'functionName'" pInputText type="text"
+                                <input style="width: 100%;" *ngSwitchCase="'functionName'" pInputText type="text"
                                     (input)="tt.filter($event.target.value, col.field, 'contains')">
-                                <input *ngSwitchCase="'module'" pInputText type="text"
+                                <input style="width: 100%;" *ngSwitchCase="'module'" pInputText type="text"
                                     (input)="tt.filter($event.target.value, col.field, 'contains')">
-                                <input *ngSwitchCase="'run'" pInputText type="text"
+                                <input style="width: 100%;" *ngSwitchCase="'run'" pInputText type="text"
                                     (input)="tt.filter($event.target.value, col.field, 'contains')">
                             </th>
                         </tr>
                     </ng-template>
                     <ng-template pTemplate="body" let-testscripts>
                         <tr>
-                            <td *ngFor="let col of tableColumns">
+                            <td *ngFor="let col of tableColumns" style="text-align: center;">
                                 <ng-container *ngIf="col.field == 'actions'">
-                                    <button pButton type="button" style="margin-right: 5px;" icon="pi pi-pencil"
-                                        class="rounded-button edit-control"
-                                        (click)="onRowEditInit(testscripts.id)"></button>
+                                    <button class="edit-btn"  (click)="onRowEditInit(testscripts.id)">
+                                        <i class="fa fa-pencil"></i>
+                                    </button>
+                                    <button class="delete-btn" (click)="deleteScript(testscripts.id)"
+                                    disabled>
+                                        <i class="fa fa-close"></i>
+                                    </button>
+                                    <!-- <button pButton type="button" style="margin-right: 5px;" icon="pi pi-pencil"
+                                    class="rounded-button edit-control"  (click)="onRowEditInit(testscripts.id)"></button>
                                     <button pButton type="button" icon="pi pi-times"
                                         class="rounded-button delete-control" (click)="deleteScript(testscripts.id)"
-                                        disabled></button>
+                                        disabled></button> -->
                                 </ng-container>
                                 <ng-container *ngIf="col.field != 'actions'">
-                                    {{testscripts[col.field]}}
+
+                                    <div class="tooltip-ex" *ngIf="testscripts[col.field].length > 10">
+                                        <span style="color: black !important;">{{(testscripts[col.field]).substring(0, 9)}}...</span>
+                                        <span class="tooltip-ex-text">
+                                            <span style="color: black;">{{testscripts[col.field]}}</span>
+                                        </span>
+                                    </div>
+                                    <div *ngIf="testscripts[col.field].length < 10">
+                                        {{testscripts[col.field]}}
+                                    </div>
+                                    
+                                    
                                 </ng-container>
                             </td>
                         </tr>

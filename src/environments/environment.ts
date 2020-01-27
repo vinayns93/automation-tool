@@ -5,6 +5,6 @@
 
 export const environment = {
   production: false,
-  //APIURL: "http://w1d01-qrweb01.mediconnect.net:8600/api",
-  APIURL: "http://ec2-13-232-15-45.ap-south-1.compute.amazonaws.com/api"
+  //APIURL: "http://ec2-13-127-136-138.ap-south-1.compute.amazonaws.com//api",
+  APIURL: "http://ec2-13-127-136-138.ap-south-1.compute.amazonaws.com/api"
 };

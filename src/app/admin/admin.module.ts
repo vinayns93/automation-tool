@@ -30,6 +30,7 @@ import { EditTestDataComponent } from './pages/test-data/edit-test-data/edit-tes
 import { AddModuleControllerComponent } from './pages/feature/module-controller/add-module-controller/add-module-controller.component';
 import { AddTestControllerComponent } from './pages/feature/test-controller/add-test-controller/add-test-controller.component';
 import { AddBrowserControllerComponent } from './pages/feature/browser-controller/add-browser-controller/add-browser-controller.component';
+import { MatButtonModule, MatIconModule } from '@angular/material';
 
 @NgModule({
   declarations: [
@@ -64,7 +65,9 @@ import { AddBrowserControllerComponent } from './pages/feature/browser-controlle
     ReactiveFormsModule,
     FormsModule,
     TabViewModule,
-    DropdownModule
+    DropdownModule,
+    MatButtonModule,
+    MatIconModule
   ],
   schemas: [
     CUSTOM_ELEMENTS_SCHEMA
