@@ -5,6 +5,7 @@ import { Router } from '@angular/router';
 import { NgbCollapse } from '@ng-bootstrap/ng-bootstrap';
 import { GlobalService } from '../../../core/services/global/global.service';
 import { AuthService } from '../../../core';
+import { User } from '../../../core/models/user/user';
 
 @Component({
   selector: 'app-navbar',
@@ -17,13 +18,15 @@ export class NavbarComponent implements OnInit {
       mobile_menu_visible: any = 0;
     private toggleButton: any;
     private sidebarVisible: boolean;
-
+    public user: User;
     public isCollapsed = true;
+    private userRole:string;
 
     constructor(location: Location,  private element: ElementRef, private router: Router,
       public globalService: GlobalService, private authService: AuthService) {
       this.location = location;
           this.sidebarVisible = false;
+          this.user = JSON.parse(localStorage.getItem('currentUser'));
     }
 
     ngOnInit(){
@@ -38,6 +41,7 @@ export class NavbarComponent implements OnInit {
            this.mobile_menu_visible = 0;
          }
      });
+      this.userRole = (this.globalService.currentUser.roleId == 1) ? "ADMIN" : "USER"
     }
 
     collapse(){

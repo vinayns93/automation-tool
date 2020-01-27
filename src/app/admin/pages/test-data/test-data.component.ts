@@ -84,6 +84,7 @@ export class TestDataComponent implements OnInit {
 
   getAllTestdata() {
     var self = this;
+    self.loading = true;
     self.service.getAllTestData()
     .subscribe((result: TestData[])=>{
       self.testData = result;

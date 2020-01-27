@@ -58,6 +58,8 @@ export class TestScriptsComponent implements OnInit {
 
   getTestScripts(){
     var self = this;
+    self.loading = true;
+
     self.service.getTestScripts()
     .subscribe((result: TestScript[])=>{
       self.testscripts = [];
