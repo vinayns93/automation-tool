@@ -7,10 +7,10 @@
       <div class="col-lg-5 col-md-5" style="padding-left:3em;">
         <span>{{getTitle()}}</span>
       </div>
-      <div class="col-lg-5 col-md-5" style="text-align: right;">
+      <div class="col-lg-5 col-md-8" style="text-align: right;">
         <span>User Details: </span>
         <span>{{globalService.currentUser.userName}} | {{globalService.currentUser.userId}} | {{userRole}}</span>
-        <mat-icon style="color: #005799;font-size: 2em;" aria-hidden="false" aria-label="Example delete icon">
+        <mat-icon style="color: #005799;font-size: 1.2em; padding-left: 3em;" (click)="logout()"aria-hidden="false" aria-label="Example delete icon">
           power_settings_new</mat-icon>
       </div>
     </div>
