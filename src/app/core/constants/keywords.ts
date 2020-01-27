@@ -1,4 +1,5 @@
 export const keywordsColumns: any[] = [
+    { label: 'Actions', value: { field: 'actions', header: 'Actions'} },
     { label: 'ID', value: { field: 'id', header: 'ID' } },
     { label: 'Function Name', value: { field: 'functionName', header: 'Function Name' } },
     { label: 'Step Description', value: { field: 'stepDescription', header: 'Step Description' } },

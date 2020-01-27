@@ -60,14 +60,14 @@
                             </td>
                             <td *ngFor="let col of selectedRepositoryCols" style="width: 150px;">
                                 <ng-container *ngIf="col.field == 'actions'">
-                                    <button pButton type="button"
-                                        style="background-color: #100699 !important;border-color: #100699 !important;margin-right: 5px;"
-                                        icon="pi pi-pencil" class="edit-control rounded-button"
-                                        (click)="onRowEditInit(repositories.id, repositories.userId)"></button>
-                                    <button pButton type="button" icon="pi pi-times"
-                                        class="delete-control rounded-button"
+                                    <button class="edit-btn" (click)="onRowEditInit(repositories.id, repositories.userId)">
+                                        <i class="fa fa-pencil"></i>
+                                    </button>
+                                    <button class="delete-btn" (click)="deleteScript(testscripts.id)"                                    
                                         (click)="deleteRepository(repositories.id)"
-                                        [disabled]="(globalService.currentUser.roleId == 2 ? true : false)"></button>
+                                        [disabled]="(globalService.currentUser.roleId == 2 ? true : false)">
+                                        <i class="fa fa-close"></i>
+                                    </button>
                                 </ng-container>
                                 <ng-container *ngIf="col.field != 'actions'">
                                     {{repositories[col.field]}}
