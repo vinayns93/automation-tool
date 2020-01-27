@@ -1,4 +1,4 @@
-
+<!-- 
 <nav class="navbar navbar-expand-lg navbar-transparent  navbar-absolute bg-primary fixed-top" style="padding-top: 3px;padding-bottom: 3px;">
     <div class="container-fluid">
       <div class="row align-items-center" style="width: 100% !important;">
@@ -15,4 +15,22 @@
           </div>
         </div>
         </div>
-</nav>
+</nav> -->
+
+<mat-toolbar>
+  <div class="container-fluid">
+    <div class="row align-items-center">
+      <div class="col-lg-2 col-md-2">
+          <i class="fa fa-bars fa-2x" (click)="globalService.opened = !globalService.opened"></i>
+      </div>
+      <div class="col-lg-5 col-md-5">
+        <span>{{getTitle()}}</span>
+      </div>
+      <div class="col-lg-5 col-md-5" style="text-align: right;">
+        <mat-icon style="padding-right: 2em;color: #005799;font-size: 2em;"  aria-hidden="false" aria-label="Example heart icon">supervised_user_circle</mat-icon>
+        <mat-icon style="padding-right: 2em;color: #005799;font-size: 2em;" aria-hidden="false" aria-label="Example delete icon">power_settings_new</mat-icon>
+      </div>
+    </div>
+  </div>
+</mat-toolbar>
+

@@ -119,3 +119,13 @@ p-table .ui-paginator {
    .tooltip-ex:hover .tooltip-ex-text { /* Makes tooltip text visible when text is hovered on */
     visibility: visible;
    }
+
+   p-table .ui-table .ui-table-tbody > tr.ui-state-highlight {
+    background: #ccf5ff;
+    color: black;
+   }
+
+   p-table .ui-table .ui-table-tbody > tr:nth-child(even).ui-state-highlight {
+    background: #ccf5ff !important;
+    color: black !important;
+   }

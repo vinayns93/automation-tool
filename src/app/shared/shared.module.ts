@@ -3,7 +3,7 @@ import { CommonModule } from '@angular/common';
 import {  NavbarComponent, SidebarComponent, HeaderCardComponent } from './components';
 
 import { ChartsModule } from 'ng2-charts/ng2-charts'
-import { MatSidenavModule } from '@angular/material';
+import { MatSidenavModule, MatToolbarModule, MatIconModule } from '@angular/material';
 import { NgbModule } from '@ng-bootstrap/ng-bootstrap';
 import { RouterModule } from '@angular/router';
 import { TableModule } from 'primeng/table';
@@ -23,7 +23,9 @@ import { PageFooterComponent } from './components/page-footer/page-footer.compon
     NgbModule,
     RouterModule,
     ChartsModule,
-    TableModule
+    TableModule,
+    MatToolbarModule,
+    MatIconModule
   ],
   exports: [
     
