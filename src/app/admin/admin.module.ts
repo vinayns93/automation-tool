@@ -7,7 +7,9 @@ import { MultiSelectModule } from 'primeng/multiselect';
 import { TableModule } from 'primeng/table';
 import { TabViewModule } from 'primeng/tabview';
 import { ButtonModule } from 'primeng/button';
-import {DropdownModule} from 'primeng/dropdown';
+import { DropdownModule } from 'primeng/dropdown';
+import { MenuModule } from 'primeng/menu';
+import { TooltipModule } from 'primeng/tooltip';
 
 import { adminRoutes } from './admin-routing.module';
 import { SharedModule } from '../shared';
@@ -67,7 +69,9 @@ import { MatButtonModule, MatIconModule } from '@angular/material';
     TabViewModule,
     DropdownModule,
     MatButtonModule,
-    MatIconModule
+    MatIconModule,
+    MenuModule,
+    TooltipModule
   ],
   schemas: [
     CUSTOM_ELEMENTS_SCHEMA

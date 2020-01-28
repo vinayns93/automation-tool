@@ -79,9 +79,9 @@ th {
   }
 
   p-table .ui-table .ui-table-thead > tr > th {
-    color: #FFFFFF !important;
-    border-color: #FFFFFF !important;
-    background: #007ad9 !important;
+    color: #007ad9 !important;
+    border-color: #0075D0 !important;
+    background: #B3DEFF !important;
 }
 
 p-table .ui-table .ui-table-tbody > tr:nth-child(even) {
@@ -89,7 +89,7 @@ p-table .ui-table .ui-table-tbody > tr:nth-child(even) {
 }
 
 p-table .ui-table .ui-sortable-column .ui-sortable-column-icon {
-    color: white !important;
+    color: #007ad9 !important;
 }
 
 p-table .ui-paginator {
@@ -129,3 +129,19 @@ p-table .ui-paginator {
     background: #ccf5ff !important;
     color: black !important;
    }
+
+   .tooltipStyle {
+    background-color: var(--backgroud_white);
+    min-width: 10%;
+    max-width: 10%;
+    height: auto;
+  }
+  
+   .tooltipStyle > .ui-tooltip-text.ui-shadow.ui-corner-all {
+      background-color: #e1eaf2;
+      color: #000;
+      white-space: pre-wrap;
+      overflow-wrap: break-word;
+      font-size: 14px;
+      font-family: 'Lato', sans-serif;
+    }

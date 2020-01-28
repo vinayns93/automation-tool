@@ -2,7 +2,7 @@
     <div class="row align-items-center" style="padding-top: 2em; padding-bottom: 2em;">
         <div class="col-md-4 col-lg-4">
             <button class="btn btn-primary pull-left" style="margin-right:27px; font-size: 0.5rem;"
-            [routerLink]="['/admin/repository/add']">
+                [routerLink]="['/admin/repository/add']">
                 <i class="now-ui-icons ui-1_simple-add"></i>ADD NEW REPOSITORY</button>
         </div>
         <div class="col-md-4 col-lg-4 right-align"></div>
@@ -26,7 +26,8 @@
                             <th style="width: 4em;">
                                 <p-tableHeaderCheckbox></p-tableHeaderCheckbox>
                             </th>
-                            <th *ngFor="let col of selectedRepositoryCols" [pSortableColumn]="col.field" style="width: 150px;">
+                            <th *ngFor="let col of selectedRepositoryCols" [pSortableColumn]="col.field"
+                                style="width: 150px;">
                                 {{col.header}}
                                 <p-sortIcon [field]="col.field"></p-sortIcon>
                             </th>
@@ -60,17 +61,25 @@
                             </td>
                             <td *ngFor="let col of selectedRepositoryCols" style="width: 150px;">
                                 <ng-container *ngIf="col.field == 'actions'">
-                                    <button class="edit-btn" (click)="onRowEditInit(repositories.id, repositories.userId)">
+                                    <button class="edit-btn"
+                                        (click)="onRowEditInit(repositories.id, repositories.userId)">
                                         <i class="fa fa-pencil"></i>
                                     </button>
-                                    <button class="delete-btn" (click)="deleteScript(testscripts.id)"                                    
+                                    <button class="delete-btn" (click)="deleteScript(testscripts.id)"
                                         (click)="deleteRepository(repositories.id)"
                                         [disabled]="(globalService.currentUser.roleId == 2 ? true : false)">
                                         <i class="fa fa-close"></i>
                                     </button>
                                 </ng-container>
                                 <ng-container *ngIf="col.field != 'actions'">
-                                    {{repositories[col.field]}}
+                                    <div *ngIf="repositories[col.field].length > 30">
+                                        <div pTooltip="{{repositories[col.field]}}" tooltipStyleClass="tooltipStyle">
+                                            {{repositories[col.field] | slice:0:29}}...
+                                        </div>
+                                    </div>
+                                    <div *ngIf="repositories[col.field].length < 30">
+                                        {{repositories[col.field]}}
+                                    </div>
                                 </ng-container>
                             </td>
                         </tr>

@@ -6,6 +6,7 @@ import { SelectItem } from 'primeng/api/selectitem';
 import { keywordsColumns } from '../../../core/constants/keywords';
 import { Table } from 'primeng/table';
 import { GlobalService } from '../../../core';
+// import { MenuItem } from 'primeng/api/menuitem';
 
 @Component({
   selector: 'app-keywords',
@@ -19,6 +20,7 @@ export class KeywordsComponent implements OnInit {
   loading: boolean = false;
   tableColumns: any[];
   columns: SelectItem[];
+  // items: MenuItem[];
 
   @ViewChild(Table, { static: false }) dt: Table;
 
@@ -31,8 +33,25 @@ export class KeywordsComponent implements OnInit {
     self.tableColumns = [];
     self.LoadAllKeywordsColumns();
     self.globalService.SetCurrentTab('KEYWORDS');
-  }
 
+  //   this.items = [ 
+  //     {label: 'YES',command: () => this.makeAllRunAsYes()},
+  //     {label: 'NO',command: () => this.makeAllRunAsNo()},
+  //   ];
+  // }
+  // makeAllRunAsYes(){
+  //   console.log('Yes Called');
+  //   this.keywords.forEach(element => {
+  //     element.run="YS";
+  //   });
+  // }
+  // makeAllRunAsNo(){
+  //   console.log('No Called');
+  //   this.keywords.forEach(element => {
+  //     element.run="NO";
+  //   });
+  }
+  
   LoadAllKeywordsColumns() {
     this.tableColumns = [];
     keywordsColumns.forEach(column => {
@@ -60,7 +79,7 @@ export class KeywordsComponent implements OnInit {
         self.keywords = [];
         if(result.length > 0){
           result.filter(browserItem => {
-            browserItem.statusID == 0 ? this.keywords.push(browserItem) 
+            browserItem.statusID == 0 ? this.keywords.push(browserItem)
               : null ;
           });
         }
@@ -86,4 +105,10 @@ export class KeywordsComponent implements OnInit {
     var self = this;
     self.router.navigate(['admin/keywords/edit', id]);
   }
+
+  // modifyRunValues(menu:any,$event) {
+  //   menu.toggle($event);
+  //   console.log("modifyRunValues called");
+  //   $event.stopPropagation();
+  // }
 }

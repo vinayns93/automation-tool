@@ -15,7 +15,7 @@
         </div>
     </div>
     <div class="row">
-        <div class="col-md-12 col-lg-12">
+        <div class="col-md-12 col-lg-12">            
             <ng-container *ngIf="tableColumns.length != 0">
                 <p-table #dt [resizableColumns]="true" [scrollable]="true" [responsive]="true" [loading]="loading"
                     [value]="keywords" [columns]="tableColumns" [paginator]="true" [rows]="10" sortMode="multiple"
@@ -27,8 +27,15 @@
                                 <p-tableHeaderCheckbox></p-tableHeaderCheckbox>
                             </th>
                             <th *ngFor="let col of tableColumns" [pSortableColumn]="col.field" style="width: 150px;">
-                                {{col.header}}
-                                <p-sortIcon [field]="col.field"></p-sortIcon>
+                                <!-- <div fxFlex="80"> -->
+                                    {{col.header}}
+                                    <p-sortIcon [field]="col.field"></p-sortIcon>
+                                <!-- </div> -->
+                                <!-- <div fxFlex="20">
+                                    <i *ngIf="col.field == 'run'" class="pi pi-ellipsis-v menuOption float-right"
+                                    (click)="modifyRunValues(menu,$event)"></i>
+                                    <p-menu #menu [popup]="true" [model]="items"></p-menu>
+                                  </div>                              -->
                             </th>
                         </tr>
                         <tr>
