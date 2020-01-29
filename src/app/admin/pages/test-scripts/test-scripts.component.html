@@ -28,7 +28,7 @@
                             <th style="width: 4em;">
                                 <p-tableHeaderCheckbox></p-tableHeaderCheckbox>
                             </th>
-                            <th *ngFor="let col of tableColumns" [pSortableColumn]="col.field" style="width: 160px;">
+                            <th *ngFor="let col of tableColumns" [pSortableColumn]="col.field" style="width: 160px;text-align: center;">
                                 {{col.header}}
                                 <p-sortIcon [field]="col.field"></p-sortIcon>
                             </th>
@@ -60,7 +60,7 @@
                             <td style="width: 4em;">
                                 <p-tableCheckbox [value]="rowData"></p-tableCheckbox>
                             </td>
-                            <td *ngFor="let col of tableColumns" style="width: 160px;">
+                            <td *ngFor="let col of tableColumns" style="width: 160px;text-align: center;">
                                 <ng-container *ngIf="col.field == 'actions'">
                                     <button class="edit-btn"  (click)="onRowEditInit(testscripts.id)">
                                         <i class="fa fa-pencil"></i>

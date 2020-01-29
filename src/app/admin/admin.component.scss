@@ -50,7 +50,10 @@
 mat-sidenav-container {
     overflow: hidden;
     flex: 1;
-    padding-bottom: 1.5em;
+}
+
+mat-sidenav-content {
+    background: #f3eafa !important;
 }
 
 .admin-page-header {
