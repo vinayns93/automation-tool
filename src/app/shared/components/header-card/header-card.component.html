@@ -1,26 +1,26 @@
 <div class="container-fluid">
-  <div class="row align-items-center" style="padding-top: 1em;">
-    <div class="col-1"></div>
+  <div class="row align-items-center" style="padding-top: 1em;height: 140px;">
+    
     <div class="col-2">
-      <div class="row">
+      <div class="row" style="height: 100px">
         <div class="col-12">
-          <div class="card-container blue-card">
-          <div class="row align-items-center" style="padding-top: 3px">
+          <div class="card-container {{globalService.currentTabName == 'REPOSITORY'? 'blue-card-selected' : 'blue-card'}}">
+          <div class="row align-items-center" >
             <div class="col-12">
-              <span class="card-name">REPOSITORY</span>
+              <span class="card-name {{globalService.currentTabName == 'REPOSITORY'? 'selected-card-font' : 'card-name-font'}}">REPOSITORY</span>
             </div>
           </div>
-          <div class="row align-items-end" style="padding-bottom: 7px;">
-            <div class="col-6" style="text-align: center;">
-              <i class="fa fa-inbox card-icon blue-card-icon"></i>
+          <div class="row align-items-end" style="padding-top: 5px;">
+            <div class="col-6" style="text-align: center;padding-bottom:5px;">
+              <i class="fa fa-inbox card-icon {{globalService.currentTabName == 'REPOSITORY'? 'blue-card-icon-selected' : 'blue-card-icon'}}"></i>
             </div>
             <div class="col-6" style="text-align: left;padding-left: 0px;">
               <div class="row">
                 <div class="col-12">
-                  <span class="card-number blue-card-number">{{globalService.repositoryRecordsCount}}</span>
+                  <span class="card-number {{globalService.currentTabName == 'REPOSITORY'? 'selected-card-font' : 'blue-card-text-color'}}">{{globalService.repositoryRecordsCount}}</span>
                   </div>
                   <div class="col-12">
-                    <span class="card-subtitle blue-card-text-color">Number of Records</span>
+                    <span class="card-subtitle {{globalService.currentTabName == 'REPOSITORY'? 'selected-card-font' : 'blue-card-text-color'}}">Total Records</span>
                     </div>
                   </div>
             </div>
@@ -32,25 +32,25 @@
     </div>
     
     <div class="col-2">
-      <div class="row">
+      <div class="row" style="height: 100px">
         <div class="col-12">
-          <div class="card-container red-card">
-          <div class="row align-items-center" style="padding-top: 3px">
+          <div class="card-container {{globalService.currentTabName == 'FEATURE'? 'red-card-selected' : 'red-card'}}">
+          <div class="row align-items-center">
             <div class="col-12">
-              <span class="card-name">CONTROLLERS</span>
+              <span class="card-name {{globalService.currentTabName == 'FEATURE'? 'selected-card-font' : 'card-name-font'}}">FEATURE</span>
             </div>
           </div>
-          <div class="row align-items-end" style="padding-bottom: 7px;">
-            <div class="col-6" style="text-align: center;">
-              <i class="fa fa-chain-broken card-icon red-card-icon"></i>
+          <div class="row align-items-end" style="padding-top: 5px;">
+            <div class="col-6" style="text-align: center;padding-bottom:5px;">
+              <i class="fa fa-chain-broken card-icon  {{globalService.currentTabName == 'FEATURE'? 'red-card-icon-selected' : 'red-card-icon'}}"></i>
             </div>
             <div class="col-6" style="text-align: left;padding-left: 0px;">
               <div class="row">
                 <div class="col-12">
-                  <span class="card-number red-card-text-color">{{globalService.featureRecordsCount}}</span>
+                  <span class="card-number {{globalService.currentTabName == 'FEATURE'? 'selected-card-font' : 'red-card-text-color'}}">{{globalService.featureRecordsCount}}</span>
                   </div>
                   <div class="col-12">
-                    <span class="card-subtitle red-card-text-color">Number of Records</span>
+                    <span class="card-subtitle {{globalService.currentTabName == 'FEATURE'? 'selected-card-font' : 'red-card-text-color'}}">Total Records</span>
                     </div>
                   </div>
             </div>
@@ -61,25 +61,25 @@
       </div>
     </div>
     <div class="col-2">
-      <div class="row">
+      <div class="row" style="height: 100px">
         <div class="col-12">
-          <div class="green-card card-container">
-          <div class="row align-items-center" style="padding-top: 3px">
+          <div class="{{globalService.currentTabName == 'KEYWORDS'? 'green-card-selected' : 'green-card'}} card-container">
+          <div class="row align-items-center" >
             <div class="col-12">
-              <span class="card-name">KEYWORDS</span>
+              <span class="card-name {{globalService.currentTabName == 'KEYWORDS'? 'selected-card-font' : 'card-name-font'}}">KEYWORDS</span>
             </div>
           </div>
-          <div class="row align-items-end" style="padding-bottom: 7px;">
-            <div class="col-6" style="text-align: center;">
-              <i class="fa fa-envelope-o card-icon green-card-icon"></i>
+          <div class="row align-items-end" style="padding-top: 5px;">
+            <div class="col-6" style="text-align: center;padding-bottom:5px;">
+              <i class="fa fa-envelope-o card-icon {{globalService.currentTabName == 'KEYWORDS'? 'green-card-icon-selected' : 'green-card-icon'}}"></i>
             </div>
             <div class="col-6" style="text-align: left;padding-left: 0px;">
               <div class="row">
                 <div class="col-12">
-                  <span class="card-number green-card-text-color">{{globalService.keywordRecordsCount}}</span>
+                  <span class="card-number {{globalService.currentTabName == 'KEYWORDS'? 'selected-card-font' : 'green-card-text-color'}}">{{globalService.keywordRecordsCount}}</span>
                   </div>
                   <div class="col-12">
-                    <span class="card-subtitle green-card-text-color">Number of Records</span>
+                    <span class="card-subtitle {{globalService.currentTabName == 'KEYWORDS'? 'selected-card-font' : 'green-card-text-color'}}">Total Records</span>
                     </div>
                   </div>
             </div>
@@ -90,25 +90,25 @@
       </div>
     </div>
     <div class="col-2">
-      <div class="row">
+      <div class="row" style="height: 100px">
         <div class="col-12">
-          <div class="card-container yellow-card">
-          <div class="row align-items-center" style="padding-top: 3px">
+          <div class="card-container {{globalService.currentTabName == 'TESTSCRIPTS'? 'yellow-card-selected' : 'yellow-card'}}">
+          <div class="row align-items-center">
             <div class="col-12">
-              <span class="card-name">TEST SCRIPT</span>
+              <span class="card-name {{globalService.currentTabName == 'TESTSCRIPTS'? 'selected-card-font' : 'card-name-font'}}">TEST SCRIPT</span>
             </div>
           </div>
-          <div class="row align-items-end" style="padding-bottom: 7px;">
-            <div class="col-6" style="text-align: center;">
-              <i class="fa fa-file-text card-icon yellow-card-icon"></i>
+          <div class="row align-items-end" style="padding-top: 5px;">
+            <div class="col-6" style="text-align: center;padding-bottom:5px;">
+              <i class="fa fa-file-text card-icon {{globalService.currentTabName == 'TESTSCRIPTS'? 'yellow-card-icon-selected' : 'yellow-card-icon'}}"></i>
             </div>
             <div class="col-6" style="text-align: left;padding-left: 0px;">
               <div class="row">
                 <div class="col-12">
-                  <span class="card-number yellow-card-text-color">{{globalService.testScriptsRecordsCount}}</span>
+                  <span class="card-number {{globalService.currentTabName == 'TESTSCRIPTS'? 'selected-card-font' : 'yellow-card-text-color'}}">{{globalService.testScriptsRecordsCount}}</span>
                   </div>
                   <div class="col-12">
-                    <span class="card-subtitle yellow-card-text-color">Number of Records</span>
+                    <span class="card-subtitle {{globalService.currentTabName == 'TESTSCRIPTS'? 'selected-card-font' : 'yellow-card-text-color'}}">Total Records</span>
                     </div>
                   </div>
             </div>
@@ -119,25 +119,25 @@
       </div>
     </div>
     <div class="col-2">
-      <div class="row">
+      <div class="row" style="height: 100px">
         <div class="col-12">
-          <div class="card-container purple-card">
-          <div class="row align-items-center" style="padding-top: 3px">
+          <div class="card-container {{globalService.currentTabName == 'TESTDATA'? 'purple-card-selected' : 'purple-card'}}">
+          <div class="row align-items-center" >
             <div class="col-12">
-              <span class="card-name purple-card-text-color">TEST DATA</span>
+              <span class="card-name {{globalService.currentTabName == 'TESTDATA'? 'selected-card-font' : 'card-name-font'}}">TEST DATA</span>
             </div>
           </div>
-          <div class="row align-items-end" style="padding-bottom: 7px;">
-            <div class="col-6" style="text-align: center;">
-              <i class="fa fa-database card-icon purple-card-icon"></i>
+          <div class="row align-items-end" style="padding-top: 5px;">
+            <div class="col-6" style="text-align: center;padding-bottom:5px;">
+              <i class="fa fa-database card-icon {{globalService.currentTabName == 'TESTDATA'? 'purple-card-icon-selected' : 'purple-card-icon'}}"></i>
             </div>
             <div class="col-6" style="text-align: left;padding-left: 0px;">
               <div class="row">
                 <div class="col-12">
-                  <span class="card-number purple-card-text-color">{{globalService.testDataRecordsCount}}</span>
+                  <span class="card-number {{globalService.currentTabName == 'TESTDATA'? 'selected-card-font' : 'purple-card-text-color'}}">{{globalService.testDataRecordsCount}}</span>
                   </div>
                   <div class="col-12">
-                    <span class="card-subtitle purple-card-text-color">Number of Records</span>
+                    <span class="card-subtitle {{globalService.currentTabName == 'TESTDATA'? 'selected-card-font' : 'purple-card-text-color'}}">Total Records</span>
                     </div>
                   </div>
             </div>
@@ -147,7 +147,6 @@
         </div>
       </div>
     </div>
-    <div class="col-1"></div>
     </div>
     </div>
     <!-- <div class="col-2">

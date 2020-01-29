@@ -78,19 +78,15 @@ th {
       word-break: break-all;
   }
 
-  p-table .ui-table .ui-table-thead > tr > th {
-    color: #007ad9 !important;
-    border-color: #0075D0 !important;
-    background: #B3DEFF !important;
-}
+//   p-table .ui-table .ui-table-thead > tr > th {
+//     color: #007ad9 !important;
+//     border-color: #0075D0 !important;
+//     background: #B3DEFF !important;
+// }
 
-p-table .ui-table .ui-table-tbody > tr:nth-child(even) {
-    background: #e6f4ff !important;
-}
 
-p-table .ui-table .ui-sortable-column .ui-sortable-column-icon {
-    color: #007ad9 !important;
-}
+
+
 
 p-table .ui-paginator {
     color: #007ad9 !important;
@@ -144,4 +140,61 @@ p-table .ui-paginator {
       overflow-wrap: break-word;
       font-size: 14px;
       font-family: 'Lato', sans-serif;
+    }
+
+    .testscripts-add-btn {
+        border: 1px solid #CC6600;
+        color: #CC6600;
+        background: transparent;
+    }
+
+    .testscripts-add-btn:hover {
+        border: 1px solid #CC6600;
+        color: white;
+        background: #CC6600;
+    }
+
+    .testdata-add-btn {
+        border: 1px solid #400080;
+        color: #400080;
+        background: transparent;
+    }
+
+    .testdata-add-btn:hover {
+        border: 1px solid #400080;
+        color: white;
+        background: #400080;
+    }
+    .keyword-add-btn {
+        border: 1px solid #215E44;
+        color: #215E44;
+        background: transparent;
+    }
+
+    .keyword-add-btn:hover {
+        border: 1px solid #215E44;
+        color: white;
+        background: #215E44;
+    }
+    .repository-add-btn {
+        border: 1px solid #0075D0;
+        color: #0075D0;
+        background: transparent;
+    }
+
+    .repository-add-btn:hover {
+        border: 1px solid #0075D0;
+        color: white;
+        background: #0075D0;
+    }
+    .feature-add-btn {
+        border: 1px solid #B32400;
+        color: #B32400;
+        background: transparent;
+    }
+
+    .feature-add-btn:hover {
+        border: 1px solid #B32400;
+        color: white;
+        background: #B32400;
     }

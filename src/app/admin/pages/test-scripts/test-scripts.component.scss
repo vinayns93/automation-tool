@@ -1,0 +1,13 @@
+p-table .ui-table .ui-table-thead > tr > th {
+    background: #FFCA99;
+    color: #CC6600 !important;
+    border-color: #CC6600 !important;
+}
+
+p-table .ui-table .ui-table-tbody > tr:nth-child(even) {
+    background: #fff2e6 !important;
+}
+
+p-table .ui-table .ui-sortable-column .ui-sortable-column-icon {
+    color: #CC6600 !important;
+}

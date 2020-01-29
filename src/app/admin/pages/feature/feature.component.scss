@@ -6,3 +6,22 @@ p-multiselect .ui-multiselect {
     border-left: 1px solid #c8c8c8;
     border-right: 1px solid #c8c8c8;
 }
+
+p-table .ui-table .ui-table-thead > tr > th {
+    background: #FFC2B3;
+    color: #B32400 !important;
+    border-color: #B32400 !important;
+}
+
+p-table .ui-table .ui-table-tbody > tr:nth-child(even) {
+    background: #ffebe6 !important;
+}
+
+p-table .ui-table .ui-sortable-column .ui-sortable-column-icon {
+    color: #B32400 !important;
+}
+
+p-tabview .ui-tabview.ui-tabview-top .ui-tabview-nav li.ui-state-active {
+    background-color: #B32400;
+    border-color: #B32400;
+}

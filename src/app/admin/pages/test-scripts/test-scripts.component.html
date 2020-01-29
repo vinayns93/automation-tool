@@ -1,9 +1,10 @@
 <div class="col-md-12">
-    <div class="row align-items-center" style="padding-top: 2em; padding-bottom: 2em;">
+    <div style="padding-left: 15px;padding-right: 15px;background-color: #ffffff;padding: 0.571em 1em;border: 1px solid #c8c8c8;margin-top: 2em; margin-bottom: 2em;">
+        <div class="row align-items-center">
         <div class="col-md-4 col-lg-4">
-            <button class="btn btn-primary pull-left" style="margin-right:27px; font-size: 0.5rem;"
+            <button class="btn btn-primary pull-left testscripts-add-btn" style="margin-right:27px; font-size: 0.65rem;"
                 [routerLink]="['/admin/testscripts/add']">
-                <i class="now-ui-icons ui-1_simple-add"></i>ADD NEW TESTSCRIPT</button>
+                <i class="now-ui-icons ui-1_simple-add"></i>&nbsp;&nbsp;NEW TESTSCRIPT</button>
         </div>
         <div class="col-md-4 col-lg-4 center-align"></div>
         <div class="col-md-2 col-lg-2" style="padding-right: 0px;">
@@ -27,7 +28,7 @@
                             <th style="width: 4em;">
                                 <p-tableHeaderCheckbox></p-tableHeaderCheckbox>
                             </th>
-                            <th *ngFor="let col of tableColumns" [pSortableColumn]="col.field" style="width: 150px;">
+                            <th *ngFor="let col of tableColumns" [pSortableColumn]="col.field" style="width: 160px;">
                                 {{col.header}}
                                 <p-sortIcon [field]="col.field"></p-sortIcon>
                             </th>
@@ -59,7 +60,7 @@
                             <td style="width: 4em;">
                                 <p-tableCheckbox [value]="rowData"></p-tableCheckbox>
                             </td>
-                            <td *ngFor="let col of tableColumns" style="width: 150px;">
+                            <td *ngFor="let col of tableColumns" style="width: 160px;">
                                 <ng-container *ngIf="col.field == 'actions'">
                                     <button class="edit-btn"  (click)="onRowEditInit(testscripts.id)">
                                         <i class="fa fa-pencil"></i>
@@ -93,5 +94,6 @@
                 </div>
             </ng-container>
         </div>
+    </div>
     </div>
 </div>

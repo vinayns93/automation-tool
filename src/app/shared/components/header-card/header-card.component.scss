@@ -70,9 +70,12 @@
     border-radius: 5px;
     font-family: 'Fira Sans', sans-serif;
   }
+
   
   .green-card {
-    background: #c6ebdb;
+    border: 0.5px solid #215e44;
+    width: 85%;
+    height: auto;
   }
   
   .green-card-icon {
@@ -80,12 +83,25 @@
     color: #FFFFFF !important;
   }
 
+  .green-card-selected {
+    background: #215e44;
+    width: 100%;
+    height: 100%;
+  }
+
+  .green-card-icon-selected {
+    background: #c6ebdb !important;
+    color: #215e44 !important;
+  }
+
   .green-card-text-color {
     color: #215e44  !important;
   }
 
   .blue-card {
-    background: #b3deff;
+    border: 0.5px solid #0075D0;
+    width: 85%;
+    height: auto;
   }
 
   .blue-card-icon {
@@ -93,12 +109,25 @@
     color: #FFFFFF !important;
   }
 
+  .blue-card-selected {
+    background: #0075D0;
+    width: 100%;
+    height: 100%;
+  }
+
+  .blue-card-icon-selected {
+    background: #b3deff !important;
+    color: #0075D0 !important;
+  }
+
   .blue-card-text-color {
     color: #0075D0 !important;
   }
 
   .yellow-card {
-    background: #ffca99;
+    border: 0.5px solid #cc6600;
+    width: 85%;
+    height: auto;
   }
 
   .yellow-card-icon {
@@ -106,17 +135,42 @@
     color: #FFFFFF !important;
   }
 
+  .yellow-card-selected {
+    background: #cc6600;
+    width: 100%;
+    height: 100%;
+  }
+
+  .yellow-card-icon-selected {
+    background: #ffca99 !important;
+    color: #cc6600 !important;
+  }
+
   .yellow-card-text-color {
     color: #cc6600  !important;
   }
 
   .red-card {
-    background: #ffc2b3;
+    border: 0.5px solid #b32400;
+    width: 85%;
+    height: auto;
   }
+
 
   .red-card-icon {
     background: #b32400 !important;
     color: #FFFFFF !important;
+  }
+
+  .red-card-selected {
+    background: #b32400;
+    width: 100%;
+    height: 100%;
+  }
+
+  .red-card-icon-selected {
+    background: #ffc2b3 !important;
+    color: #b32400 !important;
   }
 
   .red-card-text-color {
@@ -124,12 +178,25 @@
   }
 
   .purple-card {
-    background: #d9b3ff;
+    border: 0.5px solid #400080;
+    width: 85%;
+    height: auto;
   }
 
   .purple-card-icon {
     background: #400080 !important;
     color: #FFFFFF !important;
+  }
+
+  .purple-card-selected {
+    background: #400080;
+    width: 100%;
+    height: 100%;
+  }
+
+  .purple-card-icon-selected {
+    background: #d9b3ff !important;
+    color: #400080 !important;
   }
 
   .purple-card-text-color {
@@ -151,10 +218,10 @@
 
 
   .card-icon {
-    font-size: 35px !important;
+    font-size: 32px !important;
     
     margin-left: 7px !important;
-    padding: 15px;
+    padding: 12px;
     
     border-radius: 50%;
     
@@ -162,14 +229,18 @@
 
   .card-name {
     font-size: 12px !important;
-    color: black !important;
+    
     padding-left: 15px !important;
     font-family: 'Titillium Web', sans-serif;
     
   }
 
+  .card-name-font {
+    color: black !important;
+  }
+
   .card-number {
-    font-size: 27px !important;
+    font-size: 23px !important;
     
     font-family: 'Titillium Web', sans-serif;
   }
@@ -178,4 +249,8 @@
     font-size: 10px !important;
     font-family: 'Fira Sans', sans-serif;
     color: black;
+  }
+
+  .selected-card-font {
+    color: white;
   }

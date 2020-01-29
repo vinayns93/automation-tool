@@ -1,4 +1,4 @@
-<mat-toolbar style="background-color: #C6EBDB;height: auto;font-family: 'Lato', sans-serif;">
+<mat-toolbar style="background-color: #C6EBDB;height: auto;font-family: 'Lato', sans-serif;padding-top:10px;padding-bottom: 10px;">
   <div class="container-fluid" style="padding-left: 0;padding-right: 0">
     <div class="row">
       <div class="col-lg-2 col-md-2" style="text-align: left;">
@@ -10,29 +10,7 @@
       <div class="col-lg-5 col-md-5" style="text-align: right;font-size: 16px;font-family: Raleway;">
         <!-- <span>User Details: </span>
         <span>{{globalService.currentUser.userName}} | {{globalService.currentUser.userId}} | {{userRole}}</span> -->
-        <mat-icon style="color: #005799;font-size: 1.2em; padding-left: 3em;" (click)="logout()"aria-hidden="false" aria-label="Example delete icon">
-          power_settings_new</mat-icon>
-      </div>
-    </div>
-    <div class="row">
-      <div class="col-3">
-        <div class="user-info">
-          <div class="row">
-            <div class="col-4" style="text-align: left">
-              <i class="fa fa-user-circle-o fa-3x"></i>
-            </div>
-            <div class="col-8"> 
-              <div class="row">
-                <div class="col-12">
-                  <span style="text-transform: uppercase;">
-                    {{globalService.currentUser.userName}}
-                  </span> 
-                </div>
-              </div>
-            </div>
-          </div>
-        </div>
-        
+        <a (click)="logout()"><i class="fa fa-power-off"></i></a>
       </div>
     </div>
   </div>
