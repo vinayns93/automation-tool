@@ -14,9 +14,12 @@ import { EditTestScriptComponent } from './pages/test-scripts/edit-test-script/e
 import { AddModuleControllerComponent } from './pages/feature/module-controller/add-module-controller/add-module-controller.component';
 import { AddTestControllerComponent } from './pages/feature/test-controller/add-test-controller/add-test-controller.component';
 import { AddBrowserControllerComponent } from './pages/feature/browser-controller/add-browser-controller/add-browser-controller.component';
+import { AddTestDataComponent, EditTestDataComponent } from './pages/test-data';
 
 export const adminRoutes: Routes = [
       { path: 'admin/testdata', component: TestDataComponent },
+      { path: 'admin/testdata/add', component: AddTestDataComponent },
+      { path: 'admin/testdata/edit', component: EditTestDataComponent },
       { path: 'admin/testscripts', component: TestScriptsComponent },
       { path: 'admin/testscripts/add', component: AddTestScriptComponent },
       { path: 'admin/testscripts/edit/:id', component: EditTestScriptComponent },

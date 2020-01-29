@@ -3,6 +3,7 @@ import { TestData, TestDataService, GlobalService } from '../../../core';
 import { SelectItem } from 'primeng/api/selectitem';
 import { testDataColumns } from '../../../core/constants/testdata';
 import { SortEvent } from 'primeng/api/sortevent';
+import { Router } from '@angular/router';
 
 @Component({
   selector: 'app-test-data',
@@ -24,7 +25,7 @@ export class TestDataComponent implements OnInit {
     this.updateRowGroupMetaData();
   }
 
-  constructor(private service: TestDataService, private globalService: GlobalService) { }
+  constructor(private service: TestDataService, private globalService: GlobalService, private router:Router) { }
 
   ngOnInit() {
     this.columns = testDataColumns;
@@ -120,7 +121,7 @@ export class TestDataComponent implements OnInit {
   }
 
   onRowEditInit(id, userId) {
-    // this.router.navigate(['admin/testdata/edit', id, 2]);
+     this.router.navigate(['admin/testdata/edit', id, 2]);
   }
 
   deleteTestData(id, tcid, iterations) {
