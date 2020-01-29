@@ -1,4 +1,60 @@
-<div class="container-fluid"  style="background-color: #d8e2eb;padding-bottom: 0px;padding-top: 0px;">
+<div class="container-fluid" style="background: url(../../assets/img/new-back.png) no-repeat; background-size: cover;">
+  <div class="row align-items-center" style="height: 100vh !important;">
+    <div class="col-12" style="text-align: center;">
+      <div class="row align-items-center" style="height: 80vh;width: 90vw;">
+        <div class="col-md-12 col-lg-12" style="height: 100%;width: 100%;">
+          <div class="row align-items-center" style="height: 100%;width: 100%;background: white;opacity: 0.95;border-top-right-radius: 20px;border-bottom-right-radius: 20px;">
+            <div class="col-md-6 col-lg-6" style="background: white;">
+              <img src="../../assets/img/login.svg" style="height: 300px; width: 300px;">
+            </div>
+            <div class="col-md-6 col-lg-6">
+              <form [formGroup]="loginForm" class="login-form">
+              <div class="row align-items-center">
+                <div class="col-md-12 col-lg-12" style="text-align: center;">
+                  <img src="../../assets/img/avatar.svg" style="width: 100px;height: 100px;">
+                </div>
+              </div>
+              <div class="row align-items-center" style="padding-top: 40px;">
+                <div class="col-md-12 col-lg-12" style="text-align: center;">
+                    <h2 class="montserrat-font" style="color: #7F23C8;">Welcome</h2>
+                  </div>
+              </div>
+              <div class="row align-items-center">
+                <div class="col-md-12 col-lg-12" style="text-align: center;">
+                  <mat-form-field class="control-full-width">
+                    <span matPrefix><i style="color: #808080;" style="color: #808080;" class="fa fa-user-circle-o"></i>&nbsp;&nbsp;</span>
+                    <input class="montserrat-font" formControlName="username" matInput placeholder="Username">
+                    <mat-error *ngIf="loginForm.controls['username'].errors?.required">Username cannot be Empty</mat-error>
+                </mat-form-field>
+                </div>
+              </div>
+              <div class="row align-items-center">
+                <div class="col-md-12 col-lg-12" style="text-align: center;">
+                  <mat-form-field class="control-full-width">
+                    <span matPrefix><i style="color: #808080;" class="fa fa-key"></i>&nbsp;&nbsp;</span>
+                    <input type="password" class="montserrat-font" formControlName="password" matInput placeholder="Password">
+                    <mat-error *ngIf="loginForm.controls['password'].errors?.required">Password cannot be Empty</mat-error>
+                  </mat-form-field>
+                </div>
+              </div>
+              <div class="row">
+                <div class="col-md-6 col-lg-6">
+                  <button class="form-button montserrat-font" mat-raised-button style="background: #EE2F07;border-color: #EE2F07;color: white;border-radius: 20px;">RESET</button>
+                </div>
+                <div class="col-md-6 col-lg-6">
+                  <button [disabled]="loginForm.invalid" (click)="onSubmit()" class="form-button montserrat-font login-button" mat-raised-button type="submit">LOG IN</button>
+                </div>
+              </div>
+            </form>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+
+<!-- <div class="container-fluid"  style="background-color: #d8e2eb;padding-bottom: 0px;padding-top: 0px;">
   <div class="row align-items-center" style="min-height: 100vh !important;">
     <div class="col-md-8 col-lg-8" style="text-align: center;background: #0033A1;">
       <div class="row align-items-center background-logo" style="height: 100vh;">
@@ -57,4 +113,4 @@
 </div>
 <div id="lock-icon-overlay">
   <i class="fa fa-lock lock-icon"></i>
-</div>
+</div> -->
