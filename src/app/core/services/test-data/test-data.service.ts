@@ -5,11 +5,13 @@ import { HttpClient } from '@angular/common/http';
 import { environment } from '../../../../environments/environment';
 import { map, catchError } from 'rxjs/operators';
 import { ToastrModule, ToastrService } from 'ngx-toastr';
+import { User } from '../../models/user/user';
 
 @Injectable({
   providedIn: 'root'
 })
 export class TestDataService {
+  user: User;
 
   deleteTestData(id: any, tcid: any, iterations: any) {
     // this.getAllTestData()
@@ -40,11 +42,24 @@ export class TestDataService {
 
   public apiUrl:string;
   
-  constructor(private httpClient: HttpClient, private toastr: ToastrService,
-              private service: TestDataService){
+  constructor(private httpClient: HttpClient, private toastr: ToastrService, private service: TestDataService){
     this.apiUrl = environment.APIURL;
-  }
-
+    this.user = (JSON.parse(localStorage.getItem('currentUser'))
+    )}
+  
+  addTestData(testdata:TestData){
+    testdata.userId = Number(this.user.userId);
+   return this.httpClient.post(this.apiUrl+'/TestScripts/AddTestData',testdata)
+   .subscribe(
+    data  => {
+      console.log("POST Request is successful ", data);
+      this.toastr.success("TestScript instance created successfully !");
+      },
+      error  => {
+      console.log("Error", error);
+      }
+  );
+}
   getAllTestData(): Observable<TestData[]>{
     return this.httpClient.get(this.apiUrl+'/TestData/GetTestAllData')
                .pipe(
@@ -54,7 +69,7 @@ export class TestDataService {
   }
 
   getTestData(id:number):Observable<TestData>{
-    return this.httpClient.get(this.apiUrl+'/TestData/GetTestData/'+id+'/'+2)
+    return this.httpClient.get(this.apiUrl+'/TestData/GetTestData/'+id+'/'+this.user.userId)
     .pipe(
       map(res=>res as TestData),
       catchError(this.errorHandle)

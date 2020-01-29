@@ -2,6 +2,8 @@ export class TestData {
     module: string;
     tcid: string;
     iterations: number;
+    envDetail_1: string;
+    envDetail_2: string;
     param1: string;
     param2: string;
     param3: string;
