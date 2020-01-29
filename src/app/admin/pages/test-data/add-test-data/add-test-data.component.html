@@ -9,7 +9,7 @@
     <div class="row">
         <div class="col-md-12 col-lg-12">
             <form [formGroup]="testdataForm" (ngSubmit)="onSubmit()">
-                
+
                 <div class="row padding-bottom-1 align-items-center margin-top-1">
                     <div class="col-md-2 col-lg-2">
                         <label for="module" class="pull-right">module</label>
@@ -21,7 +21,10 @@
                         <label for="tcid" class="pull-right">tcid</label>
                     </div>
                     <div class="col-md-4 col-lg-4">
-                        <input type="text" name="tcid" class="text form-control" formControlName="tcid">
+                        <!-- <input type="text" name="tcid" class="text form-control" formControlName="tcid"> -->
+                        <p-autoComplete [(ngModel)]="tcid" [suggestions]="filteredTcids"
+                            (completeMethod)="filterTcids($event)" [size]="30"
+                            placeholder="TCID" [minLength]="1" formControlName="tcid"></p-autoComplete>
                     </div>
                 </div>
                 <div class="row padding-bottom-1 align-items-center">
@@ -45,7 +48,7 @@
                     <div class="col-md-4 col-lg-4">
                         <input type="text" name="envDetail_2" class="text form-control" formControlName="envDetail_2">
                     </div>
-                </div>                
+                </div>
                 <div class="row padding-bottom-1 align-items-center">
                     <div class="col-md-2 col-lg-2">
                         <label for="param1" class="pull-right">Param 1</label>
@@ -1809,10 +1812,10 @@
                     <div class="col-md-6 col-lg-6 right-align">
                         <button type="submit" class="button btn btn-success" [disabled]="!testdataForm.valid">
                             <i class="fa fa-plus"></i> SAVE
-                            </button>
+                        </button>
                     </div>
                     <div class="col-md-6 col-lg-6">
-                          <button type="button" class="button btn btn-danger" [routerLink]="['/admin/testdata']">
+                        <button type="button" class="button btn btn-danger" [routerLink]="['/admin/testdata']">
                             <i class="fa fa-close"> </i> CANCEL
                         </button>
                     </div>

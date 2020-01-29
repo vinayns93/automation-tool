@@ -10,6 +10,7 @@ import { ButtonModule } from 'primeng/button';
 import { DropdownModule } from 'primeng/dropdown';
 import { MenuModule } from 'primeng/menu';
 import { TooltipModule } from 'primeng/tooltip';
+import { AutoCompleteModule } from 'primeng/autocomplete';
 
 import { adminRoutes } from './admin-routing.module';
 import { SharedModule } from '../shared';
@@ -71,7 +72,8 @@ import { MatButtonModule, MatIconModule } from '@angular/material';
     MatButtonModule,
     MatIconModule,
     MenuModule,
-    TooltipModule
+    TooltipModule,
+    AutoCompleteModule
   ],
   schemas: [
     CUSTOM_ELEMENTS_SCHEMA

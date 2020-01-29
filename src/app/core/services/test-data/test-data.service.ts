@@ -49,11 +49,11 @@ export class TestDataService {
   
   addTestData(testdata:TestData){
     testdata.userId = Number(this.user.userId);
-   return this.httpClient.post(this.apiUrl+'/TestScripts/AddTestData',testdata)
+   return this.httpClient.post(this.apiUrl+'/TestData/AddTestData',testdata)
    .subscribe(
     data  => {
       console.log("POST Request is successful ", data);
-      this.toastr.success("TestScript instance created successfully !");
+      this.toastr.success("TestData instance created successfully !");
       },
       error  => {
       console.log("Error", error);
@@ -68,6 +68,14 @@ export class TestDataService {
                );
   }
 
+  getAllTcid(): Observable<any[]>{
+    return this.httpClient.get(this.apiUrl+'/TestData/GetAllTCID')
+               .pipe(
+                 map(res=>res as any[]),
+                 catchError(this.errorHandle)
+               );
+  }
+  
   getTestData(id:number):Observable<TestData>{
     return this.httpClient.get(this.apiUrl+'/TestData/GetTestData/'+id+'/'+this.user.userId)
     .pipe(

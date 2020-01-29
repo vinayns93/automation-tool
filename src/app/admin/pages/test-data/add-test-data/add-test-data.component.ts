@@ -9,8 +9,36 @@ import { Router } from '@angular/router';
   styleUrls: ['./add-test-data.component.scss']
 })
 export class AddTestDataComponent implements OnInit {
+
   newTestDataObj: TestData;
+  tcid: any;
+  tcids: any[];
+  filteredTcids: any[];
+
   constructor(private testDataService: TestDataService, private router: Router) { }
+
+  filterTcids(event) {
+    let query = event.query;
+    this.testDataService.getAllTcid()
+    .subscribe((tcids: any[])=>{
+      this.filteredTcids = this.filterTcid(query, tcids);
+    },
+     error =>{
+       console.log(error.message);
+     },
+     ()=>{ });
+  }
+
+  filterTcid(query, tcids: any[]): any[] {
+    let filtered: any[] = [];
+    for (let i = 0; i < tcids.length; i++) {
+      let tcid = tcids[i];
+      if (tcid.toLowerCase().indexOf(query.toLowerCase()) == 0) {
+        filtered.push(tcid);
+      }
+    }
+    return filtered;
+  }
 
   ngOnInit() {
   }
