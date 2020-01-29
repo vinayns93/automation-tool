@@ -16,8 +16,8 @@
     <div class="row">
         <div class="col-md-12 col-lg-12">
             <ng-container *ngIf="tableColumns.length != 0">
-                <p-table #dt [resizableColumns]="false" [scrollable]="true" [responsive]="true" [loading]="loading" [value]="testData" 
-                [paginator]="true" [rows]="20" sortMode="single" (onSort)="onSort()"
+                <p-table #dt [resizableColumns]="false" [scrollable]="true" [responsive]="true" [loading]="loading"
+                    [value]="testData" [paginator]="true" [rows]="20" sortMode="single" (onSort)="onSort()"
                     [dataKey]="groupField" [autoLayout]="true" selectionMode="single">
                     <ng-template pTemplate="colgroup" let-columns>
                         <colgroup>
@@ -29,18 +29,15 @@
                             <ng-container *ngFor="let col of tableColumns">
                                 <ng-container *ngIf="(col.field != 'id') && (col.field != 'module')
                                             && (col.field != 'tcid')">
-                                            <th>{{col.header}}</th>
+                                    <th>{{col.header}}</th>
                                 </ng-container>
                                 <ng-container *ngIf="(col.field == 'id') || (col.field == 'module')
                                             || (col.field == 'tcid')">
-                                            <th [pSortableColumn]="col.field">
-                                                {{col.header}} <p-sortIcon [field]="col.field"></p-sortIcon>
-                                            </th>
+                                    <th [pSortableColumn]="col.field">
+                                        {{col.header}} <p-sortIcon [field]="col.field"></p-sortIcon>
+                                    </th>
                                 </ng-container>
-                                
-                               
                             </ng-container>
-                            
                             <th style="min-width: 12em !important;width: 15em;">Actions</th>
                         </tr>
                     </ng-template>
@@ -55,28 +52,23 @@
                                 </a>
                             </td>
                         </tr>
-                        <!-- <tr>
-                            <td *ngFor="let col of tableColumns">
-                                {{keywords[col.field]}}
-                            </td>
-                            <td class="center-align">
-                                <button pButton type="button" style="margin-right: 5px;" icon="pi pi-pencil" class="rounded-button edit-control" (click)="onRowEditInit(keywords.id, keywords.userId)"></button>
-                                <button pButton type="button" icon="pi pi-times" class="rounded-button delete-control" (click)="deleteKeyword(keywords.id)"></button>
-                            </td>
-                        </tr> -->
                     </ng-template>
                     <ng-template pTemplate="rowexpansion" let-rowData let-rowIndex="rowIndex">
                         <tr>
                             <td *ngFor="let col of tableColumns">
                                 {{rowData[col.field]}}
                             </td>
-                            <td style="min-width: 12em !important;width: 15em !important;"  class="center-align">
-                                <ng-container *ngIf="rowData['iterations'] == ((rowGroupMetadata[rowData[groupField]].size)-1)">
+                            <td style="min-width: 12em !important;width: 15em !important;" class="center-align">
+                                <ng-container
+                                    *ngIf="rowData['iterations'] == ((rowGroupMetadata[rowData[groupField]].size)-1)">
                                     <button pButton type="button" style="margin-right: 5px;" icon="pi pi-pencil"
-                                    class="rounded-button edit-control"
-                                    (click)="onRowEditInit(rowData.id, rowData.userId)"></button>
-                                <button pButton type="button" icon="pi pi-times" class="rounded-button delete-control"
-                                    (click)="deleteTestData(rowData.id, rowData.tcid, rowData.iterations)"></button>
+                                        class="rounded-button edit-control"
+                                        (click)="onRowEditInit(rowData.id, rowData.userId)">
+                                    </button>
+                                    <button pButton type="button" icon="pi pi-times"
+                                        class="rounded-button delete-control"
+                                        (click)="deleteTestData(rowData.id, rowData.tcid, rowData.iterations)">
+                                    </button>
                                 </ng-container>
                             </td>
                         </tr>

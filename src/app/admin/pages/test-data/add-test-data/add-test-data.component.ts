@@ -15,10 +15,10 @@ export class AddTestDataComponent implements OnInit {
   ngOnInit() {
   }
   testdataForm = new FormGroup({
-    module: new FormControl('', [Validators.required, Validators.pattern(/^[a-zA-Z0-9]+$/)]),
-    tcid: new FormControl('', [Validators.required, Validators.pattern(/^[a-zA-Z0-9]+$/)]),
-    iterations: new FormControl('', [Validators.required, Validators.pattern(/^[a-zA-Z0-9]+$/)]),
-    envDetail_1: new FormControl('', [Validators.required, Validators.pattern(/^[a-zA-Z0-9]+$/)]),
+    module: new FormControl(''),
+    tcid: new FormControl(''),
+    iterations: new FormControl(''),
+    envDetail_1: new FormControl(''),
     envDetail_2: new FormControl(''),
     param1: new FormControl(''),
     param2: new FormControl(''),

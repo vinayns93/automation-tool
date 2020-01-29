@@ -44,9 +44,7 @@ export class TestDataComponent implements OnInit {
         this.tableColumns.push(col);
       }
     });
-  }
-
-  
+  } 
 
   customSort(event: SortEvent){
     event.data.sort((a, b) => {
