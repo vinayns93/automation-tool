@@ -73,6 +73,7 @@
 
   
   .green-card {
+    background: white;
     border: 0.5px solid #215e44;
     width: 85%;
     height: auto;
@@ -99,6 +100,7 @@
   }
 
   .blue-card {
+    background: white;
     border: 0.5px solid #0075D0;
     width: 85%;
     height: auto;
@@ -125,6 +127,7 @@
   }
 
   .yellow-card {
+    background: white;
     border: 0.5px solid #cc6600;
     width: 85%;
     height: auto;
@@ -151,6 +154,7 @@
   }
 
   .red-card {
+    background: white;
     border: 0.5px solid #b32400;
     width: 85%;
     height: auto;
@@ -178,6 +182,7 @@
   }
 
   .purple-card {
+    background: white;
     border: 0.5px solid #400080;
     width: 85%;
     height: auto;
@@ -253,4 +258,20 @@
 
   .selected-card-font {
     color: white;
+  }
+
+  .user-icon {
+    background: #66bdff;
+    padding: 3px;
+    border-radius: 50%;
+    text-align: center;
+    color: #004880;
+    font-size: 3.5em;
+  }
+
+  .records-info {
+    width:100%; 
+    height: 50px; 
+    background: transparent;
+    box-shadow: 0 4px 8px 0 rgba(0,0,0,0.4), 0 6px 20px 0 rgba(0,0,0,0.2);
   }

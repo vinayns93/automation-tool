@@ -50,7 +50,10 @@
 mat-sidenav-container {
     overflow: hidden;
     flex: 1;
-    padding-bottom: 1.5em;
+}
+
+mat-sidenav-content {
+    background: #e6f4ff !important;
 }
 
 .admin-page-header {
@@ -78,13 +81,15 @@ th {
       word-break: break-all;
   }
 
-//   p-table .ui-table .ui-table-thead > tr > th {
-//     color: #007ad9 !important;
-//     border-color: #0075D0 !important;
-//     background: #B3DEFF !important;
-// }
+  p-table .ui-table .ui-table-thead > tr > th {
+    color: #003a66 !important;
+    border-color: #003a66 !important;
+    background: #B3DEFF !important;
+}
 
-
+p-table .ui-table .ui-sortable-column .ui-sortable-column-icon {
+    color: #003a66 !important;
+}
 
 
 
@@ -125,6 +130,10 @@ p-table .ui-paginator {
     background: #ccf5ff !important;
     color: black !important;
    }
+
+   p-table .ui-table .ui-table-tbody > tr:nth-child(even) {
+    background: #e6f4ff !important;
+}
 
    .tooltipStyle {
     background-color: var(--backgroud_white);

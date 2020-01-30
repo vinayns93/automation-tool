@@ -2,9 +2,9 @@
     <div style="padding-left: 15px;padding-right: 15px;background-color: #ffffff;padding: 0.571em 1em;border: 1px solid #c8c8c8;margin-top: 2em; margin-bottom: 2em;">
         <div class="row align-items-center">
             <div class="col-md-4 col-lg-4">
-                <button class="btn btn-primary pull-left keyword-add-btn" style="margin-right:27px;font-size: 0.65rem;"
-                    [routerLink]="['/admin/keywords/add']">
-                    <i class="now-ui-icons ui-1_simple-add"></i>&nbsp;&nbsp;NEW KEYWORD</button>
+                <button class="btn btn-primary pull-left testdata-add-btn" style="margin-right:27px;font-size: 0.65rem;"
+                    [routerLink]="['/admin/testdata/add']">
+                    <i class="now-ui-icons ui-1_simple-add"></i>&nbsp;&nbsp;NEW TEST DATA</button>
             </div>
             <div class="col-md-4 col-lg-4 right-align"></div>
             <div class="col-md-2 col-lg-2" style="padding-right: 0px;">
@@ -25,7 +25,7 @@
                     [dataKey]="groupField" [autoLayout]="true" selectionMode="single">
                     <ng-template pTemplate="colgroup" let-columns>
                         <colgroup>
-                            <col *ngFor="let col of tableColumns" style="width:180px">
+                            <col *ngFor="let col of tableColumns" style="width:180px;text-align: center;">
                         </colgroup>
                     </ng-template>
                     <ng-template pTemplate="header">
