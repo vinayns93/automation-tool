@@ -16,13 +16,13 @@ export class EditRepositoryComponent implements OnInit {
   findMethodOptions : any;
   id: any;
   repositoryForm = new FormGroup({
-    id: new FormControl('', Validators.required),
-    logicalName:  new FormControl('', Validators.required),
-    findMethod:  new FormControl('', Validators.required),
-    xpathQueryPropertyName: new FormControl('', Validators.required),
-    propertyValue: new FormControl('', Validators.required),
-    tagName: new FormControl('', [Validators.required, Validators.pattern(/^[a-zA-Z0-9]+$/)]),   
-    module: new FormControl('', Validators.required)
+    id: new FormControl(''),
+    logicalName:  new FormControl(''),
+    findMethod:  new FormControl(''),
+    xpathQueryPropertyName: new FormControl(''),
+    propertyValue: new FormControl(''),
+    tagName: new FormControl(''),   
+    module: new FormControl('')
     
 });
 
