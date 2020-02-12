@@ -19,7 +19,7 @@
     <div class="row">
         <div class="col-md-12 col-lg-12">
             <ng-container *ngIf="tableColumns.length != 0">
-                <p-table [resizableColumns]="true" [scrollable]="true" [responsive]="true" [loading]="loading"
+                <p-table #tt [resizableColumns]="true" [scrollable]="true" [responsive]="true" [loading]="loading"
                     [value]="testscripts" [columns]="tableColumns" [paginator]="true" [rows]="10" 
                     sortMode="multiple" [autoLayout]="true" [(selection)]="selectedRepositoryRows" dataKey="id"
                     (onRowSelect)="onRowSelect($event)" (onRowUnselect)="onRowUnselect($event)">

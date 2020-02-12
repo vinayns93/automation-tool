@@ -43,19 +43,19 @@
                             <th></th>
                             <th *ngFor="let col of tableColumns" [ngSwitch]="col.field">
                                 <input *ngSwitchCase="'id'" pInputText type="text" style="width:80%;"
-                                    (input)="tt.filter($event.target.value, col.field, 'contains')">
+                                    (input)="dt.filter($event.target.value, col.field, 'contains')">
                                 <input *ngSwitchCase="'functionName'" pInputText type="text" style="width:80%;"
-                                    (input)="tt.filter($event.target.value, col.field, 'contains')">
+                                    (input)="dt.filter($event.target.value, col.field, 'contains')">
                                 <input *ngSwitchCase="'stepDescription'" pInputText type="text" style="width:80%;"
-                                    (input)="tt.filter($event.target.value, col.field, 'contains')">
+                                    (input)="dt.filter($event.target.value, col.field, 'contains')">
                                 <input *ngSwitchCase="'actionOrKeyword'" pInputText type="text" style="width:80%;"
-                                    (input)="tt.filter($event.target.value, col.field, 'contains')">
+                                    (input)="dt.filter($event.target.value, col.field, 'contains')">
                                 <input *ngSwitchCase="'objectLogicalName'" pInputText type="text" style="width:80%;"
-                                    (input)="tt.filter($event.target.value, col.field, 'contains')">
+                                    (input)="dt.filter($event.target.value, col.field, 'contains')">
                                 <input *ngSwitchCase="'run'" pInputText type="text" style="width:80%;"
-                                    (input)="tt.filter($event.target.value, col.field, 'contains')">
+                                    (input)="dt.filter($event.target.value, col.field, 'contains')">
                                 <input *ngSwitchCase="'module'" pInputText type="text" style="width:80%;"
-                                    (input)="tt.filter($event.target.value, col.field, 'contains')">
+                                    (input)="dt.filter($event.target.value, col.field, 'contains')">
                             </th>
                         </tr>
                     </ng-template>

@@ -23,7 +23,7 @@
                     <div class="row">
                         <div class="col-lg-12 col-md-12">
                             <ng-container *ngIf="selectedBrowserControllerCols.length != 0">
-                                <p-table #tt [resizableColumns]="true" [scrollable]="true" [responsive]="true"
+                                <p-table #bt [resizableColumns]="true" [scrollable]="true" [responsive]="true"
                                     [loading]="loading" [value]="browserController"
                                     [columns]="selectedBrowserControllerCols" [paginator]="true" [rows]="10"
                                     sortMode="multiple" [autoLayout]="true"
@@ -44,13 +44,13 @@
                                             <th *ngFor="let col of selectedBrowserControllerCols"
                                                 [ngSwitch]="col.field">
                                                 <input *ngSwitchCase="'id'" pInputText type="text"
-                                                    (input)="tt.filter($event.target.value, col.field, 'contains')">
+                                                    (input)="bt.filter($event.target.value, col.field, 'contains')">
                                                 <input *ngSwitchCase="'vmid'" pInputText type="text"
-                                                    (input)="tt.filter($event.target.value, col.field, 'contains')">
+                                                    (input)="bt.filter($event.target.value, col.field, 'contains')">
                                                 <input *ngSwitchCase="'browser'" pInputText type="text"
-                                                    (input)="tt.filter($event.target.value, col.field, 'contains')">
+                                                    (input)="bt.filter($event.target.value, col.field, 'contains')">
                                                 <input *ngSwitchCase="'exec'" pInputText type="text"
-                                                    (input)="tt.filter($event.target.value, col.field, 'contains')">
+                                                    (input)="bt.filter($event.target.value, col.field, 'contains')">
                                             </th>
                                         </tr>
                                     </ng-template>
@@ -130,21 +130,21 @@
                                             <th></th>
                                             <th *ngFor="let col of selectedModuleControllerCols" [ngSwitch]="col.field">
                                                 <input *ngSwitchCase="'id'" pInputText type="text" style="width:80%;"
-                                                    (input)="tt1.filter($event.target.value, col.field, 'contains')">
+                                                    (input)="mt.filter($event.target.value, col.field, 'contains')">
                                                 <input *ngSwitchCase="'moduleID'" pInputText type="text"
                                                     style="width:80%;"
-                                                    (input)="tt1.filter($event.target.value, col.field, 'contains')">
+                                                    (input)="mt.filter($event.target.value, col.field, 'contains')">
                                                 <input *ngSwitchCase="'moduleSeqID'" pInputText type="text"
                                                     style="width:80%;"
-                                                    (input)="tt1.filter($event.target.value, col.field, 'contains')">
+                                                    (input)="mt.filter($event.target.value, col.field, 'contains')">
                                                 <input *ngSwitchCase="'machineID'" pInputText type="text"
                                                     style="width:80%;"
-                                                    (input)="tt1.filter($event.target.value, col.field, 'contains')">
+                                                    (input)="mt.filter($event.target.value, col.field, 'contains')">
                                                 <input *ngSwitchCase="'machineSequenceID'" pInputText type="text"
                                                     style="width:80%;"
-                                                    (input)="tt1.filter($event.target.value, col.field, 'contains')">
+                                                    (input)="mt.filter($event.target.value, col.field, 'contains')">
                                                 <input *ngSwitchCase="'run'" pInputText type="text" style="width:80%;"
-                                                    (input)="tt1.filter($event.target.value, col.field, 'contains')">
+                                                    (input)="mt.filter($event.target.value, col.field, 'contains')">
                                             </th>
                                         </tr>
                                     </ng-template>
@@ -223,39 +223,39 @@
                                             <th></th>
                                             <th *ngFor="let col of selectedTestControllerCols" [ngSwitch]="col.field">
                                                 <input *ngSwitchCase="'id'" pInputText type="text" style="width:80%;"
-                                                    (input)="tt2.filter($event.target.value, col.field, 'contains')">
+                                                    (input)="tt.filter($event.target.value, col.field, 'contains')">
                                                 <input *ngSwitchCase="'featureID'" pInputText type="text"
                                                     style="width:80%;"
-                                                    (input)="tt2.filter($event.target.value, col.field, 'contains')">
+                                                    (input)="tt.filter($event.target.value, col.field, 'contains')">
                                                 <input *ngSwitchCase="'testCaseID'" pInputText type="text"
                                                     style="width:80%;"
-                                                    (input)="tt2.filter($event.target.value, col.field, 'contains')">
+                                                    (input)="tt.filter($event.target.value, col.field, 'contains')">
                                                 <input *ngSwitchCase="'run'" pInputText type="text" style="width:80%;"
-                                                    (input)="tt2.filter($event.target.value, col.field, 'contains')">
+                                                    (input)="tt.filter($event.target.value, col.field, 'contains')">
                                                 <input *ngSwitchCase="'iterations'" pInputText type="text"
                                                     style="width:80%;"
-                                                    (input)="tt2.filter($event.target.value, col.field, 'contains')">
+                                                    (input)="tt.filter($event.target.value, col.field, 'contains')">
                                                 <input *ngSwitchCase="'browsers'" pInputText type="text"
                                                     style="width:80%;"
-                                                    (input)="tt2.filter($event.target.value, col.field, 'contains')">
+                                                    (input)="tt.filter($event.target.value, col.field, 'contains')">
                                                 <input *ngSwitchCase="'sequenceID'" pInputText type="text"
                                                     style="width:80%;"
-                                                    (input)="tt2.filter($event.target.value, col.field, 'contains')">
+                                                    (input)="tt.filter($event.target.value, col.field, 'contains')">
                                                 <input *ngSwitchCase="'testType'" pInputText type="text"
                                                     style="width:80%;"
-                                                    (input)="tt2.filter($event.target.value, col.field, 'contains')">
+                                                    (input)="tt.filter($event.target.value, col.field, 'contains')">
                                                 <input *ngSwitchCase="'jiraID'" pInputText type="text"
                                                     style="width:80%;"
-                                                    (input)="tt2.filter($event.target.value, col.field, 'contains')">
+                                                    (input)="tt.filter($event.target.value, col.field, 'contains')">
                                                 <input *ngSwitchCase="'stepsCount'" pInputText type="text"
                                                     style="width:80%;"
-                                                    (input)="tt2.filter($event.target.value, col.field, 'contains')">
+                                                    (input)="tt.filter($event.target.value, col.field, 'contains')">
                                                 <input *ngSwitchCase="'testScriptName'" pInputText type="text"
                                                     style="width:80%;"
-                                                    (input)="tt2.filter($event.target.value, col.field, 'contains')">
+                                                    (input)="tt.filter($event.target.value, col.field, 'contains')">
                                                 <input *ngSwitchCase="'testScriptDescription'" pInputText type="text"
                                                     style="width:80%;"
-                                                    (input)="tt2.filter($event.target.value, col.field, 'contains')">
+                                                    (input)="tt.filter($event.target.value, col.field, 'contains')">
                                             </th>
                                         </tr>
                                     </ng-template>

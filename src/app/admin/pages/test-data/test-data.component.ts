@@ -118,8 +118,8 @@ export class TestDataComponent implements OnInit {
     }
   }
 
-  onRowEditInit(id, userId) {
-     this.router.navigate(['admin/testdata/edit', id, 2]);
+  onRowEditInit(id: number) {
+     this.router.navigate(['admin/testdata/edit', id]);
   }
 
   deleteTestData(id, tcid, iterations) {
