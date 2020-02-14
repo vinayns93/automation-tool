@@ -20,7 +20,7 @@ export class EditTestControllerComponent implements OnInit {
   testControllerForm = new FormGroup({
     featureID: new FormControl('', Validators.required),
     testCaseID:new FormControl('', Validators.required),
-    run:new FormControl('') ,
+    run:new FormControl('', Validators.required) ,
     iterations:new FormControl('', Validators.required),
     browsers:new FormControl('', Validators.required),
     sequenceID:new FormControl('', Validators.required),
@@ -30,7 +30,7 @@ export class EditTestControllerComponent implements OnInit {
     testScriptName:new FormControl('', Validators.required),
     testScriptDescription:new FormControl('', Validators.required)
   });
-  constructor(private route:ActivatedRoute, private controllerservice:FeatureService,private router: Router) { 
+  constructor(private route:ActivatedRoute, private controllerservice:FeatureService,private router: Router) {
   }
 
   ngOnInit() {
@@ -51,8 +51,8 @@ export class EditTestControllerComponent implements OnInit {
      console.log(error.message);
    },
    ()=>{ })
-  }   
-  
+  }
+
   onSubmit() {
     this.controllerservice.updateTestController(this.editTControllerObj.id,this.editTControllerObj);
     setTimeout(f=>{

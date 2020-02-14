@@ -66,9 +66,9 @@
                                         (click)="onRowEditInit(repositories.id, repositories.userId)">
                                         <i class="fa fa-pencil"></i>
                                     </button>
-                                    <button class="delete-btn" (click)="deleteScript(testscripts.id)"
+                                    <button class="delete-btn"
                                         (click)="deleteRepository(repositories.id)"
-                                        [disabled]="(globalService.currentUser.roleId == 2 ? true : false)">
+                                        *ngIf="globalService.currentUser.roleId == 1">
                                         <i class="fa fa-close"></i>
                                     </button>
                                 </ng-container>
