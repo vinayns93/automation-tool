@@ -6,6 +6,7 @@ import { environment } from '../../../../environments/environment';
 import { map, catchError } from 'rxjs/operators';
 import { ToastrModule, ToastrService } from 'ngx-toastr';
 import { User } from '../../models/user/user';
+import { GlobalService } from '../global/global.service';
 
 @Injectable({
   providedIn: 'root'
@@ -17,7 +18,7 @@ export class TestDataService {
     // this.getAllTestData()
     // .subscribe((result: TestData[])=>{
     //     if(result.length > 0){
-    //       var newId: any = result.filter(tdItem => 
+    //       var newId: any = result.filter(tdItem =>
     //         (tdItem.tcid == tcid) && (tdItem.iterations != iterations))[0].id;
     //         if(newId){
     //           return this.httpClient.delete(this.apiUrl+'/Keywords/DeleteKeyword/'+id+'/'+2)
@@ -37,16 +38,17 @@ export class TestDataService {
     //     }
     // });
 
-    
+
   }
 
   public apiUrl:string;
-  
-  constructor(private httpClient: HttpClient, private toastr: ToastrService, private service: TestDataService){
+
+  constructor(private httpClient: HttpClient, private toastr: ToastrService,
+    private testDataService: TestDataService, private globalService: GlobalService){
     this.apiUrl = environment.APIURL;
     this.user = (JSON.parse(localStorage.getItem('currentUser'))
     )}
-  
+
   addTestData(testdata:TestData){
     testdata.userId = Number(this.user.userId);
    return this.httpClient.post(this.apiUrl+'/TestData/AddTestData',testdata)
@@ -75,7 +77,7 @@ export class TestDataService {
                  catchError(this.errorHandle)
                );
   }
-  
+
   getTestData(id:number):Observable<TestData>{
     return this.httpClient.get(this.apiUrl+'/TestData/GetTestData/'+id+'/'+this.user.userId)
     .pipe(
@@ -83,7 +85,19 @@ export class TestDataService {
       catchError(this.errorHandle)
     );
    }
-  
+   updateTestData(id:number, testData:TestData){
+    testData.userId = Number(this.user.userId);
+    return this.httpClient.put(this.apiUrl+'/TestData/UpdateTestData/'+id,testData)
+    .subscribe(
+      data  => {
+        this.toastr.warning("Test Data updation is successfull");
+        this.globalService.getRecordsModifiedCount();
+        },
+        error  => {
+        console.log("Error", error);
+        }
+    );
+  }
   errorHandle(error:Response){
     console.log(error);
     return throwError(error);

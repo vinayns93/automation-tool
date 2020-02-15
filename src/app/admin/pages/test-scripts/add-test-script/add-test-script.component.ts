@@ -24,6 +24,7 @@ export class AddTestScriptComponent implements OnInit {
   filteredTcids: any[];
   testScriptName: any;
   filteredTestScriptNames: any[];
+
   testscriptForm = new FormGroup({
     testCaseID: new FormControl('', [Validators.required]),
     tcStepID: new FormControl('', [Validators.required]),
