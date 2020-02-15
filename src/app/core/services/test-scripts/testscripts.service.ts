@@ -12,16 +12,25 @@ import { User } from '../../models/user/user';
   providedIn: 'root'
 })
 export class TestScriptsService {
+
   public apiUrl:string;
   public user: User;
-  
+
    constructor(private httpClient: HttpClient, private toastr: ToastrService,
     public globalService: GlobalService){
     this.apiUrl = environment.APIURL;
     this.user = (JSON.parse(localStorage.getItem('currentUser'))
     );
    }
-   
+
+
+   getAllTestScriptNames(): Observable<any[]>{
+    return this.httpClient.get(this.apiUrl+'/TestScripts/GetAllTestScriptName')
+               .pipe(
+                 map(res=>res as any[]),
+                 catchError(this.errorHandle)
+               );
+  }
    getTestScripts():Observable<TestScript[]>{
      return this.httpClient.get(this.apiUrl+'/TestScripts/GetScripts'+'/' + this.user.userId)
                 .pipe(
@@ -37,7 +46,7 @@ export class TestScriptsService {
       catchError(this.errorHandle)
     );
    }
-    
+
    addTestScript(script:TestScript){
         script.userId = Number(this.user.userId);
        return this.httpClient.post(this.apiUrl+'/TestScripts/AddScript',script)

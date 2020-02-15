@@ -21,8 +21,7 @@
         <ng-container *ngIf="tableColumns.length != 0">
           <p-table #dt [resizableColumns]="true" [scrollable]="true" [responsive]="true" [loading]="loading"
             [value]="keywords" [columns]="tableColumns" [paginator]="true" [rows]="10" sortMode="multiple"
-            [autoLayout]="true" [(selection)]="selectedKeywordRows" dataKey="id" (onRowSelect)="onRowSelect($event)"
-            (onRowUnselect)="onRowUnselect($event)">
+            [autoLayout]="true" dataKey="id">
             <ng-template pTemplate="header">
               <tr>
                 <th style="width: 4em;">
@@ -70,7 +69,14 @@
                     </button>
                   </ng-container>
                   <ng-container *ngIf="col.field != 'actions'">
-                    {{keywords[col.field]}}
+                    <div *ngIf="keywords[col.field].length > 30">
+                      <div pTooltip="{{keywords[col.field]}}" tooltipStyleClass="tooltipStyle">
+                        {{keywords[col.field] | slice:0:29}}...
+                      </div>
+                    </div>
+                    <div *ngIf="(keywords[col.field].length < 30)">
+                      {{keywords[col.field]}}
+                    </div>
                   </ng-container>
                 </td>
               </tr>
