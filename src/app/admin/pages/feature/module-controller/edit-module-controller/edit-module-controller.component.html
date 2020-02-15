@@ -9,44 +9,18 @@
     <div class="row">
         <div class="col-md-12 col-lg-12">
             <form [formGroup]="testControllerForm" (ngSubmit)="onSubmit()">
-                <!-- <div class="row padding-bottom-1 align-items-center margin-top-1">
-                    <div class="col-md-2 col-lg-2">
-                        <label class="pull-right">Lock</label>
-                    </div>
-                    <div class="col-md-4 col-lg-4">
-                        <input type="checkbox" [(ngModel)]="editMControllerObj.isLocked" name="IsLocked" class="checkbox form-control" style="font-size: 0.3em" formControlName="isLocked">
-                    </div>
-                    <div class="col-md-6 col-lg-6 left-align">
-                        <label>Locked by <strong>{{editMControllerObj.lockedByUser}}</strong></label>
-                    </div>
-                </div> -->
-                <!-- <div class="row padding-bottom-1 align-items-center margin-top-1">
-                    <div class="col-md-2 col-lg-2">
-                        <label for="" class="pull-right">ID:</label>
-                    </div>
-                    <div class="col-md-4 col-lg-4">
-                        <input type="text" class="text form-control" [(ngModel)]="editMControllerObj.id" formControlName="id" disabled>
-                    </div>
-                    <div class="col-md-2 col-lg-2">
-                        <label for="" class="pull-right">SL NO:</label>
-                    </div>
-                    <div class="col-md-4 col-lg-4">
-                        <input type="text" class="text form-control" [(ngModel)]="editMControllerObj.slno" formControlName="slno" disabled>
-                    </div>
-                </div> -->
-
                 <div class="row padding-bottom-1 align-items-center margin-top-1">
                     <div class="col-md-2 col-lg-2">
                         <label for="" class="pull-right">Module ID:</label>
                     </div>
                     <div class="col-md-4 col-lg-4">
-                        <input disabled type="text" class="text form-control" [(ngModel)]="editMControllerObj.moduleID" formControlName="moduleID">
+                        <input type="text" class="text form-control" [(ngModel)]="editMControllerObj.moduleID" formControlName="moduleID">
                     </div>
                     <div class="col-md-2 col-lg-2">
                         <label for="" class="pull-right">Module Seq ID:</label>
                     </div>
                     <div class="col-md-4 col-lg-4">
-                        <input disabled type="text" class="text form-control" [(ngModel)]="editMControllerObj.moduleSeqID" formControlName="moduleSeqID">
+                        <input type="text" class="text form-control" [(ngModel)]="editMControllerObj.moduleSeqID" formControlName="moduleSeqID">
                     </div>
                 </div>
                 <div class="row padding-bottom-1 align-items-center margin-top-1">
@@ -54,13 +28,13 @@
                         <label for="" class="pull-right">Machine ID:</label>
                     </div>
                     <div class="col-md-4 col-lg-4">
-                        <input disabled type="text" class="text form-control" [(ngModel)]="editMControllerObj.machineID" formControlName="machineID">
+                        <input type="text" class="text form-control" [(ngModel)]="editMControllerObj.machineID" formControlName="machineID">
                     </div>
                     <div class="col-md-2 col-lg-2">
                         <label for="" class="pull-right">Machine Seq ID:</label>
                     </div>
                     <div class="col-md-4 col-lg-4">
-                        <input disabled type="text" class="text form-control" [(ngModel)]="editMControllerObj.machineSequenceID" formControlName="machineSequenceID">
+                        <input type="text" class="text form-control" [(ngModel)]="editMControllerObj.machineSequenceID" formControlName="machineSequenceID">
                     </div>
                 </div>
                 <div class="row padding-bottom-1 align-items-center margin-top-1">
@@ -68,15 +42,14 @@
                         <label for="" class="pull-right">Run:</label>
                     </div>
                     <div class="col-md-4 col-lg-4">
-                        <!-- <input type="text" class="text form-control" [(ngModel)]="editMControllerObj.run" formControlName="run" > -->
-                        <p-dropdown #dd [options]="runValues" name="exec" [(ngModel)]="editMControllerObj.run" 
+                        <p-dropdown #dd [options]="runValues" name="exec" [(ngModel)]="editMControllerObj.run"
                          formControlName="run"></p-dropdown>
                     </div>
                 </div>
                 <div class="row">
                     <div class="col-md-6 col-lg-6 right-align">
                         <button type="submit" class="button btn btn-success" [disabled]="!testControllerForm.valid">
-                            <i class="fa fa-pencil"></i> SAVE 
+                            <i class="fa fa-pencil"></i> SAVE
                             </button>
                     </div>
                     <div class="col-md-6 col-lg-6">

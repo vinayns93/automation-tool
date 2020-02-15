@@ -6,6 +6,7 @@ import { TestScriptsService } from '../../../../core/services/test-scripts/tests
 import { Dropdown } from 'primeng/dropdown/dropdown';
 import { SelectItem } from 'primeng/api/selectitem';
 import { KeywordService } from '../../../../core/services/keywords-service/keyword.service';
+import { TestDataService } from '../../../../core';
 
 @Component({
   selector: 'app-add-test-script',
@@ -18,15 +19,20 @@ export class AddTestScriptComponent implements OnInit {
   testScript: TestScript;
   newTestScriptObj: TestScript;
   objFunctionNames : SelectItem[]= [];
+  tcid: any;
+  tcids: any[];
+  filteredTcids: any[];
+  testScriptName: any;
+  filteredTestScriptNames: any[];
 
   testscriptForm = new FormGroup({
-    testCaseID: new FormControl('', [Validators.required, Validators.pattern(/^[a-zA-Z0-9]+$/)]),
-    tcStepID: new FormControl('', [Validators.required, Validators.pattern(/^[a-zA-Z0-9]+$/)]),
-    testScriptName: new FormControl('', [Validators.required, Validators.pattern(/^[a-zA-Z0-9]+$/)]),
-    functionDescription: new FormControl('', [Validators.required, Validators.pattern(/^[a-zA-Z0-9]+$/)]),
+    testCaseID: new FormControl('', [Validators.required]),
+    tcStepID: new FormControl('', [Validators.required]),
+    testScriptName: new FormControl('', [Validators.required]),
+    functionDescription: new FormControl('', [Validators.required]),
     functionName: new FormControl(''),
     run: new FormControl(''),
-    module: new FormControl('', [Validators.required, Validators.pattern(/^[a-zA-Z0-9]+$/)]),
+    module: new FormControl('', [Validators.required]),
     param1: new FormControl(''),
     param2: new FormControl(''),
     param3: new FormControl(''),
@@ -128,7 +134,9 @@ export class AddTestScriptComponent implements OnInit {
     param99: new FormControl(''),
     param100: new FormControl('')
   });
-  constructor(private testScriptsService: TestScriptsService, private router: Router, private keywordService: KeywordService) { }
+  constructor(private testScriptsService: TestScriptsService, private router: Router,
+     private keywordService: KeywordService, private testDataService : TestDataService,
+     private testScriptService: TestScriptsService) { }
 
   ngOnInit() {
     this.runValues = [
@@ -138,7 +146,7 @@ export class AddTestScriptComponent implements OnInit {
     ];
     this.populateFunctionNames();
   }
- 
+
  populateFunctionNames() {
   this.keywordService.getAllFunctionNames()
     .subscribe((functionNames) => {
@@ -149,6 +157,52 @@ export class AddTestScriptComponent implements OnInit {
       }
       return this.objFunctionNames;
     });
+}
+
+filterTcids(event) {
+  let query = event.query;
+  this.testDataService.getAllTcid()
+  .subscribe((tcids: any[])=>{
+    this.filteredTcids = this.filterTcid(query, tcids);
+  },
+   error =>{
+     console.log(error.message);
+   },
+   ()=>{ });
+}
+
+filterTcid(query, tcids: any[]): any[] {
+  let filtered: any[] = [];
+  for (let i = 0; i < tcids.length; i++) {
+    let tcid = tcids[i];
+    if (tcid.toLowerCase().indexOf(query.toLowerCase()) == 0) {
+      filtered.push(tcid);
+    }
+  }
+  return filtered;
+}
+
+filterTestScriptNames(event) {
+  let query = event.query;
+  this.testScriptService.getAllTestScriptNames()
+  .subscribe((testScriptNames: any[])=>{
+    this.filteredTestScriptNames = this.filterTestScriptName(query, testScriptNames);
+  },
+   error =>{
+     console.log(error.message);
+   },
+   ()=>{ });
+}
+
+filterTestScriptName(query, testScriptNames: any[]): any[] {
+  let filtered: any[] = [];
+  for (let i = 0; i < testScriptNames.length; i++) {
+    let testScriptName = testScriptNames[i];
+    if (testScriptName.toLowerCase().indexOf(query.toLowerCase()) == 0) {
+      filtered.push(testScriptName);
+    }
+  }
+  return filtered;
 }
   onSubmit() {
     var self = this;

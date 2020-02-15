@@ -14,13 +14,13 @@
                         <label for="" class="pull-right">ID:</label>
                     </div>
                     <div class="col-md-4 col-lg-4">
-                        <input type="text" class="text form-control" [(ngModel)]="editBControllerObj.id" formControlName="id" disabled>
+                        <input type="text" class="text form-control" [(ngModel)]="editBControllerObj.id" formControlName="id">
                     </div>
                     <div class="col-md-2 col-lg-2">
                         <label for="" class="pull-right">VMID:</label>
                     </div>
                     <div class="col-md-4 col-lg-4">
-                        <input type="text" class="text form-control" [(ngModel)]="editBControllerObj.vmid" formControlName="vmid" disabled>
+                        <input type="text" class="text form-control" [(ngModel)]="editBControllerObj.vmid" formControlName="vmid">
                     </div>
                 </div>
 
@@ -36,7 +36,7 @@
                     </div>
                     <div class="col-md-4 col-lg-4">
                         <!-- <input type="text" class="text form-control" [(ngModel)]="editBControllerObj.exec" formControlName="exec"> -->
-                        <p-dropdown #dd [options]="execValues" name="exec" [(ngModel)]="editBControllerObj.exec" 
+                        <p-dropdown #dd [options]="execValues" name="exec" [(ngModel)]="editBControllerObj.exec"
                          formControlName="exec"></p-dropdown>
                     </div>
                 </div>
@@ -45,19 +45,19 @@
                         <label for="" class="pull-right">Created On:</label>
                     </div>
                     <div class="col-md-4 col-lg-4">
-                        <input type="text" class="text form-control" [(ngModel)]="editBControllerObj.createdOn" formControlName="createdOn" disabled>
+                        <input type="text" class="text form-control" [(ngModel)]="editBControllerObj.createdOn" formControlName="createdOn">
                     </div>
                     <div class="col-md-2 col-lg-2">
                         <label for="" class="pull-right">Updated On:</label>
                     </div>
                     <div class="col-md-4 col-lg-4">
-                        <input type="text" class="text form-control" [(ngModel)]="editBControllerObj.updatedOn" formControlName="updatedOn" disabled>
+                        <input type="text" class="text form-control" [(ngModel)]="editBControllerObj.updatedOn" formControlName="updatedOn">
                     </div>
                 </div>
                 <div class="row">
                     <div class="col-md-6 col-lg-6 right-align">
                         <button type="submit" class="button btn btn-success" [disabled]="!browserControllerForm.valid">
-                            <i class="fa fa-pencil"></i> SAVE 
+                            <i class="fa fa-pencil"></i> SAVE
                             </button>
                     </div>
                     <div class="col-md-6 col-lg-6">

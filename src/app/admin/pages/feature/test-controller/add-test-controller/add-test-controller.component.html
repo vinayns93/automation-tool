@@ -40,7 +40,8 @@
                         <label for="iterations" class="pull-right">iterations</label>
                     </div>
                     <div class="col-md-4 col-lg-4">
-                        <input type="number" name="iterations" class="text form-control" formControlName="iterations">
+                        <input type="number" min="0" onkeypress="return (event.charCode == 8 || event.charCode == 0 || event.charCode == 13) ? null : event.charCode >= 48 && event.charCode <= 57"
+                         name="iterations" class="text form-control" formControlName="iterations">
                     </div>
                     <div class="col-md-2 col-lg-2">
                         <label for="browsers" class="pull-right">browsers</label>
@@ -54,7 +55,8 @@
                         <label for="sequenceID" class="pull-right">sequenceID</label>
                     </div>
                     <div class="col-md-4 col-lg-4">
-                        <input type="number" name="sequenceID" class="text form-control" formControlName="sequenceID">
+                        <input type="number" min="0"  onkeypress="return (event.charCode == 8 || event.charCode == 0 || event.charCode == 13) ? null : event.charCode >= 48 && event.charCode <= 57"
+                        name="sequenceID" class="text form-control" formControlName="sequenceID">
                     </div>
                     <div class="col-md-2 col-lg-2">
                         <label for="testType" class="pull-right">testType</label>

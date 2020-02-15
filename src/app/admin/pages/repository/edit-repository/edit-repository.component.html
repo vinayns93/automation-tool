@@ -14,13 +14,13 @@
                         <label for="ID" class="pull-right">ID</label>
                     </div>
                     <div class="col-md-4 col-lg-4">
-                        <input type="text" name="ID" [(ngModel)]="editRepositoryObj.id" class="text form-control" formControlName="id" disabled>
+                        <input type="text" name="ID" [(ngModel)]="editRepositoryObj.id" class="text form-control" formControlName="id" >
                     </div>
                     <div class="col-md-2 col-lg-2">
                         <label for="logicalName" class="pull-right">Logical Name</label>
                     </div>
                     <div class="col-md-4 col-lg-4">
-                        <input type="text" [(ngModel)]="editRepositoryObj.logicalName" name="logicalName" class="text form-control" formControlName="logicalName" disabled>
+                        <input type="text" [(ngModel)]="editRepositoryObj.logicalName" name="logicalName" class="text form-control" formControlName="logicalName" >
                     </div>
                 </div>
                 <div class="row padding-bottom-1">
@@ -28,15 +28,14 @@
                         <label for="findMethod" class="pull-right">Find Method</label>
                     </div>
                     <div class="col-md-4 col-lg-4">
-                        <!-- <input type="text" [(ngModel)]="editRepositoryObj.findMethod" name="findMethod" class="text form-control" formControlName="findMethod"> -->
-                        <p-dropdown [options]="findMethodOptions" [(ngModel)]="editRepositoryObj.findMethod" editable="true" 
+                        <p-dropdown [options]="findMethodOptions" [(ngModel)]="editRepositoryObj.findMethod" editable="true"
                         placeholder="Enter Find Method" formControlName="findMethod"></p-dropdown>
                     </div>
                     <div class="col-md-2 col-lg-2">
                         <label for="xpathQueryPropertyName" class="pull-right">xpathQueryPropertyName</label>
                     </div>
                     <div class="col-md-4 col-lg-4">
-                        <input type="text" [(ngModel)]="editRepositoryObj.xpathQueryPropertyName" name="xpathQueryPropertyName" class="text form-control" formControlName="xpathQueryPropertyName" disabled>
+                        <input type="text" [(ngModel)]="editRepositoryObj.xpathQueryPropertyName" name="xpathQueryPropertyName" class="text form-control" formControlName="xpathQueryPropertyName" >
                     </div>
                 </div>
                 <div class="row padding-bottom-1">
@@ -44,13 +43,13 @@
                         <label for="propertyValue" class="pull-right">Property Value</label>
                     </div>
                     <div class="col-md-4 col-lg-4">
-                        <input type="text" [(ngModel)]="editRepositoryObj.propertyValue" name="propertyValue" class="text form-control" formControlName="propertyValue" disabled>
+                        <input type="text" [(ngModel)]="editRepositoryObj.propertyValue" name="propertyValue" class="text form-control" formControlName="propertyValue" >
                     </div>
                     <div class="col-md-2 col-lg-2">
                         <label for="tagName" class="pull-right">Tag Name</label>
                     </div>
                     <div class="col-md-4 col-lg-4">
-                        <input type="text" [(ngModel)]="editRepositoryObj.tagName" name="Run" class="text form-control" formControlName="tagName" disabled>
+                        <input type="text" [(ngModel)]="editRepositoryObj.tagName" name="Run" class="text form-control" formControlName="tagName" >
                     </div>
                 </div>
                 <div class="row padding-bottom-1">
@@ -58,10 +57,10 @@
                         <label for="Module" class="pull-right">Module</label>
                     </div>
                     <div class="col-md-4 col-lg-4">
-                        <input type="text" [(ngModel)]="editRepositoryObj.module" name="Module" class="text form-control" formControlName="module" disabled>
+                        <input type="text" [(ngModel)]="editRepositoryObj.module" name="Module" class="text form-control" formControlName="module" >
                     </div>
                 </div>
-                
+
                 <div class="row">
                     <div class="col-md-6 col-lg-6 right-align">
                         <input type="submit" value="SAVE" class="button btn btn-success" [disabled]="!repositoryForm.valid">

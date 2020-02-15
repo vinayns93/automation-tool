@@ -17,15 +17,15 @@ export class AddTestControllerComponent implements OnInit {
   objFeatureID: SelectItem[] = [];
 
   testControllerForm = new FormGroup({
-    featureID:  new FormControl(''),
+    featureID:  new FormControl('',[Validators.required]),
     testCaseID:  new FormControl('', [Validators.required, Validators.pattern(/^[a-zA-Z0-9]+$/)]),
-    run: new FormControl(''),
-    iterations: new FormControl('', [Validators.required, Validators.pattern(/^[a-zA-Z0-9]+$/)]),
+    run: new FormControl('',[Validators.required]),
+    iterations: new FormControl('', [Validators.required]),
     browsers: new FormControl('', [Validators.required, Validators.pattern(/^[a-zA-Z0-9]+$/)]),
-    sequenceID: new FormControl('', [Validators.required, Validators.pattern(/^[a-zA-Z0-9]+$/)]),
+    sequenceID: new FormControl('', [Validators.required]),
     testType: new FormControl('', [Validators.required, Validators.pattern(/^[a-zA-Z0-9]+$/)]),
     jiraID: new FormControl('', [Validators.required, Validators.pattern(/^[a-zA-Z0-9]+$/)]),
-    stepsCount: new FormControl('', [Validators.required, Validators.pattern(/^[a-zA-Z0-9]+$/)]),
+    stepsCount: new FormControl('', [Validators.required]),
     testScriptName: new FormControl('', [Validators.required, Validators.pattern(/^[a-zA-Z0-9]+$/)]),
     testScriptDescription: new FormControl('', [Validators.required, Validators.pattern(/^[a-zA-Z0-9]+$/)]),
 });

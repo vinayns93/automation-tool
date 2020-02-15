@@ -1,6 +1,6 @@
 export const repositoryColumns: any[] = [
     { label: 'Actions', value: { field: 'actions', header: 'Actions'} },
-    { label: "ID", value: { field: "id", header: "ID" } },
+    { label: 'ID', value: { field: 'id', header: 'ID' } },
     { label: "Logical Name", value: { field: "logicalName", header: "Logical Name" } },
     { label: "Find Method", value: { field: "findMethod", header: "Find Method" } },
     { label: "XPathQuery Property Name", value: { field: "xpathQueryPropertyName", header: "XPathQuery Property Name" } },
@@ -12,6 +12,6 @@ export const repositoryColumns: any[] = [
     // { label: "Is Locked", value: { field: "isLocked", header: "Is Locked" } },
     // { label: "Locked By User", value: { field: "lockedByUser", header: "Locked By User" } },
     // { label: "Created On", value: { field: "createdOn", header: "Created On" } },
-    // { label: "User Id", value: { field: "userId", header: "User Id" } }    
+    // { label: "User Id", value: { field: "userId", header: "User Id" } }
 ];
 
