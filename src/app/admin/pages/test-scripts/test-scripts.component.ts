@@ -51,7 +51,7 @@ export class TestScriptsComponent implements OnInit {
         if(col)
         self.tableColumns.push(col);
       });
-      
+
     }
     self.loading = false;
   }
@@ -65,12 +65,12 @@ export class TestScriptsComponent implements OnInit {
       self.testscripts = [];
       if(result.length > 0){
         result.filter(browserItem => {
-          browserItem.statusID == 0 ? this.testscripts.push(browserItem) 
+          browserItem.statusID == 0 ? this.testscripts.push(browserItem)
             : null ;
           });
       }
       self.loading =false;
-      
+
     },
      error =>{
        console.log(error.message);

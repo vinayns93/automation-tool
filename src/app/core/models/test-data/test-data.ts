@@ -261,5 +261,5 @@ export class TestData {
     createdOn: string;
     updatedOn: string;
     userId: number;
-    id: string;
+    id: number;
 };

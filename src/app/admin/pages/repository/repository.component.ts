@@ -17,14 +17,14 @@ export class RepositoryComponent implements OnInit {
   deletedRepositories: Repository[];
   loading: boolean = false;
   tableColumns: any[];
-  columns: SelectItem[];
-  selectedRepositoryCols: SelectItem[];
+  columns: any;
+  selectedRepositoryCols:any;
   selectedRepositoryRows: Repository[];
 
   @ViewChild(Table, { static: false }) dt: Table;
 
   constructor(private service: RepositoryService, private router: Router,
-    private globalService: GlobalService) { }
+    public globalService: GlobalService) { }
 
   ngOnInit(): void {
     var self = this;
